@@ -12,8 +12,7 @@ const ContactPage = () => {
     tripInterest: '',
     groupSize: '',
     preferredDates: '',
-    message: '',
-    assistiveDevices: [] as string[]
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -32,8 +31,7 @@ const ContactPage = () => {
         tripInterest: formData.tripInterest || undefined,
         groupSize: formData.groupSize || undefined,
         preferredDates: formData.preferredDates || undefined,
-        message: `${formData.assistiveDevices?.length ? `Assistive Devices: ${formData.assistiveDevices.join(', ')}\n\n` : ''}${formData.message}`,
-        assistiveDevices: formData.assistiveDevices,
+        message: formData.message,
       });
 
       if (result.success) {
@@ -45,8 +43,7 @@ const ContactPage = () => {
           tripInterest: '',
           groupSize: '',
           preferredDates: '',
-          message: '',
-          assistiveDevices: []
+          message: ''
         });
       } else {
         console.error('Submission failed:', result.message);
@@ -61,21 +58,10 @@ const ContactPage = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
-      const input = e.target as HTMLInputElement;
-      const value = input.value;
-      setFormData(prev => ({
-        ...prev,
-        assistiveDevices: input.checked
-          ? [...prev.assistiveDevices, value]
-          : prev.assistiveDevices.filter(item => item !== value)
-      }));
-    } else {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
-      });
-    }
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
@@ -194,71 +180,7 @@ const ContactPage = () => {
                 </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Assistive Devices Section */}
-                  <div className="bg-earth-50 border border-earth-200 rounded-lg p-4 mb-6">
-                    <h4 className="font-semibold text-earth-800 mb-3 flex items-center space-x-2">
-                      <Accessibility className="h-5 w-5" />
-                      <span>Assistive devices used (Select all that apply)</span>
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="none" checked={formData.assistiveDevices.includes('none')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Not using any assistive device</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="manual-wheelchair" checked={formData.assistiveDevices.includes('manual-wheelchair')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Manual wheelchair</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="powered-wheelchair" checked={formData.assistiveDevices.includes('powered-wheelchair')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Powered/Electric wheelchair</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="crutches-walker" checked={formData.assistiveDevices.includes('crutches-walker')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Crutches / Walker</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="cane-walking-stick" checked={formData.assistiveDevices.includes('cane-walking-stick')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Cane / Walking stick</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="lower-limb-prosthesis" checked={formData.assistiveDevices.includes('lower-limb-prosthesis')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Lower-limb prosthesis</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="upper-limb-prosthesis" checked={formData.assistiveDevices.includes('upper-limb-prosthesis')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Upper-limb prosthesis</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="orthotic-braces" checked={formData.assistiveDevices.includes('orthotic-braces')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Orthotic braces / Calipers</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="hearing-aid" checked={formData.assistiveDevices.includes('hearing-aid')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Hearing aid / Cochlear implant</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="white-cane" checked={formData.assistiveDevices.includes('white-cane')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>White cane / AI navigation cane</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="magnifier" checked={formData.assistiveDevices.includes('magnifier')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Magnifier / Low-vision aid</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="noise-cancelling" checked={formData.assistiveDevices.includes('noise-cancelling')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Noise-cancelling headphones (assistive use)</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="sensory-regulation" checked={formData.assistiveDevices.includes('sensory-regulation')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Sensory regulation aids (fidget / weighted supports)</span>
-                      </label>
-                      <label className="flex items-center space-x-2 text-sm text-earth-700">
-                        <input type="checkbox" name="assistiveDevices" value="others" checked={formData.assistiveDevices.includes('others')} onChange={handleChange} className="rounded border-earth-300" />
-                        <span>Others (Please specify in Accessibility Needs & Preferences)</span>
-                      </label>
-                    </div>
-                  </div>
+  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-earth-700 mb-2">
@@ -324,6 +246,7 @@ const ContactPage = () => {
                         <option value="treks">Inclusive Treks</option>
                         <option value="camping">Inclusive Camping Experiences</option>
                         <option value="day-adventures">Adaptive Day Adventures</option>
+                        <option value="customized-adventures">Customized Adventures</option>
                       </select>
                     </div>
                   </div>
@@ -367,7 +290,7 @@ const ContactPage = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-earth-700 mb-2">
-                      Accessibility Needs & Preferences
+                      Special Needs & Preferences
                     </label>
                     <textarea
                       id="message"
@@ -398,7 +321,7 @@ const ContactPage = () => {
                     className="w-full bg-warning-400 text-earth-900 py-4 rounded-lg font-semibold hover:bg-warning-500 transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Accessibility className="h-5 w-5" />
-                    <span>{isSubmitting ? 'Sending...' : 'Request Accessible Adventure'}</span>
+                    <span>{isSubmitting ? 'Sending...' : 'Send Enquiry'}</span>
                   </button>
                 </form>
               </div>

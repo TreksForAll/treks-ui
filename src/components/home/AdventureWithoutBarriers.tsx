@@ -39,7 +39,7 @@ const AdventureWithoutBarriers = () => {
               ADVENTURE
             </h2>
             <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
-            <p className="text-lg md:text-xl lg:text-2xl text-earth-800 font-black uppercase tracking-tight leading-tight" style={{ fontWeight: 900 }}>
+            <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-black uppercase " style={{ fontWeight: 600 }}>
               Without Barriers
             </p>
           </div>
