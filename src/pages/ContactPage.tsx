@@ -68,7 +68,7 @@ const ContactPage = () => {
         ...prev,
         assistiveDevices: input.checked
           ? [...prev.assistiveDevices, value]
-          : prev.assistiveDevices.filter((item: string) => item !== value)
+          : prev.assistiveDevices.filter(item => item !== value)
       }));
     } else {
       setFormData({

@@ -93,7 +93,7 @@ export async function submitForm(data: FormData): Promise<ApiResult> {
       status: 'new',
       name: rest.name,
       email: rest.email,
-      phone: rest.phone || null,
+      phone: rest.phone ?? null,
       message: (rest as { message?: string }).message || null,
       form_data: rest,   // full extra fields stored as JSON in Xano
     };
