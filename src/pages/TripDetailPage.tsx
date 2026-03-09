@@ -3,11 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
-  Calendar,
   Users,
   Mountain,
   MapPin,
-  Star,
   Clock,
   CheckCircle,
   XCircle,
@@ -19,14 +17,7 @@ import {
   Camera,
   Share2,
   Bookmark,
-  Eye,
   TrendingUp,
-  Shield,
-  Award,
-  Heart,
-  Navigation,
-  ChevronDown,
-  ChevronUp,
   Expand,
   ArrowRight,
   X,
@@ -34,14 +25,14 @@ import {
   Play
 } from 'lucide-react';
 import { trips } from '../data/trips';
-import { getDifficultyIcon, getDifficultyColor, getDifficultyDescription } from '../utils/difficultyUtils';
+import { getDifficultyIcon, getDifficultyColor } from '../utils/difficultyUtils';
 import DifficultyHelpModal from '../components/trip/DifficultyHelpModal';
 import PackingTools from '../components/trip/PackingTools';
 import TripAssessment from '../components/trip/TripAssessment';
-import TripComparison from '../components/trip/TripComparison';
 import WeatherClimate from '../components/trip/WeatherClimate';
 import Lightbox from '../components/ui/Lightbox';
 import SEO from '../components/ui/SEO';
+import { submitForm } from '../lib/xano';
 
 const TripDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -56,14 +47,6 @@ const TripDetailPage = () => {
   const [showScrollHint, setShowScrollHint] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({
-    itinerary: false,
-    gallery: false,
-    assessment: false,
-    packing: false,
-    weather: false,
-    reviews: false
-  });
   
   const [bookingForm, setBookingForm] = useState({
     name: '',
@@ -139,35 +122,18 @@ const TripDetailPage = () => {
     setBookingSubmitStatus('idle');
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-      if (!supabaseUrl || !supabaseKey) {
-        console.error('Missing Supabase configuration');
-        setBookingSubmitStatus('error');
-        setIsSubmittingBooking(false);
-        return;
-      }
-
-      const response = await fetch(`${supabaseUrl}/functions/v1/send-email`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${supabaseKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'booking',
-          formData: {
-            ...bookingForm,
-            tripName: trip.title
-          }
-        }),
+      const result = await submitForm({
+        formType: 'booking',
+        name: bookingForm.name,
+        email: bookingForm.email,
+        phone: bookingForm.phone,
+        tripName: trip.title,
+        departureDate: bookingForm.departureDate,
+        groupSize: bookingForm.groupSize,
+        message: bookingForm.message,
       });
 
-      const result = await response.json();
-      console.log('Booking response:', result);
-
-      if (response.ok && result.success) {
+      if (result.success) {
         setBookingSubmitStatus('success');
         setBookingForm({
           name: '',
@@ -178,7 +144,7 @@ const TripDetailPage = () => {
           message: ''
         });
       } else {
-        console.error('Server error:', result);
+        console.error('Booking submission failed:', result.message);
         setBookingSubmitStatus('error');
       }
     } catch (error) {
@@ -194,13 +160,6 @@ const TripDetailPage = () => {
       ...bookingForm,
       [e.target.name]: e.target.value
     });
-  };
-
-  const toggleSection = (section: string) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
   };
 
   const handleShare = async () => {
@@ -472,7 +431,7 @@ const TripDetailPage = () => {
           <div className="relative" id="tab-navigation">
             {/* Mobile Scrollable Tab Navigation */}
             <div className="flex overflow-x-auto scrollbar-hide border-b border-earth-200 lg:flex-wrap lg:overflow-x-visible" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
-              <style jsx>{`
+              <style>{`
                 div::-webkit-scrollbar {
                   display: none;
                 }
@@ -706,7 +665,7 @@ const TripDetailPage = () => {
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {galleryImages.map((image, index) => (
+                  {galleryImages.map((image: { src: string; alt: string; title: string }, index: number) => (
                     <div
                       key={index}
                       className="relative h-48 md:h-56 rounded-lg overflow-hidden group cursor-pointer"

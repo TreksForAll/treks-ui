@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send, Accessibility } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Accessibility } from 'lucide-react';
 import SEO from '../components/ui/SEO';
+import { submitForm } from '../lib/xano';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -23,32 +24,19 @@ const ContactPage = () => {
     setSubmitStatus('idle');
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-      if (!supabaseUrl || !supabaseKey) {
-        console.error('Missing Supabase configuration');
-        setSubmitStatus('error');
-        setIsSubmitting(false);
-        return;
-      }
-
-      const response = await fetch(`${supabaseUrl}/functions/v1/send-email`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${supabaseKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'contact',
-          formData
-        }),
+      const result = await submitForm({
+        formType: 'contact',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        tripInterest: formData.tripInterest || undefined,
+        groupSize: formData.groupSize || undefined,
+        preferredDates: formData.preferredDates || undefined,
+        message: `${formData.assistiveDevices?.length ? `Assistive Devices: ${formData.assistiveDevices.join(', ')}\n\n` : ''}${formData.message}`,
+        assistiveDevices: formData.assistiveDevices,
       });
 
-      const result = await response.json();
-      console.log('Response:', result);
-
-      if (response.ok && result.success) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({
           name: '',
@@ -61,7 +49,7 @@ const ContactPage = () => {
           assistiveDevices: []
         });
       } else {
-        console.error('Server error:', result);
+        console.error('Submission failed:', result.message);
         setSubmitStatus('error');
       }
     } catch (error) {
@@ -74,12 +62,13 @@ const ContactPage = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
-      const value = e.target.value;
+      const input = e.target as HTMLInputElement;
+      const value = input.value;
       setFormData(prev => ({
         ...prev,
-        assistiveDevices: e.target.checked
+        assistiveDevices: input.checked
           ? [...prev.assistiveDevices, value]
-          : prev.assistiveDevices.filter(item => item !== value)
+          : prev.assistiveDevices.filter((item: string) => item !== value)
       }));
     } else {
       setFormData({

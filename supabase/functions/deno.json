@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.window"],
+    "types": ["deno.window"]
+  },
+  "imports": {
+    "jsr:": "https://jsr.io/"
+  }
+}

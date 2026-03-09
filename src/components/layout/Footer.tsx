@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mountain, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Accessibility, Heart, ArrowRight, Users, Target } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Accessibility, ArrowRight, Target } from 'lucide-react';
+import { submitNewsletter } from '../../lib/xano';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -13,39 +14,18 @@ const Footer = () => {
     setSubmitStatus('idle');
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      const result = await submitNewsletter(email);
 
-      if (!supabaseUrl || !supabaseKey) {
-        console.error('Missing Supabase configuration');
-        setSubmitStatus('error');
-        setIsSubmitting(false);
-        return;
-      }
-
-      const response = await fetch(`${supabaseUrl}/functions/v1/send-email`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${supabaseKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'newsletter',
-          formData: { email }
-        }),
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
+      if (result.success) {
         setSubmitStatus('success');
         setEmail('');
       } else {
-        console.error('Server error:', result);
+        console.error('Newsletter subscription failed:', result.message);
         setSubmitStatus('error');
       }
-    } catch (error) {
-      console.error('Error submitting newsletter:', error);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('Error submitting newsletter:', msg);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
