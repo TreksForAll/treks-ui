@@ -92,7 +92,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
       {!isLoaded && !hasError && (
         <div className={`absolute inset-0 bg-earth-100 ${className}`}>
           <div className="w-full h-full bg-gradient-to-br from-earth-100 to-earth-200 animate-pulse rounded-lg flex items-center justify-center">
-            <div className="text-earth-400 text-center">
+            <div className="text-earth-400 text-left">
               <div className="w-8 h-8 mx-auto mb-2 bg-earth-300 rounded animate-pulse"></div>
               <div className="text-sm">Loading...</div>
             </div>
@@ -103,7 +103,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
       {/* Error state */}
       {hasError && (
         <div className={`absolute inset-0 bg-earth-200 flex items-center justify-center ${className}`}>
-          <div className="text-earth-500 text-center">
+          <div className="text-earth-500 text-left">
             <div className="text-2xl mb-2">📷</div>
             <div className="text-sm">Image unavailable</div>
           </div>

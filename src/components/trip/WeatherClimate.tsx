@@ -133,7 +133,7 @@ const WeatherClimate: React.FC<WeatherClimateProps> = ({ destination, altitude, 
                       }}
                     />
                   </div>
-                  <div className="text-xs text-earth-600 text-center">
+                  <div className="text-xs text-earth-600 text-left">
                     <div className="font-semibold">{data.tempHigh}°</div>
                     <div>{data.tempLow}°</div>
                     <div className="mt-1">{data.month}</div>
@@ -154,7 +154,7 @@ const WeatherClimate: React.FC<WeatherClimateProps> = ({ destination, altitude, 
                       height: `${(data.rainfall / 50) * 200}px`
                     }}
                   />
-                  <div className="text-xs text-earth-600 text-center">
+                  <div className="text-xs text-earth-600 text-left">
                     <div className="font-semibold">{data.rainfall}mm</div>
                     <div className="mt-1">{data.month}</div>
                   </div>
@@ -287,19 +287,19 @@ const WeatherClimate: React.FC<WeatherClimateProps> = ({ destination, altitude, 
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-4 bg-primary-50 rounded-lg">
+          <div className="text-left p-4 bg-primary-50 rounded-lg">
             <div className="text-2xl font-bold text-primary-600 mb-2">85%</div>
             <p className="text-primary-800 font-medium">Clear Days</p>
             <p className="text-primary-600 text-sm">in recommended months</p>
           </div>
           
-          <div className="text-center p-4 bg-success-50 rounded-lg">
+          <div className="text-left p-4 bg-success-50 rounded-lg">
             <div className="text-2xl font-bold text-success-600 mb-2">-8°C</div>
             <p className="text-success-800 font-medium">Coldest Recorded</p>
             <p className="text-success-600 text-sm">January 2019</p>
           </div>
           
-          <div className="text-center p-4 bg-adventure-50 rounded-lg">
+          <div className="text-left p-4 bg-adventure-50 rounded-lg">
             <div className="text-2xl font-bold text-adventure-600 mb-2">28°C</div>
             <p className="text-adventure-800 font-medium">Warmest Recorded</p>
             <p className="text-adventure-600 text-sm">July 2022</p>

@@ -5,7 +5,6 @@ import VideoTestimonials from '../components/home/VideoTestimonials';
 import FeaturedTrips from '../components/home/FeaturedTrips';
 import InclusiveUSPSection from '../components/home/InclusiveUSPSection';
 import FAQPreview from '../components/home/FAQPreview';
-import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 import VoicesFromTrail from '../components/home/VoicesFromTrail';
 import BlogPreview from '../components/home/BlogPreview';
 import FloatingContactButton from '../components/layout/FloatingContactButton';
@@ -61,7 +60,6 @@ const HomePage = () => {
         <FeaturedTrips />
         <InclusiveUSPSection />
         <FAQPreview />
-        <VSheshRecognitionsSection />
         <VoicesFromTrail />
         <BlogPreview />
       </div>

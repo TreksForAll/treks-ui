@@ -74,7 +74,7 @@ const EnhancedAdventureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-left mb-20"
         >
           <div className="inline-flex items-center space-x-2 bg-adventure-100 text-adventure-800 px-6 py-2 rounded-full text-sm font-semibold mb-6">
             <span>🌟</span>
@@ -88,7 +88,7 @@ const EnhancedAdventureSection = () => {
             </span>
           </h2>
           
-          <p className="text-lg md:text-xl text-earth-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-earth-600 max-w-4xl ml-0 leading-relaxed">
             Embark on extraordinary journeys that challenge your limits, awaken your spirit, and create memories that last a lifetime.
             From roaring rapids to towering peaks, discover adventures crafted for the truly passionate.
           </p>
@@ -121,7 +121,7 @@ const EnhancedAdventureSection = () => {
                       
                       {/* Floating Stats */}
                       <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                        <div className="text-center">
+                        <div className="text-left">
                           <div className="text-3xl mb-2">{category.emoji}</div>
                           <div className="text-sm text-earth-600 font-medium">
                             {Object.entries(category.stats).map(([key, value], idx) => (
@@ -210,7 +210,7 @@ const EnhancedAdventureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-20 pt-16 border-t border-earth-200"
+          className="text-left mt-20 pt-16 border-t border-earth-200"
         >
           <div className="bg-gradient-to-br from-primary-900 via-primary-800 to-adventure-900 rounded-3xl p-12 md:p-16 text-white relative overflow-hidden">
             {/* Background Pattern */}
@@ -224,7 +224,7 @@ const EnhancedAdventureSection = () => {
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 Ready to Write Your Adventure Story?
               </h3>
-              <p className="text-xl text-primary-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-primary-200 mb-8 max-w-3xl ml-0 leading-relaxed">
                 Join thousands of adventurers who have discovered extraordinary experiences with Aquaterra. 
                 Your next life-changing journey is just one click away.
               </p>

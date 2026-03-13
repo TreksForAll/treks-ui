@@ -301,7 +301,7 @@ const TripAssessment: React.FC<TripAssessmentProps> = ({
 
         {/* Overall Score */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-earth-200">
-          <div className="text-center mb-6">
+          <div className="text-left mb-6">
             <div className="relative w-32 h-32 mx-auto mb-4">
               <div className="absolute inset-0 bg-earth-200 rounded-full"></div>
               <div
@@ -311,7 +311,7 @@ const TripAssessment: React.FC<TripAssessmentProps> = ({
                 }}
               ></div>
               <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
-                <div className="text-center">
+                <div className="text-left">
                   <div className="text-2xl font-bold text-earth-800">
                     {Math.round(assessmentResult.overallScore)}%
                   </div>
@@ -347,7 +347,7 @@ const TripAssessment: React.FC<TripAssessmentProps> = ({
             {Object.entries(assessmentResult.categoryScores).map(([category, score]) => {
               const IconComponent = getCategoryIcon(category);
               return (
-                <div key={category} className="text-center p-4 bg-earth-50 rounded-lg">
+                <div key={category} className="text-left p-4 bg-earth-50 rounded-lg">
                   <IconComponent className="h-8 w-8 mx-auto mb-2 text-primary-600" />
                   <div className="text-2xl font-bold text-earth-800 mb-1">
                     {Math.round(score)}%

@@ -211,14 +211,14 @@ const LocalInsights: React.FC<LocalInsightsProps> = ({ tripId, destination }) =>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Play className="h-8 w-8 text-adventure-400" />
             <h2 className="text-3xl md:text-4xl font-bold">
               Local Insights & Stories
             </h2>
           </div>
-          <p className="text-lg text-earth-200 max-w-3xl mx-auto">
+          <p className="text-lg text-earth-200 max-w-3xl ml-0">
             Discover the authentic spirit of {destination} through the eyes of our local guides, 
             wildlife footage, and behind-the-scenes expedition moments
           </p>
@@ -481,14 +481,14 @@ const LocalInsights: React.FC<LocalInsightsProps> = ({ tripId, destination }) =>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
             <div className="bg-earth-700 rounded-2xl p-12">
               <Play className="h-16 w-16 text-adventure-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-white mb-4">
                 Select a Video to Begin
               </h3>
-              <p className="text-earth-300 max-w-2xl mx-auto">
+              <p className="text-earth-300 max-w-2xl ml-0">
                 Click on any video below to start watching authentic stories and insights 
                 from our local guides and the beautiful destinations we explore together.
               </p>
@@ -497,7 +497,7 @@ const LocalInsights: React.FC<LocalInsightsProps> = ({ tripId, destination }) =>
         )}
 
         {/* Accessibility Note */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-left">
           <p className="text-earth-400 text-sm">
             All videos include captions for accessibility. Videos are optimized for mobile and web viewing.
           </p>

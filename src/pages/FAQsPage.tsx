@@ -217,7 +217,7 @@ const FAQsPage = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title="FAQs - Treks for All | Accessible adventure questions answered"
         description="Find answers to frequently asked questions about accessible trekking, inclusive camping, and adventure travel with Treks for All. Get detailed information about accessibility features, safety protocols, equipment, disability-specific support, and what to expect on your inclusive outdoor adventure."
@@ -236,13 +236,13 @@ const FAQsPage = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center lg:text-left"
+              className="text-left lg:text-left"
             >
-              <div className="flex flex-col items-center lg:items-start mb-6">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="flex flex-col items-start mb-6 w-fit">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                   Frequently Asked Questions
                 </h1>
-                <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
               </div>
               <p className="text-lg text-earth-600">
                 Everything you need to know about accessible adventures with Treks for All
@@ -363,7 +363,7 @@ const FAQsPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-12 text-center bg-earth-50 rounded-2xl p-8 border border-earth-200"
+            className="mt-12 text-left bg-earth-50 rounded-2xl p-8 border border-earth-200"
           >
             <p className="text-earth-700 text-lg">
               Still have questions? Please reach out to us at{' '}

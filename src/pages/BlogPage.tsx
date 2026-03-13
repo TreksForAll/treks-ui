@@ -38,7 +38,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title="Blog - Treks for All | Stories from inclusive adventures"
         description="Read stories, experiences, and insights from our inclusive adventure community. Discover inspiring journeys of people with disabilities conquering mountains, accessibility tips for outdoor adventures, personal reflections from participants, and expert advice on adaptive equipment and inclusive travel across India."
@@ -66,7 +66,7 @@ const BlogPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto mb-20"
+            className="max-w-4xl ml-0 mb-20"
           >
             <div className="bg-gradient-to-br from-earth-50 to-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-earth-100">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
@@ -178,7 +178,7 @@ const BlogPage = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
+            <div className="text-left py-16">
               <BookOpen className="h-16 w-16 text-earth-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-earth-800 mb-2">No articles found</h3>
             </div>

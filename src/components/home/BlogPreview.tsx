@@ -26,7 +26,7 @@ const BlogPreview = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl ml-0"
         >
           <div className="bg-gradient-to-br from-earth-50 to-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-earth-100">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
@@ -78,7 +78,7 @@ const BlogPreview = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-left mt-12"
         >
           <Link
             to="/blog"

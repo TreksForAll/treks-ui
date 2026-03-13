@@ -234,8 +234,8 @@ const TripDetailPage = () => {
 
   if (!trip) {
     return (
-      <div className="pt-20 min-h-screen bg-earth-50 flex items-center justify-center">
-        <div className="text-center">
+      <div className="pt-28 min-h-screen bg-earth-50 flex items-center justify-center">
+        <div className="text-left">
           <h2 className="text-2xl font-bold text-earth-800 mb-4">Trip Not Found</h2>
           <p className="text-earth-600 mb-6">The trip you're looking for doesn't exist.</p>
           <Link
@@ -250,7 +250,7 @@ const TripDetailPage = () => {
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title={`${trip.title} - Treks for All | ${trip.location}`}
         description={`${trip.description} Join us for this ${trip.difficulty.toLowerCase()} ${trip.duration} adventure in ${trip.location}. Accessible and inclusive adventure travel.`}
@@ -332,7 +332,7 @@ const TripDetailPage = () => {
       <section className="relative h-[60vh] sm:h-96 md:h-[500px] bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${trip.image}')` }}
       >
-        <div className="text-center text-white px-4 max-w-4xl py-8">
+        <div className="text-left text-white px-4 max-w-4xl py-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -363,7 +363,7 @@ const TripDetailPage = () => {
             )}
 
             {/* Quick Info */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left max-w-3xl ml-0">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mx-auto mb-1 text-adventure-400" />
                 <div className="text-xs sm:text-sm font-medium">{trip.location}</div>
@@ -416,7 +416,7 @@ const TripDetailPage = () => {
                 href="https://payments.aquaterra.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-warning-400 text-earth-900 px-8 py-3 rounded-lg font-bold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105 inline-block text-center"
+                className="bg-warning-400 text-earth-900 px-8 py-3 rounded-lg font-bold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105 inline-block text-left"
               >
                 Book Now
               </a>

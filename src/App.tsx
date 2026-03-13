@@ -15,7 +15,6 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import PerformanceOptimizer from './components/ui/PerformanceOptimizer';
-import VSheshRecognitionsSection from './components/home/VSheshRecognitionsSection';
 import './index.css';
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
         </Routes>
-        <VSheshRecognitionsSection />
         <Footer />
       </div>
     </Router>

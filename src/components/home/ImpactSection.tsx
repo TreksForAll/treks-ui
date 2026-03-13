@@ -38,13 +38,13 @@ const ImpactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-left mb-12"
         >
-          <div className="flex flex-col items-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-gray-200 to-white bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="flex flex-col items-start w-fit">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-gray-200 to-white bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
               Our Impact
             </h2>
-            <div className="w-32 md:w-48 h-1 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+            <div className="w-full h-1 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
           </div>
         </motion.div>
 
@@ -58,7 +58,7 @@ const ImpactSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-left"
               >
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${stat.color} mb-4`}>
                   <IconComponent className="h-8 w-8 text-white" />

@@ -111,7 +111,7 @@ const PartnersPage = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title="Our partners - Treks for All | Making accessible adventure possible"
         description="Meet the organizations behind Treks for All: Aquaterra Adventures brings 30+ years of Himalayan expertise, v-shesh provides disability inclusion leadership, and Metores Trust ensures community development. Together, we're creating India's most comprehensive accessible adventure travel experiences."
@@ -126,15 +126,15 @@ const PartnersPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-left"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="flex flex-col items-start mb-6 w-fit">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                 Our Founding Partners
               </h1>
-              <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
-            <p className="text-xl text-earth-600 max-w-3xl mx-auto">
+            <p className="text-xl text-earth-600 max-w-3xl ml-0">
               Meet the visionary organizations that united to make outdoor adventures accessible to everyone
             </p>
           </motion.div>
@@ -156,7 +156,7 @@ const PartnersPage = () => {
               >
                 {/* Partner Logo & Overview */}
                 <div className={`order-2 lg:order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="text-center lg:text-left">
+                  <div className="text-left lg:text-left">
                     <div className="inline-block rounded-full w-24 h-24 flex items-center justify-center mb-6 overflow-hidden">
                       <img
                         src={partner.logo}
@@ -176,11 +176,11 @@ const PartnersPage = () => {
                     </p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="text-center p-4 bg-white rounded-lg">
+                      <div className="text-left p-4 bg-white rounded-lg">
                         <div className="text-2xl font-bold text-earth-800">{partner.established}</div>
                         <div className="text-sm text-earth-600">Established</div>
                       </div>
-                      <div className="text-center p-4 bg-white rounded-lg">
+                      <div className="text-left p-4 bg-white rounded-lg">
                         <div className="text-xs font-medium text-earth-800 leading-tight">{partner.impact}</div>
                         <div className="text-sm text-earth-600 mt-1">Impact</div>
                       </div>
@@ -238,15 +238,15 @@ const PartnersPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="flex flex-col items-start mb-6 w-fit">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                 Collaborative Achievements
               </h2>
-              <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
-            <p className="text-xl text-earth-600 max-w-3xl mx-auto">
+            <p className="text-xl text-earth-600 max-w-3xl ml-0">
               Together, our partners have created groundbreaking innovations in accessible adventure travel
             </p>
           </motion.div>
@@ -261,7 +261,7 @@ const PartnersPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center border border-earth-100"
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-left border border-earth-100"
                 >
                   <div className="bg-earth-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="h-8 w-8 text-earth-700" />
@@ -284,23 +284,25 @@ const PartnersPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-left mb-12"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                Who's Journeyed With Us
-              </h2>
-              <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
-              <p className="text-lg md:text-xl lg:text-2xl text-earth-800 font-black uppercase tracking-tight leading-tight" style={{ fontWeight: 900 }}>
+            <div className="flex flex-col items-start mb-6">
+              <div className="w-fit flex flex-col">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                  Who's Journeyed With Us
+                </h2>
+                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
+              </div>
+              <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
                 So Far
               </p>
             </div>
-            <p className="text-xl text-earth-600 max-w-3xl mx-auto">
+            <p className="text-xl text-earth-600 max-w-3xl ml-0">
               Redefining what's possible. Every step, a milestone.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -339,32 +341,32 @@ const PartnersPage = () => {
 
       {/* Call to Action */}
       <section className="py-16 bg-earth-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
            >
-             <div className="flex flex-col items-center mb-6">
-               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+             <div className="flex flex-col items-start mb-6 w-fit">
+               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                  Ready to Explore Together?
                </h2>
-               <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+               <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
              </div>
-             <p className="text-lg text-earth-600 mb-8 text-center">
+             <p className="text-lg text-earth-600 mb-8 text-left">
                Join us in making outdoor adventures accessible to everyone
              </p>
              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                <Link
                  to="/trips"
-                 className="bg-warning-400 hover:bg-warning-500 text-earth-900 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center transform hover:scale-105"
+                 className="bg-warning-400 hover:bg-warning-500 text-earth-900 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-left transform hover:scale-105"
                >
                  View Our Trips
                </Link>
                <Link
                  to="/contact"
-                 className="border-2 border-earth-300 text-earth-800 hover:bg-earth-100 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
+                 className="border-2 border-earth-300 text-earth-800 hover:bg-earth-100 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-left"
                >
                  Contact Us
                </Link>

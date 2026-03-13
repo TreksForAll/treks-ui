@@ -45,17 +45,16 @@ const InclusiveUSPSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-left mb-10"
         >
-          <div className="flex flex-col items-center mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+          <div className="flex flex-col items-start mb-2 w-fit">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-2 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
               Why Treks for All?
             </h2>
-            <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+            <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
           </div>
-          <p className="text-xl text-earth-600 max-w-3xl mx-auto leading-relaxed italic mb-4 whitespace-nowrap">Nothing can match the healing, transformative power of shared experiences on the trail -</p>
-          <p className="text-lg text-earth-600 max-w-3xl mx-auto leading-relaxed">
-            where people of all abilities walk, laugh and grow together.
+          <p className="text-xl text-earth-600 max-w-3xl ml-0 leading-snug">
+            Nothing can match the healing, transformative power of shared experiences on the trail – where people of all abilities walk, laugh and grow together.
           </p>
         </motion.div>
 
@@ -69,10 +68,10 @@ const InclusiveUSPSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center group"
+                className="text-left group"
               >
-                <div className="relative mx-auto w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors duration-300">
-                  <IconComponent className="h-8 w-8 text-primary-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="relative w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors duration-300">
+                  <IconComponent className="h-6 w-6 text-primary-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 
                 <h3 className="text-lg font-bold text-earth-800 mb-2">
@@ -92,9 +91,9 @@ const InclusiveUSPSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-left mt-16"
         >
-          <p className="text-xl text-earth-600 max-w-3xl mx-auto leading-relaxed italic">
+          <p className="text-xl text-earth-600 max-w-3xl ml-0 leading-relaxed">
             Come for an adventure. Leave with a new way of seeing the world - and yourself.
           </p>
         </motion.div>

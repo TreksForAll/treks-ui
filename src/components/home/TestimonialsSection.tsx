@@ -68,11 +68,11 @@ const TestimonialsSection = () => {
                 <span>TRANSFORMATIVE STORIES</span>
               </div>
 
-              <div className="flex flex-col items-start mb-4">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-gray-200 to-white bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="flex flex-col items-start mb-4 w-fit">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-gray-200 to-white bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                   Accessible Adventure Success Stories
                 </h2>
-                <div className="w-32 md:w-48 h-1 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+                <div className="w-full h-1 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
               </div>
               <p className="text-lg text-slate-300 leading-relaxed">
                 Hear from adventurers who have experienced the magic of barrier-free exploration with Treks for All
@@ -81,7 +81,7 @@ const TestimonialsSection = () => {
           </div>
 
           <div className="lg:col-span-1 flex items-center justify-center">
-            <div className="text-center text-white">
+            <div className="text-left text-white">
               <div className="text-4xl font-bold text-primary-400 mb-2">98%</div>
               <div className="text-slate-300">Would recommend to others</div>
               <div className="text-2xl font-bold text-adventure-400 mb-2 mt-4">4.9</div>

@@ -52,15 +52,17 @@ const FeaturedTrips = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="flex flex-col items-center mb-6">
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-500 mb-3 uppercase tracking-[0.2em] px-4" style={{ fontWeight: 600 }}>
-              UPCOMING
-            </p>
-            <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6 text-black px-4" style={{ fontWeight: 900 }}>
+          <div className="flex flex-col items-start mb-6">
+            <div className="w-fit flex flex-col">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                UPCOMING
+              </h2>
+              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
+            </div>
+            <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
               ADVENTURES
-            </h2>
-            <p className="text-base sm:text-lg text-earth-600 text-center px-4 max-w-2xl">
+            </p>
+            <p className="text-base sm:text-lg text-earth-600 text-left max-w-2xl">
               Join these exciting inclusive adventures departing soon with limited spots available.
             </p>
           </div>
@@ -94,14 +96,16 @@ const FeaturedTrips = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
 
                     {/* Title Overlay on Image */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-left px-6">
                       <div className="max-w-5xl w-full">
+                        <div className="w-fit flex flex-col">
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white uppercase tracking-[0.3em] mb-6 drop-shadow-2xl" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)', fontWeight: 400 }}>
                           {trip.title}
                         </h3>
-                        <div className="w-32 md:w-48 h-0.5 mx-auto mb-6" style={{ backgroundColor: '#FFD700' }}></div>
+                        <div className="w-full h-0.5 mb-6" style={{ backgroundColor: '#f3b815' }}></div>
+                        </div>
                         {trip.subtitle && (
-                          <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-white uppercase tracking-tight leading-none drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,1)', fontWeight: 900 }}>
+                          <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white uppercase tracking-tight leading-none drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,1)', fontWeight: 700 }}>
                             {trip.subtitle}
                           </p>
                         )}
@@ -131,14 +135,6 @@ const FeaturedTrips = () => {
                           {trip.activities}
                         </p>
                       )}
-
-                      {/* Accessibility Badge */}
-                      <div className="inline-flex items-center bg-primary-50 border border-primary-200 rounded-full px-4 py-2 mb-6">
-                        <span className="text-primary-700 text-sm mr-2">♿</span>
-                        <span className="font-semibold text-primary-700 text-sm">
-                          {trip.accessibility}
-                        </span>
-                      </div>
 
                       {/* Description */}
                       <p className="text-earth-600 leading-relaxed mb-6">
@@ -218,7 +214,7 @@ const FeaturedTrips = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-left mt-12"
         >
           <Link
             to="/trips"

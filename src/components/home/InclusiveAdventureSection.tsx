@@ -74,7 +74,7 @@ const InclusiveAdventureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-left mb-20"
         >
           <div className="inline-flex items-center space-x-2 bg-adventure-100 text-adventure-800 px-6 py-2 rounded-full text-sm font-semibold mb-6">
             <Accessibility className="h-4 w-4" />
@@ -88,7 +88,7 @@ const InclusiveAdventureSection = () => {
             </span>
           </h2>
           
-          <p className="text-lg md:text-xl text-earth-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-earth-600 max-w-4xl ml-0 leading-relaxed">
             Through our founding partnership with v-shesh, Aquaterra Adventures, and Metores Trust, 
             we've created adventures that welcome everyone. Every journey is thoughtfully designed 
             to be accessible, inclusive, and transformative.
@@ -202,18 +202,18 @@ const InclusiveAdventureSection = () => {
           viewport={{ once: true }}
           className="mt-20 bg-gradient-to-r from-success-100 to-primary-100 rounded-3xl p-8 md:p-12"
         >
-          <div className="text-center mb-8">
+          <div className="text-left mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-earth-800 mb-4">
               Our Accessibility Commitment
             </h3>
-            <p className="text-lg text-earth-600 max-w-3xl mx-auto">
+            <p className="text-lg text-earth-600 max-w-3xl ml-0">
               Every adventure includes comprehensive accessibility assessments, 
               adaptive equipment, and personalized support to ensure everyone can participate fully.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-left">
               <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <HandHeart className="h-8 w-8 text-primary-600" />
               </div>
@@ -221,7 +221,7 @@ const InclusiveAdventureSection = () => {
               <p className="text-earth-600">Financial support for participants with disabilities</p>
             </div>
             
-            <div className="text-center">
+            <div className="text-left">
               <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-adventure-600" />
               </div>
@@ -229,7 +229,7 @@ const InclusiveAdventureSection = () => {
               <p className="text-earth-600">Paired support for enhanced safety and friendship</p>
             </div>
             
-            <div className="text-center">
+            <div className="text-left">
               <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Eye className="h-8 w-8 text-success-600" />
               </div>

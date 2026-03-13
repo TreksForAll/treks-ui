@@ -55,7 +55,7 @@ const CampsPage = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title="Adventure camps - Treks for All | Accessible camping experiences"
         description="Immerse yourself in nature's beauty at our carefully curated accessible adventure camps. Experience inclusive camping with activities like rafting, kayaking, rock climbing, and yoga, all adapted for people of all abilities in stunning Himalayan locations with full accessibility support."
@@ -70,12 +70,12 @@ const CampsPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-left mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-earth-800 mb-6">
               Adventure Camps
             </h1>
-            <p className="text-xl text-earth-600 max-w-3xl mx-auto">
+            <p className="text-xl text-earth-600 max-w-3xl ml-0">
               Immerse yourself in nature's beauty at our carefully curated adventure camps
             </p>
           </motion.div>
@@ -151,7 +151,7 @@ const CampsPage = () => {
       {/* Results Count */}
       <section className="py-4 bg-earth-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-earth-600">
+          <p className="text-left text-earth-600">
             Showing <span className="font-semibold text-earth-800">{filteredTrips.length}</span> of {campTrips.length} camps
           </p>
         </div>
@@ -246,7 +246,7 @@ const CampsPage = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
+            <div className="text-left py-16">
               <Mountain className="h-16 w-16 text-earth-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-earth-600 mb-2">No camps found</h3>
               <p className="text-earth-500">Try adjusting your filters to see more results</p>
@@ -263,12 +263,12 @@ const CampsPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Why Choose Our Adventure Camps?
             </h2>
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-200 max-w-3xl ml-0">
               Experience the perfect balance of adventure, comfort, and authentic local culture
             </p>
           </motion.div>
@@ -304,7 +304,7 @@ const CampsPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center"
+                  className="text-left"
                 >
                   <div className="bg-primary-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="h-8 w-8 text-adventure-400" />
@@ -324,7 +324,7 @@ const CampsPage = () => {
 
       {/* Call to Action */}
       <section className="py-16 bg-earth-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -334,7 +334,7 @@ const CampsPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-6">
               Ready for Your Camp Adventure?
             </h2>
-            <p className="text-lg text-earth-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-earth-600 mb-8 max-w-2xl ml-0">
               Join us for an unforgettable experience where adventure meets comfort in some of India's most beautiful locations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

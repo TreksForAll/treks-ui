@@ -47,7 +47,7 @@ const HeroSection = () => {
 
       <section
         ref={heroRef}
-        className="relative w-full min-h-screen overflow-hidden mt-20"
+        className="relative w-full min-h-screen overflow-hidden mt-16"
         role="banner"
         aria-label="Hero section showcasing accessible adventure experiences"
       >
@@ -75,9 +75,9 @@ const HeroSection = () => {
         {/* Main Content - Properly Positioned */}
         <div className="relative z-20 min-h-screen flex items-end pt-8 pb-32 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-7xl mx-auto">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-start">
               {/* Main Content - Centered */}
-              <div className="text-white text-center max-w-5xl">
+              <div className="text-white text-left max-w-5xl">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -89,13 +89,14 @@ const HeroSection = () => {
                 >
                   {/* Tagline in Cursive */}
                   <p
-                    className="text-4xl sm:text-5xl text-white/90 shadows-into-light"
+                    className="text-5xl md:text-6xl text-white/90 mb-6 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
+                    style={{ fontFamily: "'Shadows Into Light', cursive" }}
                   >
                     Different abilities. One journey
                   </p>
 
                   {/* CTA Buttons - Touch-Friendly Sizing */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center items-center px-4">
+                  <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-start items-center px-4">
                     <button
                       onClick={() => setIsVideoPlaying(true)}
                       className="w-full sm:w-auto group bg-white/10 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium hover:bg-white/20 transition-all duration-300 border border-white/30 min-h-[3rem] focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent text-base sm:text-lg flex items-center justify-center space-x-2"
@@ -157,7 +158,7 @@ const HeroSection = () => {
 
         {/* Mobile Touch Indicators */}
         <div className="sm:hidden absolute bottom-8 left-4 right-4 z-20">
-          <div className="text-center">
+          <div className="text-left">
             <span className="text-white/60 text-xs bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
               Explore accessible adventures below
             </span>

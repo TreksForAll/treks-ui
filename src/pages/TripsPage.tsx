@@ -134,7 +134,7 @@ const TripsPage = () => {
 
   if (showComparison) {
     return (
-      <div className="pt-20">
+      <div className="pt-28">
         <TripComparison 
           availableTrips={tripsForComparison}
           maxComparisons={3}
@@ -144,7 +144,7 @@ const TripsPage = () => {
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title="All adventures - Treks for All | Accessible trekking & camping"
         description="Discover our complete collection of accessible adventures across India and beyond. Browse inclusive Himalayan treks, river expeditions, and adventure camps designed for all abilities. Filter by difficulty, duration, and accessibility features to find your perfect outdoor experience."
@@ -159,18 +159,21 @@ const TripsPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-left mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-earth-800 mb-6">
-              All Adventures
-            </h1>
-            <p className="text-xl text-earth-600 max-w-3xl mx-auto">
+            <div className="w-fit flex flex-col mb-6">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                All Adventures
+              </h1>
+              <div className="w-full h-0.5" style={{ backgroundColor: '#f3b815' }}></div>
+            </div>
+            <p className="text-lg text-earth-600 max-w-3xl ml-0">
               Discover our complete collection of adventures across India and beyond
             </p>
           </motion.div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start mb-8">
             <button
               onClick={() => setShowFilters(!showFilters)}
               aria-label="Toggle filters"
@@ -290,7 +293,7 @@ const TripsPage = () => {
       {/* Results Count */}
       <section className="py-4 bg-earth-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-earth-600">
+          <p className="text-left text-earth-600">
             Showing <span className="font-semibold text-earth-800">{filteredTrips.length}</span> of {trips.length} adventures
           </p>
         </div>
@@ -385,7 +388,7 @@ const TripsPage = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
+            <div className="text-left py-16">
               <Mountain className="h-16 w-16 text-earth-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-earth-600 mb-2">No adventures found</h3>
               <p className="text-earth-500">Try adjusting your filters to see more results</p>

@@ -83,10 +83,10 @@ const TripFinder = () => {
             </div>
 
             <div className="flex flex-col items-start mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#4a4a4a] to-[#6a6a6a] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#4a4a4a] to-[#6a6a6a] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                 Adventure Finder
               </h2>
-              <div className="w-32 md:w-48 h-1 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+              <div className="w-32 md:w-48 h-1 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <h3 className="text-lg md:text-xl font-medium text-primary-600 mb-4 md:mb-6">
               Tailored for Every Ability
@@ -218,7 +218,7 @@ const TripFinder = () => {
           </div>
 
           {/* Search Button */}
-          <div className="text-center">
+          <div className="text-left">
             <button
               onClick={handleSearch}
               className="bg-gradient-to-r from-success-500 via-adventure-500 via-warning-500 via-primary-500 to-error-500 text-white px-6 md:px-8 py-3 rounded-xl font-semibold hover:from-success-600 hover:via-adventure-600 hover:via-warning-600 hover:via-primary-600 hover:to-error-600 transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2 text-sm md:text-base"
@@ -238,7 +238,7 @@ const TripFinder = () => {
           viewport={{ once: true }}
           className="mt-12 md:mt-16"
         >
-          <div className="bg-gradient-to-r from-slate-900 via-adventure-900 to-slate-900 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-slate-900 via-adventure-900 to-slate-900 rounded-2xl md:rounded-3xl p-8 md:p-12 text-left text-white relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-10 right-10 w-20 h-20 bg-adventure-400/20 rounded-full blur-xl"></div>
             <div className="absolute bottom-10 left-10 w-32 h-32 bg-primary-400/20 rounded-full blur-xl"></div>
@@ -247,7 +247,7 @@ const TripFinder = () => {
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
                 Need Personalized Support?
               </h3>
-              <p className="text-sm md:text-base text-slate-300 mb-6 md:mb-8 max-w-3xl mx-auto">
+              <p className="text-sm md:text-base text-slate-300 mb-6 md:mb-8 max-w-3xl ml-0">
                 Can't find what you're looking for? Our accessibility specialists are here 
                 to create the perfect custom itinerary designed specifically for your unique needs and dreams.
               </p>

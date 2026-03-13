@@ -174,13 +174,13 @@ const TripComparison: React.FC<TripComparisonProps> = ({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-left"
         >
           <Compare className="h-16 w-16 text-earth-300 mx-auto mb-4" />
           <h3 className="text-2xl font-bold text-earth-800 mb-4">
             Compare Your Adventures
           </h3>
-          <p className="text-earth-600 max-w-2xl mx-auto mb-8">
+          <p className="text-earth-600 max-w-2xl ml-0 mb-8">
             Select 2-3 trips to compare their difficulty, duration, price, and fitness requirements. 
             Make an informed decision for your perfect adventure.
           </p>
@@ -325,7 +325,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
         >
           {/* Best Value Indicator */}
           {findBestValue() && (
-            <div className="mb-8 text-center">
+            <div className="mb-8 text-left">
               <div className="inline-flex items-center space-x-2 bg-success-100 text-success-800 px-4 py-2 rounded-full">
                 <Zap className="h-4 w-4" />
                 <span className="font-semibold">
@@ -345,7 +345,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                       Comparison Criteria
                     </th>
                     {selectedTrips.map(trip => (
-                      <th key={trip.id} className="text-center p-6 min-w-[250px]">
+                      <th key={trip.id} className="text-left p-6 min-w-[250px]">
                         <div className="space-y-3">
                           <img
                             src={trip.image}
@@ -374,7 +374,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                       <span>Duration</span>
                     </td>
                     {selectedTrips.map(trip => (
-                      <td key={trip.id} className="p-6 text-center">
+                      <td key={trip.id} className="p-6 text-left">
                         <div className="text-lg font-bold text-earth-800">{trip.duration}</div>
                       </td>
                     ))}
@@ -387,7 +387,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                       <span>Difficulty Level</span>
                     </td>
                     {selectedTrips.map(trip => (
-                      <td key={trip.id} className="p-6 text-center">
+                      <td key={trip.id} className="p-6 text-left">
                         <span className={`inline-block px-3 py-2 rounded-full font-semibold ${getDifficultyColor(trip.difficulty)}`}>
                           {trip.difficulty}
                         </span>
@@ -413,7 +413,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                       Price (per person)
                     </td>
                     {selectedTrips.map(trip => (
-                      <td key={trip.id} className="p-6 text-center">
+                      <td key={trip.id} className="p-6 text-left">
                         <div className="text-2xl font-bold text-adventure-600">{trip.price}</div>
                       </td>
                     ))}
@@ -426,7 +426,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                       <span>Required Fitness</span>
                     </td>
                     {selectedTrips.map(trip => (
-                      <td key={trip.id} className="p-6 text-center">
+                      <td key={trip.id} className="p-6 text-left">
                         <span className={`inline-block px-3 py-2 rounded-full font-semibold ${getFitnessColor(trip.fitnessLevel)}`}>
                           {trip.fitnessLevel}
                         </span>
@@ -489,7 +489,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                       Actions
                     </td>
                     {selectedTrips.map(trip => (
-                      <td key={trip.id} className="p-6 text-center space-y-3">
+                      <td key={trip.id} className="p-6 text-left space-y-3">
                         <Link
                           to={`/trip/${trip.id}`}
                           className="block bg-warning-400 text-earth-900 px-4 py-2 rounded-md hover:bg-warning-500 transition-colors duration-300 font-semibold"

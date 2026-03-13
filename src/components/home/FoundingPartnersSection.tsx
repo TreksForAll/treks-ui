@@ -20,8 +20,8 @@ const FoundingPartnersSection = () => {
       color: 'success'
     },
     {
-      name: 'v-shesh',
-      logo: '/V-Shesh.webp',
+      name: 'V-Shesh',
+      logo: '/v-shesh.webp',
       description: 'Leading accessibility advocate and adaptive sports pioneer',
       role: 'Accessibility Innovation Partner',
       color: 'primary'
@@ -43,11 +43,11 @@ const FoundingPartnersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary-900 to-adventure-900 rounded-2xl p-8 md:p-12 text-white text-center mb-16"
+          className="bg-gradient-to-r from-primary-900 to-adventure-900 rounded-2xl p-8 md:p-12 text-white text-left mb-16"
         >
           <div className="mb-8">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Our Journey</h3>
-            <p className="text-primary-200 text-lg max-w-3xl mx-auto">
+            <p className="text-primary-200 text-lg max-w-3xl ml-0">
               Born from the collaboration of three visionary organizations,
               Treks for All launched in March 2025 with a mission to make outdoor adventures accessible to everyone.
             </p>
@@ -85,7 +85,7 @@ const FoundingPartnersSection = () => {
             align="center"
             className="mb-4"
           />
-          <p className="text-lg text-earth-600 max-w-2xl mx-auto text-center">
+          <p className="text-lg text-earth-600 max-w-2xl ml-0 text-left">
             Making adventure accessible to everyone, regardless of ability
           </p>
         </motion.div>
@@ -107,7 +107,7 @@ const FoundingPartnersSection = () => {
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              <div className="text-center">
+              <div className="text-left">
                 <div className="w-32 h-32 rounded-xl flex items-center justify-center mx-auto mb-6 overflow-hidden p-4">
                   <img
                     src={partner.logo}

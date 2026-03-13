@@ -26,7 +26,7 @@ const VideoTestimonials = () => {
       name: 'Sakshi',
       description: 'No safe arrangements for inclusive adventures existed for us',
       quote: '',
-      videoId: 'TvvqpcmZMhQ',
+      videoId: '8v4t78aTwsA',
       thumbnail: '/Video-Sakshi-web.webp'
     },
     {
@@ -74,14 +74,16 @@ const VideoTestimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.15em] md:tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent px-4" style={{ fontWeight: 700 }}>
-                VOICES FROM THE TRAIL
-              </h2>
-              <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
-              <p className="text-lg md:text-xl lg:text-2xl text-earth-800 font-black uppercase tracking-tight leading-tight text-center px-4 max-w-2xl whitespace-nowrap" style={{ fontWeight: 900 }}>
+            <div className="flex flex-col items-start mb-6">
+              <div className="w-fit flex flex-col">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                  VOICES FROM THE TRAIL
+                </h2>
+                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
+              </div>
+              <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
                 In conversation with guests who walked with us.
               </p>
             </div>
@@ -130,10 +132,10 @@ const VideoTestimonials = () => {
                         </div>
                       </div>
                       <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-white flex-grow">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-earth-800 text-center mb-3 break-words">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-earth-800 text-left mb-3 break-words">
                           {testimonial.name}
                         </h3>
-                        <p className="text-earth-600 text-center text-sm sm:text-base break-words leading-relaxed">
+                        <p className="text-earth-600 text-left text-sm sm:text-base break-words leading-relaxed">
                           {testimonial.description}
                         </p>
                         {testimonial.quote && (
@@ -213,10 +215,10 @@ const VideoTestimonials = () => {
                           </div>
                         </div>
                         <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-white flex-grow">
-                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-earth-800 text-center mb-3 break-words">
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-earth-800 text-left mb-3 break-words">
                             {testimonial.name}
                           </h3>
-                          <p className="text-earth-600 text-center text-sm sm:text-base break-words leading-relaxed">
+                          <p className="text-earth-600 text-left text-sm sm:text-base break-words leading-relaxed">
                             {testimonial.description}
                           </p>
                           {testimonial.quote && (

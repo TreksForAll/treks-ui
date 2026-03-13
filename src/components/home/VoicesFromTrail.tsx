@@ -91,12 +91,14 @@ const VoicesFromTrail = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="flex flex-col items-center mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-              GUESTS SPEAK
-            </h2>
-            <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
-            <p className="text-lg md:text-xl lg:text-2xl text-earth-800 font-black uppercase tracking-tight leading-tight text-center" style={{ fontWeight: 900 }}>
+          <div className="flex flex-col items-start mb-6">
+            <div className="w-fit flex flex-col">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                GUESTS SPEAK
+              </h2>
+              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
+            </div>
+            <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
               LIFE-CHANGING MOMENTS. JOURNEYS THAT TRANSFORM
             </p>
           </div>
@@ -141,10 +143,13 @@ const VoicesFromTrail = () => {
                     loading="lazy"
                   />
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-earth-800 mb-1">
-                      {testimonial.name} from {testimonial.location}
+                    <h3 className="text-base font-bold text-earth-600 mb-0.5">
+                      {testimonial.name}
                     </h3>
-                    <p className="text-primary-600 font-medium mb-4">
+                    <p className="text-sm text-earth-500 mb-1">
+                      {testimonial.location}
+                    </p>
+                    <p className="text-sm text-primary-600 font-semibold mb-4">
                       {testimonial.event}
                     </p>
                     <p className="text-base text-earth-700 leading-relaxed mb-4">

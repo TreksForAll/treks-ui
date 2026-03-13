@@ -187,14 +187,14 @@ const PackingTools: React.FC<PackingToolsProps> = ({
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-left mb-12">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Backpack className="h-8 w-8 text-adventure-500" />
             <h2 className="text-3xl md:text-4xl font-bold text-earth-800">
               Trip Preparation Tools
             </h2>
           </div>
-          <p className="text-lg text-earth-600 max-w-2xl mx-auto">
+          <p className="text-lg text-earth-600 max-w-2xl ml-0">
             Get ready for your adventure with our customized packing lists and pre-departure guides
           </p>
         </div>
@@ -255,22 +255,22 @@ const PackingTools: React.FC<PackingToolsProps> = ({
 
             {/* Trip Information */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-primary-50 p-4 rounded-lg text-center">
+              <div className="bg-primary-50 p-4 rounded-lg text-left">
                 <MapPin className="h-6 w-6 text-primary-600 mx-auto mb-2" />
                 <div className="font-semibold text-primary-800">{destination}</div>
                 <div className="text-sm text-primary-600">Destination</div>
               </div>
-              <div className="bg-adventure-50 p-4 rounded-lg text-center">
+              <div className="bg-adventure-50 p-4 rounded-lg text-left">
                 <Calendar className="h-6 w-6 text-adventure-600 mx-auto mb-2" />
                 <div className="font-semibold text-adventure-800">{duration}</div>
                 <div className="text-sm text-adventure-600">Duration</div>
               </div>
-              <div className="bg-success-50 p-4 rounded-lg text-center">
+              <div className="bg-success-50 p-4 rounded-lg text-left">
                 <Thermometer className="h-6 w-6 text-success-600 mx-auto mb-2" />
                 <div className="font-semibold text-success-800">{season}</div>
                 <div className="text-sm text-success-600">Season</div>
               </div>
-              <div className="bg-warning-50 p-4 rounded-lg text-center">
+              <div className="bg-warning-50 p-4 rounded-lg text-left">
                 <Mountain className="h-6 w-6 text-warning-600 mx-auto mb-2" />
                 <div className="font-semibold text-warning-800">{difficulty}</div>
                 <div className="text-sm text-warning-600">Difficulty</div>
@@ -326,7 +326,7 @@ const PackingTools: React.FC<PackingToolsProps> = ({
                               </div>
                             )}
                             {item.notes && (
-                              <div className="text-sm text-adventure-600 mt-1 italic">
+                              <div className="text-sm text-adventure-600 mt-1">
                                 Note: {item.notes}
                               </div>
                             )}
@@ -340,7 +340,7 @@ const PackingTools: React.FC<PackingToolsProps> = ({
             </div>
 
             {/* Download Button */}
-            <div className="text-center mt-12">
+            <div className="text-left mt-12">
               <button
                 onClick={() => generatePDF('checklist')}
                 disabled={isGenerating}
@@ -431,7 +431,7 @@ const PackingTools: React.FC<PackingToolsProps> = ({
             </div>
 
             {/* Download Button */}
-            <div className="text-center mt-12">
+            <div className="text-left mt-12">
               <button
                 onClick={() => generatePDF('guide')}
                 disabled={isGenerating}

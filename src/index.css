@@ -55,6 +55,10 @@ html {
   line-height: 1.5;
 }
 
+p {
+  text-align: left;
+}
+
 body {
   overflow-x: hidden;
   font-display: swap;
@@ -362,7 +366,7 @@ body {
     border-left: 4px solid #0ea5e9;
     padding-left: 1rem;
     margin: 1.5rem 0;
-    font-style: italic;
+    font-style: normal;
     color: #4b5563;
     background: #f8fafc;
     padding: 1rem;

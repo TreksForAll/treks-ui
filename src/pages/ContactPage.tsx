@@ -65,7 +65,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       <SEO
         title="Contact us - Treks for All | Plan your accessible adventure"
         description="Get in touch with Treks for All to plan your accessible adventure. Our accessibility specialists are ready to design your perfect inclusive outdoor experience. Contact our team for personalized trekking, camping, and adventure travel information tailored to your needs."
@@ -75,7 +75,7 @@ const ContactPage = () => {
       />
       {/* Hero Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-earth-600 max-w-3xl mx-auto"
+            className="text-xl text-earth-600 max-w-3xl ml-0"
           >
             Ready to break barriers and explore new possibilities? Our accessibility specialists are here to design your perfect inclusive adventure.
           </motion.p>
@@ -108,11 +108,11 @@ const ContactPage = () => {
               className="space-y-8"
             >
               <div>
-                <div className="flex flex-col items-start mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                <div className="flex flex-col items-start mb-6 w-fit">
+                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                     Get in Touch
                   </h2>
-                  <div className="w-24 md:w-32 h-0.5 mb-3" style={{ backgroundColor: '#FFD700' }}></div>
+                  <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
                 </div>
                 <p className="text-earth-600 leading-relaxed mb-8">
                   We recognise that every person has unique needs and aspirations. We craft adaptive adventures that meet your requirements and expand what you believe is possible while ensuring dignity, privacy, confidentiality, and uncompromised safety at every step.
@@ -172,11 +172,11 @@ const ContactPage = () => {
               className="lg:col-span-2"
             >
               <div className="bg-white rounded-2xl shadow-xl p-8">
-                <div className="flex flex-col items-start mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                <div className="flex flex-col items-start mb-6 w-fit">
+                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                     Accessibility Requirements
                   </h3>
-                  <div className="w-24 md:w-32 h-0.5 mb-3" style={{ backgroundColor: '#FFD700' }}></div>
+                  <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
                 </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -338,13 +338,13 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-left"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="flex flex-col items-start mb-6 w-fit">
+              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                 Visit Aquaterra Adventures
               </h3>
-              <div className="w-24 md:w-32 h-0.5 mb-3" style={{ backgroundColor: '#FFD700' }}></div>
+              <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-earth-600 mb-6">
               Our adventure camp partner is located in New Delhi.

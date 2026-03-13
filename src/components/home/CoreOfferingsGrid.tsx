@@ -47,15 +47,15 @@ const CoreOfferingsGrid = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
-          <div className="flex flex-col items-center mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+          <div className="flex flex-col items-start mb-6 w-fit">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
               Four Pillars of Adventure
             </h2>
-            <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+            <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
           </div>
-          <p className="text-xl text-earth-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-earth-600 max-w-3xl ml-0 leading-relaxed">
             From the highest peaks of the Himalayas to the wildest rivers of India,
             we curate experiences that challenge, inspire, and transform.
           </p>
@@ -87,10 +87,10 @@ const CoreOfferingsGrid = () => {
                     
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-8">
                       <IconComponent className="h-12 w-12 mb-4 text-adventure-400 group-hover:scale-110 transition-transform duration-300" />
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-left">
                         {offering.title}
                       </h3>
-                      <p className="text-lg text-center text-white/90 group-hover:text-white transition-colors duration-300">
+                      <p className="text-lg text-left text-white/90 group-hover:text-white transition-colors duration-300">
                         {offering.description}
                       </p>
                       <div className="mt-6 border-b-2 border-adventure-400 w-16 group-hover:w-24 transition-all duration-300"></div>

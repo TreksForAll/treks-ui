@@ -107,7 +107,7 @@ const AccessibilityPage = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-28 min-h-screen bg-white">
       {/* Back Navigation */}
       <div className="bg-white border-b border-earth-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -134,13 +134,13 @@ const AccessibilityPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-left"
           >
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Accessibility className="h-8 w-8 text-adventure-400" />
               <h1 className="text-4xl md:text-5xl font-bold">Our Accessibility Commitment</h1>
             </div>
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-200 max-w-3xl ml-0">
               Breaking barriers, building bridges, and proving that adventure truly knows no limits
             </p>
           </motion.div>
@@ -155,12 +155,12 @@ const AccessibilityPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-6">
               Comprehensive Accessibility Support
             </h2>
-            <p className="text-lg text-earth-600 max-w-3xl mx-auto">
+            <p className="text-lg text-earth-600 max-w-3xl ml-0">
               Our adventures are designed with universal access principles, ensuring meaningful participation for all abilities
             </p>
           </motion.div>
@@ -210,12 +210,12 @@ const AccessibilityPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Our Inclusion Principles
             </h2>
-            <p className="text-lg text-earth-200 max-w-3xl mx-auto">
+            <p className="text-lg text-earth-200 max-w-3xl ml-0">
               The core values that guide every decision we make and every adventure we create
             </p>
           </motion.div>
@@ -230,7 +230,7 @@ const AccessibilityPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center"
+                  className="text-left"
                 >
                   <div className="bg-earth-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
                     <IconComponent className="h-10 w-10 text-adventure-400" />
@@ -250,7 +250,7 @@ const AccessibilityPage = () => {
 
       {/* Contact Accessibility Team */}
       <section className="py-16 bg-earth-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -260,7 +260,7 @@ const AccessibilityPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-6">
               Questions About Accessibility?
             </h2>
-            <p className="text-lg text-earth-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-earth-600 mb-8 max-w-2xl ml-0">
               Our accessibility specialists are here to discuss your specific needs and create the perfect adventure experience for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

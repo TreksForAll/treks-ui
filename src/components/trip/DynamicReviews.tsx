@@ -164,7 +164,7 @@ const DynamicReviews: React.FC<DynamicReviewsProps> = ({ tripId, tripName }) => 
     return (
       <section className="py-12 bg-earth-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-left">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
             <p className="text-earth-600 mt-4">Loading reviews...</p>
           </div>
@@ -177,7 +177,7 @@ const DynamicReviews: React.FC<DynamicReviewsProps> = ({ tripId, tripName }) => 
     return (
       <section className="py-12 bg-earth-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-left">
             <p className="text-error-600 mb-4">{error}</p>
             <button
               onClick={handleRefresh}
@@ -279,7 +279,7 @@ const DynamicReviews: React.FC<DynamicReviewsProps> = ({ tripId, tripName }) => 
 
         {/* Review Stats */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
+          <div className="text-left">
             <div className="text-3xl font-bold text-adventure-600 mb-2">4.9</div>
             <div className="flex justify-center space-x-1 mb-2">
               {[...Array(5)].map((_, i) => (
@@ -289,12 +289,12 @@ const DynamicReviews: React.FC<DynamicReviewsProps> = ({ tripId, tripName }) => 
             <p className="text-earth-600">Average Rating</p>
           </div>
           
-          <div className="text-center">
+          <div className="text-left">
             <div className="text-3xl font-bold text-adventure-600 mb-2">2,340+</div>
             <p className="text-earth-600">Total Reviews</p>
           </div>
           
-          <div className="text-center">
+          <div className="text-left">
             <div className="text-3xl font-bold text-adventure-600 mb-2">98%</div>
             <p className="text-earth-600">Would Recommend</p>
           </div>

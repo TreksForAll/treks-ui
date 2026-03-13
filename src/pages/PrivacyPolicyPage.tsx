@@ -13,22 +13,24 @@ const PrivacyPolicyPage = () => {
         url="https://treksforall.in/privacy"
       />
 
-      <div className="pt-20 min-h-screen bg-gradient-to-b from-earth-50 to-white">
+      <div className="pt-28 min-h-screen bg-gradient-to-b from-earth-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
             <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full mb-6">
               <Shield className="h-10 w-10 text-primary-600" />
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent">
-              Privacy Policy
-            </h1>
-            <div className="w-32 md:w-48 h-0.5 mx-auto mb-6" style={{ backgroundColor: '#FFD700' }}></div>
+            <div className="w-fit mx-auto flex flex-col items-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent">
+                Privacy Policy
+              </h1>
+              <div className="w-full h-0.5 mb-6" style={{ backgroundColor: '#f3b815' }}></div>
+            </div>
             <p className="text-lg text-earth-600">
               Last Updated: January 1, 2026
             </p>
@@ -241,7 +243,7 @@ const PrivacyPolicyPage = () => {
               </section>
 
               <div className="border-t border-earth-200 pt-8 mt-8">
-                <p className="text-sm text-earth-500 text-center">
+                <p className="text-sm text-earth-500 text-left">
                   By using our services, you acknowledge that you have read and understood this Privacy Policy and agree to its terms.
                 </p>
               </div>

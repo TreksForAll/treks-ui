@@ -25,7 +25,7 @@ const AboutPage = () => {
 
 
   return (
-    <div className="pt-20">
+    <div className="pt-28">
       <SEO
         title="Our story - Treks for All | Inclusive adventure travel"
         description="Born from a vision of inclusion, three mission-driven organizations came together to make outdoor adventure accessible to all. Discover how v-shesh, Aquaterra Adventures, and Metores Trust joined forces to create India's leading inclusive adventure company, breaking barriers one trek at a time."
@@ -43,7 +43,7 @@ const AboutPage = () => {
           }}
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative text-center text-white px-4 z-10">
+        <div className="relative text-left text-white px-4 z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-white/90 max-w-3xl ml-0"
           >
             Born from a Vision of Inclusion
           </motion.p>
@@ -73,11 +73,11 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex flex-col items-start mb-6">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="flex flex-col items-start mb-6 w-fit">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                   Our Story
                 </h2>
-                <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
               </div>
               <div className="prose prose-lg text-earth-600">
                 <p className="mb-6">
@@ -144,21 +144,21 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="flex flex-col items-start mb-6 w-fit">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                 Our Journey
               </h2>
-              <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
+              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
-            <p className="text-lg text-earth-600 max-w-3xl mx-auto">
+            <p className="text-lg text-earth-600 max-w-3xl ml-0">
               Three organisations, one big dream, a cup of chai and Treks for All was born!
             </p>
-            <p className="text-lg text-earth-600 max-w-3xl mx-auto mt-4">
+            <p className="text-lg text-earth-600 max-w-3xl ml-0 mt-4">
               Vaibhav Kala, founder of Aquaterra, after 30 years of adventure, realised there was a whole community of people who had never been taken outdoors. Shashaank Awasthi, founder of v-shesh, asked the obvious question: "Why not adventure and accessibility too?" And Pankaj Wadhwa, Director of Metores Trust and the ultimate trek addict, played matchmaker - bringing everyone together to make it happen.
             </p>
-            <p className="text-lg text-earth-600 max-w-3xl mx-auto mt-4">
+            <p className="text-lg text-earth-600 max-w-3xl ml-0 mt-4">
               And just like that, between sips of chai and a few excited "what ifs," the idea for Treks for All was born, because the mountains are for everyone, and great things often start in cafés.
             </p>
           </motion.div>
@@ -229,18 +229,20 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-left mb-16"
           >
-            <div className="flex flex-col items-center mb-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.25em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                Onwards & Upwards
-              </h2>
-              <div className="w-32 md:w-48 h-0.5 mb-4" style={{ backgroundColor: '#FFD700' }}></div>
-              <p className="text-lg md:text-xl lg:text-2xl text-earth-800 font-black uppercase tracking-tight leading-tight" style={{ fontWeight: 900 }}>
+            <div className="flex flex-col items-start mb-6">
+              <div className="w-fit flex flex-col">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                  Onwards & Upwards
+                </h2>
+                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
+              </div>
+              <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
                 The Journey Continues
               </p>
             </div>
-            <p className="text-lg text-earth-600 max-w-2xl mx-auto">
+            <p className="text-lg text-earth-600 max-w-2xl ml-0">
               With every trek, camp, and new explorer, we're expanding the possibilities of adventure, one inclusive step at a time.
             </p>
           </motion.div>
@@ -292,12 +294,12 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 md:p-12 shadow-lg"
           >
-            <div className="text-center mb-10">
-              <div className="flex flex-col items-center mb-6">
-                <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="text-left mb-10">
+              <div className="flex flex-col items-start mb-6 w-fit">
+                <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
                   Our Values
                 </h3>
-                <div className="w-24 md:w-32 h-0.5 mb-3" style={{ backgroundColor: '#FFD700' }}></div>
+                <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
               </div>
               <p className="text-earth-600">The principles that guide every adventure we create</p>
             </div>
@@ -392,7 +394,7 @@ const AboutPage = () => {
 
       {/* Call to Action */}
       <section className="py-16 bg-primary-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -402,7 +404,7 @@ const AboutPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Meet Our Accessibility Champions
             </h2>
-            <p className="text-lg text-primary-200 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-primary-200 mb-8 max-w-2xl ml-0">
               Discover the dedicated partners and specialists who make inclusive adventure possible.
               Together, we're breaking barriers and creating opportunities for everyone.
             </p>
