@@ -16,6 +16,7 @@ import {
   Phone,
   Mail
 } from 'lucide-react';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const AccessibilityPage = () => {
   const accessibilityFeatures = [
@@ -122,7 +123,7 @@ const AccessibilityPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-900 via-primary-800 to-adventure-900 text-white relative overflow-hidden">
+      <section className="py-16 bg-[#1a2e35] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 15c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15zm0 5c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -136,11 +137,11 @@ const AccessibilityPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left"
           >
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Accessibility className="h-8 w-8 text-adventure-400" />
+            <div className="flex items-center space-x-2 mb-4">
+              <Accessibility className="h-8 w-8 text-[#f3b815]" />
               <h1 className="text-4xl md:text-5xl font-bold">Our Accessibility Commitment</h1>
             </div>
-            <p className="text-xl text-primary-200 max-w-3xl ml-0">
+            <p className="text-xl text-[#a3d7db] max-w-3xl ml-0">
               Breaking barriers, building bridges, and proving that adventure truly knows no limits
             </p>
           </motion.div>
@@ -148,7 +149,7 @@ const AccessibilityPage = () => {
       </section>
 
       {/* Accessibility Features */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -157,10 +158,10 @@ const AccessibilityPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2c646c] mb-6">
               Comprehensive Accessibility Support
             </h2>
-            <p className="text-lg text-earth-600 max-w-3xl ml-0">
+            <p className="text-lg text-[#377d87] max-w-3xl ml-0">
               Our adventures are designed with universal access principles, ensuring meaningful participation for all abilities
             </p>
           </motion.div>
@@ -175,14 +176,14 @@ const AccessibilityPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-earth-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]"
                 >
                   <div className="flex items-center space-x-4 mb-6">
-                    <div className={`${getColorClasses(feature.color)} rounded-full w-16 h-16 flex items-center justify-center`}>
-                      <IconComponent className="h-8 w-8 text-earth-600" />
+                    <div className="bg-[#fef3d1] rounded-xl w-16 h-16 flex items-center justify-center">
+                      <IconComponent className="h-8 w-8 text-[#f3b815]" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-earth-800">{feature.title}</h3>
+                      <h3 className="text-2xl font-bold text-[#2c646c]">{feature.title}</h3>
                       <p className="text-earth-600">{feature.description}</p>
                     </div>
                   </div>
@@ -203,7 +204,7 @@ const AccessibilityPage = () => {
       </section>
 
       {/* Inclusion Principles */}
-      <section className="py-20 bg-earth-800">
+      <section className="py-20 bg-[#1a2e35]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -215,7 +216,7 @@ const AccessibilityPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Our Inclusion Principles
             </h2>
-            <p className="text-lg text-earth-200 max-w-3xl ml-0">
+            <p className="text-lg text-[#a3d7db] max-w-3xl ml-0">
               The core values that guide every decision we make and every adventure we create
             </p>
           </motion.div>
@@ -232,13 +233,13 @@ const AccessibilityPage = () => {
                   viewport={{ once: true }}
                   className="text-left"
                 >
-                  <div className="bg-earth-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="h-10 w-10 text-adventure-400" />
+                  <div className="bg-[#f3b815] rounded-xl w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                    <IconComponent className="h-10 w-10 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-4">
                     {principle.title}
                   </h3>
-                  <p className="text-earth-200 leading-relaxed">
+                  <p className="text-[#a3d7db] leading-relaxed">
                     {principle.description}
                   </p>
                 </motion.div>
@@ -249,7 +250,7 @@ const AccessibilityPage = () => {
       </section>
 
       {/* Contact Accessibility Team */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-16 bg-[#e8f5f6]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -257,23 +258,25 @@ const AccessibilityPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-6">
-              Questions About Accessibility?
-            </h2>
-            <p className="text-lg text-earth-600 mb-8 max-w-2xl ml-0">
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                Questions About Accessibility?
+              </h2>
+            </div>
+            <p className="text-lg text-[#377d87] mb-8 max-w-2xl ml-0">
               Our accessibility specialists are here to discuss your specific needs and create the perfect adventure experience for you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <a
                 href="tel:+919876543210"
-                className="bg-warning-400 text-earth-900 px-8 py-4 rounded-md font-semibold hover:bg-warning-500 transition-colors duration-300 flex items-center justify-center space-x-2"
+                className="bg-[#f3b815] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300 flex items-center justify-center space-x-2"
               >
                 <Phone className="h-5 w-5" />
                 <span>Call Accessibility Support</span>
               </a>
               <Link
                 to="/contact"
-                className="border border-earth-300 text-earth-700 px-8 py-4 rounded-md font-semibold hover:bg-earth-50 transition-colors duration-300 flex items-center justify-center space-x-2"
+                className="border-2 border-[#377d87] text-[#2c646c] px-8 py-4 rounded-xl font-semibold hover:bg-[#d1ebed] transition-colors duration-300 flex items-center justify-center space-x-2"
               >
                 <Mail className="h-5 w-5" />
                 <span>Send Message</span>
@@ -282,6 +285,8 @@ const AccessibilityPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <VSheshRecognitionsSection />
     </div>
   );
 };

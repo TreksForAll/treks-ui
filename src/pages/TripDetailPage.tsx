@@ -33,6 +33,7 @@ import WeatherClimate from '../components/trip/WeatherClimate';
 import Lightbox from '../components/ui/Lightbox';
 import SEO from '../components/ui/SEO';
 import { submitForm } from '../lib/xano';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const TripDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -1163,6 +1164,8 @@ const TripDetailPage = () => {
           )}
         </AnimatePresence>
       )}
+
+      <VSheshRecognitionsSection />
     </div>
   );
 };

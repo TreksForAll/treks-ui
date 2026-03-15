@@ -48,28 +48,27 @@ const USPSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-warning-50">
+    <section className="py-24 bg-[#f5f7fa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-left mb-16"
+          className="text-left mb-14"
         >
-          <div className="flex flex-col items-start mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#4a4a4a] to-[#6a6a6a] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
               Why Choose Treks for All
             </h2>
-            <div className="w-32 md:w-48 h-1 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
           </div>
-          <p className="text-xl text-earth-600 max-w-3xl ml-0 leading-relaxed">
+          <p className="text-lg text-earth-600 max-w-3xl ml-0 leading-relaxed">
             Founded on three decades of adventure expertise combined with cutting-edge accessibility innovation,
             setting the new gold standard for inclusive, safe, and transformative outdoor experiences.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {uspFeatures.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -77,19 +76,17 @@ const USPSection = () => {
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="text-left group"
+                className="group bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 text-center"
               >
-                <div className="relative mx-auto w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors duration-300">
-                  <IconComponent className="h-6 w-6 text-primary-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-[#fef3d1] rounded-xl mb-5 group-hover:bg-[#f3b815] transition-colors duration-300">
+                  <IconComponent className="h-6 w-6 text-[#f3b815] group-hover:text-white transition-colors duration-300" />
                 </div>
-                
-                <h3 className="text-lg font-bold text-earth-800 mb-2">
+                <h3 className="text-base font-bold text-earth-800 mb-2">
                   {feature.title}
                 </h3>
-                
-                <p className="text-earth-600 leading-relaxed">
+                <p className="text-earth-500 leading-relaxed text-sm">
                   {feature.description}
                 </p>
               </motion.div>
@@ -102,18 +99,20 @@ const USPSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           viewport={{ once: true }}
-          className="text-left mt-16"
+          className="mt-16"
         >
-          <div className="bg-earth-800 rounded-2xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Ready for Your Next Adventure?
-            </h3>
-            <p className="text-earth-300 text-lg mb-8 max-w-2xl ml-0">
-              Join our growing community of adventurers who are breaking barriers and discovering the extraordinary with Treks for All
-            </p>
+          <div className="bg-[#214b51] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                Ready for Your Next Adventure?
+              </h3>
+              <p className="text-[#a3d7db] text-base max-w-xl">
+                Join our growing community of adventurers who are breaking barriers and discovering the extraordinary with Treks for All
+              </p>
+            </div>
             <Link
               to="/contact"
-              className="inline-flex items-center space-x-2 bg-warning-400 text-earth-900 px-8 py-4 rounded-md font-semibold text-lg hover:bg-warning-500 transition-all duration-300 transform hover:scale-105"
+              className="flex-shrink-0 inline-flex items-center space-x-2 bg-[#f3b815] text-[#214b51] px-8 py-4 rounded-xl font-bold text-base hover:bg-[#e5a800] transition-all duration-300"
             >
               <span>Start Planning</span>
               <ArrowRight className="h-5 w-5" />

@@ -67,7 +67,7 @@ const VideoTestimonials = () => {
 
   return (
     <>
-      <section className="py-20 bg-earth-50 overflow-hidden">
+      <section className="py-20 bg-[#1a2e35] overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -76,17 +76,14 @@ const VideoTestimonials = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="flex flex-col items-start mb-6">
-              <div className="w-fit flex flex-col">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                   VOICES FROM THE TRAIL
                 </h2>
-                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
+                <p className="text-lg md:text-xl lg:text-2xl text-[#a3d7db] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
+                  In conversation with guests who walked with us.
+                </p>
               </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
-                In conversation with guests who walked with us.
-              </p>
-            </div>
           </motion.div>
 
           {/* Mobile Carousel */}
@@ -94,10 +91,10 @@ const VideoTestimonials = () => {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-primary-50 transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#f3b815] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
               aria-label="Previous testimonials"
             >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-primary-600" />
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
             </button>
 
             <div className="overflow-hidden w-full max-w-xs sm:max-w-sm flex items-stretch">
@@ -126,13 +123,13 @@ const VideoTestimonials = () => {
                           loading={index === 0 ? "eager" : "lazy"}
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <Play className="h-8 w-8 text-primary-600 ml-1" />
+                          <div className="w-16 h-16 rounded-full bg-[#f3b815] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <Play className="h-8 w-8 text-white ml-1" />
                           </div>
                         </div>
                       </div>
                       <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-white flex-grow">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-earth-800 text-left mb-3 break-words">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#2c646c] text-left mb-3 break-words">
                           {testimonial.name}
                         </h3>
                         <p className="text-earth-600 text-left text-sm sm:text-base break-words leading-relaxed">
@@ -153,10 +150,10 @@ const VideoTestimonials = () => {
             <button
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-primary-50 transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#f3b815] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
               aria-label="Next testimonials"
             >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-primary-600" />
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
             </button>
           </div>
 
@@ -165,7 +162,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handlePreviousDesktop}
               disabled={desktopIndex === 0}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-20 bg-white hover:bg-earth-50 text-earth-800 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-20 bg-white/10 hover:bg-[#f3b815] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="h-6 w-6 group-hover:scale-110 transition-transform" />
@@ -174,7 +171,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handleNextDesktop}
               disabled={desktopIndex >= maxDesktopIndex}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-20 bg-white hover:bg-earth-50 text-earth-800 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-20 bg-white/10 hover:bg-[#f3b815] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next testimonials"
             >
               <ChevronRight className="h-6 w-6 group-hover:scale-110 transition-transform" />
@@ -209,13 +206,13 @@ const VideoTestimonials = () => {
                             loading={index === 0 ? "eager" : "lazy"}
                           />
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                            <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                              <Play className="h-8 w-8 text-primary-600 ml-1" />
+                            <div className="w-16 h-16 rounded-full bg-[#f3b815] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                              <Play className="h-8 w-8 text-white ml-1" />
                             </div>
                           </div>
                         </div>
                         <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-white flex-grow">
-                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-earth-800 text-left mb-3 break-words">
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#2c646c] text-left mb-3 break-words">
                             {testimonial.name}
                           </h3>
                           <p className="text-earth-600 text-left text-sm sm:text-base break-words leading-relaxed">

@@ -85,11 +85,10 @@ const VSheshRecognitionsSection = () => {
           className="rounded-2xl p-8 md:p-12 relative bg-white"
         >
           <div className="text-left mb-8">
-            <div className="w-fit flex flex-col">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                 Affiliations & Recognitions
               </h2>
-              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-left text-earth-600 text-base md:text-lg">
               Honors received by the founding organisations for excellence in adventure travel and disability inclusion

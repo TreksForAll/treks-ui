@@ -64,7 +64,7 @@ const AboutPage = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -73,11 +73,10 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex flex-col items-start mb-6 w-fit">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                   Our Story
                 </h2>
-                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
               </div>
               <div className="prose prose-lg text-earth-600">
                 <p className="mb-6">
@@ -137,7 +136,7 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-earth-50">
+      <section className="py-24 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -146,11 +145,10 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="flex flex-col items-start mb-6 w-fit">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                 Our Journey
               </h2>
-              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-lg text-earth-600 max-w-3xl ml-0">
               Three organisations, one big dream, a cup of chai and Treks for All was born!
@@ -183,38 +181,38 @@ const AboutPage = () => {
               >
                 {/* Mobile Layout */}
                 <div className="md:hidden pl-12 pr-4">
-                  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="text-xl font-bold text-adventure-500 mb-2">
+                  <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <div className="text-base font-bold text-[#f3b815] mb-2">
                       {milestone.year}
                     </div>
                     <h3 className="text-lg font-bold text-earth-800 mb-2">
                       {milestone.title}
                     </h3>
-                    <p className="text-earth-600 text-sm leading-relaxed">
+                    <p className="text-earth-500 text-sm leading-relaxed">
                       {milestone.description}
                     </p>
                   </div>
                   {/* Mobile Timeline Node */}
-                  <div className="absolute left-2.5 top-6 w-4 h-4 bg-adventure-500 rounded-full border-4 border-white shadow-md"></div>
+                  <div className="absolute left-2.5 top-6 w-4 h-4 bg-[#f3b815] rounded-full border-4 border-white shadow-md"></div>
                 </div>
 
                 {/* Desktop Layout */}
                 <div className={`hidden md:block md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
-                  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="text-2xl font-bold text-adventure-500 mb-2">
+                  <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <div className="text-lg font-bold text-[#f3b815] mb-2">
                       {milestone.year}
                     </div>
                     <h3 className="text-xl font-bold text-earth-800 mb-2">
                       {milestone.title}
                     </h3>
-                    <p className="text-earth-600">
+                    <p className="text-earth-500">
                       {milestone.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Desktop Timeline Node */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 bg-adventure-500 rounded-full border-4 border-white shadow-md"></div>
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 bg-[#f3b815] rounded-full border-4 border-white shadow-md"></div>
               </motion.div>
             ))}
           </div>
@@ -222,7 +220,7 @@ const AboutPage = () => {
       </section>
 
       {/* Vision, Mission & Values Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -231,14 +229,11 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="flex flex-col items-start mb-6">
-              <div className="w-fit flex flex-col">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                  Onwards & Upwards
-                </h2>
-                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
-              </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                Onwards & Upwards
+              </h2>
+              <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
                 The Journey Continues
               </p>
             </div>
@@ -254,11 +249,11 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              className="bg-[#f5f7fa] rounded-2xl p-8"
             >
               <div className="flex items-center mb-6">
-                <div className="bg-primary-100 rounded-full p-3 mr-4">
-                  <Eye className="h-8 w-8 text-primary-600" />
+                <div className="bg-[#fef3d1] rounded-xl p-3 mr-4">
+                  <Eye className="h-8 w-8 text-[#f3b815]" />
                 </div>
                 <h3 className="text-2xl font-bold text-earth-800">Vision</h3>
               </div>
@@ -272,11 +267,11 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              className="bg-[#f5f7fa] rounded-2xl p-8"
             >
               <div className="flex items-center mb-6">
-                <div className="bg-adventure-100 rounded-full p-3 mr-4">
-                  <Mountain className="h-8 w-8 text-adventure-600" />
+                <div className="bg-[#fef3d1] rounded-xl p-3 mr-4">
+                  <Mountain className="h-8 w-8 text-[#f3b815]" />
                 </div>
                 <h3 className="text-2xl font-bold text-earth-800">Mission</h3>
               </div>
@@ -292,97 +287,81 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 md:p-12 shadow-lg"
+            className="bg-[#1a2e35] rounded-2xl p-8 md:p-12"
           >
-            <div className="text-left mb-10">
-              <div className="flex flex-col items-start mb-6 w-fit">
-                <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                  Our Values
-                </h3>
-                <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-[#f3b815] rounded-xl mb-5">
+                <Shield className="h-7 w-7 text-white" />
               </div>
-              <p className="text-earth-600">The principles that guide every adventure we create</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Our Values
+              </h3>
+              <p className="text-[#a3d7db]">The principles that guide every adventure we create</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-primary-100 rounded-full p-2 mr-3">
-                    <Shield className="h-5 w-5 text-primary-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Safety</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Shield className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">Every experience is planned and delivered with uncompromised safety standards.</p>
+                <h4 className="font-bold text-white mb-2">Safety</h4>
+                <p className="text-sm text-[#a3d7db]">Every experience is planned and delivered with uncompromised safety standards.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-adventure-100 rounded-full p-2 mr-3">
-                    <Award className="h-5 w-5 text-adventure-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Quality</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Award className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">High-quality adventures through expert planning, skilled teams, and best-in-class, reliable equipment.</p>
+                <h4 className="font-bold text-white mb-2">Quality</h4>
+                <p className="text-sm text-[#a3d7db]">High-quality adventures through expert planning, skilled teams, and best-in-class, reliable equipment.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-primary-100 rounded-full p-2 mr-3">
-                    <HandHeart className="h-5 w-5 text-primary-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Dignity</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <HandHeart className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">We treat every individual with respect, empathy, and equality - always.</p>
+                <h4 className="font-bold text-white mb-2">Dignity</h4>
+                <p className="text-sm text-[#a3d7db]">We treat every individual with respect, empathy, and equality - always.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-adventure-100 rounded-full p-2 mr-3">
-                    <Accessibility className="h-5 w-5 text-adventure-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Accessibility</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Accessibility className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">Committed to making adventure truly accessible for people with all types of disabilities.</p>
+                <h4 className="font-bold text-white mb-2">Accessibility</h4>
+                <p className="text-sm text-[#a3d7db]">Committed to making adventure truly accessible for people with all types of disabilities.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-primary-100 rounded-full p-2 mr-3">
-                    <Users className="h-5 w-5 text-primary-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Inclusion</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Users className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">Creating environments where everyone belongs, regardless of ability, background, or pace.</p>
+                <h4 className="font-bold text-white mb-2">Inclusion</h4>
+                <p className="text-sm text-[#a3d7db]">Creating environments where everyone belongs, regardless of ability, background, or pace.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-adventure-100 rounded-full p-2 mr-3">
-                    <Leaf className="h-5 w-5 text-adventure-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Affordability</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Leaf className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">Fair and reasonable pricing without ever compromising on safety or quality.</p>
+                <h4 className="font-bold text-white mb-2">Affordability</h4>
+                <p className="text-sm text-[#a3d7db]">Fair and reasonable pricing without ever compromising on safety or quality.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-primary-100 rounded-full p-2 mr-3">
-                    <Globe className="h-5 w-5 text-primary-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Innovation</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Globe className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">Continuously discover, test, and open new inclusive destinations, pushing the boundaries of accessible adventure.</p>
+                <h4 className="font-bold text-white mb-2">Innovation</h4>
+                <p className="text-sm text-[#a3d7db]">Continuously discover, test, and open new inclusive destinations, pushing the boundaries of accessible adventure.</p>
               </div>
 
-              <div className="bg-earth-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center mb-3">
-                  <div className="bg-adventure-100 rounded-full p-2 mr-3">
-                    <Mountain className="h-5 w-5 text-adventure-600" />
-                  </div>
-                  <h4 className="font-bold text-earth-800">Empowerment</h4>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                  <Mountain className="h-6 w-6 text-white" />
                 </div>
-                <p className="text-sm text-earth-600">Every experience is designed to build confidence, independence, and a sense of achievement.</p>
+                <h4 className="font-bold text-white mb-2">Empowerment</h4>
+                <p className="text-sm text-[#a3d7db]">Every experience is designed to build confidence, independence, and a sense of achievement.</p>
               </div>
             </div>
           </motion.div>
@@ -393,24 +372,27 @@ const AboutPage = () => {
       <VSheshRecognitionsSection />
 
       {/* Call to Action */}
-      <section className="py-16 bg-primary-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+      <section className="py-20 bg-[#214b51]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Meet Our Accessibility Champions
-            </h2>
-            <p className="text-lg text-primary-200 mb-8 max-w-2xl ml-0">
-              Discover the dedicated partners and specialists who make inclusive adventure possible.
-              Together, we're breaking barriers and creating opportunities for everyone.
-            </p>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Meet Our Accessibility Champions
+              </h2>
+              <p className="text-lg text-[#a3d7db] max-w-2xl">
+                Discover the dedicated partners and specialists who make inclusive adventure possible.
+                Together, we're breaking barriers and creating opportunities for everyone.
+              </p>
+            </div>
             <Link
               to="/about/partners"
-              className="bg-warning-400 text-earth-900 px-8 py-4 rounded-md font-semibold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2"
+              className="flex-shrink-0 bg-[#f3b815] text-[#214b51] px-8 py-4 rounded-xl font-bold hover:bg-[#e5a800] transition-all duration-300 inline-flex items-center space-x-2"
             >
               <HandHeart className="h-5 w-5" />
               <span>Meet Our Partners</span>

@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { trips } from '../data/trips';
 import SEO from '../components/ui/SEO';
-
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 const CampsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('all');
@@ -72,10 +72,12 @@ const CampsPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-earth-800 mb-6">
-              Adventure Camps
-            </h1>
-            <p className="text-xl text-earth-600 max-w-3xl ml-0">
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                Adventure Camps
+              </h1>
+            </div>
+            <p className="text-xl text-[#377d87] max-w-3xl ml-0">
               Immerse yourself in nature's beauty at our carefully curated adventure camps
             </p>
           </motion.div>
@@ -86,7 +88,7 @@ const CampsPage = () => {
               onClick={() => setShowFilters(!showFilters)}
               aria-label="Toggle filters"
               aria-expanded={showFilters}
-              className="bg-warning-400 text-earth-900 px-6 py-3 rounded-lg font-semibold hover:bg-warning-500 transition-all duration-300 flex items-center justify-center space-x-2"
+              className="bg-[#f3b815] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <Filter className="h-5 w-5" />
               <span>Filter Camps</span>
@@ -149,16 +151,16 @@ const CampsPage = () => {
       )}
 
       {/* Results Count */}
-      <section className="py-4 bg-earth-50">
+      <section className="py-4 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-left text-earth-600">
-            Showing <span className="font-semibold text-earth-800">{filteredTrips.length}</span> of {campTrips.length} camps
+            Showing <span className="font-semibold text-[#2c646c]">{filteredTrips.length}</span> of {campTrips.length} camps
           </p>
         </div>
       </section>
 
       {/* Camp Cards Grid */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredTrips.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -171,7 +173,7 @@ const CampsPage = () => {
                   viewport={{ once: true }}
                 >
                   <Link to={`/trip/${camp.id}`} className="block h-full">
-                    <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer h-full flex flex-col">
+                    <div className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
                       <div className="relative h-64 overflow-hidden">
                         <img
                           src={camp.image}
@@ -196,7 +198,7 @@ const CampsPage = () => {
                           <span>{camp.location}</span>
                         </div>
 
-                        <h3 className="text-xl font-bold text-earth-800 mb-3 group-hover:text-primary-600 transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#f3b815] transition-colors duration-300">
                           {camp.title}
                         </h3>
 
@@ -205,9 +207,9 @@ const CampsPage = () => {
                         </p>
 
                         {/* Departure Dates */}
-                        <div className="bg-primary-50 border border-primary-200 rounded-lg p-3 mb-4">
-                          <h4 className="font-semibold text-primary-800 mb-2 flex items-center space-x-1">
-                            <Calendar className="h-4 w-4" />
+                        <div className="bg-[#fef3d1] border border-[#f3b815]/20 rounded-xl p-3 mb-4">
+                          <h4 className="font-semibold text-[#2c646c] mb-2 flex items-center space-x-1">
+                            <Calendar className="h-4 w-4 text-[#f3b815]" />
                             <span>Departure Dates</span>
                           </h4>
                           <div className="space-y-1">
@@ -231,10 +233,10 @@ const CampsPage = () => {
                         </div>
 
                         <div className="flex items-center justify-between mt-auto">
-                          <div className="text-lg font-bold text-primary-600 whitespace-nowrap">
+                          <div className="text-lg font-bold text-[#f3b815] whitespace-nowrap">
                             {camp.price}
                           </div>
-                          <div className="flex items-center text-primary-600 font-medium group-hover:translate-x-1 transition-transform duration-300">
+                          <div className="flex items-center text-[#377d87] font-medium group-hover:translate-x-1 transition-transform duration-300">
                             <span>View Details</span>
                             <ArrowRight className="h-4 w-4 ml-1" />
                           </div>
@@ -256,7 +258,7 @@ const CampsPage = () => {
       </section>
 
       {/* Why Choose Our Camps */}
-      <section className="py-20 bg-primary-900">
+      <section className="py-20 bg-[#1a2e35]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -268,7 +270,7 @@ const CampsPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Why Choose Our Adventure Camps?
             </h2>
-            <p className="text-xl text-primary-200 max-w-3xl ml-0">
+            <p className="text-xl text-[#a3d7db] max-w-3xl ml-0">
               Experience the perfect balance of adventure, comfort, and authentic local culture
             </p>
           </motion.div>
@@ -306,13 +308,13 @@ const CampsPage = () => {
                   viewport={{ once: true }}
                   className="text-left"
                 >
-                  <div className="bg-primary-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-adventure-400" />
+                  <div className="bg-[#f3b815] rounded-xl w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-primary-200 leading-relaxed">
+                  <p className="text-[#a3d7db] leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -323,7 +325,7 @@ const CampsPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-16 bg-[#214b51]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -331,23 +333,25 @@ const CampsPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-6">
-              Ready for Your Camp Adventure?
-            </h2>
-            <p className="text-lg text-earth-600 mb-8 max-w-2xl ml-0">
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                Ready for Your Camp Adventure?
+              </h2>
+            </div>
+            <p className="text-lg text-[#a3d7db] mb-8 max-w-2xl ml-0">
               Join us for an unforgettable experience where adventure meets comfort in some of India's most beautiful locations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <Link
                 to="/contact"
-                className="bg-warning-400 text-earth-900 px-8 py-4 rounded-md font-semibold hover:bg-warning-500 transition-colors duration-300 flex items-center justify-center space-x-2"
+                className="bg-[#f3b815] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300 flex items-center justify-center space-x-2"
               >
                 <Calendar className="h-5 w-5" />
                 <span>Book Your Stay</span>
               </Link>
               <Link
                 to="/contact"
-                className="border border-earth-300 text-earth-700 px-8 py-4 rounded-md font-semibold hover:bg-earth-50 transition-colors duration-300"
+                className="border-2 border-[#a3d7db] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#2c646c] transition-colors duration-300 text-center"
               >
                 Get More Information
               </Link>
@@ -355,6 +359,8 @@ const CampsPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <VSheshRecognitionsSection />
     </div>
   );
 };

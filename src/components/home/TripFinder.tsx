@@ -82,11 +82,10 @@ const TripFinder = () => {
               <span>DISCOVER YOUR PERFECT ACCESSIBLE ADVENTURE</span>
             </div>
 
-            <div className="flex flex-col items-start mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#4a4a4a] to-[#6a6a6a] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                 Adventure Finder
               </h2>
-              <div className="w-32 md:w-48 h-1 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <h3 className="text-lg md:text-xl font-medium text-primary-600 mb-4 md:mb-6">
               Tailored for Every Ability

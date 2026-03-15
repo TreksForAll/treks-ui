@@ -7,6 +7,7 @@ import InclusiveUSPSection from '../components/home/InclusiveUSPSection';
 import FAQPreview from '../components/home/FAQPreview';
 import VoicesFromTrail from '../components/home/VoicesFromTrail';
 import BlogPreview from '../components/home/BlogPreview';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 import FloatingContactButton from '../components/layout/FloatingContactButton';
 import SEO from '../components/ui/SEO';
 import StructuredData from '../components/ui/StructuredData';
@@ -61,6 +62,7 @@ const HomePage = () => {
         <InclusiveUSPSection />
         <FAQPreview />
         <VoicesFromTrail />
+        <VSheshRecognitionsSection />
         <BlogPreview />
       </div>
       <FloatingContactButton />

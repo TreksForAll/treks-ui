@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/ui/SEO';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const FAQsPage = () => {
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
@@ -238,11 +239,10 @@ const FAQsPage = () => {
               transition={{ duration: 0.6 }}
               className="text-left lg:text-left"
             >
-              <div className="flex flex-col items-start mb-6 w-fit">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                   Frequently Asked Questions
                 </h1>
-                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
               </div>
               <p className="text-lg text-earth-600">
                 Everything you need to know about accessible adventures with Treks for All
@@ -254,24 +254,24 @@ const FAQsPage = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-earth-50 rounded-2xl p-6 border border-earth-200"
+              className="bg-[#e8f5f6] rounded-2xl p-6 border border-[#d1ebed]"
             >
-              <h3 className="text-lg font-bold text-earth-800 mb-4 flex items-center space-x-2">
-                <Compass className="h-5 w-5 text-earth-700" />
+              <h3 className="text-lg font-bold text-[#2c646c] mb-4 flex items-center space-x-2">
+                <Compass className="h-5 w-5 text-[#f3b815]" />
                 <span>Need Direct Support?</span>
               </h3>
-              <p className="text-earth-600 mb-4 text-sm">
+              <p className="text-[#377d87] mb-4 text-sm">
                 Our accessibility specialists are available 24/7 for personalized assistance
               </p>
               <div className="space-y-3">
                 <Link
                   to="/contact"
-                  className="flex items-center space-x-3 p-3 bg-white rounded-xl hover:bg-earth-100 transition-colors duration-300 border border-earth-200"
+                  className="flex items-center space-x-3 p-3 bg-white rounded-xl hover:bg-[#f5f7fa] transition-colors duration-300 border border-[#d1ebed]"
                 >
-                  <Mail className="h-4 w-4 text-earth-700" />
+                  <Mail className="h-4 w-4 text-[#f3b815]" />
                   <div>
-                    <div className="font-medium text-earth-800 text-sm">Send Message</div>
-                    <div className="text-earth-600 text-xs">Detailed inquiry</div>
+                    <div className="font-medium text-[#2c646c] text-sm">Send Message</div>
+                    <div className="text-[#377d87] text-xs">Detailed inquiry</div>
                   </div>
                 </Link>
               </div>
@@ -281,7 +281,7 @@ const FAQsPage = () => {
       </section>
 
       {/* FAQ Grid Layout */}
-      <section className="py-20 bg-earth-50">
+      <section className="py-20 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* FAQ Sections - Two Column Layout */}
@@ -296,17 +296,17 @@ const FAQsPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-earth-100"
+                  className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-[#d1ebed]"
                 >
-                  <div className="p-6 bg-earth-50 border-l-4 border-l-earth-700">
+                  <div className="p-6 bg-[#e8f5f6] border-l-4 border-l-[#f3b815]">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <div className="bg-white p-2 rounded-xl shadow-md border border-earth-200">
-                          <IconComponent className="h-5 w-5 text-earth-700" />
+                        <div className="bg-[#fef3d1] p-2 rounded-xl">
+                          <IconComponent className="h-5 w-5 text-[#f3b815]" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-bold text-earth-800">{section.title}</h3>
-                          <span className="text-sm text-earth-600">({section.faqs.length} question{section.faqs.length > 1 ? 's' : ''})</span>
+                          <h3 className="text-lg font-bold text-[#2c646c]">{section.title}</h3>
+                          <span className="text-sm text-[#377d87]">({section.faqs.length} question{section.faqs.length > 1 ? 's' : ''})</span>
                         </div>
                       </div>
                     </div>
@@ -330,7 +330,7 @@ const FAQsPage = () => {
                               {faq.question}
                             </span>
                             <div className="flex-shrink-0 mt-1">
-                              <div className="w-6 h-6 rounded-full bg-warning-400 flex items-center justify-center text-earth-900 text-sm font-bold">
+                              <div className="w-6 h-6 rounded-full bg-[#fef3d1] flex items-center justify-center text-[#f3b815] text-sm font-bold group-hover:bg-[#f3b815] group-hover:text-white transition-colors">
                                 {isOpen ? '−' : '+'}
                               </div>
                             </div>
@@ -363,13 +363,13 @@ const FAQsPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-12 text-left bg-earth-50 rounded-2xl p-8 border border-earth-200"
+            className="mt-12 text-left bg-[#e8f5f6] rounded-2xl p-8 border border-[#d1ebed]"
           >
-            <p className="text-earth-700 text-lg">
+            <p className="text-[#2c646c] text-lg">
               Still have questions? Please reach out to us at{' '}
               <a
                 href="mailto:admin@treksforall.in"
-                className="text-earth-900 hover:text-earth-800 underline font-semibold"
+                className="text-[#f3b815] hover:text-[#d9a513] underline font-semibold"
               >
                 admin@treksforall.in
               </a>
@@ -378,6 +378,8 @@ const FAQsPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <VSheshRecognitionsSection />
     </div>
   );
 };

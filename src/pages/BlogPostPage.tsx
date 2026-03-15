@@ -8,6 +8,7 @@ import {
   ArrowLeft
 } from 'lucide-react';
 import { BlogService } from '../services/blogService';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -307,6 +308,7 @@ const BlogPostPage = () => {
           </div>
         </div>
       </article>
+      <VSheshRecognitionsSection />
     </div>
   );
 };

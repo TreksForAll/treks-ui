@@ -50,7 +50,7 @@ const FAQPreview = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-[#f5f7fa]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -59,20 +59,17 @@ const FAQPreview = () => {
           viewport={{ once: true }}
           className="text-left mb-12"
         >
-          <div className="flex flex-col items-start mb-6">
-            <div className="w-fit flex flex-col">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                FAQs
-              </h2>
-              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
-            </div>
-            <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
+          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+              FAQs
+            </h2>
+            <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
               FREQUENTLY ASKED QUESTIONS
             </p>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-12">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -80,17 +77,17 @@ const FAQPreview = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="border-b border-earth-200 py-4"
+              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-start justify-between text-left focus:outline-none group"
+                className="w-full flex items-start justify-between text-left focus:outline-none group p-5"
               >
-                <span className="text-base font-medium text-earth-800 pr-4 group-hover:text-primary-600 transition-colors">
+                <span className="text-base font-medium text-earth-800 pr-4 group-hover:text-[#377d87] transition-colors">
                   {faq.question}
                 </span>
-                <div className="flex-shrink-0 mt-1">
-                  <div className="w-6 h-6 rounded-full bg-warning-400 flex items-center justify-center text-white text-sm font-bold">
+                <div className="flex-shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#fef3d1] flex items-center justify-center text-[#f3b815] text-lg font-bold group-hover:bg-[#f3b815] group-hover:text-white transition-colors duration-300">
                     {openIndex === index ? '−' : '+'}
                   </div>
                 </div>
@@ -103,7 +100,7 @@ const FAQPreview = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="pt-3 text-earth-600 leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: faq.answer }}>
+                    <div className="px-5 pb-5 text-earth-600 leading-relaxed text-sm border-t border-earth-100 pt-3" dangerouslySetInnerHTML={{ __html: faq.answer }}>
                     </div>
                   </motion.div>
                 )}
@@ -121,7 +118,7 @@ const FAQPreview = () => {
         >
           <Link
             to="/faqs"
-            className="inline-block bg-warning-400 text-earth-900 px-8 py-3 rounded-lg font-semibold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105"
+            className="inline-block bg-[#f3b815] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#e5a800] transition-all duration-300 transform hover:scale-105"
           >
             View More FAQs
           </Link>

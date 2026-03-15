@@ -12,6 +12,7 @@ import { useBlogStore } from '../store/blogStore';
 import { BlogService } from '../services/blogService';
 import SectionTitle from '../components/ui/SectionTitle';
 import SEO from '../components/ui/SEO';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const BlogPage = () => {
   const {
@@ -68,7 +69,7 @@ const BlogPage = () => {
             viewport={{ once: true }}
             className="max-w-4xl ml-0 mb-20"
           >
-            <div className="bg-gradient-to-br from-earth-50 to-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-earth-100">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
                 <a
                   href="https://thebetterindia.com/441694/treks-for-all-disabled-people-india-himalayas-uttarakhand-dayara-bugyal-rishikesh-v-shesh-aquaterra-adventures-metores/"
@@ -81,17 +82,16 @@ const BlogPage = () => {
                     alt="From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </a>
 
                 <div className="md:col-span-2 p-8 lg:p-10">
                   <div className="mb-4">
-                    <span className="inline-block bg-primary-100 text-primary-800 px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="inline-block bg-[#fef3d1] text-[#f3b815] px-4 py-1 rounded-full text-sm font-semibold">
                       The Better India
                     </span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-earth-800 mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#2c646c] mb-4">
                     From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas
                   </h3>
 
@@ -103,7 +103,7 @@ const BlogPage = () => {
                     href="https://thebetterindia.com/441694/treks-for-all-disabled-people-india-himalayas-uttarakhand-dayara-bugyal-rishikesh-v-shesh-aquaterra-adventures-metores/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors group"
+                    className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#2c646c] font-semibold transition-colors group"
                   >
                     <span>Read More</span>
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -135,7 +135,7 @@ const BlogPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500"
+                  className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 border border-[#d1ebed]"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -143,11 +143,10 @@ const BlogPage = () => {
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                   </div>
 
                   <div className="p-6">
-                    <div className="flex items-center space-x-4 text-sm text-earth-600 mb-3">
+                    <div className="flex items-center space-x-4 text-sm text-[#377d87] mb-3">
                       <div className="flex items-center space-x-1">
                         <User className="h-4 w-4" />
                         <span>{(post as any).author}</span>
@@ -158,7 +157,7 @@ const BlogPage = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-earth-800 mb-3 group-hover:text-adventure-600 transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#f3b815] transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -168,7 +167,7 @@ const BlogPage = () => {
 
                     <Link
                       to={`/blog/${(post as any).slug}`}
-                      className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors group/link"
+                      className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#f3b815] font-semibold transition-colors group/link"
                     >
                       <span>Read More</span>
                       <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
@@ -185,6 +184,8 @@ const BlogPage = () => {
           )}
         </div>
       </section>
+
+      <VSheshRecognitionsSection />
     </div>
   );
 };

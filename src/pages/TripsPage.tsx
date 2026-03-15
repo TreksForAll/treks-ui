@@ -17,6 +17,7 @@ import TripComparison from '../components/trip/TripComparison';
 import DifficultyHelpModal from '../components/trip/DifficultyHelpModal';
 import { trips } from '../data/trips';
 import SEO from '../components/ui/SEO';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const TripsPage = () => {
   const [searchParams] = useSearchParams();
@@ -161,11 +162,10 @@ const TripsPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left mb-12"
           >
-            <div className="w-fit flex flex-col mb-6">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                 All Adventures
               </h1>
-              <div className="w-full h-0.5" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-lg text-earth-600 max-w-3xl ml-0">
               Discover our complete collection of adventures across India and beyond
@@ -178,7 +178,7 @@ const TripsPage = () => {
               onClick={() => setShowFilters(!showFilters)}
               aria-label="Toggle filters"
               aria-expanded={showFilters}
-              className="bg-warning-400 text-earth-900 px-6 py-3 rounded-lg font-semibold hover:bg-warning-500 transition-all duration-300 flex items-center justify-center space-x-2"
+              className="bg-[#f3b815] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <Filter className="h-5 w-5" />
               <span>Filter Adventures</span>
@@ -187,7 +187,7 @@ const TripsPage = () => {
             <button
               onClick={() => setShowComparison(true)}
               aria-label="Compare adventures"
-              className="border-2 border-adventure-500 text-adventure-600 px-6 py-3 rounded-lg font-semibold hover:bg-adventure-50 transition-all duration-300 flex items-center justify-center space-x-2"
+              className="border-2 border-[#377d87] text-[#377d87] px-6 py-3 rounded-xl font-semibold hover:bg-[#e8f5f6] transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <Mountain className="h-5 w-5" />
               <span>Compare Adventures</span>
@@ -203,7 +203,7 @@ const TripsPage = () => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="py-8 bg-white border-b border-earth-200"
+          className="py-8 bg-[#f5f7fa] border-b border-[#d1ebed]"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Search Bar */}
@@ -291,16 +291,16 @@ const TripsPage = () => {
       )}
 
       {/* Results Count */}
-      <section className="py-4 bg-earth-50">
+      <section className="py-4 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-left text-earth-600">
-            Showing <span className="font-semibold text-earth-800">{filteredTrips.length}</span> of {trips.length} adventures
+            Showing <span className="font-semibold text-[#2c646c]">{filteredTrips.length}</span> of {trips.length} adventures
           </p>
         </div>
       </section>
 
       {/* Trip Cards Grid */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredTrips.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -313,7 +313,7 @@ const TripsPage = () => {
                   viewport={{ once: true }}
                 >
                   <Link to={`/trip/${trip.id}`} className="block h-full">
-                    <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer h-full flex flex-col">
+                    <div className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
                       <div className="relative h-64 overflow-hidden">
                         <img
                           src={trip.image}
@@ -338,7 +338,7 @@ const TripsPage = () => {
                           <span>{trip.location}</span>
                         </div>
                         
-                        <h3 className="text-xl font-bold text-earth-800 mb-3 group-hover:text-primary-600 transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#f3b815] transition-colors duration-300">
                           {trip.title}
                         </h3>
                         
@@ -347,14 +347,14 @@ const TripsPage = () => {
                         </p>
 
                         {/* Departure Dates */}
-                        <div className="bg-primary-50 border border-primary-200 rounded-lg p-3 mb-4">
-                          <h4 className="font-semibold text-primary-800 mb-2 flex items-center space-x-1">
-                            <Calendar className="h-4 w-4" />
+                        <div className="bg-[#fef3d1] border border-[#f3b815]/20 rounded-xl p-3 mb-4">
+                          <h4 className="font-semibold text-[#2c646c] mb-2 flex items-center space-x-1">
+                            <Calendar className="h-4 w-4 text-[#f3b815]" />
                             <span>Departure Dates</span>
                           </h4>
                           <div className="space-y-1">
                             {trip.departureDates.map((date, idx) => (
-                              <div key={idx} className={`text-sm font-medium ${date.includes('HAC-PwD') ? 'text-adventure-700 bg-adventure-100 px-2 py-1 rounded-md' : 'text-primary-700'}`}>
+                              <div key={idx} className={`text-sm font-medium ${date.includes('HAC-PwD') ? 'text-[#377d87] bg-[#e8f5f6] px-2 py-1 rounded-md' : 'text-[#2c646c]'}`}>
                                 {date.includes('HAC-PwD') ? '⭐ ' : '📅 '}{date}
                               </div>
                             ))}
@@ -373,10 +373,10 @@ const TripsPage = () => {
                         </div>
 
                         <div className="flex items-center justify-between mt-auto">
-                          <div className="text-lg font-bold text-primary-600 whitespace-nowrap">
+                          <div className="text-lg font-bold text-[#f3b815] whitespace-nowrap">
                             {trip.price}
                           </div>
-                          <div className="flex items-center text-primary-600 font-medium group-hover:translate-x-1 transition-transform duration-300">
+                          <div className="flex items-center text-[#377d87] font-medium group-hover:translate-x-1 transition-transform duration-300">
                             <span>View Details</span>
                             <ArrowRight className="h-4 w-4 ml-1" />
                           </div>

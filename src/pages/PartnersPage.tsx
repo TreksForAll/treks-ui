@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Users, HandHeart, Mountain, Award, ExternalLink, Accessibility, Heart, Shield } from 'lucide-react';
+import { Users, HandHeart, Mountain, ExternalLink, Accessibility } from 'lucide-react';
 import SEO from '../components/ui/SEO';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const PartnersPage = () => {
   const partners = [
@@ -49,7 +50,7 @@ const PartnersPage = () => {
       name: 'v-shesh',
       role: 'Inclusion Partner',
       description: 'Leading Impact enterprise working on disability inclusion',
-      logo: '/V-Shesh.webp',
+      logo: '/v-shesh.webp',
       website: 'https://v-shesh.com/',
       keyContributions: [
         'Inclusion training for guides, staff and buddies',
@@ -65,50 +66,7 @@ const PartnersPage = () => {
     }
   ];
 
-  const achievements = [
-    { 
-      title: 'Accessibility Innovation Award',
-      year: '2024',
-      description: 'Recognized for groundbreaking adaptive outdoor equipment design',
-      icon: Award,
-      color: 'primary'
-    },
-    {
-      title: 'Community Impact Recognition',
-      year: '2024', 
-      description: 'Honored for inclusive tourism and community development initiatives',
-      icon: Heart,
-      color: 'success'
-    },
-    {
-      title: 'Safety Excellence Certification',
-      year: '2025',
-      description: 'Certified for enhanced safety protocols in adaptive adventure travel',
-      icon: Shield,
-      color: 'adventure'
-    }
-  ];
 
-  const getColorClasses = (color: string, variant: 'bg' | 'text' | 'border' = 'bg') => {
-    const colorMap = {
-      primary: {
-        bg: 'bg-primary-100',
-        text: 'text-primary-600',
-        border: 'border-primary-200'
-      },
-      adventure: {
-        bg: 'bg-adventure-100', 
-        text: 'text-adventure-600',
-        border: 'border-adventure-200'
-      },
-      success: {
-        bg: 'bg-success-100',
-        text: 'text-success-600', 
-        border: 'border-success-200'
-      }
-    };
-    return colorMap[color as keyof typeof colorMap]?.[variant] || colorMap.primary[variant];
-  };
 
   return (
     <div className="pt-28 min-h-screen bg-white">
@@ -128,11 +86,10 @@ const PartnersPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left"
           >
-            <div className="flex flex-col items-start mb-6 w-fit">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                 Our Founding Partners
               </h1>
-              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-xl text-earth-600 max-w-3xl ml-0">
               Meet the visionary organizations that united to make outdoor adventures accessible to everyone
@@ -142,7 +99,7 @@ const PartnersPage = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-earth-50">
+      <section className="py-20 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             {partners.map((partner, index) => (
@@ -176,13 +133,13 @@ const PartnersPage = () => {
                     </p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="text-left p-4 bg-white rounded-lg">
-                        <div className="text-2xl font-bold text-earth-800">{partner.established}</div>
-                        <div className="text-sm text-earth-600">Established</div>
+                      <div className="text-left p-4 bg-[#fef8e8] rounded-xl">
+                        <div className="text-2xl font-bold text-[#f3b815]">{partner.established}</div>
+                        <div className="text-sm text-[#377d87]">Established</div>
                       </div>
-                      <div className="text-left p-4 bg-white rounded-lg">
-                        <div className="text-xs font-medium text-earth-800 leading-tight">{partner.impact}</div>
-                        <div className="text-sm text-earth-600 mt-1">Impact</div>
+                      <div className="text-left p-4 bg-[#fef8e8] rounded-xl">
+                        <div className="text-xs font-medium text-[#2c646c] leading-tight">{partner.impact}</div>
+                        <div className="text-sm text-[#377d87] mt-1">Impact</div>
                       </div>
                     </div>
 
@@ -200,23 +157,23 @@ const PartnersPage = () => {
 
                 {/* Partner Details */}
                 <div className={`order-1 lg:order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="bg-white rounded-2xl p-8">
-                    <h4 className="text-xl font-bold text-earth-800 mb-6">Key Contributions</h4>
+                  <div className="bg-white rounded-2xl p-8 border border-[#d1ebed]">
+                    <h4 className="text-xl font-bold text-[#2c646c] mb-6">Key Contributions</h4>
                     <ul className="space-y-3 mb-8">
                       {partner.keyContributions.map((contribution, idx) => (
                         <li key={idx} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-earth-700"></div>
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-[#f3b815]"></div>
                           <span className="text-earth-700">{contribution}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <h4 className="text-xl font-bold text-earth-800 mb-4">Areas of Expertise</h4>
+                    <h4 className="text-xl font-bold text-[#2c646c] mb-4">Areas of Expertise</h4>
                     <div className="flex flex-wrap gap-2">
                       {partner.expertise.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 rounded-full text-sm font-medium bg-earth-100 text-earth-700 border border-earth-200"
+                          className="px-3 py-1 rounded-full text-sm font-medium bg-[#e8f5f6] text-[#2c646c] border border-[#d1ebed]"
                         >
                           {skill}
                         </span>
@@ -226,52 +183,6 @@ const PartnersPage = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Collaborative Achievements */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-left mb-16"
-          >
-            <div className="flex flex-col items-start mb-6 w-fit">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                Collaborative Achievements
-              </h2>
-              <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
-            </div>
-            <p className="text-xl text-earth-600 max-w-3xl ml-0">
-              Together, our partners have created groundbreaking innovations in accessible adventure travel
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => {
-              const IconComponent = achievement.icon;
-              return (
-                <motion.div
-                  key={achievement.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-left border border-earth-100"
-                >
-                  <div className="bg-earth-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-earth-700" />
-                  </div>
-                  <div className="text-lg font-bold text-earth-700 mb-2">{achievement.year}</div>
-                  <h3 className="text-xl font-bold text-earth-800 mb-3">{achievement.title}</h3>
-                  <p className="text-earth-600 leading-relaxed">{achievement.description}</p>
-                </motion.div>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -286,14 +197,11 @@ const PartnersPage = () => {
             viewport={{ once: true }}
             className="text-left mb-12"
           >
-            <div className="flex flex-col items-start mb-6">
-              <div className="w-fit flex flex-col">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
-                  Who's Journeyed With Us
-                </h2>
-                <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
-              </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-earth-600 font-semibold uppercase" style={{ fontWeight: 600 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                Who's Journeyed With Us
+              </h2>
+              <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
                 So Far
               </p>
             </div>
@@ -308,10 +216,9 @@ const PartnersPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-earth-50 rounded-2xl p-8 border border-earth-100"
-            >
-              <div className="text-4xl font-bold text-earth-900 mb-2">82 guests & counting</div>
-              <div className="text-earth-600">Total Participants</div>
+              className="bg-[#fef8e8] rounded-2xl p-8">
+              <div className="text-4xl font-bold text-[#f3b815] mb-2">82 guests & counting</div>
+              <div className="text-[#377d87]">Total Participants</div>
             </motion.div>
 
             <motion.div
@@ -319,10 +226,9 @@ const PartnersPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-earth-50 rounded-2xl p-8 border border-earth-100"
-            >
-              <div className="text-4xl font-bold text-earth-900 mb-2">65 %</div>
-              <div className="text-earth-600">Persons with Disabilities</div>
+              className="bg-[#fef8e8] rounded-2xl p-8">
+              <div className="text-4xl font-bold text-[#f3b815] mb-2">65 %</div>
+              <div className="text-[#377d87]">Persons with Disabilities</div>
             </motion.div>
 
             <motion.div
@@ -330,17 +236,16 @@ const PartnersPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-earth-50 rounded-2xl p-8 border border-earth-100"
-            >
-              <div className="text-4xl font-bold text-earth-900 mb-2">10+</div>
-              <div className="text-earth-600">Unique Disability Types</div>
+              className="bg-[#fef8e8] rounded-2xl p-8">
+              <div className="text-4xl font-bold text-[#f3b815] mb-2">10+</div>
+              <div className="text-[#377d87]">Unique Disability Types</div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-16 bg-[#214b51]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -348,25 +253,24 @@ const PartnersPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
            >
-             <div className="flex flex-col items-start mb-6 w-fit">
-               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+             <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                  Ready to Explore Together?
                </h2>
-               <div className="w-full h-0.5 mb-4" style={{ backgroundColor: '#f3b815' }}></div>
              </div>
-             <p className="text-lg text-earth-600 mb-8 text-left">
+             <p className="text-lg text-[#a3d7db] mb-8 text-left">
                Join us in making outdoor adventures accessible to everyone
              </p>
-             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             <div className="flex flex-col sm:flex-row gap-4 justify-start">
                <Link
                  to="/trips"
-                 className="bg-warning-400 hover:bg-warning-500 text-earth-900 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-left transform hover:scale-105"
+                 className="bg-[#f3b815] hover:bg-[#d9a513] text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
                >
                  View Our Trips
                </Link>
                <Link
                  to="/contact"
-                 className="border-2 border-earth-300 text-earth-800 hover:bg-earth-100 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-left"
+                 className="border-2 border-[#a3d7db] text-white hover:bg-[#2c646c] px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
                >
                  Contact Us
                </Link>
@@ -374,6 +278,8 @@ const PartnersPage = () => {
            </motion.div>
          </div>
        </section>
+
+       <VSheshRecognitionsSection />
      </div>
    );
  };

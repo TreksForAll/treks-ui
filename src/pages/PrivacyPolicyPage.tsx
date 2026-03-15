@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Lock, Eye, UserCheck, FileText, Mail, Phone } from 'lucide-react';
 import SEO from '../components/ui/SEO';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const PrivacyPolicyPage = () => {
   return (
@@ -13,7 +14,7 @@ const PrivacyPolicyPage = () => {
         url="https://treksforall.in/privacy"
       />
 
-      <div className="pt-28 min-h-screen bg-gradient-to-b from-earth-50 to-white">
+      <div className="pt-28 min-h-screen bg-[#f5f7fa]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           <motion.div
@@ -22,14 +23,13 @@ const PrivacyPolicyPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left mb-16"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full mb-6">
-              <Shield className="h-10 w-10 text-primary-600" />
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#fef3d1] rounded-xl mb-6">
+              <Shield className="h-10 w-10 text-[#f3b815]" />
             </div>
-            <div className="w-fit mx-auto flex flex-col items-center">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] mb-4 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent">
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4 mx-auto w-fit">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-[#f3b815]">
                 Privacy Policy
               </h1>
-              <div className="w-full h-0.5 mb-6" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-lg text-earth-600">
               Last Updated: January 1, 2026
@@ -42,12 +42,12 @@ const PrivacyPolicyPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-8">
+            <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 space-y-8 border border-[#d1ebed]">
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Eye className="h-6 w-6 text-primary-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <Eye className="h-6 w-6 text-[#f3b815]" />
                   </div>
                   <h2 className="text-2xl font-bold text-earth-900">Introduction</h2>
                 </div>
@@ -61,10 +61,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-adventure-100 rounded-lg flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-adventure-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <FileText className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Information We Collect</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Information We Collect</h2>
                 </div>
 
                 <h3 className="text-xl font-semibold text-earth-800 mt-6 mb-3">Personal Information</h3>
@@ -95,10 +95,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
-                    <UserCheck className="h-6 w-6 text-success-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <UserCheck className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">How We Use Your Information</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">How We Use Your Information</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed mb-3">
                   We use the information we collect for the following purposes:
@@ -117,10 +117,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-warning-100 rounded-lg flex items-center justify-center">
-                    <Lock className="h-6 w-6 text-warning-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <Lock className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Information Sharing and Disclosure</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Information Sharing and Disclosure</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed mb-3">
                   We do not sell your personal information. We may share your information only in the following circumstances:
@@ -136,10 +136,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-primary-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Data Security</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Data Security</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed">
                   We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
@@ -157,10 +157,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-adventure-100 rounded-lg flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-adventure-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <FileText className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Your Rights and Choices</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Your Rights and Choices</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed mb-3">
                   You have the following rights regarding your personal information:
@@ -181,10 +181,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
-                    <Eye className="h-6 w-6 text-success-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <Eye className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Cookies and Tracking Technologies</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Cookies and Tracking Technologies</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed">
                   We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small data files stored on your device that help us remember your preferences and understand how you use our site.
@@ -196,10 +196,10 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-warning-100 rounded-lg flex items-center justify-center">
-                    <UserCheck className="h-6 w-6 text-warning-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <UserCheck className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Children's Privacy</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Children's Privacy</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed">
                   Our services are not directed to children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.
@@ -208,35 +208,35 @@ const PrivacyPolicyPage = () => {
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-primary-600" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
+                    <FileText className="h-6 w-6 text-[#f3b815]" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Changes to This Privacy Policy</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Changes to This Privacy Policy</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed">
                   We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by posting the updated policy on our website with a new "Last Updated" date. We encourage you to review this Privacy Policy periodically.
                 </p>
               </section>
 
-              <section className="bg-earth-50 rounded-xl p-8">
+              <section className="bg-[#e8f5f6] rounded-xl p-8">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#f3b815] rounded-xl flex items-center justify-center">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-earth-900">Contact Us</h2>
+                  <h2 className="text-2xl font-bold text-[#2c646c]">Contact Us</h2>
                 </div>
                 <p className="text-earth-600 leading-relaxed mb-4">
                   If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5 text-primary-600" />
-                    <a href="mailto:admin@treksforall.in" className="text-primary-600 hover:text-primary-700 transition-colors">
+                    <Mail className="h-5 w-5 text-[#f3b815]" />
+                    <a href="mailto:admin@treksforall.in" className="text-[#377d87] hover:text-[#2c646c] transition-colors">
                       admin@treksforall.in
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5 text-primary-600" />
+                    <Phone className="h-5 w-5 text-[#f3b815]" />
                     <span className="text-earth-700">+91 96431 84862</span>
                   </div>
                 </div>
@@ -253,6 +253,7 @@ const PrivacyPolicyPage = () => {
 
         </div>
       </div>
+      <VSheshRecognitionsSection />
     </>
   );
 };

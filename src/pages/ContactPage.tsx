@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Accessibility } from 'lucide-react';
 import SEO from '../components/ui/SEO';
 import { submitForm } from '../lib/xano';
+import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -76,19 +77,22 @@ const ContactPage = () => {
       {/* Hero Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-earth-800 mb-6"
           >
-            Start Your Accessible Adventure
-          </motion.h1>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                Start Your Accessible Adventure
+              </h1>
+            </div>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-earth-600 max-w-3xl ml-0"
+            className="text-xl text-[#377d87] max-w-3xl ml-0"
           >
             Ready to break barriers and explore new possibilities? Our accessibility specialists are here to design your perfect inclusive adventure.
           </motion.p>
@@ -96,7 +100,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
@@ -108,11 +112,10 @@ const ContactPage = () => {
               className="space-y-8"
             >
               <div>
-                <div className="flex flex-col items-start mb-6 w-fit">
-                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+                <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                     Get in Touch
                   </h2>
-                  <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
                 </div>
                 <p className="text-earth-600 leading-relaxed mb-8">
                   We recognise that every person has unique needs and aspirations. We craft adaptive adventures that meet your requirements and expand what you believe is possible while ensuring dignity, privacy, confidentiality, and uncompromised safety at every step.
@@ -121,9 +124,11 @@ const ContactPage = () => {
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <Phone className="h-6 w-6 text-earth-700 mt-1" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-5 w-5 text-[#f3b815]" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-earth-800">Phone</h3>
+                    <h3 className="font-semibold text-[#2c646c]">Phone</h3>
                     <p className="text-earth-600">Sakshi: +91 82796 24879</p>
                     <p className="text-earth-600">Vaishnavi: +91 85277 52157</p>
                     <p className="text-earth-600">Himanshu: +91 96431 84862</p>
@@ -131,17 +136,21 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Mail className="h-6 w-6 text-earth-700 mt-1" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-5 w-5 text-[#f3b815]" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-earth-800">Email</h3>
-                    <p className="text-earth-600"><a href="mailto:admin@treksforall.in" className="text-earth-800 hover:text-earth-900 underline">admin@treksforall.in</a></p>
+                    <h3 className="font-semibold text-[#2c646c]">Email</h3>
+                    <p className="text-earth-600"><a href="mailto:admin@treksforall.in" className="text-[#377d87] hover:text-[#2c646c] underline">admin@treksforall.in</a></p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <MapPin className="h-6 w-6 text-earth-700 mt-1" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-5 w-5 text-[#f3b815]" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-earth-800">Address</h3>
+                    <h3 className="font-semibold text-[#2c646c]">Address</h3>
                     <p className="text-earth-600">
                       S-507, Ground Floor<br />
                       Greater Kailash – 2<br />
@@ -152,9 +161,11 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Clock className="h-6 w-6 text-earth-700 mt-1" />
+                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-5 w-5 text-[#f3b815]" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-earth-800">Office Hours</h3>
+                    <h3 className="font-semibold text-[#2c646c]">Office Hours</h3>
                     <p className="text-earth-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p className="text-earth-600">Saturday: 10:00 AM - 4:00 PM</p>
                     <p className="text-earth-600"><strong>Accessibility Support: 24/7 available</strong></p>
@@ -171,12 +182,11 @@ const ContactPage = () => {
               viewport={{ once: true }}
               className="lg:col-span-2"
             >
-              <div className="bg-white rounded-2xl shadow-xl p-8">
-                <div className="flex flex-col items-start mb-6 w-fit">
-                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+              <div className="bg-white rounded-2xl shadow-sm p-8 border border-[#d1ebed]">
+                <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                     Accessibility Requirements
                   </h3>
-                  <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
                 </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -318,7 +328,7 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-warning-400 text-earth-900 py-4 rounded-lg font-semibold hover:bg-warning-500 transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-[#f3b815] text-white py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Accessibility className="h-5 w-5" />
                     <span>{isSubmitting ? 'Sending...' : 'Send Enquiry'}</span>
@@ -340,18 +350,17 @@ const ContactPage = () => {
             viewport={{ once: true }}
             className="text-left"
           >
-            <div className="flex flex-col items-start mb-6 w-fit">
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] mb-3 bg-gradient-to-b from-[#3b3939] to-[#929192] bg-clip-text text-transparent" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
                 Visit Aquaterra Adventures
               </h3>
-              <div className="w-full h-0.5 mb-3" style={{ backgroundColor: '#f3b815' }}></div>
             </div>
             <p className="text-earth-600 mb-6">
               Our adventure camp partner is located in New Delhi.
             </p>
 
-            <div className="bg-earth-100 rounded-2xl p-8">
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg mb-6">
+            <div className="bg-[#e8f5f6] rounded-2xl p-8">
+              <div className="bg-white rounded-xl overflow-hidden shadow-sm mb-6">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.7567!2d77.2419357!3d28.5297059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3d53fffffff%3A0xc0e02fb0a4887399!2sAquaterra%20Adventures!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
@@ -369,7 +378,7 @@ const ContactPage = () => {
                 href="https://www.google.com/maps/place/Aquaterra+Adventures/@28.5297059,77.2419357,17z/data=!4m14!1m7!3m6!1s0x390ce3d53fffffff:0xc0e02fb0a4887399!2sAquaterra+Adventures!8m2!3d28.5297059!4d77.2445106!16s%2Fg%2F1tgcwfm4!3m5!1s0x390ce3d53fffffff:0xc0e02fb0a4887399!8m2!3d28.5297059!4d77.2445106!16s%2Fg%2F1tgcwfm4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-warning-400 text-earth-900 px-6 py-3 rounded-lg font-semibold hover:bg-warning-500 transition-colors duration-300"
+                className="inline-flex items-center space-x-2 bg-[#f3b815] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300"
               >
                 <MapPin className="h-5 w-5" />
                 <span>Get Directions</span>
@@ -378,6 +387,8 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <VSheshRecognitionsSection />
     </div>
   );
 };
