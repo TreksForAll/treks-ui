@@ -8,7 +8,7 @@ import { trips } from '../../data/trips';
 
 const FeaturedTrips = () => {
   const dayaraTrek = trips.find(trip => trip.id === '1');
-  const campAquaterra = trips.find(trip => trip.id === '3');
+  const campBagi = trips.find(trip => trip.id === '7');
 
   const featuredTrips = [
     {
@@ -26,19 +26,19 @@ const FeaturedTrips = () => {
       accessibility: 'Buddy support system available'
     },
     {
-      id: '3',
-      title: 'Inclusive Adventure Camps',
+      id: '7',
+      title: 'Camp Bagi (Tons River)',
       subtitle: '',
-      location: campAquaterra?.location || 'Garhwal, Uttarakhand',
-      duration: '3 Days / 2 Nights',
-      difficulty: campAquaterra?.difficulty || 'Easy-Moderate',
-      price: campAquaterra?.price || '₹7,500',
-      groupSize: campAquaterra?.groupSize || 'Max 20',
-      departureDates: campAquaterra?.departureDates,
-      image: '/camping/Camp-Aquaterra-02.webp',
-      description: 'This is a 3-day, 2-night riverside stay in the Upper Ganga Valley, nestled in the Himalayan foothills. Guests can enjoy rafting, kayaking, hiking, yoga, wall climbing, and more — all with no compromise on safety, dignity, or comfort...',
-      activities: 'Climbing | Water Sports | Yoga | Nature Walks',
-      accessibility: 'Inclusive Facility'
+      location: campBagi?.location || 'Tons Valley, Uttarakhand',
+      duration: '4 Days / 3 Nights',
+      difficulty: campBagi?.difficulty || 'Easy',
+      price: campBagi?.price || '₹15,000 + 5% GST',
+      groupSize: campBagi?.groupSize || 'Max 20',
+      departureDates: campBagi?.departureDates,
+      image: '/camping/camp-bagi-1.webp',
+      description: 'Real camping on a beachfront amidst lush Himalayan forests on the banks of the Tons River. Combine river rafting, hikes, and overnight treks — only 410 km from Delhi. A perfect inclusive family getaway at 3,500 ft in the Jaunsar Bawar region of Uttarakhand.',
+      activities: 'River Rafting | Hiking | Camping | Nature Walks',
+      accessibility: 'Inclusive Experience'
     }
   ];
 
@@ -52,8 +52,8 @@ const FeaturedTrips = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               UPCOMING
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -86,7 +86,7 @@ const FeaturedTrips = () => {
                       width="1440"
                       height="1029"
                       loading="eager"
-                      fetchpriority="high"
+                      fetchPriority="high"
                     />
 
                     {/* Dark Gradient Overlay for Text Contrast */}
@@ -95,7 +95,7 @@ const FeaturedTrips = () => {
                     {/* Title Overlay on Image */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-left px-6">
                       <div className="max-w-5xl w-full">
-                        <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+                        <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white uppercase tracking-[0.3em] mb-2 drop-shadow-2xl" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)', fontWeight: 400 }}>
                           {trip.title}
                         </h3>
@@ -110,7 +110,7 @@ const FeaturedTrips = () => {
 
                     {/* Date Badge Overlay */}
                     <div className="absolute top-6 left-6">
-                      <div className="bg-[#f3b815] text-white px-5 py-2 rounded-xl font-semibold text-base shadow-lg">
+                      <div className="bg-[#e0aa04] text-white px-5 py-2 rounded-xl font-semibold text-base shadow-lg">
                         {trip.departureDate || trip.departureDates?.[0]}
                       </div>
                     </div>
@@ -140,21 +140,21 @@ const FeaturedTrips = () => {
                       {/* Trip Details Grid */}
                       <div className="grid grid-cols-3 gap-4 mb-6">
                         <div className="flex items-center space-x-2 text-earth-700">
-                          <Clock className="h-5 w-5 text-[#f3b815]" />
+                          <Clock className="h-5 w-5 text-[#e0aa04]" />
                           <div>
                             <p className="text-xs text-[#377d87]">Duration</p>
                             <p className="font-semibold text-sm">{trip.duration}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2 text-earth-700">
-                          <Users className="h-5 w-5 text-[#f3b815]" />
+                          <Users className="h-5 w-5 text-[#e0aa04]" />
                           <div>
                             <p className="text-xs text-[#377d87]">Group Size</p>
                             <p className="font-semibold text-sm">{trip.groupSize}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2 text-earth-700">
-                          <TrendingUp className="h-5 w-5 text-[#f3b815]" />
+                          <TrendingUp className="h-5 w-5 text-[#e0aa04]" />
                           <div>
                             <p className="text-xs text-[#377d87]">Difficulty</p>
                             <p className="font-semibold text-sm">{trip.difficulty}</p>
@@ -184,14 +184,14 @@ const FeaturedTrips = () => {
                     <div className="flex items-center justify-between pt-6 border-t border-earth-200">
                       <div>
                         <p className="text-sm text-[#377d87] mb-1">Starting from</p>
-                        <p className="text-3xl font-bold text-[#f3b815]">
+                        <p className="text-3xl font-bold text-earth-900">
                           {trip.price}
                         </p>
                         <p className="text-xs text-[#377d87] mt-1">(all inclusive)</p>
                       </div>
                       <Link
                         to={`/trip/${trip.id}`}
-                        className="bg-[#f3b815] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#d9a513] transition-all duration-300 inline-flex items-center space-x-2 shadow-sm hover:shadow-lg"
+                        className="bg-[#e0aa04] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#d9a513] transition-all duration-300 inline-flex items-center space-x-2 shadow-sm hover:shadow-lg"
                       >
                         <span>View Details</span>
                         <ArrowRight className="h-5 w-5" />
@@ -214,7 +214,7 @@ const FeaturedTrips = () => {
         >
           <Link
             to="/trips"
-            className="inline-flex items-center space-x-2 bg-[#f3b815] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 shadow-sm"
+            className="inline-flex items-center space-x-2 bg-[#e0aa04] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 shadow-sm"
           >
             <Calendar className="h-5 w-5" />
             <span>View Full Calendar</span>

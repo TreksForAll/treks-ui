@@ -23,9 +23,9 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
 
   return (
     <div className={`flex flex-col ${alignmentClasses[align]} ${className}`}>
-      <div className="w-fit border-l-[5px] border-[#f3b815] pl-4 mb-4">
+      <div className="w-fit border-l-[5px] border-[#e0aa04] pl-4 mb-4">
         <h2
-          className={`text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]`}
+          className={`text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]`}
           style={{ fontWeight: 700 }}
         >
           {title}

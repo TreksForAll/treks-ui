@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Minus, Plus } from 'lucide-react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const FAQPreview = () => {
@@ -59,8 +59,8 @@ const FAQPreview = () => {
           viewport={{ once: true }}
           className="text-left mb-12"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               FAQs
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -87,7 +87,7 @@ const FAQPreview = () => {
                   {faq.question}
                 </span>
                 <div className="flex-shrink-0 mt-0.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#fef3d1] flex items-center justify-center text-[#f3b815] group-hover:bg-[#f3b815] group-hover:text-white transition-colors duration-300">
+                    <div className="w-8 h-8 rounded-lg bg-[#fef3d1] flex items-center justify-center text-[#e0aa04] group-hover:bg-[#e0aa04] group-hover:text-white transition-colors duration-300">
                       {openIndex === index ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                   </div>
                 </div>
@@ -118,7 +118,7 @@ const FAQPreview = () => {
         >
           <Link
             to="/faqs"
-            className="inline-block bg-[#f3b815] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#e5a800] transition-all duration-300 transform hover:scale-105"
+            className="inline-block bg-[#e0aa04] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#e5a800] transition-all duration-300 transform hover:scale-105"
           >
             View More FAQs
           </Link>

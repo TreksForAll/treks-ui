@@ -47,7 +47,7 @@ const InclusiveUSPSection = () => {
           viewport={{ once: true }}
           className="mb-6"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Why Treks for All?
             </h2>
@@ -69,7 +69,7 @@ const InclusiveUSPSection = () => {
                 viewport={{ once: true }}
                 className="text-left group"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-[#f3b815] rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-[#e0aa04] rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300">
                   <IconComponent className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-3">

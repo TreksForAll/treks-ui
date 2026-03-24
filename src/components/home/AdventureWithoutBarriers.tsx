@@ -34,8 +34,8 @@ const AdventureWithoutBarriers = () => {
           viewport={{ once: true }}
           className="text-left mb-12"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               ADVENTURE
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -100,7 +100,7 @@ const AdventureWithoutBarriers = () => {
                   <h3 className="text-base font-bold text-earth-800 mb-1 group-hover:text-[#377d87] transition-colors">{partner.name}</h3>
                   <p className="text-sm text-earth-500">{partner.description}</p>
                 </div>
-                <ExternalLink className="h-4 w-4 text-earth-400 group-hover:text-[#f3b815] transition-colors flex-shrink-0 ml-3" />
+                <ExternalLink className="h-4 w-4 text-earth-400 group-hover:text-[#e0aa04] transition-colors flex-shrink-0 ml-3" />
               </a>
             ))}
           </motion.div>

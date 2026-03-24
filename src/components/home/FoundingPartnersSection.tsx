@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Heart, Mountain, ExternalLink } from 'lucide-react';
+import { Mountain } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 
 const FoundingPartnersSection = () => {

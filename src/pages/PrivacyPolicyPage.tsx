@@ -24,10 +24,10 @@ const PrivacyPolicyPage = () => {
             className="text-left mb-16"
           >
             <div className="inline-flex items-center justify-center w-20 h-20 bg-[#fef3d1] rounded-xl mb-6">
-              <Shield className="h-10 w-10 text-[#f3b815]" />
+              <Shield className="h-10 w-10 text-[#e0aa04]" />
             </div>
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4 mx-auto w-fit">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-[#f3b815]">
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4 mx-auto w-fit">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]">
                 Privacy Policy
               </h1>
             </div>
@@ -47,7 +47,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <Eye className="h-6 w-6 text-[#f3b815]" />
+                    <Eye className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-earth-900">Introduction</h2>
                 </div>
@@ -62,7 +62,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-[#f3b815]" />
+                    <FileText className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Information We Collect</h2>
                 </div>
@@ -96,7 +96,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <UserCheck className="h-6 w-6 text-[#f3b815]" />
+                    <UserCheck className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">How We Use Your Information</h2>
                 </div>
@@ -118,7 +118,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <Lock className="h-6 w-6 text-[#f3b815]" />
+                    <Lock className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Information Sharing and Disclosure</h2>
                 </div>
@@ -137,7 +137,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-[#f3b815]" />
+                    <Shield className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Data Security</h2>
                 </div>
@@ -158,7 +158,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-[#f3b815]" />
+                    <FileText className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Your Rights and Choices</h2>
                 </div>
@@ -182,7 +182,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <Eye className="h-6 w-6 text-[#f3b815]" />
+                    <Eye className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Cookies and Tracking Technologies</h2>
                 </div>
@@ -197,7 +197,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <UserCheck className="h-6 w-6 text-[#f3b815]" />
+                    <UserCheck className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Children's Privacy</h2>
                 </div>
@@ -209,7 +209,7 @@ const PrivacyPolicyPage = () => {
               <section>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-[#f3b815]" />
+                    <FileText className="h-6 w-6 text-[#e0aa04]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Changes to This Privacy Policy</h2>
                 </div>
@@ -220,7 +220,7 @@ const PrivacyPolicyPage = () => {
 
               <section className="bg-[#e8f5f6] rounded-xl p-8">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-[#f3b815] rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#e0aa04] rounded-xl flex items-center justify-center">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#2c646c]">Contact Us</h2>
@@ -230,13 +230,13 @@ const PrivacyPolicyPage = () => {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5 text-[#f3b815]" />
+                    <Mail className="h-5 w-5 text-[#e0aa04]" />
                     <a href="mailto:admin@treksforall.in" className="text-[#377d87] hover:text-[#2c646c] transition-colors">
                       admin@treksforall.in
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5 text-[#f3b815]" />
+                    <Phone className="h-5 w-5 text-[#e0aa04]" />
                     <span className="text-earth-700">+91 96431 84862</span>
                   </div>
                 </div>

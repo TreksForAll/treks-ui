@@ -82,8 +82,8 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Start Your Accessible Adventure
               </h1>
             </div>
@@ -112,8 +112,8 @@ const ContactPage = () => {
               className="space-y-8"
             >
               <div>
-                <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                     Get in Touch
                   </h2>
                 </div>
@@ -125,7 +125,7 @@ const ContactPage = () => {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-[#f3b815]" />
+                    <Phone className="h-5 w-5 text-[#e0aa04]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#2c646c]">Phone</h3>
@@ -137,7 +137,7 @@ const ContactPage = () => {
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-5 w-5 text-[#f3b815]" />
+                    <Mail className="h-5 w-5 text-[#e0aa04]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#2c646c]">Email</h3>
@@ -147,7 +147,7 @@ const ContactPage = () => {
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 text-[#f3b815]" />
+                    <MapPin className="h-5 w-5 text-[#e0aa04]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#2c646c]">Address</h3>
@@ -162,7 +162,7 @@ const ContactPage = () => {
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-5 w-5 text-[#f3b815]" />
+                    <Clock className="h-5 w-5 text-[#e0aa04]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#2c646c]">Office Hours</h3>
@@ -183,8 +183,8 @@ const ContactPage = () => {
               className="lg:col-span-2"
             >
               <div className="bg-white rounded-2xl shadow-sm p-8 border border-[#d1ebed]">
-                <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                     Accessibility Requirements
                   </h3>
                 </div>
@@ -328,7 +328,7 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#f3b815] text-white py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-[#e0aa04] text-white py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Accessibility className="h-5 w-5" />
                     <span>{isSubmitting ? 'Sending...' : 'Send Enquiry'}</span>
@@ -350,8 +350,8 @@ const ContactPage = () => {
             viewport={{ once: true }}
             className="text-left"
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Visit Aquaterra Adventures
               </h3>
             </div>
@@ -378,7 +378,7 @@ const ContactPage = () => {
                 href="https://www.google.com/maps/place/Aquaterra+Adventures/@28.5297059,77.2419357,17z/data=!4m14!1m7!3m6!1s0x390ce3d53fffffff:0xc0e02fb0a4887399!2sAquaterra+Adventures!8m2!3d28.5297059!4d77.2445106!16s%2Fg%2F1tgcwfm4!3m5!1s0x390ce3d53fffffff:0xc0e02fb0a4887399!8m2!3d28.5297059!4d77.2445106!16s%2Fg%2F1tgcwfm4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-[#f3b815] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300"
+                className="inline-flex items-center space-x-2 bg-[#e0aa04] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300"
               >
                 <MapPin className="h-5 w-5" />
                 <span>Get Directions</span>

@@ -162,8 +162,8 @@ const TripsPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left mb-12"
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 All Adventures
               </h1>
             </div>
@@ -178,7 +178,7 @@ const TripsPage = () => {
               onClick={() => setShowFilters(!showFilters)}
               aria-label="Toggle filters"
               aria-expanded={showFilters}
-              className="bg-[#f3b815] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2"
+              className="bg-[#e0aa04] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#d9a513] transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <Filter className="h-5 w-5" />
               <span>Filter Adventures</span>
@@ -338,7 +338,7 @@ const TripsPage = () => {
                           <span>{trip.location}</span>
                         </div>
                         
-                        <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#f3b815] transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#e0aa04] transition-colors duration-300">
                           {trip.title}
                         </h3>
                         
@@ -347,9 +347,9 @@ const TripsPage = () => {
                         </p>
 
                         {/* Departure Dates */}
-                        <div className="bg-[#fef3d1] border border-[#f3b815]/20 rounded-xl p-3 mb-4">
+                        <div className="bg-[#fef3d1] border border-[#e0aa04]/20 rounded-xl p-3 mb-4">
                           <h4 className="font-semibold text-[#2c646c] mb-2 flex items-center space-x-1">
-                            <Calendar className="h-4 w-4 text-[#f3b815]" />
+                            <Calendar className="h-4 w-4 text-[#e0aa04]" />
                             <span>Departure Dates</span>
                           </h4>
                           <div className="space-y-1">
@@ -373,7 +373,7 @@ const TripsPage = () => {
                         </div>
 
                         <div className="flex items-center justify-between mt-auto">
-                          <div className="text-lg font-bold text-[#f3b815] whitespace-nowrap">
+                          <div className="text-lg font-bold text-earth-900 whitespace-nowrap">
                             {trip.price}
                           </div>
                           <div className="flex items-center text-[#377d87] font-medium group-hover:translate-x-1 transition-transform duration-300">

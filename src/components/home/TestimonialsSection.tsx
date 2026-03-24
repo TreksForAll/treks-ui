@@ -50,8 +50,8 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Accessible Adventure Success Stories
               </h2>
             </div>
@@ -63,13 +63,13 @@ const TestimonialsSection = () => {
           {/* Stats inline */}
           <div className="flex items-center gap-8 flex-shrink-0">
             <div className="text-left">
-              <div className="w-6 h-[3px] bg-[#f3b815] mb-2"></div>
+              <div className="w-6 h-[3px] bg-[#e0aa04] mb-2"></div>
               <div className="text-4xl font-bold text-[#377d87]" style={{ fontWeight: 800 }}>98%</div>
               <div className="text-xs uppercase tracking-widest text-[#377d87]/60 mt-1">Would recommend</div>
             </div>
             <div className="w-px h-12 bg-[#d1ebed]"></div>
             <div className="text-left">
-              <div className="w-6 h-[3px] bg-[#f3b815] mb-2"></div>
+              <div className="w-6 h-[3px] bg-[#e0aa04] mb-2"></div>
               <div className="text-4xl font-bold text-[#377d87]" style={{ fontWeight: 800 }}>4.9</div>
               <div className="text-xs uppercase tracking-widest text-[#377d87]/60 mt-1">Avg. rating</div>
             </div>
@@ -91,13 +91,13 @@ const TestimonialsSection = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 {/* Quote */}
                 <div className="lg:col-span-2 p-8 md:p-12 bg-white">
-                  <Quote className="h-10 w-10 text-[#f3b815] mb-6" />
+                  <Quote className="h-10 w-10 text-[#e0aa04] mb-6" />
                   <blockquote className="text-lg md:text-xl text-[#2c646c] leading-relaxed mb-8 font-medium">
                     "{testimonials[currentTestimonial].text}"
                   </blockquote>
                   <div className="flex items-center space-x-1 mb-2">
                     {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[#f3b815] text-[#f3b815]" />
+                      <Star key={i} className="h-4 w-4 fill-[#e0aa04] text-[#e0aa04]" />
                     ))}
                   </div>
                 </div>
@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
                     <img
                       src={testimonials[currentTestimonial].image}
                       alt={testimonials[currentTestimonial].name}
-                      className="h-16 w-16 object-cover mb-4 border-2 border-[#f3b815]"
+                      className="h-16 w-16 object-cover mb-4 border-2 border-[#e0aa04]"
                     />
                     <div className="font-bold text-[#214b51] text-lg">
                       {testimonials[currentTestimonial].name}
@@ -136,7 +136,7 @@ const TestimonialsSection = () => {
                   key={i}
                   onClick={() => setCurrentTestimonial(i)}
                   className={`transition-all duration-300 ${
-                    i === currentTestimonial ? 'w-8 h-2 bg-[#f3b815]' : 'w-2 h-2 bg-[#d1ebed] hover:bg-[#377d87]'
+                    i === currentTestimonial ? 'w-8 h-2 bg-[#e0aa04]' : 'w-2 h-2 bg-[#d1ebed] hover:bg-[#377d87]'
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -233,8 +233,8 @@ const TestimonialsSection = () => {
                 <span>TRANSFORMATIVE STORIES</span>
               </div>
 
-              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                   Accessible Adventure Success Stories
                 </h2>
               </div>

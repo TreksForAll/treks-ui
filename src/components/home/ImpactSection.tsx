@@ -30,8 +30,8 @@ const ImpactSection = () => {
           viewport={{ once: true }}
           className="text-left mb-14"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               Our Impact
             </h2>
           </div>
@@ -47,7 +47,7 @@ const ImpactSection = () => {
               viewport={{ once: true }}
               className="bg-[#fef8e8] rounded-2xl p-8 text-center"
             >
-              <div className="text-5xl md:text-6xl font-bold text-[#f3b815] leading-none mb-3" style={{ fontWeight: 800 }}>
+              <div className="text-5xl md:text-6xl font-bold text-[#e0aa04] leading-none mb-3" style={{ fontWeight: 800 }}>
                 {stat.value}
               </div>
               <div className="text-base font-semibold text-earth-800 mb-1">

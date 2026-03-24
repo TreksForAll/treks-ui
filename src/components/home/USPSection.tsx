@@ -57,8 +57,8 @@ const USPSection = () => {
           viewport={{ once: true }}
           className="text-left mb-14"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               Why Choose Treks for All
             </h2>
           </div>
@@ -80,8 +80,8 @@ const USPSection = () => {
                 viewport={{ once: true }}
                 className="group bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 text-center"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-[#fef3d1] rounded-xl mb-5 group-hover:bg-[#f3b815] transition-colors duration-300">
-                  <IconComponent className="h-6 w-6 text-[#f3b815] group-hover:text-white transition-colors duration-300" />
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-[#fef3d1] rounded-xl mb-5 group-hover:bg-[#e0aa04] transition-colors duration-300">
+                  <IconComponent className="h-6 w-6 text-[#e0aa04] group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-base font-bold text-earth-800 mb-2">
                   {feature.title}
@@ -112,7 +112,7 @@ const USPSection = () => {
             </div>
             <Link
               to="/contact"
-              className="flex-shrink-0 inline-flex items-center space-x-2 bg-[#f3b815] text-[#214b51] px-8 py-4 rounded-xl font-bold text-base hover:bg-[#e5a800] transition-all duration-300"
+              className="flex-shrink-0 inline-flex items-center space-x-2 bg-[#e0aa04] text-[#214b51] px-8 py-4 rounded-xl font-bold text-base hover:bg-[#e5a800] transition-all duration-300"
             >
               <span>Start Planning</span>
               <ArrowRight className="h-5 w-5" />

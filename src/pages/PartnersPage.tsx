@@ -86,8 +86,8 @@ const PartnersPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left"
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Our Founding Partners
               </h1>
             </div>
@@ -134,7 +134,7 @@ const PartnersPage = () => {
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="text-left p-4 bg-[#fef8e8] rounded-xl">
-                        <div className="text-2xl font-bold text-[#f3b815]">{partner.established}</div>
+                        <div className="text-2xl font-bold text-[#e0aa04]">{partner.established}</div>
                         <div className="text-sm text-[#377d87]">Established</div>
                       </div>
                       <div className="text-left p-4 bg-[#fef8e8] rounded-xl">
@@ -162,7 +162,7 @@ const PartnersPage = () => {
                     <ul className="space-y-3 mb-8">
                       {partner.keyContributions.map((contribution, idx) => (
                         <li key={idx} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-[#f3b815]"></div>
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-[#e0aa04]"></div>
                           <span className="text-earth-700">{contribution}</span>
                         </li>
                       ))}
@@ -197,8 +197,8 @@ const PartnersPage = () => {
             viewport={{ once: true }}
             className="text-left mb-12"
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Who's Journeyed With Us
               </h2>
               <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -217,7 +217,7 @@ const PartnersPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
               className="bg-[#fef8e8] rounded-2xl p-8">
-              <div className="text-4xl font-bold text-[#f3b815] mb-2">82 guests & counting</div>
+              <div className="text-4xl font-bold text-[#e0aa04] mb-2">82 guests & counting</div>
               <div className="text-[#377d87]">Total Participants</div>
             </motion.div>
 
@@ -227,7 +227,7 @@ const PartnersPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
               className="bg-[#fef8e8] rounded-2xl p-8">
-              <div className="text-4xl font-bold text-[#f3b815] mb-2">65 %</div>
+              <div className="text-4xl font-bold text-[#e0aa04] mb-2">65 %</div>
               <div className="text-[#377d87]">Persons with Disabilities</div>
             </motion.div>
 
@@ -237,7 +237,7 @@ const PartnersPage = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
               className="bg-[#fef8e8] rounded-2xl p-8">
-              <div className="text-4xl font-bold text-[#f3b815] mb-2">10+</div>
+              <div className="text-4xl font-bold text-[#e0aa04] mb-2">10+</div>
               <div className="text-[#377d87]">Unique Disability Types</div>
             </motion.div>
           </div>
@@ -253,8 +253,8 @@ const PartnersPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
            >
-             <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+             <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                  Ready to Explore Together?
                </h2>
              </div>
@@ -264,7 +264,7 @@ const PartnersPage = () => {
              <div className="flex flex-col sm:flex-row gap-4 justify-start">
                <Link
                  to="/trips"
-                 className="bg-[#f3b815] hover:bg-[#d9a513] text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
+                 className="bg-[#e0aa04] hover:bg-[#d9a513] text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
                >
                  View Our Trips
                </Link>

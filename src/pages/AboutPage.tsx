@@ -73,8 +73,8 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                   Our Story
                 </h2>
               </div>
@@ -145,8 +145,8 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Our Journey
               </h2>
             </div>
@@ -182,7 +182,7 @@ const AboutPage = () => {
                 {/* Mobile Layout */}
                 <div className="md:hidden pl-12 pr-4">
                   <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div className="text-base font-bold text-[#f3b815] mb-2">
+                    <div className="text-base font-bold text-[#e0aa04] mb-2">
                       {milestone.year}
                     </div>
                     <h3 className="text-lg font-bold text-earth-800 mb-2">
@@ -193,13 +193,13 @@ const AboutPage = () => {
                     </p>
                   </div>
                   {/* Mobile Timeline Node */}
-                  <div className="absolute left-2.5 top-6 w-4 h-4 bg-[#f3b815] rounded-full border-4 border-white shadow-md"></div>
+                  <div className="absolute left-2.5 top-6 w-4 h-4 bg-[#e0aa04] rounded-full border-4 border-white shadow-md"></div>
                 </div>
 
                 {/* Desktop Layout */}
                 <div className={`hidden md:block md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
                   <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div className="text-lg font-bold text-[#f3b815] mb-2">
+                    <div className="text-lg font-bold text-[#e0aa04] mb-2">
                       {milestone.year}
                     </div>
                     <h3 className="text-xl font-bold text-earth-800 mb-2">
@@ -212,7 +212,7 @@ const AboutPage = () => {
                 </div>
 
                 {/* Desktop Timeline Node */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 bg-[#f3b815] rounded-full border-4 border-white shadow-md"></div>
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-6 w-4 h-4 bg-[#e0aa04] rounded-full border-4 border-white shadow-md"></div>
               </motion.div>
             ))}
           </div>
@@ -229,8 +229,8 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Onwards & Upwards
               </h2>
               <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -253,7 +253,7 @@ const AboutPage = () => {
             >
               <div className="flex items-center mb-6">
                 <div className="bg-[#fef3d1] rounded-xl p-3 mr-4">
-                  <Eye className="h-8 w-8 text-[#f3b815]" />
+                  <Eye className="h-8 w-8 text-[#e0aa04]" />
                 </div>
                 <h3 className="text-2xl font-bold text-earth-800">Vision</h3>
               </div>
@@ -271,7 +271,7 @@ const AboutPage = () => {
             >
               <div className="flex items-center mb-6">
                 <div className="bg-[#fef3d1] rounded-xl p-3 mr-4">
-                  <Mountain className="h-8 w-8 text-[#f3b815]" />
+                  <Mountain className="h-8 w-8 text-[#e0aa04]" />
                 </div>
                 <h3 className="text-2xl font-bold text-earth-800">Mission</h3>
               </div>
@@ -290,7 +290,7 @@ const AboutPage = () => {
             className="bg-[#1a2e35] rounded-2xl p-8 md:p-12"
           >
             <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-[#f3b815] rounded-xl mb-5">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-[#e0aa04] rounded-xl mb-5">
                 <Shield className="h-7 w-7 text-white" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
@@ -301,7 +301,7 @@ const AboutPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Safety</h4>
@@ -309,7 +309,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Award className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Quality</h4>
@@ -317,7 +317,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <HandHeart className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Dignity</h4>
@@ -325,7 +325,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Accessibility className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Accessibility</h4>
@@ -333,7 +333,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Inclusion</h4>
@@ -341,7 +341,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Leaf className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Affordability</h4>
@@ -349,7 +349,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Globe className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Innovation</h4>
@@ -357,7 +357,7 @@ const AboutPage = () => {
               </div>
 
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#f3b815] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
                   <Mountain className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-bold text-white mb-2">Empowerment</h4>
@@ -392,7 +392,7 @@ const AboutPage = () => {
             </div>
             <Link
               to="/about/partners"
-              className="flex-shrink-0 bg-[#f3b815] text-[#214b51] px-8 py-4 rounded-xl font-bold hover:bg-[#e5a800] transition-all duration-300 inline-flex items-center space-x-2"
+              className="flex-shrink-0 bg-[#e0aa04] text-[#214b51] px-8 py-4 rounded-xl font-bold hover:bg-[#e5a800] transition-all duration-300 inline-flex items-center space-x-2"
             >
               <HandHeart className="h-5 w-5" />
               <span>Meet Our Partners</span>

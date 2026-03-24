@@ -606,7 +606,7 @@ const TripDetailPage = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-earth-600 shrink-0">Price</span>
-                        <span className="text-base font-bold text-adventure-600 text-right">{trip.price}</span>
+                        <span className="text-base font-bold text-earth-900 text-right">{trip.price}</span>
                       </div>
                     </div>
                   </div>

@@ -25,6 +25,23 @@ interface BlogFilters {
 
 const mockPosts: BlogPost[] = [
   {
+    id: '11',
+    slug: 'treks-for-all-making-the-outdoors-truly-inclusive',
+    title: 'Treks For All: Making the Outdoors Truly Inclusive',
+    excerpt: 'Rather than treating inclusion as an add-on, Treks For All integrates adaptive design into every stage of the experience — from route selection and logistics to staffing, equipment, and on-trail support.',
+    author: 'Adventure Travel Trade Assn',
+    authorRole: 'Media',
+    date: 'March 2026',
+    category: 'Media',
+    image: '/dayara/Dayara-Bugyal-Trek-05.webp',
+    readTime: '4 min read',
+    views: 0,
+    likes: 0,
+    tags: ['Media', 'Inclusion', 'Adventure Travel'],
+    featured: false,
+    externalLink: 'https://www.adventuretravelnews.com/treks-for-all-making-the-outdoors-truly-inclusive'
+  },
+  {
     id: '1',
     slug: 'mountains-memories-making-space-journey-treks-for-all',
     title: 'Mountains, Memories, and Making Space: A Journey with Treks for All',
@@ -41,6 +58,7 @@ const mockPosts: BlogPost[] = [
     tags: ['Leisure', 'Community', 'Accessibility'],
     featured: true
   },
+
   {
     id: '2',
     slug: 'reflection-treks-for-all',
@@ -68,7 +86,7 @@ const mockPosts: BlogPost[] = [
     authorRole: 'Psychologist',
     date: 'June 2025',
     category: 'Perspectives',
-    image: '/trekking-beyond-limits/Trekking-Beyond-Limits.webp',
+    image: '/tfa-our-story-landscape-01.webp',
     readTime: '10 min read',
     views: 1456,
     likes: 142,
@@ -179,7 +197,7 @@ const mockPosts: BlogPost[] = [
     author: 'Sreeganga',
     date: 'May 11, 2025',
     category: 'Videos',
-    image: '/trekking-beyond-limits/Trekking-Beyond-Limits.webp',
+    image: '/dayara/Dayara-Cover.webp',
     readTime: '1 min watch',
     views: 743,
     likes: 128,

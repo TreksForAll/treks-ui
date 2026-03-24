@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
+import { useState } from 'react';
 
 const VideoTestimonials = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -90,8 +90,8 @@ const VideoTestimonials = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                   VOICES FROM THE TRAIL
                 </h2>
                 <p className="text-lg md:text-xl lg:text-2xl text-[#a3d7db] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -105,7 +105,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#f3b815] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#e0aa04] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
@@ -137,7 +137,7 @@ const VideoTestimonials = () => {
                           loading={index === 0 ? "eager" : "lazy"}
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                          <div className="w-16 h-16 rounded-full bg-[#f3b815] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-16 h-16 rounded-full bg-[#e0aa04] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                             <Play className="h-8 w-8 text-white ml-1" />
                           </div>
                         </div>
@@ -164,7 +164,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#f3b815] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#e0aa04] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
@@ -176,7 +176,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handlePreviousDesktop}
               disabled={desktopIndex === 0}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-20 bg-white/10 hover:bg-[#f3b815] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-20 bg-white/10 hover:bg-[#e0aa04] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="h-6 w-6 group-hover:scale-110 transition-transform" />
@@ -185,7 +185,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handleNextDesktop}
               disabled={desktopIndex >= maxDesktopIndex}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-20 bg-white/10 hover:bg-[#f3b815] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-20 bg-white/10 hover:bg-[#e0aa04] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next testimonials"
             >
               <ChevronRight className="h-6 w-6 group-hover:scale-110 transition-transform" />
@@ -220,7 +220,7 @@ const VideoTestimonials = () => {
                             loading={index === 0 ? "eager" : "lazy"}
                           />
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                            <div className="w-16 h-16 rounded-full bg-[#f3b815] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <div className="w-16 h-16 rounded-full bg-[#e0aa04] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                               <Play className="h-8 w-8 text-white ml-1" />
                             </div>
                           </div>

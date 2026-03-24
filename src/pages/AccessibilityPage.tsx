@@ -138,7 +138,7 @@ const AccessibilityPage = () => {
             className="text-left"
           >
             <div className="flex items-center space-x-2 mb-4">
-              <Accessibility className="h-8 w-8 text-[#f3b815]" />
+              <Accessibility className="h-8 w-8 text-[#e0aa04]" />
               <h1 className="text-4xl md:text-5xl font-bold">Our Accessibility Commitment</h1>
             </div>
             <p className="text-xl text-[#a3d7db] max-w-3xl ml-0">
@@ -180,7 +180,7 @@ const AccessibilityPage = () => {
                 >
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="bg-[#fef3d1] rounded-xl w-16 h-16 flex items-center justify-center">
-                      <IconComponent className="h-8 w-8 text-[#f3b815]" />
+                      <IconComponent className="h-8 w-8 text-[#e0aa04]" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-[#2c646c]">{feature.title}</h3>
@@ -233,7 +233,7 @@ const AccessibilityPage = () => {
                   viewport={{ once: true }}
                   className="text-left"
                 >
-                  <div className="bg-[#f3b815] rounded-xl w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                  <div className="bg-[#e0aa04] rounded-xl w-20 h-20 flex items-center justify-center mx-auto mb-6">
                     <IconComponent className="h-10 w-10 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-4">
@@ -258,8 +258,8 @@ const AccessibilityPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Questions About Accessibility?
               </h2>
             </div>
@@ -269,7 +269,7 @@ const AccessibilityPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <a
                 href="tel:+919876543210"
-                className="bg-[#f3b815] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300 flex items-center justify-center space-x-2"
+                className="bg-[#e0aa04] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#d9a513] transition-colors duration-300 flex items-center justify-center space-x-2"
               >
                 <Phone className="h-5 w-5" />
                 <span>Call Accessibility Support</span>

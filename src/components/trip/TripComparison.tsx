@@ -229,7 +229,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                   </div>
                   <div>
                     <span className="text-earth-500">Price:</span>
-                    <div className="font-semibold text-adventure-600">{trip.price}</div>
+                    <div className="font-semibold text-earth-900">{trip.price}</div>
                   </div>
                   <div>
                     <span className="text-earth-500">Difficulty:</span>
@@ -414,7 +414,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                     </td>
                     {selectedTrips.map(trip => (
                       <td key={trip.id} className="p-6 text-left">
-                        <div className="text-2xl font-bold text-adventure-600">{trip.price}</div>
+                        <div className="text-2xl font-bold text-earth-900">{trip.price}</div>
                       </td>
                     ))}
                   </tr>
@@ -594,7 +594,7 @@ const TripComparison: React.FC<TripComparisonProps> = ({
                         <div className="flex items-center space-x-1">
                           <span className="font-semibold text-earth-800">{trip.difficulty}</span>
                         </div>
-                        <div className="font-bold text-adventure-600">{trip.price}</div>
+                        <div className="font-bold text-earth-900">{trip.price}</div>
                       </div>
                       
                       <button className="w-full mt-3 bg-warning-400 text-earth-900 py-2 rounded-md hover:bg-warning-500 transition-colors duration-300 opacity-0 group-hover:opacity-100">

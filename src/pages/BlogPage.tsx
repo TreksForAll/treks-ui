@@ -86,7 +86,7 @@ const BlogPage = () => {
 
                 <div className="md:col-span-2 p-8 lg:p-10">
                   <div className="mb-4">
-                    <span className="inline-block bg-[#fef3d1] text-[#f3b815] px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-4 py-1 rounded-full text-sm font-semibold">
                       The Better India
                     </span>
                   </div>
@@ -142,6 +142,7 @@ const BlogPage = () => {
                       src={(post as any).image}
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => { (e.target as HTMLImageElement).src = '/Home-01.webp'; }}
                     />
                   </div>
 
@@ -157,7 +158,7 @@ const BlogPage = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#f3b815] transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#e0aa04] transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -165,13 +166,25 @@ const BlogPage = () => {
                       {post.excerpt}
                     </p>
 
-                    <Link
-                      to={`/blog/${(post as any).slug}`}
-                      className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#f3b815] font-semibold transition-colors group/link"
-                    >
-                      <span>Read More</span>
-                      <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
-                    </Link>
+                    {(post as any).externalLink ? (
+                      <a
+                        href={(post as any).externalLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#e0aa04] font-semibold transition-colors group/link"
+                      >
+                        <span>Read More</span>
+                        <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    ) : (
+                      <Link
+                        to={`/blog/${(post as any).slug}`}
+                        className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#e0aa04] font-semibold transition-colors group/link"
+                      >
+                        <span>Read More</span>
+                        <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform duration-300" />
+                      </Link>
+                    )}
                   </div>
                 </motion.article>
               ))}

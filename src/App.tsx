@@ -14,6 +14,7 @@ import CampsPage from './pages/CampsPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import CustomisedTripsPage from './pages/CustomisedTripsPage';
 import PerformanceOptimizer from './components/ui/PerformanceOptimizer';
 import './index.css';
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/customised-trips" element={<CustomisedTripsPage />} />
         </Routes>
         <Footer />
       </div>

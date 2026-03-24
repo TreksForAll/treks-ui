@@ -85,8 +85,8 @@ const VSheshRecognitionsSection = () => {
           className="rounded-2xl p-8 md:p-12 relative bg-white"
         >
           <div className="text-left mb-8">
-            <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Affiliations & Recognitions
               </h2>
             </div>

@@ -45,8 +45,8 @@ const CoreOfferingsGrid = () => {
           viewport={{ once: true }}
           className="text-left mb-14"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               Four Pillars of Adventure
             </h2>
           </div>
@@ -80,7 +80,7 @@ const CoreOfferingsGrid = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                       <div className="absolute bottom-4 left-4">
-                        <div className="inline-flex items-center justify-center w-10 h-10 bg-[#f3b815] rounded-lg">
+                        <div className="inline-flex items-center justify-center w-10 h-10 bg-[#e0aa04] rounded-lg">
                           <IconComponent className="h-5 w-5 text-white" />
                         </div>
                       </div>
@@ -92,7 +92,7 @@ const CoreOfferingsGrid = () => {
                       <p className="text-sm text-earth-500 mb-3">
                         {offering.description}
                       </p>
-                      <span className="inline-flex items-center text-sm font-semibold text-[#f3b815] group-hover:translate-x-1 transition-transform duration-300">
+                      <span className="inline-flex items-center text-sm font-semibold text-[#e0aa04] group-hover:translate-x-1 transition-transform duration-300">
                         Explore <ArrowRight className="h-4 w-4 ml-1" />
                       </span>
                     </div>

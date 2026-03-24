@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import KeyboardArrowLeftRounded from '@mui/icons-material/KeyboardArrowLeftRounded';
+import KeyboardArrowRightRounded from '@mui/icons-material/KeyboardArrowRightRounded';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import MobileStepper from '@mui/material/MobileStepper';
-import KeyboardArrowLeftRounded from '@mui/icons-material/KeyboardArrowLeftRounded';
-import KeyboardArrowRightRounded from '@mui/icons-material/KeyboardArrowRightRounded';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const VoicesFromTrail = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,8 +72,8 @@ const VoicesFromTrail = () => {
           viewport={{ once: true }}
           className="mb-14"
         >
-          <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
               GUESTS SPEAK
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
@@ -90,11 +90,11 @@ const VoicesFromTrail = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.4 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch border-l-[6px] border-[#f3b815]"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch border-l-[6px] border-[#e0aa04]"
             >
               {/* Photo */}
               <div className="flex items-center justify-center p-8 md:p-10 flex-shrink-0">
-                <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-[#f3b815] ring-offset-4 flex-shrink-0">
+                <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-[#e0aa04] ring-offset-4 flex-shrink-0">
                   <img
                     src={current.image}
                     alt={current.name}

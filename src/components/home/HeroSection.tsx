@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Play, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -67,7 +67,7 @@ const HeroSection = () => {
             width="1920"
             height="1080"
             style={{
-              imageRendering: 'optimizeQuality'
+              imageRendering: 'auto'
             }}
           />
         </motion.div>
@@ -90,7 +90,16 @@ const HeroSection = () => {
                   {/* Tagline in Cursive */}
                   <p
                     className="text-5xl md:text-6xl text-white/90 mb-6 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
-                    style={{ fontFamily: "'Shadows Into Light', cursive" }}
+                    style={{
+                      fontFamily: 'Anton',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      fontStretch: 'normal',
+                      fontSize: '44px',
+                      fontOpticalSizing: 'auto',
+                      textAlign: 'start',
+                      transitionProperty: 'opacity, transform',
+                    }}
                   >
                     Different abilities. One journey
                   </p>
@@ -108,7 +117,7 @@ const HeroSection = () => {
 
                     <Link
                       to={heroContent.link}
-                      className="w-full sm:w-auto group bg-warning-400 text-earth-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-warning-300 focus:ring-offset-2 focus:ring-offset-transparent inline-flex items-center justify-center space-x-2 min-h-[3rem] text-base sm:text-lg"
+                      className="w-full sm:w-auto group bg-[#e0aa04] text-earth-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-[#c99603] transition-all duration-300 transform hover:scale-105 focus:outline-none inline-flex items-center justify-center space-x-2 min-h-[3rem] text-base sm:text-lg"
                       aria-label={`${heroContent.cta} - Navigate to accessible adventures`}
                     >
                       <span>{heroContent.cta}</span>

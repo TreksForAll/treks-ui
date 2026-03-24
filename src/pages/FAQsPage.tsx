@@ -241,8 +241,8 @@ const FAQsPage = () => {
               transition={{ duration: 0.6 }}
               className="text-left lg:text-left"
             >
-              <div className="border-l-[5px] border-[#f3b815] pl-4 mb-4">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#f3b815]" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                   Frequently Asked Questions
                 </h1>
               </div>
@@ -259,7 +259,7 @@ const FAQsPage = () => {
               className="bg-[#e8f5f6] rounded-2xl p-6 border border-[#d1ebed]"
             >
               <h3 className="text-lg font-bold text-[#2c646c] mb-4 flex items-center space-x-2">
-                <Compass className="h-5 w-5 text-[#f3b815]" />
+                <Compass className="h-5 w-5 text-[#e0aa04]" />
                 <span>Need Direct Support?</span>
               </h3>
               <p className="text-[#377d87] mb-4 text-sm">
@@ -270,7 +270,7 @@ const FAQsPage = () => {
                   to="/contact"
                   className="flex items-center space-x-3 p-3 bg-white rounded-xl hover:bg-[#f5f7fa] transition-colors duration-300 border border-[#d1ebed]"
                 >
-                  <Mail className="h-4 w-4 text-[#f3b815]" />
+                  <Mail className="h-4 w-4 text-[#e0aa04]" />
                   <div>
                     <div className="font-medium text-[#2c646c] text-sm">Send Message</div>
                     <div className="text-[#377d87] text-xs">Detailed inquiry</div>
@@ -300,11 +300,11 @@ const FAQsPage = () => {
                   viewport={{ once: true }}
                   className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-[#d1ebed]"
                 >
-                  <div className="p-6 bg-[#e8f5f6] border-l-4 border-l-[#f3b815]">
+                  <div className="p-6 bg-[#e8f5f6] border-l-4 border-l-[#e0aa04]">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <div className="bg-[#fef3d1] p-2 rounded-xl">
-                          <IconComponent className="h-5 w-5 text-[#f3b815]" />
+                          <IconComponent className="h-5 w-5 text-[#e0aa04]" />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-[#2c646c]">{section.title}</h3>
@@ -332,7 +332,7 @@ const FAQsPage = () => {
                               {faq.question}
                             </span>
                             <div className="flex-shrink-0 mt-1">
-                              <div className="w-6 h-6 rounded-full bg-[#fef3d1] flex items-center justify-center text-[#f3b815] group-hover:bg-[#f3b815] group-hover:text-white transition-colors">
+                              <div className="w-6 h-6 rounded-full bg-[#fef3d1] flex items-center justify-center text-[#e0aa04] group-hover:bg-[#e0aa04] group-hover:text-white transition-colors">
                                 {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                               </div>
                             </div>
@@ -371,7 +371,7 @@ const FAQsPage = () => {
               Still have questions? Please reach out to us at{' '}
               <a
                 href="mailto:admin@treksforall.in"
-                className="text-[#f3b815] hover:text-[#d9a513] underline font-semibold"
+                className="text-[#e0aa04] hover:text-[#d9a513] underline font-semibold"
               >
                 admin@treksforall.in
               </a>

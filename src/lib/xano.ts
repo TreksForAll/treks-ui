@@ -32,7 +32,16 @@ export interface BookingFormData {
   message: string;
 }
 
-export type FormData = ContactFormData | BookingFormData;
+export interface B2BFormData {
+  formType: 'b2b';
+  name: string;
+  email: string;
+  phone?: string;
+  organisation?: string;
+  message: string;
+}
+
+export type FormData = ContactFormData | BookingFormData | B2BFormData;
 
 type ApiResult = { success: boolean; message: string; data?: unknown };
 
