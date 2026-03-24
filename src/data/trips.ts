@@ -617,17 +617,17 @@ export const trips: Trip[] = [
     itinerary: [
       {
         day: 1,
-        title: 'Delhi to Camp Bagi',
-        description: 'Previous night board the vehicle & depart for Tons. Breakfast enroute (own cost). Reach Camp for lunch. Welcome drink over camp briefing, check into tents and relax. Campfire dinner and overnight at Camp.',
+        title: 'Arrival & Settling In',
+        description: 'Depart the previous night for Tons (breakfast en route). Arrive by lunch, followed by a welcome drink, camp briefing, and tent allocation. Afternoon hike to Lunagad Pool. Evening at camp includes ice-breaker games, team-building activities, and informal group bonding, followed by a campfire dinner and overnight stay.',
         accommodation: 'Tents',
         altitude: '1,150m',
-        trekTime: 'Travel day',
+        trekTime: 'Short hike',
         difficulty: 'Easy'
       },
       {
         day: 2,
-        title: 'River Rafting Day',
-        description: 'Tea/coffee served in the dining area from 6:30 am onwards. After breakfast at 8:30 am, drive to Mori village & raft down. Drive back to the Camp for hot lunch. Return to Camp by tea time. Campfire dinner and overnight at Camp.',
+        title: 'Rafting & Culture',
+        description: 'Morning tea/coffee, followed by breakfast. Drive to Lunagad and raft down to Khunigad, focusing on team coordination and trust on the river. Return for lunch. Post lunch, visit Hanol Temple. Evening at camp includes light group games, storytelling, or music around the fire, followed by dinner and overnight stay.',
         accommodation: 'Tents',
         altitude: '1,150m',
         trekTime: 'Rafting',
@@ -635,20 +635,20 @@ export const trips: Trip[] = [
       },
       {
         day: 3,
-        title: 'Hike & Temple Visit',
-        description: 'Take a day hike from Sandhra to Mora village. Enjoy an hour\'s drive to visit the Hanol temple, fabled to be built by the Pandavas & frequently visited by emperor Akbar. On your way back, stop by a majestic pine tree - the tallest in Asia. Back to camp by late afternoon. Campfire dinner & overnight at Camp.',
+        title: 'Forest Trek & Nature Immersion',
+        description: 'After breakfast, drive to the trek start point with packed lunch. Trek through pine forests for 5–6 hours to a waterfall, with stream crossings and scenic breaks. Return to camp by evening. Night includes stargazing, shared stories, or a quiet nature reflection session, followed by dinner and overnight stay.',
         accommodation: 'Tents',
         altitude: '1,150m',
-        trekTime: 'Day hike',
+        trekTime: '5–6 hours',
         difficulty: 'Easy'
       },
       {
         day: 4,
-        title: 'Return to Delhi',
-        description: 'After breakfast board the vehicle & leave for Delhi. Lunch enroute (own cost) & reach Delhi by late in the night.',
+        title: 'Rafting & Closing Circle',
+        description: 'After breakfast, repeat the Lunagad–Khunigad rafting stretch. Return to camp for lunch. Before departure, gather for a closing reflection circle, sharing feedback, highlights, learnings, and memories from the experience, then depart for Delhi.',
         accommodation: 'N/A',
         altitude: 'N/A',
-        trekTime: 'Travel day',
+        trekTime: 'Rafting + Travel',
         difficulty: 'Easy'
       }
     ],

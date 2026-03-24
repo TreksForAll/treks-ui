@@ -69,7 +69,7 @@ const FAQPreview = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-12 items-start">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -87,8 +87,8 @@ const FAQPreview = () => {
                   {faq.question}
                 </span>
                 <div className="flex-shrink-0 mt-0.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#fef3d1] flex items-center justify-center text-[#f3b815] text-lg font-bold group-hover:bg-[#f3b815] group-hover:text-white transition-colors duration-300">
-                    {openIndex === index ? '−' : '+'}
+                    <div className="w-8 h-8 rounded-lg bg-[#fef3d1] flex items-center justify-center text-[#f3b815] group-hover:bg-[#f3b815] group-hover:text-white transition-colors duration-300">
+                      {openIndex === index ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                   </div>
                 </div>
               </button>

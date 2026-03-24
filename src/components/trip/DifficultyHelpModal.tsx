@@ -88,7 +88,7 @@ const DifficultyHelpModal: React.FC<DifficultyHelpModalProps> = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 500 }}
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -114,7 +114,7 @@ const DifficultyHelpModal: React.FC<DifficultyHelpModalProps> = ({
             </div>
 
             {/* Content */}
-            <div className="p-6 overflow-y-auto max-h-[70vh]">
+            <div className="p-6 overflow-y-auto flex-1 min-h-0">
               <div className="space-y-6">
                 {difficultyLevels.map((level, index) => {
                   const IconComponent = level.icon;
@@ -176,14 +176,14 @@ const DifficultyHelpModal: React.FC<DifficultyHelpModalProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-4 bg-earth-50 border-t border-earth-200">
-              <div className="flex items-center justify-between">
+            <div className="px-4 py-2 bg-earth-50 border-t border-earth-100">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:justify-between">
                 <p className="text-xs text-earth-600">
                   Need help choosing? Contact our adventure specialists
                 </p>
                 <button
                   onClick={onClose}
-                  className="bg-warning-400 text-earth-900 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-warning-500 transition-colors duration-300"
+                  className="flex-shrink-0 bg-warning-400 text-earth-900 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-warning-500 transition-colors duration-300"
                 >
                   Got it
                 </button>

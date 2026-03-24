@@ -12,7 +12,7 @@ const VideoTestimonials = () => {
       name: 'Mohit',
       description: 'I once struggled to accept my white cane and with it, my blindness',
       quote: '',
-      videoId: 't2GEvn0c5zk',
+      videoId: '_bvKHWWEi-I',
       thumbnail: '/Video-Mohit.webp'
     },
     {
@@ -42,6 +42,20 @@ const VideoTestimonials = () => {
       quote: '',
       videoId: 'CLZtcnNXIGM',
       thumbnail: '/meenakshi.webp'
+    },
+    {
+      name: 'Vaibhav Vadile',
+      description: 'Vaibhav Vadile lives with paraplegia. But with Treks for All, that didn’t define the experience. What defined it was the river, the laughter, and the thrill of trying something new. Adventure doesn’t belong to a few. It belongs to everyone!',
+      quote: '',
+      videoId: 'alv-XlWkOQM',
+      thumbnail: `https://i.ytimg.com/vi/alv-XlWkOQM/hqdefault.jpg`
+    },
+    {
+      name: 'Vikas Mishra',
+      description: 'Adventure is about the little joys and stories that we carry back with us. Vikas\' experience is one such story that we recall when we think of the impact the outdoors can have on all of us!',
+      quote: '',
+      videoId: 'j8kmNlPx49o',
+      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/hqdefault.jpg`
     }
   ];
 

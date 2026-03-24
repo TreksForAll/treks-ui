@@ -20,7 +20,7 @@ const FoundingPartnersSection = () => {
       color: 'success'
     },
     {
-      name: 'V-Shesh',
+      name: 'v-shesh',
       logo: '/v-shesh.webp',
       description: 'Leading accessibility advocate and adaptive sports pioneer',
       role: 'Accessibility Innovation Partner',

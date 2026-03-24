@@ -2,11 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/',
   plugins: [react()],
   build: {
-    modulePreload: {
-      polyfill: false
-    },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
@@ -43,49 +41,13 @@ export default defineConfig({
         },
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
-        compact: true
       }
     },
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        passes: 3,
-        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
-        unsafe: true,
-        unsafe_comps: true,
-        unsafe_math: true,
-        unsafe_methods: true,
-        unsafe_proto: true,
-        unsafe_regexp: true,
-        unsafe_undefined: true,
-        dead_code: true,
-        evaluate: true,
-        reduce_vars: true,
-        reduce_funcs: true,
-        collapse_vars: true,
-        inline: true,
-        join_vars: true,
-        loops: true,
-        conditionals: true,
-        booleans: true,
-        typeofs: true,
-        unused: true
-      },
-      mangle: {
-        safari10: true,
-        toplevel: true
-      },
-      format: {
-        comments: false
-      }
-    },
+    minify: 'esbuild',
     chunkSizeWarningLimit: 600,
     assetsInlineLimit: 4096,
-    reportCompressedSize: false
   },
   optimizeDeps: {
     exclude: ['lucide-react'],

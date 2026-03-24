@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+button, a {
+  outline: none !important;
+}
+button:focus, button:focus-visible, a:focus, a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Font face declarations with proper fallbacks */
 @font-face {
   font-family: 'Telegraf';
@@ -232,8 +240,8 @@ body {
     /* Ensure nav links are adequately sized */
     nav a,
     nav button {
-      min-height: 48px;
-      padding: 12px 20px;
+      min-height: 20px;
+      padding: 12px 10px;
     }
   }
 
@@ -245,9 +253,9 @@ body {
     input[type="button"],
     a[class*="btn"],
     a[class*="button"] {
-      min-height: 48px;
-      min-width: 48px;
-      padding: 14px 20px;
+      min-height: 20px;
+      min-width: 20px;
+      padding: 12px 10px;
     }
   }
 }
@@ -267,14 +275,14 @@ body {
   /* Enhanced input and form element styling */
   input, select, textarea, button {
     font-size: 1rem;
-    min-height: 48px;
+    min-height: 24px;
     border-radius: 12px;
   }
   
   /* Ensure sufficient touch target size for mobile */
   button, [role="button"], input[type="submit"], input[type="button"] {
-    min-height: 48px;
-    min-width: 48px;
+      min-height: 20px;
+      min-width: 20px;
   }
   
   /* Enhanced link styling */

@@ -47,7 +47,7 @@ const VoicesFromTrail = () => {
   useEffect(() => {
     const intervalId = window.setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 8000);
 
     return () => window.clearInterval(intervalId);
   }, [testimonials.length]);

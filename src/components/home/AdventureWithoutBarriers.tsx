@@ -17,7 +17,7 @@ const AdventureWithoutBarriers = () => {
       website: 'https://metorestrust.org'
     },
     {
-      name: 'V-Shesh',
+      name: 'v-shesh',
       logo: '/v-shesh.webp',
       description: 'Leading accessibility advocate and adaptive sports pioneer',
       website: 'https://v-shesh.com/'
@@ -43,8 +43,8 @@ const AdventureWithoutBarriers = () => {
             </p>
           </div>
           <p className="text-xl font-semibold text-earth-700 max-w-full mb-6">
-            <span className="uppercase">When people <strong style={{ color: '#f3b815' }}>with & without disabilities</strong> walk <strong style={{ color: '#f3b815' }}>side by side</strong>,</span><br />
-            <span className="uppercase">we discover the joy of <strong style={{ color: '#f3b815' }}>shared adventure.</strong></span>
+            <span className="uppercase">When people <strong>with & without disabilities</strong> walk side by side</span><br />
+            <span className="uppercase">we discover the joy of <strong>shared adventure.</strong></span>
           </p>
         </motion.div>
 

@@ -32,9 +32,9 @@ const PerformanceOptimizer = () => {
 
     // Reduce memory usage by cleaning up unused resources
     const cleanupResources = () => {
-      // Remove unused CSS if any
-      const unusedStylesheets = document.querySelectorAll('link[rel="stylesheet"]:not([href*="fonts.googleapis.com"])');
-      unusedStylesheets.forEach(sheet => {
+      // Defer only external Google Fonts stylesheets, not app CSS
+      const externalFonts = document.querySelectorAll('link[rel="stylesheet"][href*="fonts.googleapis.com"], link[rel="stylesheet"][href*="fonts.cdnfonts.com"]');
+      externalFonts.forEach(sheet => {
         if (!sheet.hasAttribute('data-critical')) {
           (sheet as HTMLLinkElement).media = 'print';
           (sheet as HTMLLinkElement).onload = function() {

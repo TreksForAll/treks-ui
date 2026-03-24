@@ -4,6 +4,8 @@ import {
   HelpCircle,
   ChevronDown,
   ChevronUp,
+  Plus,
+  Minus,
   Accessibility,
   Eye,
   Ear,
@@ -330,8 +332,8 @@ const FAQsPage = () => {
                               {faq.question}
                             </span>
                             <div className="flex-shrink-0 mt-1">
-                              <div className="w-6 h-6 rounded-full bg-[#fef3d1] flex items-center justify-center text-[#f3b815] text-sm font-bold group-hover:bg-[#f3b815] group-hover:text-white transition-colors">
-                                {isOpen ? '−' : '+'}
+                              <div className="w-6 h-6 rounded-full bg-[#fef3d1] flex items-center justify-center text-[#f3b815] group-hover:bg-[#f3b815] group-hover:text-white transition-colors">
+                                {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                               </div>
                             </div>
                           </button>

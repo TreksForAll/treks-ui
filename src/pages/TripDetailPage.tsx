@@ -22,7 +22,8 @@ import {
   ArrowRight,
   X,
   Download,
-  Play
+  Play,
+  CreditCard
 } from 'lucide-react';
 import { trips } from '../data/trips';
 import { getDifficultyIcon, getDifficultyColor } from '../utils/difficultyUtils';
@@ -54,11 +55,18 @@ const TripDetailPage = () => {
     email: '',
     phone: '',
     departureDate: '',
-    groupSize: '',
+    groupSize: '1',
     message: ''
   });
   const [isSubmittingBooking, setIsSubmittingBooking] = useState(false);
   const [bookingSubmitStatus, setBookingSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [bookingIntent, setBookingIntent] = useState<'enquiry' | 'payment' | null>(null);
+
+  const parseBasePrice = (priceStr: string): number => {
+    const match = priceStr.replace(/,/g, '').match(/[\d]+/);
+    return match ? parseInt(match[0]) : 0;
+  };
+  const priceHasGst = (priceStr: string) => priceStr.toLowerCase().includes('gst');
 
   useEffect(() => {
     // Check if mobile
@@ -364,23 +372,23 @@ const TripDetailPage = () => {
             )}
 
             {/* Quick Info */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left max-w-3xl ml-0">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mx-auto mb-1 text-adventure-400" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center max-w-3xl ml-0">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center justify-center">
+                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mb-1 text-adventure-400" />
                 <div className="text-xs sm:text-sm font-medium">{trip.location}</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                <Clock className="h-4 w-4 sm:h-5 sm:w-5 mx-auto mb-1 text-adventure-400" />
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center justify-center">
+                <Clock className="h-4 w-4 sm:h-5 sm:w-5 mb-1 text-adventure-400" />
                 <div className="text-xs sm:text-sm font-medium">{trip.duration}</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                <div className="mx-auto mb-1 text-adventure-400 flex items-center justify-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center justify-center">
+                <div className="mb-1 text-adventure-400 flex items-center justify-center">
                   {getDifficultyIcon(trip.difficulty)}
                 </div>
                 <div className="text-xs sm:text-sm font-medium">{trip.difficulty}</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                <Users className="h-4 w-4 sm:h-5 sm:w-5 mx-auto mb-1 text-adventure-400" />
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center justify-center">
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 mb-1 text-adventure-400" />
                 <div className="text-xs sm:text-sm font-medium">{trip.groupSize}</div>
               </div>
             </div>
@@ -394,13 +402,13 @@ const TripDetailPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                {getDifficultyIcon(trip.difficulty)}
+                <span className="text-earth-600">{getDifficultyIcon(trip.difficulty)}</span>
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(trip.difficulty)}`}>
                   {trip.difficulty}
                 </span>
                 <button
                   onClick={() => setShowDifficultyHelp(true)}
-                  className="text-earth-500 hover:text-adventure-600 transition-colors duration-300"
+                  className="text-earth-500 hover:text-adventure-600 transition-colors duration-300 focus:outline-none"
                   title="Learn about difficulty levels"
                 >
                   <HelpCircle className="h-4 w-4" />
@@ -413,14 +421,18 @@ const TripDetailPage = () => {
                 <div className="text-3xl font-bold text-earth-800">{trip.price}</div>
                 <div className="text-sm text-earth-600">per person</div>
               </div>
-              <a
-                href="https://payments.aquaterra.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-warning-400 text-earth-900 px-8 py-3 rounded-lg font-bold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105 inline-block text-left"
+              <button
+                onClick={() => {
+                  setBookingIntent(null);
+                  setActiveTab('booking');
+                  setTimeout(() => {
+                    document.getElementById('tab-navigation')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 50);
+                }}
+                className="bg-warning-400 text-earth-900 px-8 py-3 rounded-lg font-bold hover:bg-warning-500 transition-all duration-300 transform hover:scale-105"
               >
                 Book Now
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -452,7 +464,7 @@ const TripDetailPage = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-shrink-0 px-4 py-4 font-semibold transition-all duration-300 border-b-2 whitespace-nowrap text-sm lg:text-base ${
+                className={`flex-shrink-0 px-4 py-2.5 font-semibold transition-all duration-300 border-b-2 whitespace-nowrap text-sm focus:outline-none ${
                   activeTab === tab.id
                     ? 'border-adventure-500 text-adventure-600'
                     : 'border-transparent text-earth-600 hover:text-adventure-600'
@@ -567,34 +579,34 @@ const TripDetailPage = () => {
                     <h3 className="text-xl font-bold text-earth-800 mb-6">Trip Information</h3>
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-earth-600">Duration</span>
-                        <span className="font-semibold text-earth-800">{trip.duration}</span>
+                        <span className="text-earth-600 shrink-0">Duration</span>
+                        <span className="font-semibold text-earth-800 text-right">{trip.duration}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-earth-600">Difficulty</span>
-                        <div className="flex items-center space-x-2">
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(trip.difficulty)}`}>
-                            {trip.difficulty}
-                          </span>
+                        <span className="text-earth-600 shrink-0">Difficulty</span>
+                        <div className="flex items-center space-x-1 ml-auto">
                           <button
                             onClick={() => setShowDifficultyHelp(true)}
-                            className="text-earth-500 hover:text-adventure-600 transition-colors duration-300"
+                            className="text-earth-500 hover:text-adventure-600 transition-colors duration-300 focus:outline-none"
                           >
                             <HelpCircle className="h-4 w-4" />
                           </button>
+                          <span className={`px-2.5 py-0.5 rounded-full text-sm font-medium ${getDifficultyColor(trip.difficulty)}`}>
+                            {trip.difficulty}
+                          </span>
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-earth-600">Max Altitude</span>
-                        <span className="font-semibold text-earth-800">{trip.maxAltitude}</span>
+                        <span className="text-earth-600 shrink-0">Max Altitude</span>
+                        <span className="font-semibold text-earth-800 text-right">{trip.maxAltitude}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-earth-600">Group Size</span>
-                        <span className="font-semibold text-earth-800">{trip.groupSize}</span>
+                        <span className="text-earth-600 shrink-0">Group Size</span>
+                        <span className="font-semibold text-earth-800 text-right">{trip.groupSize}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-earth-600">Price</span>
-                        <span className="text-2xl font-bold text-adventure-600">{trip.price}</span>
+                        <span className="text-earth-600 shrink-0">Price</span>
+                        <span className="text-base font-bold text-adventure-600 text-right">{trip.price}</span>
                       </div>
                     </div>
                   </div>
@@ -604,17 +616,11 @@ const TripDetailPage = () => {
                     <h3 className="text-xl font-bold text-earth-800 mb-4">Departure Dates</h3>
                     <div className="space-y-3">
                       {trip.departureDates.map((date, index) => (
-                        <div key={index} className={`flex items-center justify-between p-3 rounded-lg ${date.includes('HAC-PwD') ? 'bg-adventure-100 border-2 border-adventure-300' : 'bg-earth-50'}`}>
+                        <div key={index} className={`flex items-center p-3 rounded-lg ${date.includes('HAC-PwD') ? 'bg-adventure-100 border-2 border-adventure-300' : 'bg-earth-50'}`}>
                           <div className="flex items-center space-x-2">
                             {date.includes('HAC-PwD') && <span className="text-adventure-600">⭐</span>}
                             <span className={date.includes('HAC-PwD') ? 'text-adventure-800 font-semibold' : 'text-earth-700'}>{date}</span>
                           </div>
-                          <button
-                            onClick={() => setActiveTab('booking')}
-                            className="text-sm text-adventure-600 hover:text-adventure-700 font-medium"
-                          >
-                            Select
-                          </button>
                         </div>
                       ))}
                     </div>
@@ -712,7 +718,7 @@ const TripDetailPage = () => {
                 </div>
               )}
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-4">
                   <h2 className="text-3xl font-bold text-earth-800">Day-by-Day Itinerary</h2>
                   <a
                     href="/documents/trek-preparation.pdf"
@@ -723,6 +729,9 @@ const TripDetailPage = () => {
                     <span>Download Trek Preparation Guide</span>
                   </a>
                 </div>
+                <p className="text-sm text-earth-500 italic mb-8 border-l-4 border-warning-400 pl-3">
+                  Note: This itinerary is tentative. The final plan will depend on weather conditions, group ability, and inclination.
+                </p>
               <div className="space-y-6">
                 {trip.itinerary.map((day, index) => (
                   <div key={index} className="border-l-4 border-adventure-500 pl-6 pb-6">
@@ -931,132 +940,152 @@ const TripDetailPage = () => {
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <h2 className="text-3xl font-bold text-earth-800 mb-6">Book This Adventure</h2>
                   
-                  <form onSubmit={handleBookingSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-earth-700 mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          required
-                          value={bookingForm.name}
-                          onChange={handleBookingChange}
-                          className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
-                          placeholder="Your full name"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-earth-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          value={bookingForm.email}
-                          onChange={handleBookingChange}
-                          className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
-                          placeholder="your.email@example.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-earth-700 mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={bookingForm.phone}
-                          onChange={handleBookingChange}
-                          className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
-                          placeholder="+91 98765 43210"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="departureDate" className="block text-sm font-medium text-earth-700 mb-2">
-                          Preferred Departure Date
-                        </label>
-                        <select
-                          id="departureDate"
-                          name="departureDate"
-                          value={bookingForm.departureDate}
-                          onChange={handleBookingChange}
-                          className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
+                  {/* Intent selector */}
+                  {!bookingIntent && (
+                    <div className="space-y-4">
+                      <p className="text-earth-600">How would you like to proceed?</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button
+                          onClick={() => setBookingIntent('enquiry')}
+                          className="flex flex-col items-center text-center border-2 border-primary-200 hover:border-primary-500 rounded-xl p-6 transition-all duration-300 hover:bg-primary-50 group"
                         >
-                          <option value="">Select departure date</option>
-                          {trip.departureDates.map((date, index) => (
-                            <option key={index} value={date}>{date}</option>
-                          ))}
-                        </select>
+                          <Mail className="h-8 w-8 text-primary-500 mb-3 group-hover:scale-110 transition-transform" />
+                          <span className="font-bold text-earth-800 text-lg mb-1">Submit Enquiry</span>
+                          <span className="text-sm text-earth-500">Fill the form and our team will get back to you</span>
+                        </button>
+                        <button
+                          onClick={() => setBookingIntent('payment')}
+                          className="flex flex-col items-center text-center border-2 border-warning-300 hover:border-warning-500 rounded-xl p-6 transition-all duration-300 hover:bg-warning-50 group"
+                        >
+                          <CreditCard className="h-8 w-8 text-warning-600 mb-3 group-hover:scale-110 transition-transform" />
+                          <span className="font-bold text-earth-800 text-lg mb-1">Make Payment</span>
+                          <span className="text-sm text-earth-500">Calculate total and pay securely online</span>
+                        </button>
                       </div>
                     </div>
+                  )}
 
-                    <div>
-                      <label htmlFor="groupSize" className="block text-sm font-medium text-earth-700 mb-2">
-                        Number of Travelers
-                      </label>
-                      <select
-                        id="groupSize"
-                        name="groupSize"
-                        value={bookingForm.groupSize}
-                        onChange={handleBookingChange}
-                        className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
-                      >
-                        <option value="">Select number of travelers</option>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3-4">3-4 People</option>
-                        <option value="5-8">5-8 People</option>
-                        <option value="9+">9+ People (Group)</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-earth-700 mb-2">
-                        Additional Requirements or Questions
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        value={bookingForm.message}
-                        onChange={handleBookingChange}
-                        className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300 resize-none"
-                        placeholder="Tell us about any dietary requirements, medical conditions, or special requests..."
-                      ></textarea>
-                    </div>
-
-                    {bookingSubmitStatus === 'success' && (
-                      <div className="bg-success-100 border border-success-400 text-success-800 px-4 py-3 rounded-lg">
-                        Thank you! Your booking inquiry has been sent. We'll contact you soon to confirm details.
+                  {/* Enquiry Form */}
+                  {bookingIntent === 'enquiry' && (
+                    <form onSubmit={handleBookingSubmit} className="space-y-6">
+                      <button type="button" onClick={() => setBookingIntent(null)} className="text-sm text-earth-500 hover:text-earth-700 flex items-center space-x-1 focus:outline-none">
+                        <span>← Back</span>
+                      </button>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-earth-700 mb-2">Full Name *</label>
+                          <input type="text" id="name" name="name" required value={bookingForm.name} onChange={handleBookingChange}
+                            className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
+                            placeholder="Your full name" />
+                        </div>
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-earth-700 mb-2">Email Address *</label>
+                          <input type="email" id="email" name="email" required value={bookingForm.email} onChange={handleBookingChange}
+                            className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
+                            placeholder="your.email@example.com" />
+                        </div>
                       </div>
-                    )}
-
-                    {bookingSubmitStatus === 'error' && (
-                      <div className="bg-error-100 border border-error-400 text-error-800 px-4 py-3 rounded-lg">
-                        Sorry, there was an error. Please try again or email us at <a href="mailto:admin@treksforall.in" className="text-adventure-600 hover:text-adventure-700 underline">admin@treksforall.in</a>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-medium text-earth-700 mb-2">Phone Number</label>
+                          <input type="tel" id="phone" name="phone" value={bookingForm.phone} onChange={handleBookingChange}
+                            className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
+                            placeholder="+91 98765 43210" />
+                        </div>
+                        <div>
+                          <label htmlFor="departureDate" className="block text-sm font-medium text-earth-700 mb-2">Preferred Departure Date</label>
+                          <select id="departureDate" name="departureDate" value={bookingForm.departureDate} onChange={handleBookingChange}
+                            className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300">
+                            <option value="">Select departure date</option>
+                            {trip.departureDates.map((date, index) => (
+                              <option key={index} value={date}>{date}</option>
+                            ))}
+                          </select>
+                        </div>
                       </div>
-                    )}
+                      <div>
+                        <label htmlFor="groupSize" className="block text-sm font-medium text-earth-700 mb-2">Number of Travelers</label>
+                        <input type="number" id="groupSize" name="groupSize" min="1" max="60" value={bookingForm.groupSize} onChange={handleBookingChange}
+                          className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300"
+                          placeholder="e.g. 2" />
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-earth-700 mb-2">Additional Requirements or Questions</label>
+                        <textarea id="message" name="message" rows={4} value={bookingForm.message} onChange={handleBookingChange}
+                          className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300 resize-none"
+                          placeholder="Tell us about any dietary requirements, medical conditions, or special requests..."></textarea>
+                      </div>
+                      {bookingSubmitStatus === 'success' && (
+                        <div className="bg-success-100 border border-success-400 text-success-800 px-4 py-3 rounded-lg">
+                          Thank you! Your booking inquiry has been sent. We'll contact you soon to confirm details.
+                        </div>
+                      )}
+                      {bookingSubmitStatus === 'error' && (
+                        <div className="bg-error-100 border border-error-400 text-error-800 px-4 py-3 rounded-lg">
+                          Sorry, there was an error. Please try again or email us at <a href="mailto:admin@treksforall.in" className="text-adventure-600 hover:text-adventure-700 underline">admin@treksforall.in</a>
+                        </div>
+                      )}
+                      <button type="submit" disabled={isSubmittingBooking}
+                        className="w-full bg-primary-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-primary-700 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <Send className="h-5 w-5" />
+                        <span>{isSubmittingBooking ? 'Sending...' : 'Submit Enquiry'}</span>
+                      </button>
+                    </form>
+                  )}
 
-                    <button
-                      type="submit"
-                      disabled={isSubmittingBooking}
-                      className="w-full bg-warning-400 text-earth-900 py-4 rounded-lg font-bold text-lg hover:bg-warning-500 transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <Send className="h-5 w-5" />
-                      <span>{isSubmittingBooking ? 'Sending...' : 'Submit Booking Inquiry'}</span>
-                    </button>
-                  </form>
+                  {/* Payment Calculator */}
+                  {bookingIntent === 'payment' && (() => {
+                    const persons = Math.max(1, parseInt(bookingForm.groupSize) || 1);
+                    const basePerPerson = parseBasePrice(trip.price);
+                    const subtotal = basePerPerson * persons;
+                    const gstApplies = priceHasGst(trip.price);
+                    const gstAmount = gstApplies ? Math.round(subtotal * 0.05) : 0;
+                    const total = subtotal + gstAmount;
+                    const formattedTotal = '₹' + total.toLocaleString('en-IN');
+                    return (
+                      <div className="space-y-6">
+                        <button type="button" onClick={() => setBookingIntent(null)} className="text-sm text-earth-500 hover:text-earth-700 flex items-center space-x-1 focus:outline-none">
+                          <span>← Back</span>
+                        </button>
+                        <div>
+                          <label className="block text-sm font-medium text-earth-700 mb-2">Number of Persons</label>
+                          <input type="number" min="1" max="60" value={bookingForm.groupSize}
+                            onChange={(e) => setBookingForm({ ...bookingForm, groupSize: e.target.value })}
+                            className="w-32 px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-300" />
+                        </div>
+                        <div className="bg-earth-50 rounded-xl p-5 space-y-3 border border-earth-200">
+                          <div className="flex justify-between text-earth-700">
+                            <span>Price per person</span>
+                            <span>₹{basePerPerson.toLocaleString('en-IN')}</span>
+                          </div>
+                          <div className="flex justify-between text-earth-700">
+                            <span>× {persons} person{persons > 1 ? 's' : ''}</span>
+                            <span>₹{subtotal.toLocaleString('en-IN')}</span>
+                          </div>
+                          {gstApplies && (
+                            <div className="flex justify-between text-earth-700">
+                              <span>GST (5%)</span>
+                              <span>₹{gstAmount.toLocaleString('en-IN')}</span>
+                            </div>
+                          )}
+                          <div className="border-t border-earth-300 pt-3 flex justify-between font-bold text-lg text-earth-800">
+                            <span>Total Amount</span>
+                            <span className="text-adventure-600">{formattedTotal}</span>
+                          </div>
+                        </div>
+                        <a
+                          href="https://payments.aquaterra.in/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full bg-warning-400 text-earth-900 py-4 rounded-lg font-bold text-lg hover:bg-warning-500 transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105"
+                        >
+                          <CreditCard className="h-5 w-5" />
+                          <span>Pay {formattedTotal} via Aquaterra</span>
+                        </a>
+                        <p className="text-xs text-earth-500 text-center">You will be redirected to Aquaterra's secure payment gateway</p>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
 
