@@ -239,14 +239,14 @@ const FAQsPage = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-left lg:text-left"
+              className="text-left"
             >
-              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                   Frequently Asked Questions
                 </h1>
               </div>
-              <p className="text-lg text-earth-600">
+              <p className="max-w-xl text-lg md:text-xl text-earth-600">
                 Everything you need to know about accessible adventures with Treks for All
               </p>
             </motion.div>
@@ -283,7 +283,7 @@ const FAQsPage = () => {
       </section>
 
       {/* FAQ Grid Layout */}
-      <section className="py-20 bg-[#f5f7fa]">
+      <section className="py-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* FAQ Sections - Two Column Layout */}
@@ -298,23 +298,25 @@ const FAQsPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-[#d1ebed]"
+                  className="bg-white rounded-3xl shadow-md border border-[#e2e8f0] overflow-hidden hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="p-6 bg-[#e8f5f6] border-l-4 border-l-[#e0aa04]">
+                  <div className="p-6 md:p-8 bg-[#18363a]">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className="bg-[#fef3d1] p-2 rounded-xl">
-                          <IconComponent className="h-5 w-5 text-[#e0aa04]" />
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#214b51] border border-[#377d87] text-white shadow-sm">
+                          <IconComponent className="h-6 w-6" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-bold text-[#2c646c]">{section.title}</h3>
-                          <span className="text-sm text-[#377d87]">({section.faqs.length} question{section.faqs.length > 1 ? 's' : ''})</span>
+                          <h3 className="text-xl font-bold text-white">{section.title}</h3>
+                          <span className="text-[0.8rem] font-bold uppercase tracking-[0.1em] text-[#e0aa04]">
+                            {section.faqs.length} question{section.faqs.length > 1 ? 's' : ''}
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-2 bg-white">
+                  <div className="p-6 md:p-8 space-y-2 bg-white">
                     {section.faqs.map((faq, faqIndex) => {
                       const faqId = `${section.id}-${faqIndex}`;
                       const isOpen = openFAQ === faqId;
@@ -322,18 +324,18 @@ const FAQsPage = () => {
                       return (
                         <div
                           key={faqIndex}
-                          className="border-b border-slate-200 py-4"
+                          className={`rounded-2xl transition-colors duration-300 ${isOpen ? 'bg-white border border-[#e0aa04]/30 shadow-sm p-4' : 'border-b border-[#e2e8f0] py-4 hover:border-[#18363a]/20'}`}
                         >
                           <button
                             onClick={() => toggleFAQ(faqId)}
-                            className="w-full flex items-start justify-between text-left focus:outline-none group"
+                            className={`w-full flex items-start justify-between text-left focus:outline-none group ${isOpen ? 'mb-2' : ''}`}
                           >
-                            <span className="text-base font-semibold text-earth-900 pr-4 group-hover:text-earth-700 transition-colors">
+                            <span className={`text-[1.05rem] font-semibold pr-4 transition-colors ${isOpen ? 'text-[#18363a]' : 'text-earth-800 group-hover:text-[#18363a]'}`}>
                               {faq.question}
                             </span>
-                            <div className="flex-shrink-0 mt-1">
-                              <div className="w-6 h-6 rounded-full bg-[#fef3d1] flex items-center justify-center text-[#e0aa04] group-hover:bg-[#e0aa04] group-hover:text-white transition-colors">
-                                {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                            <div className="flex-shrink-0 mt-0.5">
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-[#18363a] text-white' : 'bg-white border border-[#e2e8f0] text-earth-400 group-hover:border-[#18363a] group-hover:text-[#18363a]'}`}>
+                                {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                               </div>
                             </div>
                           </button>
@@ -345,7 +347,7 @@ const FAQsPage = () => {
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.3 }}
                               >
-                                <div className="pt-3 text-slate-700 leading-relaxed text-sm whitespace-pre-line" dangerouslySetInnerHTML={{ __html: faq.answer }}>
+                                <div className="pt-2 text-earth-600 leading-relaxed text-[0.95rem] whitespace-pre-line" dangerouslySetInnerHTML={{ __html: faq.answer }}>
                                 </div>
                               </motion.div>
                             )}
@@ -365,18 +367,24 @@ const FAQsPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-12 text-left bg-[#e8f5f6] rounded-2xl p-8 border border-[#d1ebed]"
+            className="mt-16 text-center lg:text-left bg-[#18363a] rounded-[2rem] p-8 md:p-10 shadow-lg relative overflow-hidden"
           >
-            <p className="text-[#2c646c] text-lg">
-              Still have questions? Please reach out to us at{' '}
+            <div className="absolute top-0 left-0 w-2 h-full bg-[#e0aa04]"></div>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pl-2">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">Still have questions?</h3>
+                <p className="text-[#c8e5e8] text-[1.05rem]">
+                  Our team will respond to you within 2-3 business days.
+                </p>
+              </div>
               <a
                 href="mailto:admin@treksforall.in"
-                className="text-[#e0aa04] hover:text-[#d9a513] underline font-semibold"
+                className="inline-flex items-center gap-2 bg-[#e0aa04] rounded-xl px-6 py-3.5 text-white font-bold transition-all duration-300 hover:bg-[#c79100]"
               >
+                <Mail className="w-5 h-5" />
                 admin@treksforall.in
               </a>
-              . Our team will respond to you within 2-3 business days.
-            </p>
+            </div>
           </motion.div>
         </div>
       </section>

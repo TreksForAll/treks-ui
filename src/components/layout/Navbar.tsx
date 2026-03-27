@@ -33,6 +33,7 @@ const Navbar = () => {
     { name: 'Our Story', path: '/about' },
     { name: 'Adventures', path: '/trips', hasDropdown: true },
     { name: 'Customised Trips/B2B', path: '/customised-trips' },
+    { name: 'Outdoor Immersion Programs', path: '/outdoor-immersions' },
     { name: 'Partners', path: '/about/partners' },
     { name: 'FAQs', path: '/faqs' },
     { name: 'Media & Blog', path: '/blog' },
@@ -59,7 +60,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-slate-200 transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28">
           {/* Logo */}
           <Link to="/" className="group focus:outline-none">

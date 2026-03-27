@@ -1,12 +1,77 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Users, HandHeart, Mountain, ExternalLink, Accessibility } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, HandHeart, Mountain, Users } from 'lucide-react';
 import SEO from '../components/ui/SEO';
+import LazyImage from '../components/ui/LazyImage';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 
+interface CountUpProps {
+  target: number;
+  suffix?: string;
+  duration?: number;
+}
+
+const CountUp = ({ target, suffix = '', duration = 2500 }: CountUpProps) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-60px' });
+
+  useEffect(() => {
+    if (!inView) return;
+    const startTime = performance.now();
+    const timer = setInterval(() => {
+      const elapsed = performance.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      setCount(Math.round(progress * target));
+      if (progress >= 1) clearInterval(timer);
+    }, 16);
+    return () => clearInterval(timer);
+  }, [inView, target, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
+
+type PartnerColor = 'adventure' | 'success' | 'primary';
+
 const PartnersPage = () => {
-  const partners = [
+  const heroStats = [
+    { label: 'Founding partners', target: 3, suffix: '', icon: Users },
+    { label: 'Shared focus', value: 'Access +\nsafety', icon: HandHeart },
+    { label: 'Adventure depth', target: 30, suffix: '+ years', icon: Mountain }
+  ];
+
+  const accentStyles = {
+    adventure: {
+      shell: 'bg-white',
+      panel: 'bg-white',
+      badge: 'bg-[#f4f6f8] text-[#475569] border-transparent',
+    },
+    success: {
+      shell: 'bg-white',
+      panel: 'bg-white',
+      badge: 'bg-[#f4f6f8] text-[#475569] border-transparent',
+    },
+    primary: {
+      shell: 'bg-white',
+      panel: 'bg-white',
+      badge: 'bg-[#f4f6f8] text-[#475569] border-transparent',
+    }
+  } as const;
+
+  const partners: Array<{
+    id: string;
+    name: string;
+    role: string;
+    description: string;
+    logo: string;
+    website: string;
+    keyContributions: string[];
+    expertise: string[];
+    color: PartnerColor;
+    established: string;
+    impact: string;
+  }> = [
     {
       id: 'aquaterra-adventures',
       name: 'Aquaterra Adventures',
@@ -69,7 +134,7 @@ const PartnersPage = () => {
 
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-24 min-h-screen bg-white">
       <SEO
         title="Our partners - Treks for All | Making accessible adventure possible"
         description="Meet the organizations behind Treks for All: Aquaterra Adventures brings 30+ years of Himalayan expertise, v-shesh provides disability inclusion leadership, and Metores Trust ensures community development. Together, we're creating India's most comprehensive accessible adventure travel experiences."
@@ -78,106 +143,138 @@ const PartnersPage = () => {
         url="https://treksforall.in/about/partners"
       />
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16">
+        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left"
+            className="py-10"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                Our Founding Partners
-              </h1>
+            <div className="relative grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center xl:gap-24">
+              <div className="text-left pr-4">
+                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+                    Our Founding Partners
+                  </h1>
+                </div>
+                <p className="text-lg leading-relaxed text-earth-600 md:text-xl">
+                  Meet the organisations shaping Treks for All with operational depth, disability inclusion expertise, and community-rooted impact.
+                </p>
+              </div>
+
+              <div className="grid gap-5 grid-cols-1 sm:grid-cols-3 lg:gap-6">
+                {heroStats.map((stat) => {
+                  const Icon = stat.icon;
+
+                  return (
+                    <div
+                      key={stat.label}
+                      className="rounded-[2rem] bg-[#375a5e] p-7 md:p-8 text-left flex flex-col min-h-[220px] md:min-h-[240px]"
+                    >
+                      <div className="flex h-14 w-14 items-center justify-center rounded-[1.25rem] bg-white text-[#18363a] mb-auto">
+                        <Icon className="h-6 w-6 stroke-[1.5]" />
+                      </div>
+                      <div className="mt-6">
+                        <div className="text-3xl md:text-4xl font-bold text-white mb-2 whitespace-pre-line leading-[1.1] tracking-tight">
+                          {stat.target !== undefined ? (
+                            <CountUp target={stat.target} suffix={stat.suffix} />
+                          ) : (
+                            stat.value
+                          )}
+                        </div>
+                        <div className="text-[15px] md:text-base font-semibold text-[#c8e5e8] leading-tight">{stat.label}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <p className="text-xl text-earth-600 max-w-3xl ml-0">
-              Meet the visionary organizations that united to make outdoor adventures accessible to everyone
-            </p>
           </motion.div>
         </div>
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-[#f5f7fa]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+      <section className="py-6 md:py-10">
+        <div className="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-10">
             {partners.map((partner, index) => (
               <motion.div
                 key={partner.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                className="bg-[#f8fafc] rounded-[1.75rem] border border-[#e2e8f0] p-6 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-300"
               >
-                {/* Partner Logo & Overview */}
-                <div className={`order-2 lg:order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="text-left lg:text-left">
-                    <div className="inline-block rounded-full w-24 h-24 flex items-center justify-center mb-6 overflow-hidden">
-                      <img
-                        src={partner.logo}
-                        alt={`${partner.name} logo`}
-                        className="w-20 h-20 object-contain"
-                        width="80"
-                        height="80"
-                        loading="lazy"
-                      />
+                <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
+                  {/* Left Column: Logo & Main Info */}
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-[#e2e8f0] flex items-center justify-center p-4 flex-shrink-0 shadow-sm">
+                        <LazyImage
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          className="w-full h-full object-contain mix-blend-multiply"
+                        />
+                      </div>
+                      <div className="pt-2">
+                        <div className="inline-flex items-center rounded-full px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.15em] bg-white border border-[#e0aa04]/40 text-[#c79100] mb-3 shadow-[0_2px_10px_rgba(224,170,4,0.05)]">
+                          {partner.role}
+                        </div>
+                        <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#18363a]">{partner.name}</h3>
+                      </div>
                     </div>
-                    <h3 className="text-3xl font-bold text-earth-800 mb-2">{partner.name}</h3>
-                    <p className="text-lg font-semibold mb-4 text-earth-700">
-                      {partner.role}
-                    </p>
-                    <p className="text-earth-600 leading-relaxed mb-6 text-lg">
+                    <p className="text-base sm:text-lg leading-relaxed text-earth-600 mb-8">
                       {partner.description}
                     </p>
-                    
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="text-left p-4 bg-[#fef8e8] rounded-xl">
-                        <div className="text-2xl font-bold text-[#e0aa04]">{partner.established}</div>
-                        <div className="text-sm text-[#377d87]">Established</div>
+                    <div className="flex flex-wrap gap-8 mb-8">
+                      <div>
+                        <div className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-[#377d87]">Established</div>
+                        <div className="mt-1.5 text-xl font-bold text-[#18363a]">{partner.established}</div>
                       </div>
-                      <div className="text-left p-4 bg-[#fef8e8] rounded-xl">
-                        <div className="text-xs font-medium text-[#2c646c] leading-tight">{partner.impact}</div>
-                        <div className="text-sm text-[#377d87] mt-1">Impact</div>
+                      <div className="flex-1 min-w-[200px]">
+                        <div className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-[#377d87]">Impact</div>
+                        <div className="mt-1.5 text-sm sm:text-base font-medium text-earth-700">{partner.impact}</div>
                       </div>
                     </div>
-
                     <a
                       href={partner.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 text-earth-800 hover:text-earth-900 hover:underline font-semibold"
+                      className="inline-flex items-center gap-2 text-[0.95rem] font-bold text-[#214b51] hover:text-[#e0aa04] underline decoration-[1.5px] underline-offset-4 transition-colors"
                     >
-                      <span>Visit {partner.name}</span>
+                      Visit website
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </div>
-                </div>
 
-                {/* Partner Details */}
-                <div className={`order-1 lg:order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="bg-white rounded-2xl p-8 border border-[#d1ebed]">
-                    <h4 className="text-xl font-bold text-[#2c646c] mb-6">Key Contributions</h4>
-                    <ul className="space-y-3 mb-8">
-                      {partner.keyContributions.map((contribution, idx) => (
-                        <li key={idx} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-[#e0aa04]"></div>
-                          <span className="text-earth-700">{contribution}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Right Column: Experience Details */}
+                  <div className="md:w-[360px] lg:w-[440px] flex-shrink-0 space-y-6">
+                    <div className="bg-white rounded-[1.25rem] p-6 border border-[#e2e8f0] shadow-[0_2px_15px_rgba(0,0,0,0.02)] relative overflow-hidden">
+                      <h4 className="text-[0.85rem] font-bold text-[#18363a] uppercase tracking-wider mb-5 border-b border-[#e2e8f0] pb-3">Key Contributions</h4>
+                      <ul className="space-y-3">
+                        {partner.keyContributions.map((contribution, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#377d87] mt-1.5"></div>
+                            <span className="text-[0.9rem] text-earth-600 leading-snug">{contribution}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                    <h4 className="text-xl font-bold text-[#2c646c] mb-4">Areas of Expertise</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {partner.expertise.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 rounded-full text-sm font-medium bg-[#e8f5f6] text-[#2c646c] border border-[#d1ebed]"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                    <div className="bg-white rounded-[1.25rem] p-6 border border-[#e2e8f0] shadow-[0_2px_15px_rgba(0,0,0,0.02)] relative overflow-hidden">
+                      <h4 className="text-[0.85rem] font-bold text-[#18363a] uppercase tracking-wider mb-4 border-b border-[#e2e8f0] pb-3">Areas of Expertise</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {partner.expertise.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-[#d1ebed] border border-[#b8e0e3] shadow-sm rounded-lg px-3 py-1.5 text-[0.85rem] font-semibold text-[#18363a]"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -187,101 +284,49 @@ const PartnersPage = () => {
         </div>
       </section>
 
-      {/* Who's Journeyed With Us So Far */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Call to Action */}
+      <section className="py-12 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-left mb-12"
+            className="overflow-hidden rounded-[2rem] bg-[#214b51] p-8 shadow-lg md:p-10"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                Who's Journeyed With Us
-              </h2>
-              <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-                So Far
-              </p>
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+              <div>
+                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+                    Ready to Explore Together?
+                  </h2>
+                </div>
+                <p className="max-w-2xl text-lg text-[#c8e5e8]">
+                  Join us in making outdoor adventures accessible to everyone.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-start lg:justify-end">
+                <Link
+                  to="/trips"
+                  className="bg-[#e0aa04] hover:bg-[#d9a513] text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
+                >
+                  View Our Trips
+                </Link>
+                <Link
+                  to="/contact"
+                  className="border-2 border-[#a3d7db] text-white hover:bg-[#2c646c] px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
-            <p className="text-xl text-earth-600 max-w-3xl ml-0">
-              Redefining what's possible. Every step, a milestone.
-            </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-[#fef8e8] rounded-2xl p-8">
-              <div className="text-4xl font-bold text-[#e0aa04] mb-2">82 guests & counting</div>
-              <div className="text-[#377d87]">Total Participants</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-[#fef8e8] rounded-2xl p-8">
-              <div className="text-4xl font-bold text-[#e0aa04] mb-2">65 %</div>
-              <div className="text-[#377d87]">Persons with Disabilities</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-[#fef8e8] rounded-2xl p-8">
-              <div className="text-4xl font-bold text-[#e0aa04] mb-2">10+</div>
-              <div className="text-[#377d87]">Unique Disability Types</div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-[#214b51]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-           >
-             <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                 Ready to Explore Together?
-               </h2>
-             </div>
-             <p className="text-lg text-[#a3d7db] mb-8 text-left">
-               Join us in making outdoor adventures accessible to everyone
-             </p>
-             <div className="flex flex-col sm:flex-row gap-4 justify-start">
-               <Link
-                 to="/trips"
-                 className="bg-[#e0aa04] hover:bg-[#d9a513] text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
-               >
-                 View Our Trips
-               </Link>
-               <Link
-                 to="/contact"
-                 className="border-2 border-[#a3d7db] text-white hover:bg-[#2c646c] px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
-               >
-                 Contact Us
-               </Link>
-             </div>
-           </motion.div>
-         </div>
-       </section>
+      <VSheshRecognitionsSection />
+    </div>
+  );
+};
 
-       <VSheshRecognitionsSection />
-     </div>
-   );
- };
- 
- export default PartnersPage;
+export default PartnersPage;

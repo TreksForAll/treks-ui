@@ -3,6 +3,7 @@ import { Mountain, Users, Award, Globe, Leaf, Shield, Accessibility, HandHeart, 
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
+import SectionTitle from '../components/ui/SectionTitle';
 import SEO from '../components/ui/SEO';
 
 const AboutPage = () => {
@@ -34,7 +35,7 @@ const AboutPage = () => {
         url="https://treksforall.in/about"
       />
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-96 md:h-[500px] flex items-center justify-center overflow-hidden">
+      <section ref={heroRef} className="relative h-96 md:h-[500px] flex items-end overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -42,24 +43,21 @@ const AboutPage = () => {
             y
           }}
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative text-left text-white px-4 z-10">
-          <motion.h1
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative text-left text-white px-4 z-10 max-w-7xl mx-auto w-full pb-12">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
           >
-            Our Story
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 max-w-3xl ml-0"
-          >
-            Born from a Vision of Inclusion
-          </motion.p>
+            <SectionTitle
+              title="Our Story"
+              subtitle="Born from a Vision of Inclusion"
+              align="left"
+              light={true}
+              className="mb-4"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -73,11 +71,7 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                  Our Story
-                </h2>
-              </div>
+              <SectionTitle title="Our Story" align="left" className="mb-4" />
               <div className="prose prose-lg text-earth-600">
                 <p className="mb-6">
                   <strong>It all began with a simple belief: adventure should belong to everyone.</strong>
@@ -136,7 +130,7 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-[#f5f7fa]">
+      <section className="py-24 bg-[#214b51]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -145,28 +139,24 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                Our Journey
-              </h2>
-            </div>
-            <p className="text-lg text-earth-600 max-w-3xl ml-0">
+            <SectionTitle title="Our Journey" align="left" light={true} className="mb-4" />
+            <p className="text-lg text-[#a3d7db] max-w-3xl ml-0">
               Three organisations, one big dream, a cup of chai and Treks for All was born!
             </p>
-            <p className="text-lg text-earth-600 max-w-3xl ml-0 mt-4">
+            <p className="text-lg text-[#a3d7db] max-w-3xl ml-0 mt-4">
               Vaibhav Kala, founder of Aquaterra, after 30 years of adventure, realised there was a whole community of people who had never been taken outdoors. Shashaank Awasthi, founder of v-shesh, asked the obvious question: "Why not adventure and accessibility too?" And Pankaj Wadhwa, Director of Metores Trust and the ultimate trek addict, played matchmaker - bringing everyone together to make it happen.
             </p>
-            <p className="text-lg text-earth-600 max-w-3xl ml-0 mt-4">
-              And just like that, between sips of chai and a few excited "what ifs," the idea for Treks for All was born, because the mountains are for everyone, and great things often start in cafés.
+            <p className="text-lg text-[#a3d7db] max-w-3xl ml-0 mt-4">
+              And just like that, between sips of chai and a few excited "what ifs," the idea for Treks for All was born, <strong className="text-[#e0aa04]">because the mountains are for everyone, and great things often start in cafés.</strong>
             </p>
           </motion.div>
 
           <div className="relative">
             {/* Timeline Line - Hidden on mobile, shown on md+ */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-0.5 h-full w-1 bg-primary-200"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-0.5 h-full w-1 bg-[#a3d7db]"></div>
 
             {/* Mobile Timeline Line - Left aligned */}
-            <div className="md:hidden absolute left-4 top-0 bottom-0 w-1 bg-primary-200"></div>
+            <div className="md:hidden absolute left-4 top-0 bottom-0 w-1 bg-[#a3d7db]"></div>
 
             {milestones.map((milestone, index) => (
               <motion.div
@@ -229,14 +219,12 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-left mb-16"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                Onwards & Upwards
-              </h2>
-              <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-                The Journey Continues
-              </p>
-            </div>
+            <SectionTitle
+              title="Onwards & Upwards"
+              subtitle="The Journey Continues"
+              align="left"
+              className="mb-4"
+            />
             <p className="text-lg text-earth-600 max-w-2xl ml-0">
               With every trek, camp, and new explorer, we're expanding the possibilities of adventure, one inclusive step at a time.
             </p>
@@ -289,80 +277,35 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="bg-[#1a2e35] rounded-2xl p-8 md:p-12"
           >
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-[#e0aa04] rounded-xl mb-5">
-                <Shield className="h-7 w-7 text-white" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Our Values
-              </h3>
-              <p className="text-[#a3d7db]">The principles that guide every adventure we create</p>
-            </div>
+            <SectionTitle
+              title="Our Values"
+              subtitle="The principles that guide every adventure we create"
+              align="left"
+              light={true}
+              className="mb-12"
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Shield className="h-6 w-6 text-white" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {[
+                { icon: <Shield className="h-6 w-6" />, title: 'Safety', desc: 'Every experience is planned and delivered with uncompromised safety standards.' },
+                { icon: <Award className="h-6 w-6" />, title: 'Quality', desc: 'High-quality adventures through expert planning, skilled teams, and best-in-class, reliable equipment.' },
+                { icon: <HandHeart className="h-6 w-6" />, title: 'Dignity', desc: 'We treat every individual with respect, empathy, and equality - always.' },
+                { icon: <Accessibility className="h-6 w-6" />, title: 'Accessibility', desc: 'Committed to making adventure truly accessible for people with all types of disabilities.' },
+                { icon: <Users className="h-6 w-6" />, title: 'Inclusion', desc: 'Creating environments where everyone belongs, regardless of ability, background, or pace.' },
+                { icon: <Leaf className="h-6 w-6" />, title: 'Affordability', desc: 'Fair and reasonable pricing without ever compromising on safety or quality.' },
+                { icon: <Globe className="h-6 w-6" />, title: 'Innovation', desc: 'Continuously discover, test, and open new inclusive destinations, pushing the boundaries of accessible adventure.' },
+                { icon: <Mountain className="h-6 w-6" />, title: 'Empowerment', desc: 'Every experience is designed to build confidence, independence, and a sense of achievement.' },
+              ].map((value) => (
+                <div key={value.title} className="flex items-start space-x-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-5 transition-colors duration-300">
+                  <div className="flex-shrink-0 w-11 h-11 bg-[#e0aa04] rounded-xl flex items-center justify-center text-[#18363a]">
+                    {value.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white mb-1">{value.title}</h4>
+                    <p className="text-sm text-[#a3d7db] leading-relaxed">{value.desc}</p>
+                  </div>
                 </div>
-                <h4 className="font-bold text-white mb-2">Safety</h4>
-                <p className="text-sm text-[#a3d7db]">Every experience is planned and delivered with uncompromised safety standards.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Quality</h4>
-                <p className="text-sm text-[#a3d7db]">High-quality adventures through expert planning, skilled teams, and best-in-class, reliable equipment.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <HandHeart className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Dignity</h4>
-                <p className="text-sm text-[#a3d7db]">We treat every individual with respect, empathy, and equality - always.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Accessibility className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Accessibility</h4>
-                <p className="text-sm text-[#a3d7db]">Committed to making adventure truly accessible for people with all types of disabilities.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Inclusion</h4>
-                <p className="text-sm text-[#a3d7db]">Creating environments where everyone belongs, regardless of ability, background, or pace.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Leaf className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Affordability</h4>
-                <p className="text-sm text-[#a3d7db]">Fair and reasonable pricing without ever compromising on safety or quality.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Globe className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Innovation</h4>
-                <p className="text-sm text-[#a3d7db]">Continuously discover, test, and open new inclusive destinations, pushing the boundaries of accessible adventure.</p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#e0aa04] rounded-xl mb-4">
-                  <Mountain className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-bold text-white mb-2">Empowerment</h4>
-                <p className="text-sm text-[#a3d7db]">Every experience is designed to build confidence, independence, and a sense of achievement.</p>
-              </div>
+              ))}
             </div>
           </motion.div>
 

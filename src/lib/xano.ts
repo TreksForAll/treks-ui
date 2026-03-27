@@ -41,7 +41,15 @@ export interface B2BFormData {
   message: string;
 }
 
-export type FormData = ContactFormData | BookingFormData | B2BFormData;
+export interface ImmersionFormData {
+  formType: 'immersion';
+  name: string;
+  email: string;
+  organisation?: string;
+  message?: string;
+}
+
+export type FormData = ContactFormData | BookingFormData | B2BFormData | ImmersionFormData;
 
 type ApiResult = { success: boolean; message: string; data?: unknown };
 

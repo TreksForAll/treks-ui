@@ -43,7 +43,7 @@ const FeaturedTrips = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#f5f7fa]">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,17 +52,12 @@ const FeaturedTrips = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-              UPCOMING
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-              ADVENTURES
-            </p>
-          </div>
-          <p className="text-base sm:text-lg text-earth-600 text-left max-w-2xl">
-            Join these exciting inclusive adventures departing soon with limited spots available.
-          </p>
+          <SectionTitle
+            title="UPCOMING"
+            subtitle="ADVENTURES"
+            description="Join these exciting inclusive adventures departing soon with limited spots available."
+            align="left"
+          />
         </motion.div>
 
         <div className="space-y-8">

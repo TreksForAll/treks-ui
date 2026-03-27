@@ -15,6 +15,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CustomisedTripsPage from './pages/CustomisedTripsPage';
+import OutdoorImmersionPage from './pages/OutdoorImmersionPage';
 import PerformanceOptimizer from './components/ui/PerformanceOptimizer';
 import './index.css';
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/customised-trips" element={<CustomisedTripsPage />} />
+          <Route path="/outdoor-immersions" element={<OutdoorImmersionPage />} />
         </Routes>
         <Footer />
       </div>

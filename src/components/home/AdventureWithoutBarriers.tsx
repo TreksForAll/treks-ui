@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import SectionTitle from '../ui/SectionTitle';
 
 const AdventureWithoutBarriers = () => {
   const partners = [
@@ -25,24 +26,22 @@ const AdventureWithoutBarriers = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-[#e8f5f6]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-left mb-12"
+          className="mb-12"
         >
-          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-              ADVENTURE
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-              Without Barriers
-            </p>
-          </div>
-          <p className="text-xl font-semibold text-earth-700 max-w-full mb-6">
+          <SectionTitle
+            title="ADVENTURE"
+            subtitle="Without Barriers"
+            align="left"
+            className="mb-6"
+          />
+          <p className="text-xl font-semibold text-earth-700 max-w-full">
             <span className="uppercase">When people <strong>with & without disabilities</strong> walk side by side</span><br />
             <span className="uppercase">we discover the joy of <strong>shared adventure.</strong></span>
           </p>
@@ -57,7 +56,7 @@ const AdventureWithoutBarriers = () => {
           >
             <p className="text-lg text-earth-600 leading-relaxed mb-6 text-left">
               Everyone deserves to experience the healing and transformative power of being in the
-              outdoors. But too often, persons with disabilities are left out. That's why Treks for All was
+              outdoors. But too often, people with diverse needs are left out. That's why Treks for All was
               created — a one-of-a-kind collaboration between Aquaterra Adventures, Metores Trust, and
               v-shesh, offering thoughtfully designed outdoor experiences with inclusion, safety, and
               dignity at the core. With experienced guides and trained buddies, we make sure every
@@ -84,9 +83,9 @@ const AdventureWithoutBarriers = () => {
                 href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center bg-[#f5f7fa] rounded-xl p-5 hover:shadow-lg transition-all duration-300 group"
+                className="flex items-center bg-white rounded-xl p-5 hover:shadow-lg transition-all duration-300 group border border-[#e2e8f0]"
               >
-                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
+                <div className="w-16 h-16 rounded-xl bg-[#f8fafc] flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}

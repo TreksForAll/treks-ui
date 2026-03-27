@@ -5,6 +5,7 @@ import VideoTestimonials from '../components/home/VideoTestimonials';
 import FeaturedTrips from '../components/home/FeaturedTrips';
 import InclusiveUSPSection from '../components/home/InclusiveUSPSection';
 import FAQPreview from '../components/home/FAQPreview';
+import ImpactSection from '../components/home/ImpactSection';
 import VoicesFromTrail from '../components/home/VoicesFromTrail';
 import BlogPreview from '../components/home/BlogPreview';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
@@ -57,6 +58,7 @@ const HomePage = () => {
       <HeroSection />
       <div id="main-content">
         <AdventureWithoutBarriers />
+        <ImpactSection />
         <VideoTestimonials />
         <FeaturedTrips />
         <InclusiveUSPSection />

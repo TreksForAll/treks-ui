@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SectionTitle from '../ui/SectionTitle';
 
 const FAQPreview = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -9,7 +10,7 @@ const FAQPreview = () => {
   const faqs = [
     {
       question: 'What outdoor experiences does Treks For All offer?',
-      answer: '<ul class="list-disc pl-5 space-y-2"><li><strong>Inclusive Treks</strong> - Easy to moderate treks designed for everyone—supported by trained guides, adaptive equipment, flexible pacing, and fully inclusive campsite arrangements.</li><li><strong>Inclusive Camping Experiences</strong> - Multi-night camps with river expeditions (rafting, kayaking), high- and low-rope courses, wall climbing, and more. Camps feature expedition-grade tents, accessible layouts, strong safety practices, and the magic of bonfires, group activities, and reflective circles.</li><li><strong>Nature Walks & Adaptive Day Adventures</strong> - Gentle, low-intensity outdoor experiences such as nature trails, sensory immersion, birdwatching and adaptive rock climbing. Perfect for beginners, older adults, families, or anyone seeking a slower pace.</li></ul>'
+      answer: '<ul class="list-disc pl-5 space-y-2"><li><strong>Inclusive Treks</strong> - Easy to moderate treks designed for everyone—supported by trained guides, adaptive equipment, flexible pacing, and fully inclusive campsite arrangements.</li><li><strong>Inclusive Camping Experiences</strong> - Multi-night camps with river expeditions (rafting, kayaking), high- and low-rope courses, wall climbing, and more. Camps feature expedition-grade tents, strong safety practices, and the magic of bonfires, group activities, and reflective circles.</li><li><strong>Immersive Day Adventures</strong> - Gentle, low-intensity outdoor experiences such as nature trails, sensory immersion, birdwatching and adaptive rock climbing. Perfect for beginners, older adults, families, or anyone seeking a slower pace.</li></ul>'
     },
     {
       question: 'Who can join these experiences?',
@@ -17,7 +18,7 @@ const FAQPreview = () => {
     },
     {
       question: 'Is Treks For All only focused on disability inclusion?',
-      answer: 'Not at all—disability is just one aspect of diversity at Treks for All. Our programs are designed to include anyone who is often excluded from outdoor experiences, including caregivers, street children, children from underprivileged communities, older adults, individuals with chronic illnesses, and those with limited access to recreation. Our aim is to create meaningful outdoor experiences where everyone - regardless of ability, background, or circumstance—can safely and fully enjoy nature.'
+      answer: 'Not at all—disability is just one aspect of diversity at Treks for All. Our programs are designed to include anyone who is often excluded from outdoor experiences, including caregivers, children from underprivileged communities, older adults, individuals with chronic illnesses, and those with limited access to recreation. Our aim is to create meaningful outdoor experiences where everyone - regardless of ability, background, or circumstance—can safely and fully enjoy nature.'
     },
     {
       question: 'What should my fitness level be for a trek?',
@@ -25,7 +26,7 @@ const FAQPreview = () => {
     },
     {
       question: 'What medical support is available during the trek/camp?',
-      answer: 'Our founding partners – team Aquattera is trained in first aid, basic emergency care, including CPR. They can monitor participants for signs of dehydration, fatigue, altitude sickness, and other health concerns, and assist with prescribed medication routines if informed in advance. Staff are also skilled in safe evacuation procedures, including the use of stretchers or wheelchairs, and in coordinating with local medical services when needed. While the team is well-prepared for emergencies, please note that remote locations may limit access to full medical facilities, and any medical or evacuation expenses will be the responsibility of the participant.'
+      answer: 'Our founding partners – team Aquattera is trained in first aid, basic emergency care, including CPR. They can monitor participants for signs of dehydration, fatigue, altitude sickness, and other health concerns, and assist with prescribed medication routines if informed in advance. Staff are also skilled in safe evacuation procedures, including the use of stretchers or wheelchairs, and in coordinating with local medical services when needed.<br/><br/>While the team is well-prepared for emergencies, please note that remote locations may limit access to full medical facilities, and any medical or evacuation expenses will be the responsibility of the participant.'
     },
     {
       question: 'Is the team trained to support people with diverse needs?',
@@ -41,7 +42,7 @@ const FAQPreview = () => {
     },
     {
       question: 'What is the buddy system, and do buddies need to pay?',
-      answer: 'The buddy system is built on balanced support, dignity, and shared experience. Buddies assist while respecting each participant\'s independence, stepping in only when needed or requested. By knowing when to help and when to step back, buddies create a respectful, empathetic environment where everyone can explore the outdoors with confidence. Being a buddy does not mean giving up your own experience; buddies participate fully in the adventure and simply journey alongside the person they support. They also pay like any other participant, making the role one of shared responsibility, companionship, and inclusive enjoyment of nature.'
+      answer: 'The buddy system is built on balanced support, dignity, and shared experience. Buddies assist while respecting each participant\'s independence, stepping in only when needed or requested. By knowing when to help and when to step back, buddies create a respectful, empathetic environment where everyone can explore the outdoors with confidence.<br/><br/>Being a buddy does not mean giving up your own experience; buddies participate fully in the adventure and simply journey alongside the person they support. They also pay like any other participant, making the role one of shared responsibility, companionship, and inclusive enjoyment of nature.'
     },
     {
       question: 'Why do Treks for All experiences cost more than regular adventure trips?',
@@ -50,23 +51,20 @@ const FAQPreview = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#f5f7fa]">
+    <section className="py-24 bg-[#e8f5f6]/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-left mb-12"
+          className="mb-12"
         >
-          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-              FAQs
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-              FREQUENTLY ASKED QUESTIONS
-            </p>
-          </div>
+          <SectionTitle
+            title="FAQs"
+            subtitle="FREQUENTLY ASKED QUESTIONS"
+            align="left"
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-12 items-start">

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 import { useState } from 'react';
+import SectionTitle from '../ui/SectionTitle';
 
 const VideoTestimonials = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -9,11 +10,18 @@ const VideoTestimonials = () => {
 
   const testimonials = [
     {
-      name: 'Mohit',
-      description: 'I once struggled to accept my white cane and with it, my blindness',
+      name: 'Vaibhav Vadile',
+      description: 'I live with paraplegia, but with Treks for All, that didn’t define my experience. What stayed with me was the river, the laughter, and the thrill of trying something new. I rafted for the first time after my accident—and it meant everything',
       quote: '',
-      videoId: '_bvKHWWEi-I',
-      thumbnail: '/Video-Mohit.webp'
+      videoId: 'alv-XlWkOQM',
+      thumbnail: `https://i.ytimg.com/vi/alv-XlWkOQM/hqdefault.jpg`
+    },
+    {
+      name: 'Meenakshi',
+      description: 'I felt at peace at the camp. It was wonderful to see Aarush explore new adventures and become a more independent version of himself!',
+      quote: '',
+      videoId: 'CLZtcnNXIGM',
+      thumbnail: '/meenakshi.webp'
     },
     {
       name: 'Madhuri',
@@ -21,6 +29,13 @@ const VideoTestimonials = () => {
       quote: '',
       videoId: '2bXUKIky3uM',
       thumbnail: '/Video-Madhuri.webp'
+    },
+    {
+      name: 'Vikas Mishra',
+      description: 'When I completed the rope activity with one hand, something shifted in me—the confidence I felt in that moment will stay with me forever.',
+      quote: '',
+      videoId: 'j8kmNlPx49o',
+      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/hqdefault.jpg`
     },
     {
       name: 'Sakshi',
@@ -37,25 +52,11 @@ const VideoTestimonials = () => {
       thumbnail: '/Video-Pratishtha-Web.webp'
     },
     {
-      name: 'Meenakshi',
-      description: 'I felt at peace at the camp. It was wonderful to see Aarush explore new adventures and become a more independent version of himself!',
+      name: 'Mohit',
+      description: 'I once struggled to accept my white cane and with it, my blindness',
       quote: '',
-      videoId: 'CLZtcnNXIGM',
-      thumbnail: '/meenakshi.webp'
-    },
-    {
-      name: 'Vaibhav Vadile',
-      description: 'Vaibhav Vadile lives with paraplegia. But with Treks for All, that didn’t define the experience. What defined it was the river, the laughter, and the thrill of trying something new. Adventure doesn’t belong to a few. It belongs to everyone!',
-      quote: '',
-      videoId: 'alv-XlWkOQM',
-      thumbnail: `https://i.ytimg.com/vi/alv-XlWkOQM/hqdefault.jpg`
-    },
-    {
-      name: 'Vikas Mishra',
-      description: 'Adventure is about the little joys and stories that we carry back with us. Vikas\' experience is one such story that we recall when we think of the impact the outdoors can have on all of us!',
-      quote: '',
-      videoId: 'j8kmNlPx49o',
-      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/hqdefault.jpg`
+      videoId: '_bvKHWWEi-I',
+      thumbnail: '/Video-Mohit.webp'
     }
   ];
 
@@ -81,23 +82,20 @@ const VideoTestimonials = () => {
 
   return (
     <>
-      <section className="py-20 bg-[#1a2e35] overflow-hidden">
+      <section className="py-20 bg-[#f8fafc] overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-left mb-16"
+            className="mb-16"
           >
-              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                  VOICES FROM THE TRAIL
-                </h2>
-                <p className="text-lg md:text-xl lg:text-2xl text-[#a3d7db] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-                  In conversation with guests who walked with us.
-                </p>
-              </div>
+            <SectionTitle
+              title="VOICES FROM THE TRAIL"
+              subtitle="In conversation with guests who walked with us."
+              align="left"
+            />
           </motion.div>
 
           {/* Mobile Carousel */}
@@ -105,10 +103,10 @@ const VideoTestimonials = () => {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#e0aa04] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-[0_2px_15px_rgba(0,0,0,0.08)] flex items-center justify-center hover:bg-[#e0aa04] hover:text-white transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center text-[#18363a]"
               aria-label="Previous testimonials"
             >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
             </button>
 
             <div className="overflow-hidden w-full max-w-xs sm:max-w-sm flex items-stretch">
@@ -126,7 +124,7 @@ const VideoTestimonials = () => {
                     className="group cursor-pointer flex-shrink-0 w-full flex"
                     onClick={() => setActiveVideo(testimonial.videoId)}
                   >
-                    <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-white w-full">
+                    <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
                       <div className="relative w-full aspect-[9/16] overflow-hidden rounded-t-2xl flex-shrink-0">
                         <img
                           src={testimonial.thumbnail}
@@ -142,7 +140,7 @@ const VideoTestimonials = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-white flex-grow">
+                      <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-[#e8f5f6]/40 flex-grow">
                         <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#2c646c] text-left mb-3 break-words">
                           {testimonial.name}
                         </h3>
@@ -164,10 +162,10 @@ const VideoTestimonials = () => {
             <button
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 shadow-lg flex items-center justify-center hover:bg-[#e0aa04] transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-[0_2px_15px_rgba(0,0,0,0.08)] flex items-center justify-center hover:bg-[#e0aa04] hover:text-white transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center text-[#18363a]"
               aria-label="Next testimonials"
             >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
             </button>
           </div>
 
@@ -176,7 +174,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handlePreviousDesktop}
               disabled={desktopIndex === 0}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-20 bg-white/10 hover:bg-[#e0aa04] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-20 bg-white hover:bg-[#e0aa04] text-[#18363a] hover:text-white rounded-full p-3 shadow-[0_2px_15px_rgba(0,0,0,0.08)] hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="h-6 w-6 group-hover:scale-110 transition-transform" />
@@ -185,7 +183,7 @@ const VideoTestimonials = () => {
             <button
               onClick={handleNextDesktop}
               disabled={desktopIndex >= maxDesktopIndex}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-20 bg-white/10 hover:bg-[#e0aa04] text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-20 bg-white hover:bg-[#e0aa04] text-[#18363a] hover:text-white rounded-full p-3 shadow-[0_2px_15px_rgba(0,0,0,0.08)] hover:shadow-xl transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next testimonials"
             >
               <ChevronRight className="h-6 w-6 group-hover:scale-110 transition-transform" />
@@ -209,7 +207,7 @@ const VideoTestimonials = () => {
                       className="group cursor-pointer w-full flex"
                       onClick={() => setActiveVideo(testimonial.videoId)}
                     >
-                      <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-white w-full">
+                      <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
                         <div className="relative w-full aspect-[9/16] overflow-hidden rounded-t-2xl flex-shrink-0">
                           <img
                             src={testimonial.thumbnail}
@@ -225,7 +223,7 @@ const VideoTestimonials = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-white flex-grow">
+                        <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-[#e8f5f6]/40 flex-grow">
                           <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#2c646c] text-left mb-3 break-words">
                             {testimonial.name}
                           </h3>
@@ -293,3 +291,4 @@ const VideoTestimonials = () => {
 };
 
 export default VideoTestimonials;
+

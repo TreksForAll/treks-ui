@@ -59,6 +59,7 @@ const BlogPage = () => {
             <SectionTitle
               title="MEDIA & BLOG"
               subtitle="Wisdom from the Mountains. Stories from the Heart."
+              align="left"
             />
           </motion.div>
 

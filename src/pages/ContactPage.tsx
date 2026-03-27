@@ -100,7 +100,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 bg-[#f5f7fa]">
+      <section className="py-16 bg-[#214b51]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
@@ -111,64 +111,66 @@ const ContactPage = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div>
-                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                    Get in Touch
-                  </h2>
-                </div>
-                <p className="text-earth-600 leading-relaxed mb-8">
-                  We recognise that every person has unique needs and aspirations. We craft adaptive adventures that meet your requirements and expand what you believe is possible while ensuring dignity, privacy, confidentiality, and uncompromised safety at every step.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-[#e0aa04]" />
+              <div className="bg-[#214b51] rounded-2xl p-8">
+                <div>
+                  <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+                    <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+                      Get in Touch
+                    </h2>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-[#2c646c]">Phone</h3>
-                    <p className="text-earth-600">Sakshi: +91 82796 24879</p>
-                    <p className="text-earth-600">Vaishnavi: +91 85277 52157</p>
-                    <p className="text-earth-600">Himanshu: +91 96431 84862</p>
-                  </div>
+                  <p className="text-[#a3d7db] leading-relaxed mb-8">
+                    We recognise that every person has unique needs and aspirations. We craft adaptive adventures that meet your requirements and expand what you believe is possible while ensuring dignity, privacy, confidentiality, and uncompromised safety at every step.
+                  </p>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-5 w-5 text-[#e0aa04]" />
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-5 w-5 text-[#e0aa04]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">Phone</h3>
+                      <p className="text-[#a3d7db]">Sakshi: +91 82796 24879</p>
+                      <p className="text-[#a3d7db]">Vaishnavi: +91 85277 52157</p>
+                      <p className="text-[#a3d7db]">Himanshu: +91 96431 84862</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-[#2c646c]">Email</h3>
-                    <p className="text-earth-600"><a href="mailto:admin@treksforall.in" className="text-[#377d87] hover:text-[#2c646c] underline">admin@treksforall.in</a></p>
-                  </div>
-                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 text-[#e0aa04]" />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-5 w-5 text-[#e0aa04]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">Email</h3>
+                      <p className="text-[#a3d7db]"><a href="mailto:admin@treksforall.in" className="text-[#a3d7db] hover:text-white underline">admin@treksforall.in</a></p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-[#2c646c]">Address</h3>
-                    <p className="text-earth-600">
-                      S-507, Ground Floor<br />
-                      Greater Kailash – 2<br />
-                      New Delhi – 110048<br />
-                      India
-                    </p>
-                  </div>
-                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#fef3d1] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-5 w-5 text-[#e0aa04]" />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-[#e0aa04]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">Address</h3>
+                      <p className="text-[#a3d7db]">
+                        S-507, Ground Floor<br />
+                        Greater Kailash – 2<br />
+                        New Delhi – 110048<br />
+                        India
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-[#2c646c]">Office Hours</h3>
-                    <p className="text-earth-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p className="text-earth-600">Saturday: 10:00 AM - 4:00 PM</p>
-                    <p className="text-earth-600"><strong>Accessibility Support: 24/7 available</strong></p>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="h-5 w-5 text-[#e0aa04]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">Office Hours</h3>
+                      <p className="text-[#a3d7db]">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                      <p className="text-[#a3d7db]">Saturday: 10:00 AM - 4:00 PM</p>
+                      <p className="text-white font-semibold">Accessibility Support: 24/7 available</p>
+                    </div>
                   </div>
                 </div>
               </div>

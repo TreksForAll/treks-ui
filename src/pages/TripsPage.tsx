@@ -154,15 +154,15 @@ const TripsPage = () => {
         url="https://treksforall.in/trips"
       />
       {/* Header */}
-      <section className="py-16 bg-white">
+      <section className="pt-20 pb-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left mb-12"
+            className="text-left mb-10"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 All Adventures
               </h1>
@@ -173,7 +173,7 @@ const TripsPage = () => {
           </motion.div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-start mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <button
               onClick={() => setShowFilters(!showFilters)}
               aria-label="Toggle filters"
@@ -290,17 +290,9 @@ const TripsPage = () => {
         </motion.section>
       )}
 
-      {/* Results Count */}
-      <section className="py-4 bg-[#f5f7fa]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-left text-earth-600">
-            Showing <span className="font-semibold text-[#2c646c]">{filteredTrips.length}</span> of {trips.length} adventures
-          </p>
-        </div>
-      </section>
 
       {/* Trip Cards Grid */}
-      <section className="py-16 bg-[#f5f7fa]">
+      <section className="pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredTrips.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

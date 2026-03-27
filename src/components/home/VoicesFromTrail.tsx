@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import MobileStepper from '@mui/material/MobileStepper';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import SectionTitle from '../ui/SectionTitle';
 
 const VoicesFromTrail = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -63,7 +64,7 @@ const VoicesFromTrail = () => {
   const current = testimonials[currentIndex];
 
   return (
-    <section className="py-24 bg-[#f5f5f5] relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -72,14 +73,11 @@ const VoicesFromTrail = () => {
           viewport={{ once: true }}
           className="mb-14"
         >
-          <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-              GUESTS SPEAK
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-[#377d87] font-semibold uppercase mt-1" style={{ fontWeight: 600 }}>
-              LIFE-CHANGING MOMENTS. JOURNEYS THAT TRANSFORM
-            </p>
-          </div>
+          <SectionTitle
+            title="GUESTS SPEAK"
+            subtitle="LIFE-CHANGING MOMENTS. JOURNEYS THAT TRANSFORM"
+            align="left"
+          />
         </motion.div>
 
         <div className="relative">
