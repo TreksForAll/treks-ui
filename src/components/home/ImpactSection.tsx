@@ -30,8 +30,8 @@ const CountUp = ({ target, suffix = '', duration = 2500 }: CountUpProps) => {
 
 const ImpactSection = () => {
   const stats = [
-    { target: 82, suffix: ' guests & counting', label: 'Total Participants', delay: 0.1 },
-    { target: 65, suffix: ' %', label: 'Persons with Disabilities', delay: 0.2 },
+    { target: 154, suffix: '+', label: 'Total Guests', delay: 0.1 },
+    { target: 60, suffix: ' %', label: 'Persons with Disabilities', delay: 0.2 },
     { target: 10, suffix: '+', label: 'Unique Disability Types', delay: 0.3 },
   ];
 
@@ -47,8 +47,8 @@ const ImpactSection = () => {
         >
           <SectionTitle
             title="Who's Journeyed With Us"
-            subtitle="So Far"
-            description="Redefining what's possible. Every step, a milestone."
+            subtitle="Redefining what's possible. Every step, a milestone."
+            description=""
             align="left"
             light={true}
           />

@@ -34,7 +34,7 @@ const FAQPreview = () => {
     },
     {
       question: 'What kind of assistance is provided for people with specific needs?',
-      answer: 'Before each adventure, our team connects with every guest to understand their specific needs, preferences, and comfort levels. While wilderness settings naturally come with accessibility challenges, we take practical steps to reduce obstacles wherever possible. Activities are tailored, pacing and routes adjusted, and one-on-one support provided when needed. Whether it\'s mobility assistance, guided navigation, sensory cues, or personalized itinerary adjustments, our focus is on creating a safe, inclusive, and fulfilling outdoor experience for everyone.'
+      answer: 'Before each adventure, our team connects with every guest to understand their specific needs, preferences, and comfort levels. While wilderness settings naturally come with accessibility challenges, we take practical steps to reduce obstacles wherever possible. Activities are tailored, pacing and routes are adjusted, and one-on-one support is provided when needed. Whether it\'s mobility assistance, guided navigation, sensory cues, or personalized itinerary adjustments, our focus is on creating a safe, inclusive, and fulfilling outdoor experience for everyone. '
     },
     {
       question: 'Are the trails or paths wheelchair-friendly or suitable for limited mobility?',

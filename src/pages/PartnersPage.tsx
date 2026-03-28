@@ -151,7 +151,7 @@ const PartnersPage = () => {
             transition={{ duration: 0.6 }}
             className="py-10"
           >
-            <div className="relative grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center xl:gap-24">
+            <div className="relative grid gap-12 lg:grid-cols-1 lg:items-center xl:gap-24">
               <div className="text-left pr-4">
                 <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
                   <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
@@ -161,33 +161,6 @@ const PartnersPage = () => {
                 <p className="text-lg leading-relaxed text-earth-600 md:text-xl">
                   Meet the organisations shaping Treks for All with operational depth, disability inclusion expertise, and community-rooted impact.
                 </p>
-              </div>
-
-              <div className="grid gap-5 grid-cols-1 sm:grid-cols-3 lg:gap-6">
-                {heroStats.map((stat) => {
-                  const Icon = stat.icon;
-
-                  return (
-                    <div
-                      key={stat.label}
-                      className="rounded-[2rem] bg-[#375a5e] p-7 md:p-8 text-left flex flex-col min-h-[220px] md:min-h-[240px]"
-                    >
-                      <div className="flex h-14 w-14 items-center justify-center rounded-[1.25rem] bg-white text-[#18363a] mb-auto">
-                        <Icon className="h-6 w-6 stroke-[1.5]" />
-                      </div>
-                      <div className="mt-6">
-                        <div className="text-3xl md:text-4xl font-bold text-white mb-2 whitespace-pre-line leading-[1.1] tracking-tight">
-                          {stat.target !== undefined ? (
-                            <CountUp target={stat.target} suffix={stat.suffix} />
-                          ) : (
-                            stat.value
-                          )}
-                        </div>
-                        <div className="text-[15px] md:text-base font-semibold text-[#c8e5e8] leading-tight">{stat.label}</div>
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </motion.div>

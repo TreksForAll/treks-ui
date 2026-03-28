@@ -96,7 +96,6 @@ const OutdoorImmersionPage = () => {
                 transition={{ duration: 0.6 }}
                 className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-[#e0aa04]"
               >
-                <SectionTitle title="Our Approach" align="left" className="mb-6" />
                 <p className="text-earth-700 leading-relaxed mb-6">
                   At Treks for All, we believe engaging with the outdoors starts with gentler beginnings closer home. We want to create spaces where people with disabilities and their allies can connect, explore, and enjoy the outdoors safely and comfortably.
                 </p>
@@ -122,7 +121,7 @@ const OutdoorImmersionPage = () => {
                     href="https://www.instagram.com/treks.for.all/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center space-x-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
                   >
                     <Instagram className="h-5 w-5" />
                     <span>Follow on Instagram</span>
@@ -131,7 +130,7 @@ const OutdoorImmersionPage = () => {
                     href="https://www.facebook.com/profile.php?id=61576013662188"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-3 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center space-x-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
                   >
                     <Facebook className="h-5 w-5" />
                     <span>Follow on Facebook</span>
@@ -149,9 +148,9 @@ const OutdoorImmersionPage = () => {
                 transition={{ duration: 0.6 }}
                 className="bg-[#18363a] rounded-2xl p-6 border border-[#2a5a63] shadow-lg"
               >
-                <h3 className="text-lg font-bold text-[#e0aa04] mb-2">Community organiser?</h3>
+                <h3 className="text-lmd text-[#e0aa04] mb-2">Write to us to organise a TFA immersion in your city.</h3>
                 <p className="text-white/70 text-sm mb-5">
-                  Write to us if you are a community organiser who would be interested in a TFA trail walk in your city.
+                  
                 </p>
                 <a
                   href="mailto:admin@treksforall.in"

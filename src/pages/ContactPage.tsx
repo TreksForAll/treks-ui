@@ -354,7 +354,7 @@ const ContactPage = () => {
           >
             <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
               <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
-                Visit Aquaterra Adventures
+                Visit Treks For All
               </h3>
             </div>
             <p className="text-earth-600 mb-6">

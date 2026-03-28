@@ -27,7 +27,7 @@ const FeaturedTrips = () => {
     },
     {
       id: '7',
-      title: 'Camp Bagi (Tons River)',
+      title: 'Camp Bagi \n (Tons River)',
       subtitle: '',
       location: campBagi?.location || 'Tons Valley, Uttarakhand',
       duration: '4 Days / 3 Nights',

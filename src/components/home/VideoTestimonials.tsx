@@ -10,7 +10,7 @@ const VideoTestimonials = () => {
 
   const testimonials = [
     {
-      name: 'Vaibhav Vadile',
+      name: 'Vaibhav',
       description: 'I live with paraplegia, but with Treks for All, that didn’t define my experience. What stayed with me was the river, the laughter, and the thrill of trying something new. I rafted for the first time after my accident—and it meant everything',
       quote: '',
       videoId: 'alv-XlWkOQM',
@@ -31,11 +31,11 @@ const VideoTestimonials = () => {
       thumbnail: '/Video-Madhuri.webp'
     },
     {
-      name: 'Vikas Mishra',
-      description: 'When I completed the rope activity with one hand, something shifted in me—the confidence I felt in that moment will stay with me forever.',
+      name: 'Mohit',
+      description: 'I once struggled to accept my white cane and with it, my blindness',
       quote: '',
-      videoId: 'j8kmNlPx49o',
-      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/hqdefault.jpg`
+      videoId: '_bvKHWWEi-I',
+      thumbnail: '/Video-Mohit.webp'
     },
     {
       name: 'Sakshi',
@@ -45,19 +45,18 @@ const VideoTestimonials = () => {
       thumbnail: '/Video-Sakshi-web.webp'
     },
     {
-      name: 'Pratishtha Gogia',
+      name: 'Pratishtha',
       description: 'Out here I feel I have faced my fears and conquered them',
       quote: '',
       videoId: 'FOTEsqhk-sw',
       thumbnail: '/Video-Pratishtha-Web.webp'
-    },
-    {
-      name: 'Mohit',
-      description: 'I once struggled to accept my white cane and with it, my blindness',
+    },{
+      name: 'Vikas',
+      description: 'When I completed the rope activity with one hand, something shifted in me—the confidence I felt in that moment will stay with me forever.',
       quote: '',
-      videoId: '_bvKHWWEi-I',
-      thumbnail: '/Video-Mohit.webp'
-    }
+      videoId: 'j8kmNlPx49o',
+      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/hqdefault.jpg`
+    },
   ];
 
   const itemsPerPage = 4;

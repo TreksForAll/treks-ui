@@ -32,8 +32,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Our Story', path: '/about' },
     { name: 'Adventures', path: '/trips', hasDropdown: true },
-    { name: 'Customised Trips/B2B', path: '/customised-trips' },
-    { name: 'Outdoor Immersion Programs', path: '/outdoor-immersions' },
+    { name: 'Customised Trips', path: '/customised-trips' },
+    { name: 'Immersions', path: '/outdoor-immersions' },
     { name: 'Partners', path: '/about/partners' },
     { name: 'FAQs', path: '/faqs' },
     { name: 'Media & Blog', path: '/blog' },

@@ -68,7 +68,7 @@ const Footer = () => {
 
             <p className="text-slate-300 mb-6 text-sm leading-relaxed max-w-lg">
               Inclusive adventure travel designed for people of all abilities, founded through partnership with v-shesh,
-              Aquaterra Adventures, and Metores Trust. Breaking barriers, building bridges.
+              Aquaterra Adventures, and Metores Trust.
             </p>
 
             {/* Social Links */}
@@ -92,7 +92,7 @@ const Footer = () => {
               <span>Join Our Inclusive Community</span>
             </h3>
             <p className="text-slate-300 mb-4 sm:mb-6 text-sm">
-              Get accessibility updates, inspiring stories, and inclusive adventure tips
+              Get updates, inspiring stories, and inclusive adventure tips
             </p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <div className="flex flex-col sm:flex-row gap-3">

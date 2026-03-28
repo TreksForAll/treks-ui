@@ -76,7 +76,7 @@ const CustomisedTripsPage = () => {
             className="max-w-3xl"
           >
             <SectionTitle
-              title="Customised Trips / B2B"
+              title="Customised Trips"
               subtitle="Group Outdoor Experiences Without Barriers"
               align="left"
               light={true}
@@ -109,7 +109,6 @@ const CustomisedTripsPage = () => {
                 transition={{ duration: 0.6 }}
                 className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-[#e0aa04]"
               >
-                <SectionTitle title="Our Approach" align="left" className="mb-6" />
                 <p className="text-earth-700 leading-relaxed mb-6">
                   Treks for All organises inclusive outdoor trips for schools, workplaces, and communities that include people with disabilities. Our programmes create opportunities for groups to experience nature together in environments designed with accessibility and participation in mind.
                 </p>

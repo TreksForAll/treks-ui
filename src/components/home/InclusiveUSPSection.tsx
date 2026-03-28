@@ -93,7 +93,7 @@ const InclusiveUSPSection = () => {
           className="mt-16"
         >
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-snug text-center italic max-w-4xl mx-auto">
-            "Come for an adventure. Leave with a new way of seeing the world — and yourself."
+            Come for an adventure. Leave with a new way of seeing the world — and yourself.
           </p>
         </motion.div>
       </div>

@@ -26,7 +26,7 @@ const HeroSection = () => {
   }, [isVideoPlaying]);
 
   const heroContent = {
-    src: '/Video-Cover.webp',
+    src: '/landing_page/landing_img.JPG',
     alt: 'Accessible mountain trekking with adaptive equipment and inclusive support in Himalayan landscape',
     cta: 'Choose Your Adventure',
     secondaryCta: 'Watch Our Story',
@@ -89,7 +89,7 @@ const HeroSection = () => {
                 >
                   {/* Tagline in Cursive */}
                   <p
-                    className="text-5xl md:text-6xl text-white/90 mb-6 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
+                    className="text-5xl md:text-6xl text-white/90 mb-1 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
                     style={{
                       fontFamily: 'Anton',
                       fontWeight: 400,
