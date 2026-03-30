@@ -66,29 +66,29 @@ const HeroSection = () => {
         role="banner"
         aria-label="Hero section showcasing accessible adventure experiences"
       >
-        {/* Background Image Carousel */}
+        {/* Background Image Carousel — all images pre-rendered eagerly to avoid flash */}
         <motion.div
           className="absolute inset-0"
           role="img"
           aria-label={heroContent.alt}
           style={{ y }}
         >
-          <AnimatePresence mode="sync">
-            <motion.img
-              key={heroImages[heroIndex]}
-              src={heroImages[heroIndex]}
-              alt={heroContent.alt}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="absolute inset-0 w-full h-full object-cover"
+          {heroImages.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={i === heroIndex ? heroContent.alt : ''}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                i === heroIndex ? 'opacity-100' : 'opacity-0'
+              }`}
               loading="eager"
               decoding="async"
+              fetchPriority={i === 0 ? 'high' : 'low'}
               width="1920"
               height="1080"
+              aria-hidden={i !== heroIndex}
             />
-          </AnimatePresence>
+          ))}
         </motion.div>
 
         {/* Main Content - Properly Positioned */}
