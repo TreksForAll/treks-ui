@@ -108,7 +108,7 @@ const AccessibilityPage = () => {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       {/* Back Navigation */}
       <div className="bg-white border-b border-earth-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -139,7 +139,7 @@ const AccessibilityPage = () => {
           >
             <div className="flex items-center space-x-2 mb-4">
               <Accessibility className="h-8 w-8 text-[#e0aa04]" />
-              <h1 className="text-4xl md:text-5xl font-bold">Our Accessibility Commitment</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Our Accessibility Commitment</h1>
             </div>
             <p className="text-xl text-[#a3d7db] max-w-3xl ml-0">
               Breaking barriers, building bridges, and proving that adventure truly knows no limits
@@ -149,7 +149,7 @@ const AccessibilityPage = () => {
       </section>
 
       {/* Accessibility Features */}
-      <section className="py-20 bg-[#f5f7fa]">
+      <section className="py-12 md:py-20 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -176,11 +176,11 @@ const AccessibilityPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]"
+                  className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]"
                 >
                   <div className="flex items-center space-x-4 mb-6">
-                    <div className="bg-[#fef3d1] rounded-xl w-16 h-16 flex items-center justify-center">
-                      <IconComponent className="h-8 w-8 text-[#e0aa04]" />
+                    <div className="bg-[#fef3d1] rounded-xl w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
+                      <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-[#e0aa04]" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-[#2c646c]">{feature.title}</h3>
@@ -204,7 +204,7 @@ const AccessibilityPage = () => {
       </section>
 
       {/* Inclusion Principles */}
-      <section className="py-20 bg-[#1a2e35]">
+      <section className="py-12 md:py-20 bg-[#1a2e35]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -233,8 +233,8 @@ const AccessibilityPage = () => {
                   viewport={{ once: true }}
                   className="text-left"
                 >
-                  <div className="bg-[#e0aa04] rounded-xl w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="h-10 w-10 text-white" />
+                  <div className="bg-[#e0aa04] rounded-xl w-14 h-14 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-6">
+                    <IconComponent className="h-7 w-7 md:h-10 md:w-10 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-4">
                     {principle.title}

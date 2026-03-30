@@ -34,7 +34,7 @@ const FoundingPartnersSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-earth-50">
+    <section className="py-12 sm:py-16 md:py-20 bg-earth-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Company Milestones */}
         <motion.div
@@ -42,7 +42,7 @@ const FoundingPartnersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary-900 to-adventure-900 rounded-2xl p-8 md:p-12 text-white text-left mb-16"
+          className="bg-gradient-to-r from-primary-900 to-adventure-900 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-left mb-16"
         >
           <div className="mb-8">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Our Journey</h3>
@@ -62,7 +62,7 @@ const FoundingPartnersSection = () => {
                 viewport={{ once: true }}
               >
                 <div className="text-3xl mb-2">{achievement.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold text-adventure-400 mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-adventure-400 mb-2">
                   {achievement.value}
                 </div>
                 <div className="text-primary-200 text-sm">{achievement.label}</div>
@@ -104,7 +104,7 @@ const FoundingPartnersSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <div className="text-left">
                 <div className="w-32 h-32 rounded-xl flex items-center justify-center mx-auto mb-6 overflow-hidden p-4">
@@ -131,7 +131,7 @@ const FoundingPartnersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 bg-white rounded-2xl p-8 shadow-lg"
+          className="mt-16 bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>

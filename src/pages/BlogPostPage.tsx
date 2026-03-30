@@ -38,7 +38,7 @@ const BlogPostPage = () => {
 
   if (isLoading) {
     return (
-      <div className="pt-28 min-h-screen bg-white">
+      <div className="pt-20 md:pt-28 min-h-screen bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="animate-pulse space-y-8">
             <div className="h-8 bg-earth-200 rounded w-3/4"></div>
@@ -57,7 +57,7 @@ const BlogPostPage = () => {
 
   if (!post) {
     return (
-      <div className="pt-28 min-h-screen bg-white flex items-center justify-center">
+      <div className="pt-20 md:pt-28 min-h-screen bg-white flex items-center justify-center">
         <div className="text-left">
           <h2 className="text-2xl font-bold text-earth-800 mb-4">Article Not Found</h2>
           <p className="text-earth-600 mb-6">The article you're looking for doesn't exist.</p>
@@ -74,7 +74,7 @@ const BlogPostPage = () => {
 
   if (post.externalLink) {
     return (
-      <div className="pt-28 min-h-screen bg-white">
+      <div className="pt-20 md:pt-28 min-h-screen bg-white">
         <div className="bg-earth-50 border-b border-earth-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link
@@ -99,7 +99,7 @@ const BlogPostPage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-earth-800 mb-6 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-earth-800 mb-6 leading-tight"
             >
               {post.title}
             </motion.h1>
@@ -186,7 +186,7 @@ const BlogPostPage = () => {
   }
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <div className="bg-earth-50 border-b border-earth-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link

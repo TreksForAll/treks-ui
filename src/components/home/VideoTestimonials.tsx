@@ -5,7 +5,6 @@ import SectionTitle from '../ui/SectionTitle';
 
 const VideoTestimonials = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [desktopIndex, setDesktopIndex] = useState(0);
 
   const testimonials = [
@@ -60,16 +59,7 @@ const VideoTestimonials = () => {
   ];
 
   const itemsPerPage = 4;
-  const maxIndex = Math.max(0, testimonials.length - 1);
   const maxDesktopIndex = Math.max(0, testimonials.length - itemsPerPage);
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? 0 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? maxIndex : prev + 1));
-  };
 
   const handlePreviousDesktop = () => {
     setDesktopIndex((prev) => (prev === 0 ? 0 : prev - 1));
@@ -97,75 +87,50 @@ const VideoTestimonials = () => {
             />
           </motion.div>
 
-          {/* Mobile Carousel */}
-          <div className="relative flex items-stretch justify-center gap-6 sm:gap-8 pb-8 md:hidden">
-            <button
-              onClick={handlePrevious}
-              disabled={currentIndex === 0}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-[0_2px_15px_rgba(0,0,0,0.08)] flex items-center justify-center hover:bg-[#e0aa04] hover:text-white transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center text-[#18363a]"
-              aria-label="Previous testimonials"
-            >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
-            </button>
-
-            <div className="overflow-hidden w-full max-w-xs sm:max-w-sm flex items-stretch">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          {/* Mobile Stacked Cards */}
+          <div className="flex flex-col items-center gap-6 pb-8 md:hidden">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group cursor-pointer w-[90vw]"
+                onClick={() => setActiveVideo(testimonial.videoId)}
               >
-                {testimonials.map((testimonial, index) => (
-                  <motion.div
-                    key={testimonial.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="group cursor-pointer flex-shrink-0 w-full flex"
-                    onClick={() => setActiveVideo(testimonial.videoId)}
-                  >
-                    <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
-                      <div className="relative w-full aspect-[9/16] overflow-hidden rounded-t-2xl flex-shrink-0">
-                        <img
-                          src={testimonial.thumbnail}
-                          alt={`${testimonial.name} testimonial`}
-                          className={`w-full h-full object-cover ${index < 2 ? 'object-center' : 'object-top'}`}
-                          width="450"
-                          height="800"
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                          <div className="w-16 h-16 rounded-full bg-[#e0aa04] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <Play className="h-8 w-8 text-white ml-1" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="p-5 sm:p-6 flex flex-col rounded-b-2xl bg-[#e8f5f6]/40 flex-grow">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#2c646c] text-left mb-3 break-words">
-                          {testimonial.name}
-                        </h3>
-                        <p className="text-earth-600 text-left text-sm sm:text-base break-words leading-relaxed">
-                          {testimonial.description}
-                        </p>
-                        {testimonial.quote && (
-                          <p className="text-earth-600 text-sm leading-relaxed text-justify mt-3">
-                            {testimonial.quote}
-                          </p>
-                        )}
+                <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
+                  <div className="relative w-full aspect-[9/16] overflow-hidden rounded-t-2xl flex-shrink-0">
+                    <img
+                      src={testimonial.thumbnail}
+                      alt={`${testimonial.name} testimonial`}
+                      className={`w-full h-full object-contain bg-black/5 ${index < 2 ? 'object-center' : 'object-top'}`}
+                      width="450"
+                      height="800"
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-[#e0aa04] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Play className="h-8 w-8 text-white ml-1" />
                       </div>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <button
-              onClick={handleNext}
-              disabled={currentIndex >= maxIndex}
-              className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-[0_2px_15px_rgba(0,0,0,0.08)] flex items-center justify-center hover:bg-[#e0aa04] hover:text-white transition-colors z-10 disabled:opacity-50 disabled:cursor-not-allowed self-center text-[#18363a]"
-              aria-label="Next testimonials"
-            >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
-            </button>
+                  </div>
+                  <div className="p-5 flex flex-col rounded-b-2xl bg-[#e8f5f6]/40 flex-grow">
+                    <h3 className="text-lg font-bold text-[#2c646c] text-center mb-3 break-words">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-earth-600 text-center text-sm break-words leading-relaxed">
+                      {testimonial.description}
+                    </p>
+                    {testimonial.quote && (
+                      <p className="text-earth-600 text-sm leading-relaxed text-center mt-3">
+                        {testimonial.quote}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Desktop Carousel */}

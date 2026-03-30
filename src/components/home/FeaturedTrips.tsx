@@ -73,7 +73,7 @@ const FeaturedTrips = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
                   {/* Large Image Section */}
-                  <div className="relative h-96 lg:h-auto overflow-hidden group">
+                  <div className="relative h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden group">
                     <img
                       src={trip.image}
                       alt={trip.title}
@@ -112,7 +112,7 @@ const FeaturedTrips = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-8 lg:p-10 flex flex-col justify-between">
+                  <div className="p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between">
                     <div>
                       {/* Location */}
                       <div className="flex items-center text-[#377d87] mb-6">
@@ -133,7 +133,7 @@ const FeaturedTrips = () => {
                       </p>
 
                       {/* Trip Details Grid */}
-                      <div className="grid grid-cols-3 gap-4 mb-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                         <div className="flex items-center space-x-2 text-earth-700">
                           <Clock className="h-5 w-5 text-[#e0aa04]" />
                           <div>
@@ -179,14 +179,14 @@ const FeaturedTrips = () => {
                     <div className="flex items-center justify-between pt-6 border-t border-earth-200">
                       <div>
                         <p className="text-sm text-[#377d87] mb-1">Starting from</p>
-                        <p className="text-3xl font-bold text-earth-900">
+                        <p className="text-2xl sm:text-3xl font-bold text-earth-900">
                           {trip.price}
                         </p>
                         <p className="text-xs text-[#377d87] mt-1">(all inclusive)</p>
                       </div>
                       <Link
                         to={`/trip/${trip.id}`}
-                        className="bg-[#e0aa04] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#d9a513] transition-all duration-300 inline-flex items-center space-x-2 shadow-sm hover:shadow-lg"
+                        className="bg-[#e0aa04] text-white px-5 sm:px-8 py-3 rounded-xl font-bold hover:bg-[#d9a513] transition-all duration-300 inline-flex items-center space-x-2 shadow-sm hover:shadow-lg"
                       >
                         <span>View Details</span>
                         <ArrowRight className="h-5 w-5" />

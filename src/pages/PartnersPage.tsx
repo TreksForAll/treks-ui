@@ -134,7 +134,7 @@ const PartnersPage = () => {
 
 
   return (
-    <div className="pt-24 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Our partners - Treks for All | Making accessible adventure possible"
         description="Meet the organizations behind Treks for All: Aquaterra Adventures brings 30+ years of Himalayan expertise, v-shesh provides disability inclusion leadership, and Metores Trust ensures community development. Together, we're creating India's most comprehensive accessible adventure travel experiences."
@@ -223,7 +223,7 @@ const PartnersPage = () => {
                   </div>
 
                   {/* Right Column: Experience Details */}
-                  <div className="md:w-[360px] lg:w-[440px] flex-shrink-0 space-y-6">
+                  <div className="md:w-full lg:w-[360px] xl:w-[440px] flex-shrink-0 space-y-6">
                     <div className="bg-white rounded-[1.25rem] p-6 border border-[#e2e8f0] shadow-[0_2px_15px_rgba(0,0,0,0.02)] relative overflow-hidden">
                       <h4 className="text-[0.85rem] font-bold text-[#18363a] uppercase tracking-wider mb-5 border-b border-[#e2e8f0] pb-3">Key Contributions</h4>
                       <ul className="space-y-3">

@@ -44,7 +44,7 @@ const OutdoorImmersionPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-20 md:pt-28">
       <SEO
         title="Outdoor Immersion Programs – Treks for All | Accessible Trail Walks & Day Adventures"
         description="Treks for All creates accessible outdoor immersion experiences — trail walks and single day adventures for people with disabilities and their allies, thoughtfully curated for safe and enjoyable participation."
@@ -83,7 +83,7 @@ const OutdoorImmersionPage = () => {
       </section>
 
       {/* Main content */}
-      <section className="py-20 bg-[#f0f9fa]">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#f0f9fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
@@ -94,7 +94,7 @@ const OutdoorImmersionPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-[#e0aa04]"
+                className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg border-t-4 border-[#e0aa04]"
               >
                 <p className="text-earth-700 leading-relaxed mb-6">
                   At Treks for All, we believe engaging with the outdoors starts with gentler beginnings closer home. We want to create spaces where people with disabilities and their allies can connect, explore, and enjoy the outdoors safely and comfortably.
@@ -110,7 +110,7 @@ const OutdoorImmersionPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-[#18363a] rounded-2xl p-8 shadow-lg"
+                className="bg-[#18363a] rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
               >
                 <SectionTitle title="Stay Updated" align="left" className="mb-6" light={true} />
                 <p className="text-white/80 leading-relaxed mb-6">
@@ -166,7 +166,7 @@ const OutdoorImmersionPage = () => {
       </section>
 
       {/* Enquiry Form */}
-      <section className="py-20 bg-[#18363a]" id="enquiry">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#18363a]" id="enquiry">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <motion.div

@@ -54,7 +54,7 @@ const ImpactSection = () => {
           />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-left">
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
@@ -62,9 +62,9 @@ const ImpactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: stat.delay }}
               viewport={{ once: true }}
-              className="bg-[#214b51] rounded-2xl p-8 border border-[#377d87]/30 shadow-lg"
+              className="bg-[#214b51] rounded-2xl p-5 sm:p-6 md:p-8 border border-[#377d87]/30 shadow-lg"
             >
-              <div className="text-4xl font-bold text-[#e0aa04] mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#e0aa04] mb-2">
                 <CountUp target={stat.target} suffix={stat.suffix} />
               </div>
               <div className="text-white font-medium">{stat.label}</div>

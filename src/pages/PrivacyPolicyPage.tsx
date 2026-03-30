@@ -14,7 +14,7 @@ const PrivacyPolicyPage = () => {
         url="https://treksforall.in/privacy"
       />
 
-      <div className="pt-28 min-h-screen bg-[#f5f7fa]">
+      <div className="pt-20 md:pt-28 min-h-screen bg-[#f5f7fa]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
           <motion.div
@@ -23,8 +23,8 @@ const PrivacyPolicyPage = () => {
             transition={{ duration: 0.6 }}
             className="text-left mb-16"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#fef3d1] rounded-xl mb-6">
-              <Shield className="h-10 w-10 text-[#e0aa04]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#fef3d1] rounded-xl mb-6">
+              <Shield className="h-8 w-8 md:h-10 md:w-10 text-[#e0aa04]" />
             </div>
             <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4 mx-auto w-fit">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]">
@@ -42,7 +42,7 @@ const PrivacyPolicyPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 space-y-8 border border-[#d1ebed]">
+            <div className="bg-white rounded-2xl shadow-sm p-5 sm:p-8 md:p-12 space-y-8 border border-[#d1ebed]">
 
               <section>
                 <div className="flex items-center space-x-3 mb-4">

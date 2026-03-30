@@ -39,7 +39,7 @@ const InclusiveUSPSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#18363a]">
+    <section className="py-16 sm:py-20 md:py-24 bg-[#18363a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ const InclusiveUSPSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-left group bg-white/95 border border-white/20 p-8 rounded-2xl shadow-md hover:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300 relative overflow-hidden"
+                className="text-left group bg-white/95 border border-white/20 p-5 sm:p-6 md:p-8 rounded-2xl shadow-md hover:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300 relative overflow-hidden"
               >
                 {/* Top thin yellow accent line */}
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-[#e0aa04] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -92,7 +92,7 @@ const InclusiveUSPSection = () => {
           viewport={{ once: true }}
           className="mt-16"
         >
-          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-snug text-center italic max-w-4xl mx-auto">
+          <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-snug text-center italic max-w-4xl mx-auto">
             Come for an adventure. Leave with a new way of seeing the world — and yourself.
           </p>
         </motion.div>

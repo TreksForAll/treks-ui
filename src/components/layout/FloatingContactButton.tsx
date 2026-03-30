@@ -39,7 +39,7 @@ const FloatingContactButton = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.1 }}
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50"
       >
         <AnimatePresence>
           {isOpen && (
@@ -94,7 +94,7 @@ const FloatingContactButton = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 rounded-full bg-warning-400 text-earth-900 shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center hover:scale-110 focus:outline-none focus:ring-4 focus:ring-warning-300 relative group"
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-warning-400 text-earth-900 shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center hover:scale-110 focus:outline-none focus:ring-4 focus:ring-warning-300 relative group"
           aria-label={isOpen ? 'Close contact menu' : 'Open contact menu'}
         >
           <AnimatePresence mode="wait">

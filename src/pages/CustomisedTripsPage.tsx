@@ -46,7 +46,7 @@ const CustomisedTripsPage = () => {
   };
 
   return (
-    <div className="pt-16">
+    <div className="pt-20 md:pt-28">
       <SEO
         title="Customised Trips / B2B – Treks for All | Inclusive Group Outdoor Experiences"
         description="Treks for All organises inclusive outdoor trips for schools, workplaces, and communities. Group experiences without barriers — accessible nature walks, short treks, and day trips."
@@ -96,7 +96,7 @@ const CustomisedTripsPage = () => {
       </section>
 
       {/* Main content */}
-      <section className="py-20 bg-[#f0f9fa]">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#f0f9fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
@@ -107,7 +107,7 @@ const CustomisedTripsPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-[#e0aa04]"
+                className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg border-t-4 border-[#e0aa04]"
               >
                 <p className="text-earth-700 leading-relaxed mb-6">
                   Treks for All organises inclusive outdoor trips for schools, workplaces, and communities that include people with disabilities. Our programmes create opportunities for groups to experience nature together in environments designed with accessibility and participation in mind.
@@ -122,7 +122,7 @@ const CustomisedTripsPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-[#18363a] rounded-2xl p-8 shadow-lg"
+                className="bg-[#18363a] rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
               >
                 <SectionTitle title="We Work With" align="left" className="mb-6" light={true} />
                 <div className="space-y-4">
@@ -175,7 +175,7 @@ const CustomisedTripsPage = () => {
       </section>
 
       {/* Enquiry Form */}
-      <section className="py-20 bg-[#18363a]" id="enquiry">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#18363a]" id="enquiry">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
           <motion.div

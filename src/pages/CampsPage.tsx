@@ -55,7 +55,7 @@ const CampsPage = () => {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Adventure camps - Treks for All | Accessible camping experiences"
         description="Immerse yourself in nature's beauty at our carefully curated accessible adventure camps. Experience inclusive camping with activities like rafting, kayaking, rock climbing, and yoga, all adapted for people of all abilities in stunning Himalayan locations with full accessibility support."
@@ -174,7 +174,7 @@ const CampsPage = () => {
                 >
                   <Link to={`/trip/${camp.id}`} className="block h-full">
                     <div className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
-                      <div className="relative h-64 overflow-hidden">
+                      <div className="relative h-48 md:h-64 overflow-hidden">
                         <img
                           src={camp.image}
                           alt={camp.title}
@@ -308,8 +308,8 @@ const CampsPage = () => {
                   viewport={{ once: true }}
                   className="text-left"
                 >
-                  <div className="bg-[#e0aa04] rounded-xl w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-white" />
+                  <div className="bg-[#e0aa04] rounded-xl w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">
                     {feature.title}

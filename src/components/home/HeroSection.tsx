@@ -3,10 +3,26 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Play, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const heroImages = [
+  '/landing_page/landing_img.JPG',
+  '/landing_page/landing_img2.jpg',
+  '/landing_page/landing_img3.jpg',
+  '/landing_page/landing_img4.jpg',
+];
+
 const HeroSection = () => {
   const skipLinkRef = useRef<HTMLAnchorElement>(null);
   const heroRef = useRef(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    if (isVideoPlaying) return;
+    const timer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isVideoPlaying]);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -26,7 +42,6 @@ const HeroSection = () => {
   }, [isVideoPlaying]);
 
   const heroContent = {
-    src: '/landing_page/landing_img.JPG',
     alt: 'Accessible mountain trekking with adaptive equipment and inclusive support in Himalayan landscape',
     cta: 'Choose Your Adventure',
     secondaryCta: 'Watch Our Story',
@@ -51,25 +66,29 @@ const HeroSection = () => {
         role="banner"
         aria-label="Hero section showcasing accessible adventure experiences"
       >
-        {/* Background Image */}
+        {/* Background Image Carousel */}
         <motion.div
           className="absolute inset-0"
           role="img"
           aria-label={heroContent.alt}
           style={{ y }}
         >
-          <img
-            src={heroContent.src}
-            alt={heroContent.alt}
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-            width="1920"
-            height="1080"
-            style={{
-              imageRendering: 'auto'
-            }}
-          />
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={heroImages[heroIndex]}
+              src={heroImages[heroIndex]}
+              alt={heroContent.alt}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
+          </AnimatePresence>
         </motion.div>
 
         {/* Main Content - Properly Positioned */}
@@ -89,13 +108,13 @@ const HeroSection = () => {
                 >
                   {/* Tagline in Cursive */}
                   <p
-                    className="text-5xl md:text-6xl text-white/90 mb-1 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
+                    className="text-3xl sm:text-5xl md:text-6xl text-white/90 mb-1 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
                     style={{
                       fontFamily: 'Anton',
                       fontWeight: 400,
                       fontStyle: 'normal',
                       fontStretch: 'normal',
-                      fontSize: '44px',
+                      fontSize: 'clamp(24px, 6vw, 44px)',
                       fontOpticalSizing: 'auto',
                       textAlign: 'start',
                       transitionProperty: 'opacity, transform',

@@ -135,7 +135,7 @@ const TripsPage = () => {
 
   if (showComparison) {
     return (
-      <div className="pt-28">
+      <div className="pt-20 md:pt-28">
         <TripComparison 
           availableTrips={tripsForComparison}
           maxComparisons={3}
@@ -145,7 +145,7 @@ const TripsPage = () => {
   }
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="All adventures - Treks for All | Accessible trekking & camping"
         description="Discover our complete collection of accessible adventures across India and beyond. Browse inclusive Himalayan treks, river expeditions, and adventure camps designed for all abilities. Filter by difficulty, duration, and accessibility features to find your perfect outdoor experience."
@@ -306,7 +306,7 @@ const TripsPage = () => {
                 >
                   <Link to={`/trip/${trip.id}`} className="block h-full">
                     <div className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
-                      <div className="relative h-64 overflow-hidden">
+                      <div className="relative h-48 md:h-64 overflow-hidden">
                         <img
                           src={trip.image}
                           alt={trip.title}

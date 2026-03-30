@@ -36,7 +36,7 @@ const CoreOfferingsGrid = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ const CoreOfferingsGrid = () => {
               Four Pillars of Adventure
             </h2>
           </div>
-          <p className="text-lg text-earth-600 max-w-3xl ml-0 leading-relaxed">
+          <p className="text-base sm:text-lg text-earth-600 max-w-3xl ml-0 leading-relaxed">
             From the highest peaks of the Himalayas to the wildest rivers of India,
             we curate experiences that challenge, inspire, and transform.
           </p>
@@ -69,7 +69,7 @@ const CoreOfferingsGrid = () => {
               >
                 <Link to={offering.link} className="block group">
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-                    <div className="relative h-56 overflow-hidden">
+                    <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
                       <img
                         src={offering.image}
                         alt={offering.title}

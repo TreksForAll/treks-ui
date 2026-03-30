@@ -86,7 +86,7 @@ const mockPosts: BlogPost[] = [
     authorRole: 'Psychologist',
     date: 'June 2025',
     category: 'Perspectives',
-    image: '/tfa-our-story-landscape-01.webp',
+    image: '/our-story/tfa-our-story-landscape-01.webp',
     readTime: '10 min read',
     views: 1456,
     likes: 142,

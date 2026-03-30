@@ -220,7 +220,7 @@ const FAQsPage = () => {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="FAQs - Treks for All | Accessible adventure questions answered"
         description="Find answers to frequently asked questions about accessible trekking, inclusive camping, and adventure travel with Treks for All. Get detailed information about accessibility features, safety protocols, equipment, disability-specific support, and what to expect on your inclusive outdoor adventure."
@@ -283,7 +283,7 @@ const FAQsPage = () => {
       </section>
 
       {/* FAQ Grid Layout */}
-      <section className="py-20 bg-[#f8fafc]">
+      <section className="py-12 md:py-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* FAQ Sections - Two Column Layout */}

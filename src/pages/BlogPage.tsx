@@ -39,7 +39,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Blog - Treks for All | Stories from inclusive adventures"
         description="Read stories, experiences, and insights from our inclusive adventure community. Discover inspiring journeys of people with disabilities conquering mountains, accessibility tips for outdoor adventures, personal reflections from participants, and expert advice on adaptive equipment and inclusive travel across India."

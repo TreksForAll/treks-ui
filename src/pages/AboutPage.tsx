@@ -26,20 +26,20 @@ const AboutPage = () => {
 
 
   return (
-    <div className="pt-28">
+    <div className="pt-20 md:pt-28">
       <SEO
         title="Our story - Treks for All | Inclusive adventure travel"
         description="Born from a vision of inclusion, three mission-driven organizations came together to make outdoor adventure accessible to all. Discover how v-shesh, Aquaterra Adventures, and Metores Trust joined forces to create India's leading inclusive adventure company, breaking barriers one trek at a time."
         keywords="accessible adventure story, inclusive tourism India, v-shesh, Aquaterra Adventures, Metores Trust, disability inclusion, accessible outdoor adventure"
-        image="https://treksforall.in/story.webp"
+        image="https://treksforall.in/our-story/story.webp"
         url="https://treksforall.in/about"
       />
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-96 md:h-[500px] flex items-end overflow-hidden">
+      <section ref={heroRef} className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] flex items-end overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/story.webp')`,
+            backgroundImage: `url('/our-story/story.webp')`,
             y
           }}
         />
@@ -62,9 +62,9 @@ const AboutPage = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ const AboutPage = () => {
             >
               <div className="relative">
                 <img
-                  src="/tfa-our-story-landscape-01.webp"
+                  src="/our-story/tfa-our-story-landscape-01.webp"
                   alt="Treks for All inclusive adventure team"
                   className="rounded-2xl shadow-xl w-full"
                 />
@@ -111,14 +111,14 @@ const AboutPage = () => {
               <div className="grid grid-cols-3 gap-4">
                 <div className="relative">
                   <img
-                    src="/tfa-ourstory-vertical.webp"
+                    src="/our-story/tfa_story_2.jpg"
                     alt="Treks for All diverse adventure team"
                     className="rounded-2xl shadow-xl w-full h-full object-cover"
                   />
                 </div>
                 <div className="relative col-span-2">
                   <img
-                    src="/tfa-our-story-landscape-02.webp"
+                    src="/our-story/tfa_story_3.jpg"
                     alt="Treks for All inclusive expedition"
                     className="rounded-2xl shadow-xl w-full h-full object-cover"
                   />
@@ -130,7 +130,7 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-[#214b51]">
+      <section className="py-16 sm:py-20 md:py-24 bg-[#214b51]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -210,7 +210,7 @@ const AboutPage = () => {
       </section>
 
       {/* Vision, Mission & Values Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -237,7 +237,7 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-[#f5f7fa] rounded-2xl p-8"
+              className="bg-[#f5f7fa] rounded-2xl p-6 md:p-8"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-[#fef3d1] rounded-xl p-3 mr-4">
@@ -255,7 +255,7 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-[#f5f7fa] rounded-2xl p-8"
+              className="bg-[#f5f7fa] rounded-2xl p-6 md:p-8"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-[#fef3d1] rounded-xl p-3 mr-4">
@@ -264,7 +264,7 @@ const AboutPage = () => {
                 <h3 className="text-2xl font-bold text-earth-800">Mission</h3>
               </div>
               <p className="text-earth-600 leading-relaxed">
-                To continuously explore, identify, and open up explore and unlock new inclusive destinations and adventure experiences, committed to making every journey accessible and inclusive for people with disabilities.
+                To continuously explore, identify, and unlock new inclusive destinations and adventure experiences, with a commitment to making every journey accessible and inclusive for people with disabilities.
               </p>
             </motion.div>
           </div>
@@ -275,7 +275,7 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-[#1a2e35] rounded-2xl p-8 md:p-12"
+            className="bg-[#1a2e35] rounded-2xl p-6 sm:p-8 md:p-12"
           >
             <SectionTitle
               title="Our Values"
@@ -325,7 +325,7 @@ const AboutPage = () => {
             className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           >
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
                 Meet Our Accessibility Champions
               </h2>
               <p className="text-lg text-[#a3d7db] max-w-2xl">

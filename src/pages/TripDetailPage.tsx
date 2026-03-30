@@ -243,7 +243,7 @@ const TripDetailPage = () => {
 
   if (!trip) {
     return (
-      <div className="pt-28 min-h-screen bg-earth-50 flex items-center justify-center">
+      <div className="pt-20 md:pt-28 min-h-screen bg-earth-50 flex items-center justify-center">
         <div className="text-left">
           <h2 className="text-2xl font-bold text-earth-800 mb-4">Trip Not Found</h2>
           <p className="text-earth-600 mb-6">The trip you're looking for doesn't exist.</p>
@@ -259,7 +259,7 @@ const TripDetailPage = () => {
   }
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title={`${trip.title} - Treks for All | ${trip.location}`}
         description={`${trip.description} Join us for this ${trip.difficulty.toLowerCase()} ${trip.duration} adventure in ${trip.location}. Accessible and inclusive adventure travel.`}
@@ -269,7 +269,7 @@ const TripDetailPage = () => {
         type="article"
       />
       {/* Back Button */}
-      <div className="bg-white border-b border-earth-200 sticky top-20 z-30">
+      <div className="bg-white border-b border-earth-200 sticky top-20 md:top-28 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link
@@ -397,7 +397,7 @@ const TripDetailPage = () => {
       </section>
 
       {/* Trip Info Bar */}
-      <section className="bg-white border-b border-earth-200 sticky top-36 z-20">
+      <section className="bg-white border-b border-earth-200 sticky top-[7rem] md:top-36 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6">
@@ -418,7 +418,7 @@ const TripDetailPage = () => {
 
             <div className="flex items-center space-x-4">
               <div className="text-right">
-                <div className="text-3xl font-bold text-earth-800">{trip.price}</div>
+                <div className="text-2xl md:text-3xl font-bold text-earth-800">{trip.price}</div>
                 <div className="text-sm text-earth-600">per person</div>
               </div>
               <button
@@ -539,8 +539,8 @@ const TripDetailPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="md:col-span-2 space-y-8">
                   {/* About This Trip */}
-                  <div className="bg-white rounded-2xl p-8 shadow-lg">
-                    <h2 className="text-3xl font-bold text-earth-800 mb-6">{trip.id === '3' ? 'Camp Aquaterra' : 'About This Adventure'}</h2>
+                  <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                    <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-6">{trip.id === '3' ? 'Camp Aquaterra' : 'About This Adventure'}</h2>
                     <div className="text-base text-earth-600 leading-relaxed mb-6">
                       {trip.description.split(' Weather:').map((part, index) => (
                         <React.Fragment key={index}>
@@ -665,8 +665,8 @@ const TripDetailPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-3xl font-bold text-earth-800 mb-8 flex items-center space-x-2">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-8 flex items-center space-x-2">
                   <Camera className="h-8 w-8 text-adventure-500" />
                   <span>Photo Gallery</span>
                 </h2>
@@ -703,8 +703,8 @@ const TripDetailPage = () => {
               transition={{ duration: 0.6 }}
             >
               {trip.id === '1' && (
-                <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
-                  <h2 className="text-3xl font-bold text-earth-800 mb-6">Trek Route Map</h2>
+                <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-6">Trek Route Map</h2>
                   <div className="w-full rounded-lg overflow-hidden border border-earth-200">
                     <iframe
                       width="100%"
@@ -717,9 +717,9 @@ const TripDetailPage = () => {
                   </div>
                 </div>
               )}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-4">
-                  <h2 className="text-3xl font-bold text-earth-800">Day-by-Day Itinerary</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-earth-800">Day-by-Day Itinerary</h2>
                   <a
                     href="/documents/trek-preparation.pdf"
                     download="trek-preparation.pdf"
@@ -811,9 +811,9 @@ const TripDetailPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
             >
-              <h2 className="text-3xl font-bold text-earth-800 mb-8">Packing List</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-8">Packing List</h2>
               <p className="text-earth-600 mb-8">
                 Here's everything you need to pack for your camp adventure. Check off items as you pack to ensure you don't forget anything!
               </p>
@@ -873,7 +873,7 @@ const TripDetailPage = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-8"
             >
               {/* Inclusions */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-success-800 mb-6 flex items-center space-x-2">
                   <CheckCircle className="h-6 w-6" />
                   <span>What's Included</span>
@@ -889,7 +889,7 @@ const TripDetailPage = () => {
               </div>
 
               {/* Exclusions */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-error-800 mb-6 flex items-center space-x-2">
                   <XCircle className="h-6 w-6" />
                   <span>Not Included</span>
@@ -912,9 +912,9 @@ const TripDetailPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
             >
-              <h2 className="text-3xl font-bold text-earth-800 mb-8">Frequently Asked Questions</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-8">Frequently Asked Questions</h2>
               <div className="space-y-6">
                 {trip.faqs.map((faq, index) => (
                   <div key={index}>
@@ -937,8 +937,8 @@ const TripDetailPage = () => {
             >
               {/* Booking Form */}
               <div className="lg:col-span-2">
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
-                  <h2 className="text-3xl font-bold text-earth-800 mb-6">Book This Adventure</h2>
+                <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                  <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-6">Book This Adventure</h2>
                   
                   {/* Intent selector */}
                   {!bookingIntent && (

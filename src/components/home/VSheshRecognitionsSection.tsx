@@ -1,5 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 
 const VSheshRecognitionsSection = () => {
@@ -60,6 +61,33 @@ const VSheshRecognitionsSection = () => {
   const allItems = [...affiliations, ...recognitions];
   const marqueeItems = [...allItems, ...allItems, ...allItems]; // Tripled to ensure smooth infinite scrolling
 
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const handlePrev = useCallback(() => {
+    setDirection(-1);
+    setMobileIndex((prev) => (prev === 0 ? allItems.length - 1 : prev - 1));
+  }, [allItems.length]);
+
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setMobileIndex((prev) => (prev >= allItems.length - 1 ? 0 : prev + 1));
+  }, [allItems.length]);
+
+  // Auto-advance on mobile
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [handleNext]);
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+  };
+
   return (
     <section className="py-10 md:py-12 bg-[#f8fafc] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +107,58 @@ const VSheshRecognitionsSection = () => {
             />
           </div>
 
-          <div className="relative w-full overflow-hidden mt-6 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-white after:to-transparent">
+          {/* Mobile Carousel - one card at a time */}
+          <div className="md:hidden mt-6">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handlePrev}
+                className="flex-shrink-0 w-9 h-9 rounded-full bg-[#e8f5f6] flex items-center justify-center text-[#2c646c] hover:bg-[#d1ebed] transition-colors"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              <div className="flex-1 overflow-hidden relative" style={{ minHeight: '200px' }}>
+                <AnimatePresence custom={direction} mode="wait">
+                  <motion.div
+                    key={mobileIndex}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col items-center justify-start py-4 bg-[#e8f5f6]/30 border border-[#e8f5f6] rounded-xl px-4"
+                  >
+                    <div className="h-28 w-full flex items-center justify-center mb-3 bg-white rounded-lg p-3 shadow-sm border border-[#d1ebed]">
+                      <img
+                        src={allItems[mobileIndex].image}
+                        alt={allItems[mobileIndex].alt}
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="text-xs text-[#2c646c] text-center leading-snug font-semibold px-1">
+                      {allItems[mobileIndex].title}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              <button
+                onClick={handleNext}
+                className="flex-shrink-0 w-9 h-9 rounded-full bg-[#e8f5f6] flex items-center justify-center text-[#2c646c] hover:bg-[#d1ebed] transition-colors"
+                aria-label="Next"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+
+          </div>
+
+          {/* Desktop Marquee */}
+          <div className="hidden md:block relative w-full overflow-hidden mt-6 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-white after:to-transparent">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
               transition={{ ease: "linear", duration: 75, repeat: Infinity }}

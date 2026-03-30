@@ -66,7 +66,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-white">
+    <div className="pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Contact us - Treks for All | Plan your accessible adventure"
         description="Get in touch with Treks for All to plan your accessible adventure. Our accessibility specialists are ready to design your perfect inclusive outdoor experience. Contact our team for personalized trekking, camping, and adventure travel information tailored to your needs."
@@ -111,7 +111,7 @@ const ContactPage = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="bg-[#214b51] rounded-2xl p-8">
+              <div className="bg-[#214b51] rounded-2xl p-5 sm:p-6 md:p-8">
                 <div>
                   <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
                     <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
@@ -184,7 +184,7 @@ const ContactPage = () => {
               viewport={{ once: true }}
               className="lg:col-span-2"
             >
-              <div className="bg-white rounded-2xl shadow-sm p-8 border border-[#d1ebed]">
+              <div className="bg-white rounded-2xl shadow-sm p-5 sm:p-6 md:p-8 border border-[#d1ebed]">
                 <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
                   <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                     Accessibility Requirements
@@ -361,7 +361,7 @@ const ContactPage = () => {
               Our adventure camp partner is located in New Delhi.
             </p>
 
-            <div className="bg-[#e8f5f6] rounded-2xl p-8">
+            <div className="bg-[#e8f5f6] rounded-2xl p-5 sm:p-6 md:p-8">
               <div className="bg-white rounded-xl overflow-hidden shadow-sm mb-6">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.7567!2d77.2419357!3d28.5297059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3d53fffffff%3A0xc0e02fb0a4887399!2sAquaterra%20Adventures!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -372,7 +372,7 @@ const ContactPage = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Aquaterra Adventures Location"
-                  className="w-full h-96"
+                  className="w-full h-64 sm:h-80 md:h-96"
                 ></iframe>
               </div>
 

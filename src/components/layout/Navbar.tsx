@@ -61,13 +61,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-slate-200 transition-all duration-200">
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-28">
+        <div className="flex justify-between items-center h-20 md:h-28">
           {/* Logo */}
           <Link to="/" className="group focus:outline-none">
             <img
               src="/Treks-For-All-Logo.webp"
               alt="Treks for All"
-              className="h-24 w-auto transition-all duration-300 group-hover:scale-105 py-1"
+              className="h-16 md:h-24 w-auto transition-all duration-300 group-hover:scale-105 py-1"
               width="190"
               height="170"
               loading="eager"
@@ -139,8 +139,8 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 transition-colors duration-200 flex items-center justify-center ${
                 isOpen
-                  ? 'text-earth-900 border-b-2 border-warning-400'
-                  : 'text-slate-600 hover:text-earth-900 hover:border-b-2 hover:border-warning-400 border-b-2 border-transparent'
+                  ? 'text-earth-900'
+                  : 'text-slate-600 hover:text-earth-900'
               }`}
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}
@@ -161,13 +161,13 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-white border-t border-slate-200"
           >
-            <div className="px-4 py-6 space-y-2">
+            <div className="px-3 py-4 space-y-1">
               {navLinks.map((link) => (
                 link.hasDropdown ? (
                   <div key={link.name}>
                     <button
                       onClick={() => setAdventuresOpen(!adventuresOpen)}
-                      className={`w-full flex items-center justify-start text-left px-4 py-3 text-xs uppercase tracking-wider font-medium transition-colors duration-200 ${
+                      className={`w-full flex items-center justify-start text-left px-4 py-3 text-sm uppercase tracking-wider font-medium transition-colors duration-200 ${
                         isActive(link.path)
                           ? 'text-earth-900 border-b-2 border-warning-400'
                           : 'text-slate-600 hover:text-earth-900 hover:border-b-2 hover:border-warning-400 border-b-2 border-transparent'
@@ -202,7 +202,7 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`block px-4 py-3 text-xs uppercase tracking-wider font-medium transition-colors duration-200 ${
+                    className={`block px-4 py-3 text-sm uppercase tracking-wider font-medium transition-colors duration-200 ${
                       isActive(link.path)
                         ? 'text-earth-900 border-b-2 border-warning-400'
                         : 'text-slate-600 hover:text-earth-900 hover:border-b-2 hover:border-warning-400 border-b-2 border-transparent'
