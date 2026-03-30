@@ -4,10 +4,10 @@ import { ArrowRight, Play, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const heroImages = [
-  '/landing_page/landing_img.JPG',
-  '/landing_page/landing_img2.jpg',
-  '/landing_page/landing_img3.jpg',
-  '/landing_page/landing_img4.jpg',
+  '/landing_page/landing_img.webp',
+  '/landing_page/landing_img2.webp',
+  '/landing_page/landing_img3.webp',
+  '/landing_page/landing_img4.webp',
 ];
 
 const HeroSection = () => {

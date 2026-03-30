@@ -17,6 +17,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CustomisedTripsPage from './pages/CustomisedTripsPage';
 import OutdoorImmersionPage from './pages/OutdoorImmersionPage';
 import PerformanceOptimizer from './components/ui/PerformanceOptimizer';
+import PageLoader from './components/ui/PageLoader';
 import './index.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <PerformanceOptimizer />
+      <PageLoader />
       <div className="min-h-screen bg-white">
         <Navbar />
         <Routes>

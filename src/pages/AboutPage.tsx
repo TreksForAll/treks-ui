@@ -111,14 +111,14 @@ const AboutPage = () => {
               <div className="grid grid-cols-3 gap-4">
                 <div className="relative">
                   <img
-                    src="/our-story/tfa_story_2.jpg"
+                    src="/our-story/tfa_story_2.webp"
                     alt="Treks for All diverse adventure team"
                     className="rounded-2xl shadow-xl w-full h-full object-cover"
                   />
                 </div>
                 <div className="relative col-span-2">
                   <img
-                    src="/our-story/tfa_story_3.jpg"
+                    src="/our-story/tfa_story_3.webp"
                     alt="Treks for All inclusive expedition"
                     className="rounded-2xl shadow-xl w-full h-full object-cover"
                   />

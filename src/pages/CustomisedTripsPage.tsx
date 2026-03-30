@@ -59,7 +59,7 @@ const CustomisedTripsPage = () => {
         {/* Background image / parallax */}
         <motion.div className="absolute inset-0" style={{ y }}>
           <img
-            src="/b2b/b2b_mp.jpg"
+            src="/b2b/b2b_mp.webp"
             alt="Group inclusive outdoor experience"
             className="w-full h-full object-cover"
             loading="eager"
