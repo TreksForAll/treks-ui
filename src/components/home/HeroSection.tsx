@@ -7,7 +7,7 @@ const heroImages = [
   '/landing_page/landing_img.webp',
   '/landing_page/landing_img2.webp',
   '/landing_page/landing_img3.webp',
-  '/landing_page/landing_img4.webp',
+  '/landing_page/landing_img7.webp',
   '/landing_page/landing_img5.webp',
   '/landing_page/landing_img6.webp',
 ];
