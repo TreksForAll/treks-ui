@@ -546,3 +546,62 @@ nav.fixed {
 .modal {
   z-index: 9999;
 }
+
+/* ===== MOBILE TYPOGRAPHY & SPACING OPTIMIZATIONS ===== */
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  /* Tighten line spacing for paragraphs on mobile */
+  p {
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Reduce heading sizes on small phones */
+  h1 { font-size: 1.5rem; line-height: 1.2; }
+  h2 { font-size: 1.3rem; line-height: 1.25; }
+  h3 { font-size: 1.15rem; line-height: 1.3; }
+  h4 { font-size: 1.05rem; line-height: 1.3; }
+
+  /* Reduce section padding on mobile */
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* Tighten leading-relaxed on mobile */
+  .leading-relaxed {
+    line-height: 1.55 !important;
+  }
+
+  /* Reduce prose spacing on mobile */
+  .prose p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .prose li {
+    line-height: 1.5;
+  }
+}
+
+/* ===== iPad / Tablet Optimizations (768px - 1024px) ===== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    line-height: 1.55;
+  }
+
+  /* Better grid gaps for tablet */
+  .grid {
+    gap: 1rem;
+  }
+}

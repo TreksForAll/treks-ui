@@ -40,10 +40,10 @@ const Footer = () => {
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-gradient-to-tr from-primary-900/30 to-transparent"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-10 sm:py-16 relative z-10">
 
         {/* Split Header Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 sm:mb-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-6 sm:mb-12 items-stretch">
 
           {/* Left: Brand */}
           <div className="flex flex-col justify-between">
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
 
           {/* Right: Newsletter */}
-          <div className="bg-gradient-to-br from-adventure-900/50 to-primary-900/50 rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-white/10 flex flex-col justify-center">
+          <div className="bg-gradient-to-br from-adventure-900/50 to-primary-900/50 rounded-xl sm:rounded-2xl p-4 sm:p-8 backdrop-blur-sm border border-white/10 flex flex-col justify-center">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center space-x-2">
               <Target className="h-5 w-5 text-adventure-400 flex-shrink-0" />
               <span>Join Our Inclusive Community</span>
@@ -128,12 +128,12 @@ const Footer = () => {
         </div>
 
         {/* Compact Links Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 sm:gap-8 mb-6 sm:mb-12">
           
           {/* Adventures */}
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-white text-sm sm:text-base">Inclusive Adventures</h4>
-            <ul className="space-y-2">
+            <h4 className="font-bold mb-1 sm:mb-4 text-white text-sm sm:text-base">Inclusive Adventures</h4>
+            <ul className="space-y-0.5 sm:space-y-2">
               <li><Link to="/trips?category=treks" className="text-slate-300 hover:text-primary-400 transition-colors duration-300 text-sm flex items-start space-x-1">
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
                 <span>Inclusive Treks</span>
@@ -151,8 +151,8 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-white text-sm sm:text-base">Our Mission</h4>
-            <ul className="space-y-2">
+            <h4 className="font-bold mb-1 sm:mb-4 text-white text-sm sm:text-base">Our Mission</h4>
+            <ul className="space-y-0.5 sm:space-y-2">
               <li><Link to="/about" className="text-slate-300 hover:text-adventure-400 transition-colors duration-300 text-sm flex items-start space-x-1">
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
                 <span>Our Story</span>
@@ -166,8 +166,8 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-white text-sm sm:text-base">Support</h4>
-            <ul className="space-y-2">
+            <h4 className="font-bold mb-1 sm:mb-4 text-white text-sm sm:text-base">Support</h4>
+            <ul className="space-y-0.5 sm:space-y-2">
               <li><Link to="/faqs" className="text-slate-300 hover:text-success-400 transition-colors duration-300 text-sm flex items-start space-x-1">
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
                 <span>FAQs</span>
@@ -185,8 +185,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-white text-sm sm:text-base">Get in Touch</h4>
-            <div className="space-y-3">
+            <h4 className="font-bold mb-1 sm:mb-4 text-white text-sm sm:text-base">Get in Touch</h4>
+            <div className="space-y-1 sm:space-y-3">
               <div className="flex items-start space-x-2">
                 <Phone className="h-4 w-4 text-success-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">+91 96431 84862</span>

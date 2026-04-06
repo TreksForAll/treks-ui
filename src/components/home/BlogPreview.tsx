@@ -6,14 +6,14 @@ import SectionTitle from '../ui/SectionTitle';
 
 const BlogPreview = () => {
   return (
-    <section className="py-24 bg-[#18363a]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-24 bg-[#18363a]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-8 sm:mb-14"
         >
           <SectionTitle
             title="MEDIA & BLOG"
@@ -46,18 +46,18 @@ const BlogPreview = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </a>
 
-              <div className="md:col-span-2 p-8 lg:p-10">
-                <div className="mb-4">
-                  <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-4 py-1 rounded-lg text-sm font-semibold">
+              <div className="md:col-span-2 p-4 sm:p-8 lg:p-10">
+                <div className="mb-3 sm:mb-4">
+                  <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-3 sm:px-4 py-1 rounded-lg text-xs sm:text-sm font-semibold">
                     The Better India
                   </span>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold text-[#18363a] mb-4">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#18363a] mb-3 sm:mb-4">
                   From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas
                 </h3>
 
-                <p className="text-earth-600 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-earth-600 leading-snug sm:leading-relaxed mb-4 sm:mb-6">
                   The mountain gods of Dayara Bugyal (12,000 ft above sea level), a meadow in the Garhwal Himalayas, are no strangers to beautiful sights. Every spring (March and April), the meadow turns into a floral rhapsody of sorts; oak, rhododendron, pine and maple colour its alpine landscape.
                 </p>
 
@@ -98,18 +98,18 @@ const BlogPreview = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </a>
 
-              <div className="md:col-span-2 p-8 lg:p-10">
-                <div className="mb-4">
-                  <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-4 py-1 rounded-lg text-sm font-semibold">
+              <div className="md:col-span-2 p-4 sm:p-8 lg:p-10">
+                <div className="mb-3 sm:mb-4">
+                  <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-3 sm:px-4 py-1 rounded-lg text-xs sm:text-sm font-semibold">
                     Adventure Travel Trade Association
                   </span>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold text-[#18363a] mb-4">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#18363a] mb-3 sm:mb-4">
                   Treks for All: Making the Outdoors Truly Inclusive
                 </h3>
 
-                <p className="text-earth-600 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-earth-600 leading-snug sm:leading-relaxed mb-4 sm:mb-6">
                   Rather than treating inclusion as an add-on, Treks For All integrates adaptive design into every stage of the experience — from route selection and logistics to staffing, equipment, and on-trail support. This approach reflects growing global demand for purpose-driven travel and demonstrates how inclusive design can strengthen overall trip quality for all travelers.
                 </p>
 

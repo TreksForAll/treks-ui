@@ -145,7 +145,7 @@ const TripsPage = () => {
   }
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="All adventures - Treks for All | Accessible trekking & camping"
         description="Discover our complete collection of accessible adventures across India and beyond. Browse inclusive Himalayan treks, river expeditions, and adventure camps designed for all abilities. Filter by difficulty, duration, and accessibility features to find your perfect outdoor experience."
@@ -154,20 +154,20 @@ const TripsPage = () => {
         url="https://treksforall.in/trips"
       />
       {/* Header */}
-      <section className="pt-20 pb-8 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-12 sm:pt-20 pb-6 sm:pb-8 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left mb-10"
+            className="text-left mb-6 sm:mb-10"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-5">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 All Adventures
               </h1>
             </div>
-            <p className="text-lg text-earth-600 max-w-3xl ml-0">
+            <p className="text-sm sm:text-lg text-earth-600 max-w-3xl ml-0">
               Discover our complete collection of adventures across India and beyond
             </p>
           </motion.div>
@@ -295,7 +295,7 @@ const TripsPage = () => {
       <section className="pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredTrips.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {filteredTrips.map((trip, index) => (
                 <motion.div
                   key={trip.id}
@@ -305,7 +305,7 @@ const TripsPage = () => {
                   viewport={{ once: true }}
                 >
                   <Link to={`/trip/${trip.id}`} className="block h-full">
-                    <div className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
+                    <div className="group bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
                       <div className="relative h-48 md:h-64 overflow-hidden">
                         <img
                           src={trip.image}
@@ -324,17 +324,17 @@ const TripsPage = () => {
                         </div>
                       </div>
 
-                      <div className="p-6 flex-1 flex flex-col">
-                        <div className="flex items-center space-x-2 text-earth-600 text-sm mb-2">
+                      <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                        <div className="flex items-center space-x-2 text-earth-600 text-xs sm:text-sm mb-2">
                           <MapPin className="h-4 w-4" />
                           <span>{trip.location}</span>
                         </div>
                         
-                        <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#e0aa04] transition-colors duration-300">
+                        <h3 className="text-base sm:text-xl font-bold text-[#2c646c] mb-2 sm:mb-3 group-hover:text-[#e0aa04] transition-colors duration-300">
                           {trip.title}
                         </h3>
                         
-                        <p className="text-earth-600 mb-4 leading-relaxed line-clamp-3">
+                        <p className="text-sm sm:text-base text-earth-600 mb-3 sm:mb-4 leading-relaxed line-clamp-3">
                           {trip.description}
                         </p>
 
@@ -365,10 +365,10 @@ const TripsPage = () => {
                         </div>
 
                         <div className="flex items-center justify-between mt-auto">
-                          <div className="text-lg font-bold text-earth-900 whitespace-nowrap">
+                          <div className="text-base sm:text-lg font-bold text-earth-900 whitespace-nowrap">
                             {trip.price}
                           </div>
-                          <div className="flex items-center text-[#377d87] font-medium group-hover:translate-x-1 transition-transform duration-300">
+                          <div className="flex items-center text-[#377d87] text-sm sm:text-base font-medium group-hover:translate-x-1 transition-transform duration-300">
                             <span>View Details</span>
                             <ArrowRight className="h-4 w-4 ml-1" />
                           </div>

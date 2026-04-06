@@ -64,14 +64,14 @@ const VoicesFromTrail = () => {
   const current = testimonials[currentIndex];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-8 sm:mb-14"
         >
           <SectionTitle
             title="GUESTS SPEAK"
@@ -91,8 +91,8 @@ const VoicesFromTrail = () => {
               className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch border-l-[6px] border-[#e0aa04]"
             >
               {/* Photo */}
-              <div className="flex items-center justify-center p-8 md:p-10 flex-shrink-0">
-                <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-[#e0aa04] ring-offset-4 flex-shrink-0">
+              <div className="flex items-center justify-center p-4 sm:p-8 md:p-10 flex-shrink-0">
+                <div className="w-28 h-28 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-[#e0aa04] ring-offset-2 sm:ring-offset-4 flex-shrink-0">
                   <img
                     src={current.image}
                     alt={current.name}
@@ -105,13 +105,13 @@ const VoicesFromTrail = () => {
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-8 md:p-10 md:pl-4 flex flex-col justify-center">
-                <blockquote className="text-lg md:text-xl text-[#2c3e50] leading-relaxed mb-6 font-medium">
+              <div className="flex-1 p-4 sm:p-8 md:p-10 md:pl-4 flex flex-col justify-center">
+                <blockquote className="text-sm sm:text-lg md:text-xl text-[#2c3e50] leading-snug sm:leading-relaxed mb-4 sm:mb-6 font-medium">
                   {current.quote}
                 </blockquote>
                 <div>
-                  <p className="font-bold text-[#1a1a1a] text-lg">— {current.name}</p>
-                  <p className="text-[#666] text-sm mt-0.5">{current.role}, {current.location}</p>
+                  <p className="font-bold text-[#1a1a1a] text-sm sm:text-lg">— {current.name}</p>
+                  <p className="text-[#666] text-xs sm:text-sm mt-0.5">{current.role}, {current.location}</p>
                 </div>
               </div>
             </motion.div>

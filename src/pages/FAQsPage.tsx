@@ -220,7 +220,7 @@ const FAQsPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="FAQs - Treks for All | Accessible adventure questions answered"
         description="Find answers to frequently asked questions about accessible trekking, inclusive camping, and adventure travel with Treks for All. Get detailed information about accessibility features, safety protocols, equipment, disability-specific support, and what to expect on your inclusive outdoor adventure."
@@ -230,9 +230,9 @@ const FAQsPage = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-10 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-center">
 
             {/* Left: Content */}
             <motion.div
@@ -241,12 +241,12 @@ const FAQsPage = () => {
               transition={{ duration: 0.6 }}
               className="text-left"
             >
-              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+              <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-5">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                   Frequently Asked Questions
                 </h1>
               </div>
-              <p className="max-w-xl text-lg md:text-xl text-earth-600">
+              <p className="max-w-xl text-sm sm:text-lg md:text-xl text-earth-600">
                 Everything you need to know about accessible adventures with Treks for All
               </p>
             </motion.div>
@@ -287,7 +287,7 @@ const FAQsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* FAQ Sections - Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
             {faqSections.map((section, sectionIndex) => {
               const IconComponent = section.icon;
 
@@ -298,16 +298,16 @@ const FAQsPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-3xl shadow-md border border-[#e2e8f0] overflow-hidden hover:shadow-lg transition-all duration-300"
+                  className="bg-white rounded-2xl sm:rounded-3xl shadow-md border border-[#e2e8f0] overflow-hidden hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="p-6 md:p-8 bg-[#18363a]">
+                  <div className="p-4 sm:p-6 md:p-8 bg-[#18363a]">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#214b51] border border-[#377d87] text-white shadow-sm">
-                          <IconComponent className="h-6 w-6" />
+                        <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-[#214b51] border border-[#377d87] text-white shadow-sm">
+                          <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-white">{section.title}</h3>
+                          <h3 className="text-base sm:text-xl font-bold text-white">{section.title}</h3>
                           <span className="text-[0.8rem] font-bold uppercase tracking-[0.1em] text-[#e0aa04]">
                             {section.faqs.length} question{section.faqs.length > 1 ? 's' : ''}
                           </span>
@@ -316,7 +316,7 @@ const FAQsPage = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 md:p-8 space-y-2 bg-white">
+                  <div className="p-4 sm:p-6 md:p-8 space-y-2 bg-white">
                     {section.faqs.map((faq, faqIndex) => {
                       const faqId = `${section.id}-${faqIndex}`;
                       const isOpen = openFAQ === faqId;
@@ -330,7 +330,7 @@ const FAQsPage = () => {
                             onClick={() => toggleFAQ(faqId)}
                             className={`w-full flex items-start justify-between text-left focus:outline-none group ${isOpen ? 'mb-2' : ''}`}
                           >
-                            <span className={`text-[1.05rem] font-semibold pr-4 transition-colors ${isOpen ? 'text-[#18363a]' : 'text-earth-800 group-hover:text-[#18363a]'}`}>
+                            <span className={`text-sm sm:text-[1.05rem] font-semibold pr-4 transition-colors ${isOpen ? 'text-[#18363a]' : 'text-earth-800 group-hover:text-[#18363a]'}`}>
                               {faq.question}
                             </span>
                             <div className="flex-shrink-0 mt-0.5">
@@ -347,7 +347,7 @@ const FAQsPage = () => {
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.3 }}
                               >
-                                <div className="pt-2 text-earth-600 leading-relaxed text-[0.95rem] whitespace-pre-line" dangerouslySetInnerHTML={{ __html: faq.answer }}>
+                                <div className="pt-2 text-earth-600 leading-relaxed text-xs sm:text-[0.95rem] whitespace-pre-line" dangerouslySetInnerHTML={{ __html: faq.answer }}>
                                 </div>
                               </motion.div>
                             )}
@@ -367,13 +367,13 @@ const FAQsPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-16 text-center lg:text-left bg-[#18363a] rounded-[2rem] p-8 md:p-10 shadow-lg relative overflow-hidden"
+            className="mt-10 sm:mt-16 text-center lg:text-left bg-[#18363a] rounded-xl sm:rounded-[2rem] p-5 sm:p-8 md:p-10 shadow-lg relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-2 h-full bg-[#e0aa04]"></div>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pl-2">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pl-2">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Still have questions?</h3>
-                <p className="text-[#c8e5e8] text-[1.05rem]">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Still have questions?</h3>
+                <p className="text-[#c8e5e8] text-sm sm:text-[1.05rem]">
                   Our team will respond to you within 2-3 business days.
                 </p>
               </div>

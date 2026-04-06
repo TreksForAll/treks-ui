@@ -46,7 +46,7 @@ const CustomisedTripsPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28">
+    <div className="pt-16 sm:pt-20 md:pt-28">
       <SEO
         title="Customised Trips / B2B – Treks for All | Inclusive Group Outdoor Experiences"
         description="Treks for All organises inclusive outdoor trips for schools, workplaces, and communities. Group experiences without barriers — accessible nature walks, short treks, and day trips."
@@ -55,7 +55,7 @@ const CustomisedTripsPage = () => {
       />
 
       {/* Hero with embedded video */}
-      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
         {/* Background image / parallax */}
         <motion.div className="absolute inset-0" style={{ y }}>
           <img
@@ -68,7 +68,7 @@ const CustomisedTripsPage = () => {
         </motion.div>
 
         {/* Hero text + play button */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-32">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-24 sm:pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,12 +84,12 @@ const CustomisedTripsPage = () => {
             />
             <button
               onClick={() => setIsVideoPlaying(true)}
-              className="inline-flex items-center space-x-3 bg-white/15 backdrop-blur-sm border border-white/40 text-white px-6 py-3 rounded-xl hover:bg-white/25 transition-all duration-300"
+              className="inline-flex items-center space-x-2 sm:space-x-3 bg-white/15 backdrop-blur-sm border border-white/40 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl hover:bg-white/25 transition-all duration-300"
             >
-              <div className="bg-white rounded-full p-1.5">
-                <Play className="h-4 w-4 text-earth-900 fill-earth-900" />
+              <div className="bg-white rounded-full p-1 sm:p-1.5">
+                <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-earth-900 fill-earth-900" />
               </div>
-              <span className="font-medium">Watch: Amazon India's Inclusive Camp with Treks for All</span>
+              <span className="font-medium text-sm sm:text-base">Watch: Amazon India's Inclusive Camp with Treks for All</span>
             </button>
           </motion.div>
         </div>
@@ -233,7 +233,7 @@ const CustomisedTripsPage = () => {
               )}
 
               <button type="submit" disabled={submitting}
-                className="bg-[#e0aa04] text-[#18363a] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#c99903] transition-all duration-300 inline-flex items-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                className="bg-[#e0aa04] text-[#18363a] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-[#c99903] transition-all duration-300 inline-flex items-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
                 <Send className="h-5 w-5" />
                 <span>{submitting ? 'Sending…' : 'Submit Enquiry'}</span>
               </button>

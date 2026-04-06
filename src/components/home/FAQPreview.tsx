@@ -51,14 +51,14 @@ const FAQPreview = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#e8f5f6]/30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-24 bg-[#e8f5f6]/30">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
           <SectionTitle
             title="FAQs"
@@ -81,7 +81,7 @@ const FAQPreview = () => {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-start justify-between text-left focus:outline-none group p-5"
               >
-                <span className="text-base font-medium text-earth-800 pr-4 group-hover:text-[#377d87] transition-colors">
+                <span className="text-sm sm:text-base font-medium text-earth-800 pr-3 sm:pr-4 group-hover:text-[#377d87] transition-colors">
                   {faq.question}
                 </span>
                 <div className="flex-shrink-0 mt-0.5">
@@ -98,7 +98,7 @@ const FAQPreview = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-5 pb-5 text-earth-600 leading-relaxed text-sm border-t border-earth-100 pt-3" dangerouslySetInnerHTML={{ __html: faq.answer }}>
+                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-earth-600 leading-snug sm:leading-relaxed text-xs sm:text-sm border-t border-earth-100 pt-2 sm:pt-3" dangerouslySetInnerHTML={{ __html: faq.answer }}>
                     </div>
                   </motion.div>
                 )}

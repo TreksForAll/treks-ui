@@ -39,7 +39,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Blog - Treks for All | Stories from inclusive adventures"
         description="Read stories, experiences, and insights from our inclusive adventure community. Discover inspiring journeys of people with disabilities conquering mountains, accessibility tips for outdoor adventures, personal reflections from participants, and expert advice on adaptive equipment and inclusive travel across India."
@@ -47,14 +47,14 @@ const BlogPage = () => {
         image="https://treksforall.in/Vaishnavi-Article.webp"
         url="https://treksforall.in/blog"
       />
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-8 sm:mb-16"
           >
             <SectionTitle
               title="MEDIA & BLOG"
@@ -68,15 +68,15 @@ const BlogPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-4xl ml-0 mb-20"
+            className="max-w-4xl ml-0 mb-10 sm:mb-20"
           >
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]">
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
                 <a
                   href="https://thebetterindia.com/441694/treks-for-all-disabled-people-india-himalayas-uttarakhand-dayara-bugyal-rishikesh-v-shesh-aquaterra-adventures-metores/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="md:col-span-1 relative h-64 md:h-auto"
+                  className="md:col-span-1 relative h-48 sm:h-64 md:h-auto"
                 >
                   <img
                     src="/treks-for-all-disabled-persons-7-1748608748.webp"
@@ -85,18 +85,18 @@ const BlogPage = () => {
                   />
                 </a>
 
-                <div className="md:col-span-2 p-8 lg:p-10">
-                  <div className="mb-4">
-                    <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="md:col-span-2 p-4 sm:p-8 lg:p-10">
+                  <div className="mb-3 sm:mb-4">
+                    <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
                       The Better India
                     </span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#2c646c] mb-4">
+                  <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#2c646c] mb-3 sm:mb-4">
                     From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas
                   </h3>
 
-                  <p className="text-earth-600 leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6">
                     The mountain gods of Dayara Bugyal (12,000 ft above sea level), a meadow in the Garhwal Himalayas, are no strangers to beautiful sights. Every spring (March and April), the meadow turns into a floral rhapsody of sorts; oak, rhododendron, pine and maple colour its alpine landscape.
                   </p>
 
@@ -128,7 +128,7 @@ const BlogPage = () => {
               ))}
             </div>
           ) : posts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
               {posts.map((post, index) => (
                 <motion.article
                   key={post.id}
@@ -136,9 +136,9 @@ const BlogPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 border border-[#d1ebed]"
+                  className="group bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 border border-[#d1ebed]"
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-40 sm:h-48 overflow-hidden">
                     <img
                       src={(post as any).image}
                       alt={post.title}
@@ -147,8 +147,8 @@ const BlogPage = () => {
                     />
                   </div>
 
-                  <div className="p-6">
-                    <div className="flex items-center space-x-4 text-sm text-[#377d87] mb-3">
+                  <div className="p-4 sm:p-6">
+                    <div className="flex items-center space-x-3 sm:space-x-4 text-xs sm:text-sm text-[#377d87] mb-2 sm:mb-3">
                       <div className="flex items-center space-x-1">
                         <User className="h-4 w-4" />
                         <span>{(post as any).author}</span>
@@ -159,11 +159,11 @@ const BlogPage = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#e0aa04] transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-base sm:text-xl font-bold text-[#2c646c] mb-2 sm:mb-3 group-hover:text-[#e0aa04] transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h3>
 
-                    <p className="text-earth-600 mb-4 line-clamp-3">
+                    <p className="text-sm sm:text-base text-earth-600 mb-3 sm:mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
 

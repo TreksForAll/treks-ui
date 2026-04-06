@@ -8,6 +8,8 @@ const heroImages = [
   '/landing_page/landing_img2.webp',
   '/landing_page/landing_img3.webp',
   '/landing_page/landing_img4.webp',
+  '/landing_page/landing_img5.webp',
+  '/landing_page/landing_img6.webp',
 ];
 
 const HeroSection = () => {
@@ -28,7 +30,17 @@ const HeroSection = () => {
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const yRaw = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+
+  // Disable parallax on mobile to prevent the "scaling" feel
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  const y = isMobile ? '0%' : yRaw;
 
   useEffect(() => {
     if (isVideoPlaying) {
@@ -62,7 +74,7 @@ const HeroSection = () => {
 
       <section
         ref={heroRef}
-        className="relative w-full min-h-screen overflow-hidden mt-16"
+        className="relative w-full h-[calc(100svh-3rem)] sm:h-[calc(100vh-4rem)] overflow-hidden mt-12 sm:mt-16"
         role="banner"
         aria-label="Hero section showcasing accessible adventure experiences"
       >
@@ -92,7 +104,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Main Content - Properly Positioned */}
-        <div className="relative z-20 min-h-screen flex items-end pt-8 pb-32 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 h-full flex items-end pt-8 pb-20 sm:pb-32 px-3 sm:px-6 lg:px-8">
           <div className="w-full max-w-7xl mx-auto">
             <div className="flex items-center justify-start">
               {/* Main Content - Centered */}
@@ -104,17 +116,17 @@ const HeroSection = () => {
                     duration: 0.8,
                     ease: "easeOut"
                   }}
-                  className="space-y-6 sm:space-y-8"
+                  className="space-y-4 sm:space-y-6 md:space-y-8"
                 >
                   {/* Tagline in Cursive */}
                   <p
-                    className="text-3xl sm:text-5xl md:text-6xl text-white/90 mb-1 inline-block bg-black/20 backdrop-blur-sm px-5 py-3 rounded-2xl"
+                    className="text-2xl sm:text-5xl md:text-6xl text-white/90 mb-1 inline-block bg-black/20 backdrop-blur-sm px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl"
                     style={{
                       fontFamily: 'Anton',
                       fontWeight: 400,
                       fontStyle: 'normal',
                       fontStretch: 'normal',
-                      fontSize: 'clamp(24px, 6vw, 44px)',
+                      fontSize: 'clamp(20px, 5.5vw, 44px)',
                       fontOpticalSizing: 'auto',
                       textAlign: 'start',
                       transitionProperty: 'opacity, transform',
@@ -124,10 +136,10 @@ const HeroSection = () => {
                   </p>
 
                   {/* CTA Buttons - Touch-Friendly Sizing */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-start items-center px-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1 sm:pt-2 justify-start items-center px-1 sm:px-4">
                     <button
                       onClick={() => setIsVideoPlaying(true)}
-                      className="w-full sm:w-auto group bg-white/10 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium hover:bg-white/20 transition-all duration-300 border border-white/30 min-h-[3rem] focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent text-base sm:text-lg flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto group bg-white/10 backdrop-blur-sm text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-xl font-medium hover:bg-white/20 transition-all duration-300 border border-white/30 min-h-[2.75rem] focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent text-sm sm:text-lg flex items-center justify-center space-x-2"
                       aria-label="Watch our story video"
                     >
                       <Play className="h-5 w-5" />
@@ -136,7 +148,7 @@ const HeroSection = () => {
 
                     <Link
                       to={heroContent.link}
-                      className="w-full sm:w-auto group bg-[#e0aa04] text-earth-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-[#c99603] transition-all duration-300 transform hover:scale-105 focus:outline-none inline-flex items-center justify-center space-x-2 min-h-[3rem] text-base sm:text-lg"
+                      className="w-full sm:w-auto group bg-[#e0aa04] text-earth-900 px-5 sm:px-8 py-2.5 sm:py-4 rounded-xl font-semibold hover:bg-[#c99603] transition-all duration-300 transform hover:scale-105 focus:outline-none inline-flex items-center justify-center space-x-2 min-h-[2.75rem] text-sm sm:text-lg"
                       aria-label={`${heroContent.cta} - Navigate to accessible adventures`}
                     >
                       <span>{heroContent.cta}</span>

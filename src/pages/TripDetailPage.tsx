@@ -259,7 +259,7 @@ const TripDetailPage = () => {
   }
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title={`${trip.title} - Treks for All | ${trip.location}`}
         description={`${trip.description} Join us for this ${trip.difficulty.toLowerCase()} ${trip.duration} adventure in ${trip.location}. Accessible and inclusive adventure travel.`}
@@ -338,10 +338,10 @@ const TripDetailPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] sm:h-96 md:h-[500px] bg-cover bg-center flex items-center justify-center"
+      <section className="relative h-[45vh] sm:h-96 md:h-[500px] bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${trip.image}')` }}
       >
-        <div className="text-left text-white px-4 max-w-4xl py-8">
+        <div className="text-left text-white px-3 sm:px-4 max-w-4xl py-6 sm:py-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -353,7 +353,7 @@ const TripDetailPage = () => {
               <span>{trip.category === 'treks' ? 'Himalayan Trek' : trip.category === 'rivers' ? 'River Expedition' : 'Adventure Experience'}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               {trip.title}
             </h1>
 
@@ -524,7 +524,7 @@ const TripDetailPage = () => {
       </section>
 
       {/* Tab Content */}
-      <section className="py-16 bg-earth-50">
+      <section className="py-10 sm:py-16 bg-earth-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Overview Tab */}
@@ -536,12 +536,12 @@ const TripDetailPage = () => {
               className="space-y-12"
             >
               {/* Trip Details Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+                <div className="md:col-span-2 space-y-6 sm:space-y-8">
                   {/* About This Trip */}
                   <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
-                    <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-6">{trip.id === '3' ? 'Camp Aquaterra' : 'About This Adventure'}</h2>
-                    <div className="text-base text-earth-600 leading-relaxed mb-6">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-earth-800 mb-4 sm:mb-6">{trip.id === '3' ? 'Camp Aquaterra' : 'About This Adventure'}</h2>
+                    <div className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6">
                       {trip.description.split(' Weather:').map((part, index) => (
                         <React.Fragment key={index}>
                           {index === 0 ? (

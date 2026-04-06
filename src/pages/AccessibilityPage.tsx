@@ -108,7 +108,7 @@ const AccessibilityPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       {/* Back Navigation */}
       <div className="bg-white border-b border-earth-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -123,25 +123,25 @@ const AccessibilityPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-[#1a2e35] text-white relative overflow-hidden">
+      <section className="py-10 sm:py-16 bg-[#1a2e35] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 15c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15zm0 5c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-left"
           >
-            <div className="flex items-center space-x-2 mb-4">
-              <Accessibility className="h-8 w-8 text-[#e0aa04]" />
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Our Accessibility Commitment</h1>
+            <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+              <Accessibility className="h-6 w-6 sm:h-8 sm:w-8 text-[#e0aa04]" />
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Our Accessibility Commitment</h1>
             </div>
-            <p className="text-xl text-[#a3d7db] max-w-3xl ml-0">
+            <p className="text-sm sm:text-xl text-[#a3d7db] max-w-3xl ml-0">
               Breaking barriers, building bridges, and proving that adventure truly knows no limits
             </p>
           </motion.div>
@@ -150,23 +150,23 @@ const AccessibilityPage = () => {
 
       {/* Accessibility Features */}
       <section className="py-12 md:py-20 bg-[#f5f7fa]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-left mb-16"
+            className="text-left mb-8 sm:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2c646c] mb-6">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-[#2c646c] mb-4 sm:mb-6">
               Comprehensive Accessibility Support
             </h2>
-            <p className="text-lg text-[#377d87] max-w-3xl ml-0">
+            <p className="text-sm sm:text-lg text-[#377d87] max-w-3xl ml-0">
               Our adventures are designed with universal access principles, ensuring meaningful participation for all abilities
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
             {accessibilityFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
@@ -176,15 +176,15 @@ const AccessibilityPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]"
                 >
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="bg-[#fef3d1] rounded-xl w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
-                      <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-[#e0aa04]" />
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className="bg-[#fef3d1] rounded-lg sm:rounded-xl w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center">
+                      <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-[#e0aa04]" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-[#2c646c]">{feature.title}</h3>
-                      <p className="text-earth-600">{feature.description}</p>
+                      <h3 className="text-lg sm:text-2xl font-bold text-[#2c646c]">{feature.title}</h3>
+                      <p className="text-xs sm:text-base text-earth-600">{feature.description}</p>
                     </div>
                   </div>
 
@@ -211,17 +211,17 @@ const AccessibilityPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-left mb-16"
+            className="text-left mb-8 sm:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
               Our Inclusion Principles
             </h2>
-            <p className="text-lg text-[#a3d7db] max-w-3xl ml-0">
+            <p className="text-sm sm:text-lg text-[#a3d7db] max-w-3xl ml-0">
               The core values that guide every decision we make and every adventure we create
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {inclusionPrinciples.map((principle, index) => {
               const IconComponent = principle.icon;
               return (
@@ -233,13 +233,13 @@ const AccessibilityPage = () => {
                   viewport={{ once: true }}
                   className="text-left"
                 >
-                  <div className="bg-[#e0aa04] rounded-xl w-14 h-14 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="h-7 w-7 md:h-10 md:w-10 text-white" />
+                  <div className="bg-[#e0aa04] rounded-lg sm:rounded-xl w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <IconComponent className="h-5 w-5 sm:h-7 sm:w-7 md:h-10 md:w-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">
+                  <h3 className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-4">
                     {principle.title}
                   </h3>
-                  <p className="text-[#a3d7db] leading-relaxed">
+                  <p className="text-xs sm:text-base text-[#a3d7db] leading-relaxed">
                     {principle.description}
                   </p>
                 </motion.div>
@@ -250,20 +250,20 @@ const AccessibilityPage = () => {
       </section>
 
       {/* Contact Accessibility Team */}
-      <section className="py-16 bg-[#e8f5f6]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+      <section className="py-10 sm:py-16 bg-[#e8f5f6]">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Questions About Accessibility?
               </h2>
             </div>
-            <p className="text-lg text-[#377d87] mb-8 max-w-2xl ml-0">
+            <p className="text-sm sm:text-lg text-[#377d87] mb-6 sm:mb-8 max-w-2xl ml-0">
               Our accessibility specialists are here to discuss your specific needs and create the perfect adventure experience for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-start">

@@ -108,7 +108,7 @@ const BlogPostPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-earth-600 leading-relaxed mb-8"
+              className="text-base sm:text-xl text-earth-600 leading-relaxed mb-6 sm:mb-8"
             >
               {post.excerpt}
             </motion.p>
@@ -117,7 +117,7 @@ const BlogPostPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-6 text-earth-600 mb-8"
+              className="flex flex-wrap items-center gap-4 sm:gap-6 text-earth-600 mb-6 sm:mb-8"
             >
               <div className="flex items-center space-x-2">
                 <User className="h-5 w-5 text-primary-600" />
@@ -142,7 +142,7 @@ const BlogPostPage = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-12"
+              className="relative h-48 sm:h-64 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden mb-8 sm:mb-12"
             >
               <img
                 src={post.image}
@@ -161,7 +161,7 @@ const BlogPostPage = () => {
                 href={post.externalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-warning-400 text-earth-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-warning-500 transition-colors duration-300 shadow-md hover:shadow-lg"
+                className="inline-block bg-warning-400 text-earth-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-warning-500 transition-colors duration-300 shadow-md hover:shadow-lg"
               >
                 {post.category === 'Videos' ? 'Watch Now' : 'Read More'}
               </a>
@@ -199,8 +199,8 @@ const BlogPostPage = () => {
         </div>
       </div>
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header className="mb-12">
+      <article className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <header className="mb-8 sm:mb-12">
           <div className="mb-6">
             <span className="inline-flex items-center space-x-2 bg-primary-100 text-primary-800 px-4 py-2 rounded-full font-semibold text-sm">
               {post.category}
@@ -211,7 +211,7 @@ const BlogPostPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-earth-800 mb-6 leading-tight"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold text-earth-800 mb-4 sm:mb-6 leading-tight"
           >
             {post.title}
           </motion.h1>
@@ -220,7 +220,7 @@ const BlogPostPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-earth-600 leading-relaxed mb-8"
+            className="text-base sm:text-xl text-earth-600 leading-relaxed mb-6 sm:mb-8"
           >
             {post.excerpt}
           </motion.p>
@@ -229,7 +229,7 @@ const BlogPostPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center gap-6 text-earth-600 mb-8"
+            className="flex flex-wrap items-center gap-4 sm:gap-6 text-earth-600 mb-6 sm:mb-8"
           >
             <div className="flex items-center space-x-2">
               <User className="h-5 w-5 text-primary-600" />
@@ -268,7 +268,7 @@ const BlogPostPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="prose prose-lg max-w-none mb-12"
+          className="prose prose-sm sm:prose-lg max-w-none mb-8 sm:mb-12"
           style={{
             fontSize: '1.125rem',
             lineHeight: '1.8',
@@ -295,7 +295,7 @@ const BlogPostPage = () => {
           </div>
         )}
 
-        <div className="bg-earth-50 rounded-2xl p-8 border border-earth-200">
+        <div className="bg-earth-50 rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-earth-200">
           <h3 className="text-xl font-bold text-earth-800 mb-4">About the Author</h3>
           <div className="flex items-start space-x-4">
             <div className="w-16 h-16 rounded-full bg-primary-200 flex items-center justify-center flex-shrink-0">

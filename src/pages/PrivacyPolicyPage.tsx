@@ -14,24 +14,24 @@ const PrivacyPolicyPage = () => {
         url="https://treksforall.in/privacy"
       />
 
-      <div className="pt-20 md:pt-28 min-h-screen bg-[#f5f7fa]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-[#f5f7fa]">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-10 sm:py-16">
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left mb-16"
+            className="text-left mb-8 sm:mb-16"
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#fef3d1] rounded-xl mb-6">
-              <Shield className="h-8 w-8 md:h-10 md:w-10 text-[#e0aa04]" />
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-[#fef3d1] rounded-xl mb-4 sm:mb-6">
+              <Shield className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#e0aa04]" />
             </div>
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4 mx-auto w-fit">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]">
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4 mx-auto w-fit">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]">
                 Privacy Policy
               </h1>
             </div>
-            <p className="text-lg text-earth-600">
+            <p className="text-sm sm:text-lg text-earth-600">
               Last Updated: January 1, 2026
             </p>
           </motion.div>

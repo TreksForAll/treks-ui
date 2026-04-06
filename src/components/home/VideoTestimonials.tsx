@@ -13,7 +13,7 @@ const VideoTestimonials = () => {
       description: 'I live with paraplegia, but with Treks for All, that didn’t define my experience. What stayed with me was the river, the laughter, and the thrill of trying something new. I rafted for the first time after my accident—and it meant everything',
       quote: '',
       videoId: 'alv-XlWkOQM',
-      thumbnail: `https://i.ytimg.com/vi/alv-XlWkOQM/hqdefault.jpg`
+      thumbnail: `https://i.ytimg.com/vi/alv-XlWkOQM/maxresdefault.jpg`
     },
     {
       name: 'Meenakshi',
@@ -47,14 +47,14 @@ const VideoTestimonials = () => {
       name: 'Pratishtha',
       description: 'Out here I feel I have faced my fears and conquered them',
       quote: '',
-      videoId: 'FOTEsqhk-sw',
+      videoId: 'mZ9cOQ0twWM',
       thumbnail: '/Video-Pratishtha-Web.webp'
     },{
       name: 'Vikas',
       description: 'When I completed the rope activity with one hand, something shifted in me—the confidence I felt in that moment will stay with me forever.',
       quote: '',
       videoId: 'j8kmNlPx49o',
-      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/hqdefault.jpg`
+      thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/maxresdefault.jpg`
     },
   ];
 
@@ -71,14 +71,14 @@ const VideoTestimonials = () => {
 
   return (
     <>
-      <section className="py-20 bg-[#f8fafc] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#f8fafc] overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-8 sm:mb-12 md:mb-16"
           >
             <SectionTitle
               title="VOICES FROM THE TRAIL"
@@ -88,7 +88,7 @@ const VideoTestimonials = () => {
           </motion.div>
 
           {/* Mobile Stacked Cards */}
-          <div className="flex flex-col items-center gap-6 pb-8 md:hidden">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 pb-6 sm:pb-8 md:hidden">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
@@ -96,7 +96,7 @@ const VideoTestimonials = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group cursor-pointer w-[90vw]"
+                className="group cursor-pointer w-full max-w-[85vw]"
                 onClick={() => setActiveVideo(testimonial.videoId)}
               >
                 <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
@@ -104,22 +104,22 @@ const VideoTestimonials = () => {
                     <img
                       src={testimonial.thumbnail}
                       alt={`${testimonial.name} testimonial`}
-                      className={`w-full h-full object-contain bg-black/5 ${index < 2 ? 'object-center' : 'object-top'}`}
+                      className={`w-full h-full object-cover ${index < 2 ? 'object-center' : 'object-top'}`}
                       width="450"
                       height="800"
                       loading={index === 0 ? "eager" : "lazy"}
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[#e0aa04] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Play className="h-8 w-8 text-white ml-1" />
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#e0aa04] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Play className="h-6 w-6 sm:h-8 sm:w-8 text-white ml-1" />
                       </div>
                     </div>
                   </div>
-                  <div className="p-5 flex flex-col rounded-b-2xl bg-[#e8f5f6]/40 flex-grow">
-                    <h3 className="text-lg font-bold text-[#2c646c] text-center mb-3 break-words">
+                  <div className="p-3 sm:p-5 flex flex-col rounded-b-2xl bg-[#e8f5f6]/40 flex-grow">
+                    <h3 className="text-base sm:text-lg font-bold text-[#2c646c] text-center mb-2 sm:mb-3 break-words">
                       {testimonial.name}
                     </h3>
-                    <p className="text-earth-600 text-center text-sm break-words leading-relaxed">
+                    <p className="text-earth-600 text-center text-xs sm:text-sm break-words leading-snug sm:leading-relaxed">
                       {testimonial.description}
                     </p>
                     {testimonial.quote && (

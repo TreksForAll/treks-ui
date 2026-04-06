@@ -43,8 +43,8 @@ const FeaturedTrips = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ const FeaturedTrips = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
                   {/* Large Image Section */}
-                  <div className="relative h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden group">
+                  <div className="relative h-48 sm:h-64 md:h-80 lg:h-auto overflow-hidden group">
                     <img
                       src={trip.image}
                       alt={trip.title}
@@ -88,10 +88,10 @@ const FeaturedTrips = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
 
                     {/* Title Overlay on Image */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-left px-6">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-left px-3 sm:px-6">
                       <div className="max-w-5xl w-full">
                         <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white uppercase tracking-[0.3em] mb-2 drop-shadow-2xl" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)', fontWeight: 400 }}>
+                        <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white uppercase tracking-[0.15em] sm:tracking-[0.3em] mb-1 sm:mb-2 drop-shadow-2xl" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)', fontWeight: 400 }}>
                           {trip.title}
                         </h3>
                         {trip.subtitle && (
@@ -112,7 +112,7 @@ const FeaturedTrips = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+                  <div className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between">
                     <div>
                       {/* Location */}
                       <div className="flex items-center text-[#377d87] mb-6">
@@ -128,12 +128,12 @@ const FeaturedTrips = () => {
                       )}
 
                       {/* Description */}
-                      <p className="text-earth-600 leading-relaxed mb-6">
+                      <p className="text-sm sm:text-base text-earth-600 leading-snug sm:leading-relaxed mb-4 sm:mb-6">
                         {trip.description}
                       </p>
 
                       {/* Trip Details Grid */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                      <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6">
                         <div className="flex items-center space-x-2 text-earth-700">
                           <Clock className="h-5 w-5 text-[#e0aa04]" />
                           <div>

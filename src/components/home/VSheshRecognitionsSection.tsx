@@ -89,14 +89,14 @@ const VSheshRecognitionsSection = () => {
   };
 
   return (
-    <section className="py-10 md:py-12 bg-[#f8fafc] overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-10 md:py-12 bg-[#f8fafc] overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="rounded-2xl p-6 md:p-8 relative bg-white border border-[#d1ebed] shadow-sm flex flex-col overflow-hidden"
+          className="rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 relative bg-white border border-[#d1ebed] shadow-sm flex flex-col overflow-hidden"
         >
           <div className="z-10 w-full bg-white pb-2 relative border-b border-[#e8f5f6]">
             <SectionTitle 

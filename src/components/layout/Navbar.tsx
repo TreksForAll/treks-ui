@@ -61,13 +61,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-slate-200 transition-all duration-200">
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 md:h-28">
+        <div className="flex justify-between items-center h-16 sm:h-20 md:h-28">
           {/* Logo */}
           <Link to="/" className="group focus:outline-none">
             <img
               src="/Treks-For-All-Logo.webp"
               alt="Treks for All"
-              className="h-16 md:h-24 w-auto transition-all duration-300 group-hover:scale-105 py-1"
+              className="h-12 sm:h-16 md:h-24 w-auto transition-all duration-300 group-hover:scale-105 py-1"
               width="190"
               height="170"
               loading="eager"

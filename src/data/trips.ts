@@ -68,14 +68,15 @@ export const trips: Trip[] = [
     description: 'This moderate trek starts from the picturesque village of Barsu in Uttarkashi. Barsu serves as the base for the Dayara Bugyal trek along with offering grand views of some 6000m plus peaks like Jaunli (6618m), Srikanth (6133m) as well as Draupadi Ka Danda I & II (5643m & 5770m). A little into the trek you can also spot the Gangotri Massif (I, II & III). Dayara Bugyal has been popularly called the most beautiful meadow in India giving stiff competition to Bedni Bugyal. For thousands of years Gujjars have come to these meadows to graze their cattle and bask in the magnificence of such Beauty. Nestled between great Himalayan peaks like Bandarpunch (6316m) & White Peak (6102m) this is perhaps one of the most beautiful meadows to trek to in India.',
     maxAltitude: '3,810m',
     groupSize: 'Max 18',
-    departureDates: ['June 8 - 14, 2026', 'December 8 - 13, 2026'],
+    departureDates: ['June 8 - 13, 2026', 'December 8 - 13, 2026'],
     highlights: [
       'Stunning views of Bandarpoonch (6,316m) and White Peak (6,102m)',
       'Expansive high-altitude meadows and alpine terrain',
       'Views of 6000m+ peaks: Jaunli (6,618m), Srikanth (6,133m), Draupadi Ka Danda I & II',
       'Gangotri Massif (I, II & III) views',
       'Traditional Gujjar culture and heritage',
-      'Inclusive trekking with buddy support system'
+      'Inclusive trekking with buddy support system',
+      'Package includes travel from Rishikesh to Rishikesh.'
     ],
     itinerary: [
       {
@@ -286,7 +287,6 @@ export const trips: Trip[] = [
       '/camping/Camp-Aquaterra-New-02.webp',
       '/camping/Camp-Aquaterra-New-03.webp',
       '/camping/Camp-Aquaterra-New-04.webp',
-      '/camping/Camp-Aquaterra-New-05.webp',
       '/camping/Camp-Aquaterra-New-06.webp',
       '/camping/Camp-Aquaterra-New-07.webp',
       '/camping/Camp-Aquaterra-New-08.webp',
@@ -604,8 +604,8 @@ export const trips: Trip[] = [
     ],
     description: 'You can be assured for a real camping experience living in tents on a lovely beach front amidst lush green Himalayan forests. Our whitewater river rafting summer camp runs from mid April till early May in the western part of Uttarakhand, Jaunsar Bawar region on the banks of the Tons river. Only 410 kms from Delhi, it offers an escape from 4 days to a week or two, combined with river rafting, hikes & overnight treks in the hills make it a memorable family getaway from the summer heat. Located 3500 ft above sea level, this area is rich in every type of western Himalayan flora and fauna, densely forested with deodar, pine, alpine oak, birch, chestnut, rhododendron and jamun. The Tons river (the biggest tributary of the Yamuna with its source in the snowfields of the 20,720 ft high mountain, Bandarpunch) is a small volume, Class 4 river which offers an excellent adrenaline rush and adds to the excitement of being in the outdoors. Weather: In April, days are pleasant (15°C–25°C) and nights are cool (8°C–15°C). In May, days are warm but comfortable (20°C–30°C) and nights are mild (10°C–18°C).',
     maxAltitude: '1,150m',
-    groupSize: 'Max 20',
-    departureDates: ['April 16 - 19, 2026', 'April 24 - 27, 2026', 'May 7 - 10, 2026'],
+    groupSize: 'Max 25',
+    departureDates: ['April 16 - 19, 2026', 'April 23 - 26, 2026', 'May 7 - 10, 2026'],
     highlights: [
       'Real camping on lovely beach front amidst Himalayan forests',
       'Whitewater river rafting on Class 4 Tons River',
@@ -661,7 +661,8 @@ export const trips: Trip[] = [
     exclusions: [
       'Travel from home to camp and back',
       'Bottled water',
-      'Emergency expenses'
+      'Emergency expenses',
+      'Sports shoes or trekking shoes',
     ]
   }
 ];

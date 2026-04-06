@@ -55,7 +55,7 @@ const CampsPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Adventure camps - Treks for All | Accessible camping experiences"
         description="Immerse yourself in nature's beauty at our carefully curated accessible adventure camps. Experience inclusive camping with activities like rafting, kayaking, rock climbing, and yoga, all adapted for people of all abilities in stunning Himalayan locations with full accessibility support."
@@ -64,20 +64,20 @@ const CampsPage = () => {
         url="https://treksforall.in/camps"
       />
       {/* Header */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left mb-12"
+            className="text-left mb-8 sm:mb-12"
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Adventure Camps
               </h1>
             </div>
-            <p className="text-xl text-[#377d87] max-w-3xl ml-0">
+            <p className="text-base sm:text-xl text-[#377d87] max-w-3xl ml-0">
               Immerse yourself in nature's beauty at our carefully curated adventure camps
             </p>
           </motion.div>
@@ -160,10 +160,10 @@ const CampsPage = () => {
       </section>
 
       {/* Camp Cards Grid */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {filteredTrips.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {filteredTrips.map((camp, index) => (
                 <motion.div
                   key={camp.id}
@@ -173,7 +173,7 @@ const CampsPage = () => {
                   viewport={{ once: true }}
                 >
                   <Link to={`/trip/${camp.id}`} className="block h-full">
-                    <div className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
+                    <div className="group bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-500 cursor-pointer h-full flex flex-col border border-[#d1ebed]">
                       <div className="relative h-48 md:h-64 overflow-hidden">
                         <img
                           src={camp.image}
@@ -198,11 +198,11 @@ const CampsPage = () => {
                           <span>{camp.location}</span>
                         </div>
 
-                        <h3 className="text-xl font-bold text-[#2c646c] mb-3 group-hover:text-[#e0aa04] transition-colors duration-300">
+                        <h3 className="text-base sm:text-xl font-bold text-[#2c646c] mb-2 sm:mb-3 group-hover:text-[#e0aa04] transition-colors duration-300">
                           {camp.title}
                         </h3>
 
-                        <p className="text-earth-600 mb-4 leading-relaxed line-clamp-3">
+                        <p className="text-sm sm:text-base text-earth-600 mb-3 sm:mb-4 leading-relaxed line-clamp-3">
                           {camp.description}
                         </p>
 
@@ -258,24 +258,24 @@ const CampsPage = () => {
       </section>
 
       {/* Why Choose Our Camps */}
-      <section className="py-20 bg-[#1a2e35]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 bg-[#1a2e35]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-left mb-16"
+            className="text-left mb-8 sm:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
               Why Choose Our Adventure Camps?
             </h2>
-            <p className="text-xl text-[#a3d7db] max-w-3xl ml-0">
+            <p className="text-sm sm:text-xl text-[#a3d7db] max-w-3xl ml-0">
               Experience the perfect balance of adventure, comfort, and authentic local culture
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {[
               {
                 icon: Shield,
@@ -311,10 +311,10 @@ const CampsPage = () => {
                   <div className="bg-[#e0aa04] rounded-xl w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-[#a3d7db] leading-relaxed">
+                  <p className="text-xs sm:text-base text-[#a3d7db] leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -325,20 +325,20 @@ const CampsPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-[#214b51]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+      <section className="py-10 sm:py-16 bg-[#214b51]">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Ready for Your Camp Adventure?
               </h2>
             </div>
-            <p className="text-lg text-[#a3d7db] mb-8 max-w-2xl ml-0">
+            <p className="text-sm sm:text-lg text-[#a3d7db] mb-6 sm:mb-8 max-w-2xl ml-0">
               Join us for an unforgettable experience where adventure meets comfort in some of India's most beautiful locations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-start">

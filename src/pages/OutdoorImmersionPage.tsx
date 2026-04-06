@@ -44,7 +44,7 @@ const OutdoorImmersionPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28">
+    <div className="pt-16 sm:pt-20 md:pt-28">
       <SEO
         title="Outdoor Immersion Programs – Treks for All | Accessible Trail Walks & Day Adventures"
         description="Treks for All creates accessible outdoor immersion experiences — trail walks and single day adventures for people with disabilities and their allies, thoughtfully curated for safe and enjoyable participation."
@@ -53,7 +53,7 @@ const OutdoorImmersionPage = () => {
       />
 
       {/* Hero with parallax */}
-      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y }}>
           <img
             src="/immersions/Trail_walk_Mangar.jpeg"
@@ -64,7 +64,7 @@ const OutdoorImmersionPage = () => {
           <div className="absolute inset-0 bg-black/50" />
         </motion.div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-32">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-24 sm:pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -242,7 +242,7 @@ const OutdoorImmersionPage = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="bg-[#e0aa04] text-[#18363a] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#c99903] transition-all duration-300 inline-flex items-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#e0aa04] text-[#18363a] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-[#c99903] transition-all duration-300 inline-flex items-center space-x-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="h-5 w-5" />
                   <span>{submitting ? 'Sending…' : 'Send Message'}</span>

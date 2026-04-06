@@ -66,7 +66,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Contact us - Treks for All | Plan your accessible adventure"
         description="Get in touch with Treks for All to plan your accessible adventure. Our accessibility specialists are ready to design your perfect inclusive outdoor experience. Contact our team for personalized trekking, camping, and adventure travel information tailored to your needs."
@@ -75,15 +75,15 @@ const ContactPage = () => {
         url="https://treksforall.in/contact"
       />
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+      <section className="py-10 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+            <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                 Start Your Accessible Adventure
               </h1>
             </div>
@@ -92,7 +92,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-[#377d87] max-w-3xl ml-0"
+            className="text-sm sm:text-xl text-[#377d87] max-w-3xl ml-0"
           >
             Ready to break barriers and explore new possibilities? Our accessibility specialists are here to design your perfect inclusive adventure.
           </motion.p>
@@ -100,9 +100,9 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 bg-[#214b51]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-10 sm:py-16 bg-[#214b51]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-12">
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -111,14 +111,14 @@ const ContactPage = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="bg-[#214b51] rounded-2xl p-5 sm:p-6 md:p-8">
+              <div className="bg-[#214b51] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
                 <div>
-                  <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-                    <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+                  <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                       Get in Touch
                     </h2>
                   </div>
-                  <p className="text-[#a3d7db] leading-relaxed mb-8">
+                  <p className="text-sm sm:text-base text-[#a3d7db] leading-relaxed mb-6 sm:mb-8">
                     We recognise that every person has unique needs and aspirations. We craft adaptive adventures that meet your requirements and expand what you believe is possible while ensuring dignity, privacy, confidentiality, and uncompromised safety at every step.
                   </p>
                 </div>
@@ -230,7 +230,7 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-earth-700 mb-2">
-                        Phone Number
+                        Phone Number <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
@@ -238,6 +238,7 @@ const ContactPage = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
+                        required
                         className="w-full px-4 py-3 border border-earth-200 rounded-lg focus:outline-none focus:border-earth-400 focus:ring-1 focus:ring-earth-400 transition-all duration-300"
                         placeholder="+91 98765 43210"
                       />

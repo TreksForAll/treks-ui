@@ -134,7 +134,7 @@ const PartnersPage = () => {
 
 
   return (
-    <div className="pt-20 md:pt-28 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Our partners - Treks for All | Making accessible adventure possible"
         description="Meet the organizations behind Treks for All: Aquaterra Adventures brings 30+ years of Himalayan expertise, v-shesh provides disability inclusion leadership, and Metores Trust ensures community development. Together, we're creating India's most comprehensive accessible adventure travel experiences."
@@ -143,22 +143,22 @@ const PartnersPage = () => {
         url="https://treksforall.in/about/partners"
       />
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16">
-        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 md:py-16">
+        <div className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="py-10"
+            className="py-6 sm:py-10"
           >
             <div className="relative grid gap-12 lg:grid-cols-1 lg:items-center xl:gap-24">
               <div className="text-left pr-4">
-                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-5">
-                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-5">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                     Our Founding Partners
                   </h1>
                 </div>
-                <p className="text-lg leading-relaxed text-earth-600 md:text-xl">
+                <p className="text-sm sm:text-lg leading-relaxed text-earth-600 md:text-xl">
                   Meet the organisations shaping Treks for All with operational depth, disability inclusion expertise, and community-rooted impact.
                 </p>
               </div>
@@ -178,13 +178,13 @@ const PartnersPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-[#f8fafc] rounded-[1.75rem] border border-[#e2e8f0] p-6 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-300"
+                className="bg-[#f8fafc] rounded-xl sm:rounded-[1.75rem] border border-[#e2e8f0] p-4 sm:p-6 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-300"
               >
-                <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
+                <div className="flex flex-col md:flex-row gap-4 sm:gap-8 lg:gap-12">
                   {/* Left Column: Logo & Main Info */}
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-[#e2e8f0] flex items-center justify-center p-4 flex-shrink-0 shadow-sm">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl sm:rounded-2xl bg-white border border-[#e2e8f0] flex items-center justify-center p-3 sm:p-4 flex-shrink-0 shadow-sm">
                         <LazyImage
                           src={partner.logo}
                           alt={`${partner.name} logo`}
@@ -195,10 +195,10 @@ const PartnersPage = () => {
                         <div className="inline-flex items-center rounded-full px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.15em] bg-white border border-[#e0aa04]/40 text-[#c79100] mb-3 shadow-[0_2px_10px_rgba(224,170,4,0.05)]">
                           {partner.role}
                         </div>
-                        <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#18363a]">{partner.name}</h3>
+                        <h3 className="text-xl sm:text-2xl md:text-[1.75rem] font-bold text-[#18363a]">{partner.name}</h3>
                       </div>
                     </div>
-                    <p className="text-base sm:text-lg leading-relaxed text-earth-600 mb-8">
+                    <p className="text-sm sm:text-base md:text-lg leading-relaxed text-earth-600 mb-6 sm:mb-8">
                       {partner.description}
                     </p>
                     <div className="flex flex-wrap gap-8 mb-8">
@@ -265,16 +265,16 @@ const PartnersPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="overflow-hidden rounded-[2rem] bg-[#214b51] p-8 shadow-lg md:p-10"
+            className="overflow-hidden rounded-xl sm:rounded-[2rem] bg-[#214b51] p-5 sm:p-8 shadow-lg md:p-10"
           >
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
               <div>
-                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-4">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
+                <div className="border-l-[5px] border-[#e0aa04] pl-4 mb-3 sm:mb-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.08em] text-[#e0aa04]" style={{ fontWeight: 700 }}>
                     Ready to Explore Together?
                   </h2>
                 </div>
-                <p className="max-w-2xl text-lg text-[#c8e5e8]">
+                <p className="max-w-2xl text-sm sm:text-lg text-[#c8e5e8]">
                   Join us in making outdoor adventures accessible to everyone.
                 </p>
               </div>

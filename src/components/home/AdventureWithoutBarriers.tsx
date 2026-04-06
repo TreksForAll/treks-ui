@@ -26,14 +26,14 @@ const AdventureWithoutBarriers = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#e8f5f6]/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-24 bg-[#e8f5f6]/30">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
           <SectionTitle
             title="ADVENTURE"
@@ -41,20 +41,20 @@ const AdventureWithoutBarriers = () => {
             align="left"
             className="mb-6"
           />
-          <p className="text-xl font-semibold text-earth-700 max-w-full">
+          <p className="text-base sm:text-xl font-semibold text-earth-700 max-w-full">
             <span className="uppercase">When people <strong>with & without disabilities</strong> walk side by side</span><br />
             <span className="uppercase">we discover the joy of <strong>shared adventure.</strong></span>
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg text-earth-600 leading-relaxed mb-6 text-left">
+            <p className="text-sm sm:text-lg text-earth-600 leading-snug sm:leading-relaxed mb-4 sm:mb-6 text-left">
               Everyone deserves to experience the healing and transformative power of being in the
               outdoors. But too often, people with diverse needs are left out. That's why Treks for All was
               created — a one-of-a-kind collaboration between Aquaterra Adventures, Metores Trust, and
@@ -63,10 +63,10 @@ const AdventureWithoutBarriers = () => {
               participant feels safe, respected, and free to explore the outdoors at their own pace.
             </p>
             <div className="text-left space-y-4">
-              <p className="text-2xl font-bold text-earth-800">
-                This isn't just about <span className="uppercase">reaching a summit.</span>
+              <p className="text-xl sm:text-2xl font-bold text-earth-800 uppercase">
+                This isn't just about reaching a summit.
               </p>
-              <p className="text-xl text-earth-700">It's about belonging, community, & the freedom to<br />experience adventure <span className="underline">on your own terms.</span></p>
+              <p className="text-sm sm:text-lg text-earth-600 leading-snug sm:leading-relaxed">It's about belonging, community, & the freedom to<br />experience adventure <span className="underline">on your own terms.</span></p>
             </div>
           </motion.div>
 

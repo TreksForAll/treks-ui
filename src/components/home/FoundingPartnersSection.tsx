@@ -35,24 +35,24 @@ const FoundingPartnersSection = () => {
 
   return (
     <section className="py-12 sm:py-16 md:py-20 bg-earth-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Company Milestones */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary-900 to-adventure-900 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-left mb-16"
+          className="bg-gradient-to-r from-primary-900 to-adventure-900 rounded-xl sm:rounded-2xl p-4 sm:p-8 md:p-12 text-white text-left mb-10 sm:mb-16"
         >
-          <div className="mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Our Journey</h3>
-            <p className="text-primary-200 text-lg max-w-3xl ml-0">
+          <div className="mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Our Journey</h3>
+            <p className="text-primary-200 text-sm sm:text-lg max-w-3xl ml-0">
               Born from the collaboration of three visionary organizations,
               Treks for All launched in March 2025 with a mission to make outdoor adventures accessible to everyone.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-4 sm:gap-8">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.label}
@@ -76,15 +76,15 @@ const FoundingPartnersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
           <SectionTitle
             title="FOUNDING PARTNERS"
             subtitle="United in Our Vision"
             align="center"
-            className="mb-4"
+            className="mb-3 sm:mb-4"
           />
-          <p className="text-lg text-earth-600 max-w-2xl ml-0 text-left">
+          <p className="text-sm sm:text-lg text-earth-600 max-w-2xl ml-0 text-left">
             Making adventure accessible to everyone, regardless of ability
           </p>
         </motion.div>
@@ -95,7 +95,7 @@ const FoundingPartnersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mb-10 sm:mb-16"
         >
           {partners.map((partner, index) => (
             <motion.div
@@ -104,10 +104,10 @@ const FoundingPartnersSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <div className="text-left">
-                <div className="w-32 h-32 rounded-xl flex items-center justify-center mx-auto mb-6 overflow-hidden p-4">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6 overflow-hidden p-3 sm:p-4">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
@@ -117,9 +117,9 @@ const FoundingPartnersSection = () => {
                     loading="eager"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-earth-800 mb-2">{partner.name}</h3>
-                <p className="text-sm font-semibold text-adventure-600 mb-4">{partner.role}</p>
-                <p className="text-earth-600 leading-relaxed">{partner.description}</p>
+                <h3 className="text-base sm:text-xl font-bold text-earth-800 mb-2">{partner.name}</h3>
+                <p className="text-xs sm:text-sm font-semibold text-adventure-600 mb-3 sm:mb-4">{partner.role}</p>
+                <p className="text-xs sm:text-base text-earth-600 leading-relaxed">{partner.description}</p>
               </div>
             </motion.div>
           ))}
@@ -131,15 +131,15 @@ const FoundingPartnersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
+          className="mt-10 sm:mt-16 bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-earth-800 mb-4 flex items-center space-x-2">
-                <Mountain className="h-6 w-6 text-adventure-500" />
+              <h3 className="text-xl sm:text-2xl font-bold text-earth-800 mb-3 sm:mb-4 flex items-center space-x-2">
+                <Mountain className="h-5 w-5 sm:h-6 sm:w-6 text-adventure-500" />
                 <span>Our First Success: Dayara Trek</span>
               </h3>
-              <p className="text-earth-600 leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6">
                 Our inaugural accessible trek to Dayara Bugyal demonstrated that with proper planning, 
                 adaptive equipment, and inclusive design, even high-altitude adventures can welcome participants 
                 with diverse abilities. This groundbreaking expedition set the foundation for all our future programs.
