@@ -27,9 +27,7 @@ const teamAssetPath = (fileName: string) => `/TFA%20team/${encodeURIComponent(fi
 
 const AboutPage = () => {
   const heroRef = useRef(null);
-  const teamCarouselResumeTimeoutRef = useRef<number | null>(null);
   const [activeTeamGroupIndex, setActiveTeamGroupIndex] = useState(0);
-  const [isTeamCarouselPaused, setIsTeamCarouselPaused] = useState(false);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -167,47 +165,14 @@ const AboutPage = () => {
   ];
 
   useEffect(() => {
-    if (isTeamCarouselPaused) {
-      return;
-    }
-
     const intervalId = window.setInterval(() => {
       setActiveTeamGroupIndex((currentIndex) => (currentIndex + 1) % teamGroups.length);
     }, 5000);
 
     return () => window.clearInterval(intervalId);
-  }, [isTeamCarouselPaused, teamGroups.length]);
+  }, [teamGroups.length]);
 
   const activeTeamGroup = teamGroups[activeTeamGroupIndex];
-
-  const pauseTeamCarousel = () => {
-    if (teamCarouselResumeTimeoutRef.current !== null) {
-      window.clearTimeout(teamCarouselResumeTimeoutRef.current);
-      teamCarouselResumeTimeoutRef.current = null;
-    }
-
-    setIsTeamCarouselPaused(true);
-  };
-
-  const resumeTeamCarousel = () => {
-    if (teamCarouselResumeTimeoutRef.current !== null) {
-      window.clearTimeout(teamCarouselResumeTimeoutRef.current);
-    }
-
-    teamCarouselResumeTimeoutRef.current = window.setTimeout(() => {
-      setIsTeamCarouselPaused(false);
-      setActiveTeamGroupIndex((currentIndex) => (currentIndex + 1) % teamGroups.length);
-      teamCarouselResumeTimeoutRef.current = null;
-    }, 0);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (teamCarouselResumeTimeoutRef.current !== null) {
-        window.clearTimeout(teamCarouselResumeTimeoutRef.current);
-      }
-    };
-  }, []);
 
 
   return (
@@ -431,6 +396,7 @@ const AboutPage = () => {
           <div className="mb-5 flex flex-wrap items-center justify-between gap-4 sm:mb-6">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#377d87]">Member Groups</p>
+              <p className="mt-1 text-sm text-earth-600 sm:text-base">Each group rotates automatically every few seconds. Use the controls to jump between them.</p>
             </div>
           </div>
 
@@ -499,15 +465,14 @@ const AboutPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.35, delay: memberIndex * 0.05 }}
                     className={`group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#dcecee] bg-[#fcfefe] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,54,58,0.12)] ${activeTeamGroup.members.length <= 2 ? 'mx-auto w-full max-w-[22rem]' : ''}`}
-                    onMouseEnter={pauseTeamCarousel}
-                    onMouseLeave={resumeTeamCarousel}
                   >
                     {member.image ? (
-                      <div className={`relative aspect-[4/5] overflow-hidden ${member.imageContain ? 'flex items-center justify-center bg-[#141414]' : 'bg-[#dcecee]'}`}>
+                      <div className={`relative overflow-hidden ${member.imageContain ? 'aspect-[4/5] bg-[#141414]' : 'aspect-[4/5] bg-[#dcecee]'}`}>
                         <LazyImage
                           src={member.image}
                           alt={`${member.name} portrait`}
-                          className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-6 sm:p-8' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
+                          aspectRatio={member.imageContain ? 'portrait' : 'portrait'}
+                          className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-4 sm:p-5' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
                         />
                         {!member.imageContain && (
                           <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${member.darkMedia ? 'from-[#18363a]/80' : 'from-[#18363a]/55'} to-transparent`} />
