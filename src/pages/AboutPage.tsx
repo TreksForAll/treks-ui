@@ -1,13 +1,33 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { Mountain, Users, Award, Globe, Leaf, Shield, Accessibility, HandHeart, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
+import LazyImage from '../components/ui/LazyImage';
 import SectionTitle from '../components/ui/SectionTitle';
 import SEO from '../components/ui/SEO';
 
+type TeamMember = {
+  name: string;
+  description: string;
+  image?: string;
+  imageContain?: boolean;
+  darkMedia?: boolean;
+};
+
+type TeamGroup = {
+  title: string;
+  description: string;
+  accentClass: string;
+  tagClass: string;
+  members: TeamMember[];
+};
+
+const teamAssetPath = (fileName: string) => `/TFA%20team/${encodeURIComponent(fileName)}`;
+
 const AboutPage = () => {
   const heroRef = useRef(null);
+  const [activeTeamGroupIndex, setActiveTeamGroupIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -23,6 +43,136 @@ const AboutPage = () => {
     { year: 'January 2026', title: 'B2B Camp hosted in Atali Ganga', description: 'Amazon India joined hands with TFA for an inclusive team offsite!' },
     { year: 'March 2026', title: 'Nature Walk at Mangar', description: 'Nature walk at Mangar—our first immersion experience' }
   ];
+
+  const teamGroups: TeamGroup[] = [
+    {
+      title: 'Founders',
+      description: 'The people who turned one question into an inclusive adventure movement.',
+      accentClass: 'from-[#18363a] via-[#214b51] to-[#377d87]',
+      tagClass: 'bg-[#18363a] text-white',
+      members: [
+        {
+          name: 'Pankaj Wadhwa',
+          image: teamAssetPath('Pankaj Wadhwa.jpg'),
+          description: 'Treks for All first began as an idea Pankaj simply could not let go of: an outdoors experience that truly included everyone. Bringing together his love for the mountains and years in the development sector, he is deeply rooted in community-led work and creating impact that feels real, not performative. Calm, grounded, and quietly dependable, he is usually the one thinking three steps ahead while everyone else is just admiring the view.'
+        },
+        {
+          name: 'Shashaank Awasthi',
+          image: teamAssetPath('Shashaank Awasthi.jpeg'),
+          description: 'Equal parts boardroom and basecamp, Shashaank is on a mission to make both work and the outdoors more inclusive. He founded Treks for All to open up adventure to everyone, and co-founded v-shesh, an award-winning enterprise reshaping disability inclusion across education, skilling, and employment across 500+ organisations.'
+        },
+        {
+          name: 'Vaibhav Kala',
+          image: teamAssetPath('Vaibhav Kala.jpeg'),
+          description: 'An OG of India\'s adventure travel scene, Vaibhav has been rewriting the rulebook since before it was written. From dreaming up expeditions others thought were too wild to work to actually making them happen, he has built a legacy on pushing boundaries and opening adventure travel to communities long left out.'
+        }
+      ]
+    },
+    {
+      title: 'Operations Team',
+      description: 'The team that keeps the experience seamless, calm, and guest-ready behind the scenes.',
+      accentClass: 'from-[#377d87] via-[#4b9aa3] to-[#8cc8ce]',
+      tagClass: 'bg-[#377d87] text-white',
+      members: [
+        {
+          name: 'Himanshu Rana',
+          image: teamAssetPath('Himanshu.jpeg'),
+          description: 'A hospitality and tourism professional with a knack for keeping things smooth behind the scenes, Himanshu thrives on creating seamless experiences. From managing adventure logistics to coordinating guest trips, he is the kind of person who makes every adventure feel effortlessly put together.'
+        }
+      ]
+    },
+    {
+      title: 'Technical Team',
+      description: 'River guides, trek leaders, and safety-first operators who make every trip possible on the ground.',
+      accentClass: 'from-[#214b51] via-[#377d87] to-[#5ba5ad]',
+      tagClass: 'bg-[#214b51] text-white',
+      members: [
+        {
+          name: 'Dhruv Naresh Rana',
+          image: teamAssetPath('Dhruv Naresh Rana.jpeg'),
+          description: 'With 25+ years on the river and still chasing the next rapid, Rana ji brings serious skill with zero fuss. A seasoned raft guide and safety kayaker who has represented India in competitions across India and China, he keeps operations tight, experiences unforgettable, and every guest smiling.'
+        },
+        {
+          name: 'Jetandra Singh Rana',
+          image: teamAssetPath('Jetandra.jpeg'),
+          description: 'Guiding since 2004, Jetandra has done it all: camps, treks, whitewater, and high-altitude expeditions from Stok Kangri and Kang Yatse II to Kilimanjaro. He is also the group\'s resident jester, lifting spirits with perfectly timed jokes and riddles just when the climb gets tough.'
+        },
+        {
+          name: 'Vikas Rana',
+          image: teamAssetPath('Vikas Rana.jpeg'),
+          description: 'Guiding since 2007 and raised in the heart of Uttarkashi, Vikas has the mountains in his DNA. From the Garhwal Himalayas to far corners of India\'s ranges, he shows up with quiet confidence, deep knowledge, and the steady presence that reassures first-timers and seasoned adventurers alike.'
+        },
+        {
+          name: 'Kaanha Singh',
+          image: teamAssetPath('Kanha Singh.jpeg'),
+          description: 'Straight out of the Tons valley, Kaanha is pure power on water. Usually leading the crew straight into the chaos of big Class 4 rapids, his calm control through wild water is a confidence boost for every adventurer he watches over.'
+        },
+        {
+          name: 'Vikas Negi',
+          image: teamAssetPath('Vikas Negi.jpeg'),
+          description: 'Equally at home on raging rivers and mountain trails, Vikas blends technical skill with serious adventure energy. A seasoned rafting guide with strong expertise in safety, rescue, and navigation, he is known to go the extra mile quite literally, including carrying tired adventurers back to the riverbank when needed.'
+        },
+        {
+          name: 'Ankit Singh',
+          image: teamAssetPath('Ankit.jpeg'),
+          description: 'One of the youngest on the block, Ankit still brings serious experience to every trip. Trained in swift water rescue and first aid, he keeps things safe without taking away from the fun, and brings dependable trekking experience across varied terrain.'
+        }
+      ]
+    },
+    {
+      title: 'Inclusion Partners',
+      description: 'The people shaping access, empathy, outreach, and lived inclusion into every journey.',
+      accentClass: 'from-[#e0aa04] via-[#f0c552] to-[#f7df9a]',
+      tagClass: 'bg-[#e0aa04] text-[#18363a]',
+      members: [
+        {
+          name: 'Rashi Soman',
+          image: teamAssetPath('Rashi Soman.jpeg'),
+          description: 'With a decade of experience in disability inclusion and a deep love for the outdoors, Rashi brings both to life with Treks for All. She is the ultimate calm-in-the-chaos person, turning first-time nerves into confident "when is the next trek?" energy.'
+        },
+        {
+          name: 'Sakshi Chauhan',
+          image: teamAssetPath('Sakshi Chauhan.jpeg'),
+          description: 'Part of the founding team at Treks for All, Sakshi is passionate about making the outdoors truly accessible. A wheelchair basketball player herself, she brings grit, empathy, and lived perspective, helping turn every "can we?" into "let\'s go."'
+        },
+        {
+          name: 'Vaishnavi Ganesh',
+          image: teamAssetPath('Vaishnavi Ganesh PM.jpeg'),
+          description: 'Part of the madness since day one, Vaishnavi blends disability inclusion, storytelling, and adventure into one very full backpack. Deeply committed to accessibility and creating spaces where everyone feels seen, heard, and included, she keeps the inclusion conversation moving on and off the trail.'
+        }
+      ]
+    },
+    {
+      title: 'Communication Partners',
+      description: 'The storytellers and brand-builders helping the mission travel farther than the trailhead.',
+      accentClass: 'from-[#1a2e35] via-[#214b51] to-[#377d87]',
+      tagClass: 'bg-[#1a2e35] text-white',
+      members: [
+        {
+          name: 'Madhuri Vijaykumar',
+          image: teamAssetPath('Madhuri.jpeg'),
+          description: 'Working at the intersection of communication and social impact, Madhuri helps nonprofits and social enterprises tell stories that actually stay with people. She brings warmth, thoughtfulness, and sharp insight to Treks for All, whether she is shaping narratives or swapping stories after a long day outside.'
+        },
+        {
+          name: 'Backcountry Films',
+          image: teamAssetPath('Backcountry logo (White).png'),
+          imageContain: true,
+          darkMedia: true,
+          description: 'Part creative powerhouse and part communications survival kit, Backcountry Films are the brand and marketing lifeline behind Treks for All. From mountain enterprises to global outdoor names, they bring sharp storytelling, strategy, and serious outdoor soul to everything they touch.'
+        }
+      ]
+    }
+  ];
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveTeamGroupIndex((currentIndex) => (currentIndex + 1) % teamGroups.length);
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, [teamGroups.length]);
+
+  const activeTeamGroup = teamGroups[activeTeamGroupIndex];
 
 
   return (
@@ -206,6 +356,153 @@ const AboutPage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-[#f0f9fa] py-14 sm:py-18 md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(224,170,4,0.12),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(55,125,135,0.16),_transparent_32%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8 sm:mb-12"
+          >
+            <SectionTitle
+              title="The Team Behind It All"
+              subtitle="Meet the people carrying the mission forward"
+              description="Founders, operators, guides, inclusion specialists, and storytellers all bring a different strength to Treks for All. Together, they make every journey feel safe, thoughtful, and deeply human."
+              align="left"
+              className="mb-4"
+            />
+
+            <div className="grid gap-4 sm:grid-cols-3 max-w-4xl">
+              <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">15</div>
+                <p className="mt-1 text-sm text-[#377d87]">contributors across field operations, inclusion, and storytelling</p>
+              </div>
+              <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">5</div>
+                <p className="mt-1 text-sm text-[#377d87]">specialist groups working together behind every experience</p>
+              </div>
+              <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">1</div>
+                <p className="mt-1 text-sm text-[#377d87]">shared promise: inclusive adventure without compromise</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-4 sm:mb-6">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#377d87]">Member Groups</p>
+              <p className="mt-1 text-sm text-earth-600 sm:text-base">Each group rotates automatically every few seconds. Use the controls to jump between them.</p>
+            </div>
+          </div>
+
+          <div className="mb-6 flex flex-wrap gap-2 sm:mb-8">
+            {teamGroups.map((group, groupIndex) => (
+              <button
+                key={group.title}
+                type="button"
+                onClick={() => setActiveTeamGroupIndex(groupIndex)}
+                className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 sm:text-sm ${
+                  groupIndex === activeTeamGroupIndex
+                    ? 'border-[#18363a] bg-[#18363a] text-white shadow-md'
+                    : 'border-[#c9e0e3] bg-white/80 text-[#377d87] hover:border-[#377d87] hover:text-[#18363a]'
+                }`}
+                aria-label={`Show ${group.title}`}
+              >
+                {group.title}
+              </button>
+            ))}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.section
+              key={activeTeamGroup.title}
+              initial={{ opacity: 0, x: 48 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -48 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              className="overflow-hidden rounded-[28px] border border-[#d5e9eb] bg-white/90 shadow-[0_24px_80px_rgba(24,54,58,0.08)] backdrop-blur-sm"
+            >
+              <div className={`bg-gradient-to-r ${activeTeamGroup.accentClass} px-5 py-5 sm:px-8 sm:py-7`}>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white sm:text-3xl">{activeTeamGroup.title}</h3>
+                    <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90 sm:text-base">
+                      {activeTeamGroup.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {teamGroups.map((group, groupIndex) => (
+                      <button
+                        key={group.title}
+                        type="button"
+                        onClick={() => setActiveTeamGroupIndex(groupIndex)}
+                        className={`h-2.5 rounded-full transition-all duration-300 ${groupIndex === activeTeamGroupIndex ? 'w-10 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/70'}`}
+                        aria-label={`Go to ${group.title}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className={
+                  activeTeamGroup.members.length === 1
+                    ? 'mx-auto grid max-w-xl gap-5 p-6 sm:p-8'
+                    : activeTeamGroup.members.length === 2
+                      ? 'mx-auto grid max-w-4xl justify-items-center gap-5 p-6 sm:p-8 md:grid-cols-2'
+                      : 'grid gap-5 p-6 sm:p-8 md:grid-cols-2 xl:grid-cols-3'
+                }
+              >
+                {activeTeamGroup.members.map((member, memberIndex) => (
+                  <motion.article
+                    key={member.name}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: memberIndex * 0.05 }}
+                    className={`group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#dcecee] bg-[#fcfefe] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,54,58,0.12)] ${activeTeamGroup.members.length <= 2 ? 'mx-auto w-full max-w-[22rem]' : ''}`}
+                  >
+                    {member.image ? (
+                      <div className={`relative overflow-hidden ${member.imageContain ? 'aspect-[4/5] bg-[#141414]' : 'aspect-[4/5] bg-[#dcecee]'}`}>
+                        <LazyImage
+                          src={member.image}
+                          alt={`${member.name} portrait`}
+                          aspectRatio={member.imageContain ? 'portrait' : 'portrait'}
+                          className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-4 sm:p-5' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
+                        />
+                        {!member.imageContain && (
+                          <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${member.darkMedia ? 'from-[#18363a]/80' : 'from-[#18363a]/55'} to-transparent`} />
+                        )}
+                      </div>
+                    ) : (
+                      <div className="flex aspect-[3/4] items-end bg-[linear-gradient(160deg,#18363a_0%,#214b51_55%,#377d87_100%)] p-6 text-white">
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#f7df9a]">Field Leadership</div>
+                          <div className="mt-3 text-4xl font-bold leading-none">
+                            {member.name
+                              .split(' ')
+                              .map((namePart) => namePart[0])
+                              .join('')}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex flex-1 flex-col px-5 py-5 sm:px-6">
+                      <div className="mb-3">
+                        <h3 className="text-xl font-bold text-[#18363a]">{member.name}</h3>
+                      </div>
+                      <p className="text-sm leading-6 text-earth-600 sm:text-[15px]">{member.description}</p>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </motion.section>
+          </AnimatePresence>
         </div>
       </section>
 
