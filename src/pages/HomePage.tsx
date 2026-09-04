@@ -3,6 +3,7 @@ import HeroSection from '../components/home/HeroSection';
 import AdventureWithoutBarriers from '../components/home/AdventureWithoutBarriers';
 import VideoTestimonials from '../components/home/VideoTestimonials';
 import FeaturedTrips from '../components/home/FeaturedTrips';
+import KarwaanHighlight from '../components/home/KarwaanHighlight';
 import InclusiveUSPSection from '../components/home/InclusiveUSPSection';
 import FAQPreview from '../components/home/FAQPreview';
 import ImpactSection from '../components/home/ImpactSection';
@@ -61,6 +62,7 @@ const HomePage = () => {
         <ImpactSection />
         <VideoTestimonials />
         <FeaturedTrips />
+        <KarwaanHighlight />
         <InclusiveUSPSection />
         <FAQPreview />
         <VoicesFromTrail />
