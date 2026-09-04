@@ -37,7 +37,8 @@ const Navbar = () => {
     { name: 'Partners', path: '/about/partners' },
     { name: 'FAQs', path: '/faqs' },
     { name: 'Media & Blog', path: '/blog' },
-    { name: 'Contact Us', path: '/contact' }
+    { name: 'Contact Us', path: '/contact' },
+    { name: 'Karwaan', path: '/karwaan' }
   ];
 
   const isActive = (path: string) => {
