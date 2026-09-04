@@ -7,6 +7,21 @@ import SEO from '../components/ui/SEO';
 const FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSdcoFn2Ao1tKJ8J_Myit6QO61Ul58a2QSLvWBC0V202v28ciw/viewform';
 
+const sponsorshipTypes = [
+  {
+    title: 'Full sponsorship',
+    text: '100% of the experience fee is covered.'
+  },
+  {
+    title: 'Partial sponsorship',
+    text: 'Participants contribute what they can; Karwaan supports the rest.'
+  },
+  {
+    title: 'Pay it forward',
+    text: 'Pay for your own experience and contribute towards someone else’s adventure, helping make the outdoors possible for another person.'
+  }
+];
+
 const eligibilityItems = [
   {
     title: 'The outdoors hasn’t been easily accessible to you.',
@@ -181,77 +196,97 @@ const KarwaanPage = () => {
 
       {/* 01 — Intro / What does Karwaan cover */}
       <section className="border-b-2 border-[#201e1d]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col gap-5 items-start"
-          >
-            <p className="text-[21px] leading-[1.5] m-0 max-w-[56ch]">
-              <strong>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex flex-col gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-5 items-start"
+            >
+              <p className="text-[clamp(24px,3vw,34px)] leading-[1.25] m-0 max-w-[24ch] font-bold tracking-[-0.01em]">
                 What if the adventure you&rsquo;ve always dreamed of was closer than you thought?
-              </strong>{' '}
-              For some, exploring the outdoors is simply part of life. But for many, the outdoors
-              remains a distant dream. Treks for All brings you Karwaan &mdash; sponsored outdoor
-              opportunities for those who would not otherwise have the means to experience them.
-            </p>
-            <p className="text-[17px] leading-[1.55] m-0 text-earth-600 max-w-[56ch]">
-              The barrier may be financial, social, physical or simply the absence of opportunity.
-              Karwaan is about turning that &ldquo;someday&rdquo; into a first step into the
-              outdoors.
-            </p>
-            <a
-              href={FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#e0aa04] text-[#201e1d] px-6 py-3 font-bold text-[15px] hover:bg-[#c99903] transition-colors duration-300 no-underline"
+              </p>
+              <p className="text-[17px] leading-[1.55] m-0 text-earth-600 max-w-[52ch]">
+                For many, the outdoors remains a distant dream because of financial, social or
+                physical barriers, or simply a lack of opportunity.
+              </p>
+              <a
+                href={FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#e0aa04] text-[#201e1d] px-6 py-3 font-bold text-[15px] hover:bg-[#c99903] transition-colors duration-300 no-underline"
+              >
+                Apply or nominate someone
+              </a>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="border-l-2 border-[#201e1d] pl-8 flex flex-col gap-5 items-start"
             >
-              Apply or nominate someone
-            </a>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="border-l-2 border-[#201e1d] pl-8 flex flex-col gap-5"
-          >
-            <p className="m-0 text-xs tracking-[0.14em] uppercase font-bold text-[#a17a02]">
-              01 &mdash; What does Karwaan cover?
-            </p>
-            <p className="m-0 text-base leading-[1.55]">
-              Karwaan offers <strong>full or partial sponsorship of the experience fee</strong> for
-              eligible Treks for All treks and camps. Each sponsorship is decided case by case,
-              based on your individual circumstances and the requirements of the selected trek or
-              camp.
-            </p>
-            <Link
-              to="/trips"
-              className="self-start border-2 border-[#201e1d] text-[#201e1d] px-6 py-3 font-bold text-[15px] hover:bg-[#201e1d] hover:text-white transition-colors duration-300 no-underline"
+              <p className="m-0 text-xs tracking-[0.14em] uppercase font-bold text-[#a17a02]">
+                01 &mdash; What does Karwaan cover?
+              </p>
+              <p className="m-0 text-base leading-[1.55]">
+                Karwaan by Treks for All helps make that first step possible through{' '}
+                <strong>full or partial sponsorship of the experience fee</strong> for eligible
+                treks and camps.
+              </p>
+              <p className="m-0 text-base leading-[1.55] text-earth-600">
+                Sponsorship is considered case by case, based on individual circumstances and the
+                requirements of the chosen experience.
+              </p>
+              <Link
+                to="/trips"
+                className="border-2 border-[#201e1d] text-[#201e1d] px-6 py-3 font-bold text-[15px] hover:bg-[#201e1d] hover:text-white transition-colors duration-300 no-underline"
+              >
+                View upcoming treks &amp; camps
+              </Link>
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-[clamp(30px,4vw,46px)] m-0 tracking-[-0.01em] font-extrabold"
             >
-              View upcoming treks &amp; camps
-            </Link>
-            <div className="grid grid-cols-2 gap-0.5">
-              <div className="aspect-[1.2] overflow-hidden">
-                <img
-                  src="/dayara/Dayara-Cover.webp"
-                  alt="Dayara Bugyal meadows"
-                  className="w-full h-full object-cover grayscale"
-                  loading="lazy"
-                />
-              </div>
-              <div className="aspect-[1.2] overflow-hidden">
-                <img
-                  src="/sham-valley/sham-valley-cover.webp"
-                  alt="Sham Valley trail"
-                  className="w-full h-full object-cover grayscale"
-                  loading="lazy"
-                />
-              </div>
+              How it works
+            </motion.h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 w-full border-t-2 border-l-2 border-[#201e1d]">
+              {sponsorshipTypes.map((type, i) => (
+                <motion.div
+                  key={type.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col gap-3 bg-white p-6 border-r-2 border-b-2 border-[#201e1d] box-border"
+                >
+                  <span className="w-10 h-1.5 bg-[#e0aa04]" />
+                  <strong className="text-[17px] leading-[1.35]">{type.title}</strong>
+                  <span className="text-earth-600 text-[14.5px] leading-[1.5]">{type.text}</span>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="m-0 text-[clamp(20px,2.4vw,26px)] font-bold tracking-[-0.01em] border-l-4 border-[#e0aa04] pl-4"
+            >
+              From &ldquo;someday&rdquo; to the first step.
+            </motion.p>
+          </div>
         </div>
       </section>
 
