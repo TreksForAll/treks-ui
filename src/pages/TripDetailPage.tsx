@@ -1113,7 +1113,7 @@ const TripDetailPage = () => {
                     <div className="flex items-center space-x-3">
                       <Phone className="h-5 w-5 text-primary-600" />
                       <div>
-                        <div className="font-semibold text-primary-800">+91 96431 84862</div>
+                        <div className="font-semibold text-primary-800">+91 96437 18789</div>
                         <div className="text-sm text-primary-600">Mon-Fri 9AM-6PM</div>
                       </div>
                     </div>
