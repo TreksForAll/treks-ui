@@ -381,10 +381,10 @@ const KarwaanPage = () => {
             viewport={{ once: true }}
             className="flex flex-wrap gap-2.5"
           >
-            <span className="border-2 border-[#201e1d] px-3.5 py-1.5 text-sm font-semibold">
+            <span className="bg-[#e0aa04] text-[#201e1d] px-3.5 py-1.5 text-sm font-semibold">
               No previous trekking experience required
             </span>
-            <span className="border-2 border-[#201e1d] px-3.5 py-1.5 text-sm font-semibold">
+            <span className="bg-[#e0aa04] text-[#201e1d] px-3.5 py-1.5 text-sm font-semibold">
               Children can participate with a parent or guardian
             </span>
           </motion.div>
