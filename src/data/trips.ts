@@ -548,38 +548,38 @@ export const trips: Trip[] = [
     itinerary: [
       {
         day: 1,
-        title: 'Pau ki Devi to Dashrath ka Danda',
-        description: 'After breakfast at Camp Aquaterra, drive an hour (30km) to Pau ki Devi to begin the trek. Pauki Devi temple is one of the Shakti peeth, dedicated to Goddess Sati and every year many devotees come to this temple. This temple is known as Vageshwari Devi temple. It is believed that the right foot of the Goddess Sati fell at this location. Trek 7 kms to our camp for the day.',
+        title: 'Delhi to Camp Aquaterra',
+        description: 'Depart from Delhi in the late evening and travel overnight to Camp Aquaterra. Arrive at Camp Aquaterra around 1:00–2:00 AM.',
+        accommodation: 'Camp Aquaterra',
+        altitude: '600m',
+        trekTime: 'Overnight travel',
+        difficulty: 'Easy'
+      },
+      {
+        day: 2,
+        title: 'Pau ki Devi to Dashrath Ka Danda',
+        description: 'After breakfast, drive to Pau ki Devi, and trek 7 km through forest trails to Dashrath Ka Danda. Overnight stay in tents.',
         accommodation: 'Tents',
         altitude: '2,400m',
         trekTime: '7 km',
         difficulty: 'Moderate'
       },
       {
-        day: 2,
-        title: 'Dashrath ka Danda to Ranakot',
-        description: 'Early climb to Dashrath ka Danda to take in wonderful views. After breakfast, trek to Ranakot through beautiful Pine & Rhododendron forest which is a completely different feeling. By the afternoon you will reach the Ranakot Meadow and spend the night in the camp. Enjoy the camp under the stars at Ranakot.',
+        day: 3,
+        title: 'Dashrath Ka Danda to Ranakot Meadow',
+        description: 'Early morning hike to the viewpoint, followed by a trek through pine and rhododendron forests to Ranakot Meadow. Overnight camping.',
         accommodation: 'Tents',
         altitude: '2,200m',
         trekTime: 'Half day trek',
         difficulty: 'Moderate'
       },
       {
-        day: 3,
-        title: 'Ranakot Exploration',
-        description: 'Go for side hikes through the jungle, opportunities to spot lots of fauna at dusk and dawn. Enjoy the camp under the stars at Ranakot.',
-        accommodation: 'Tents',
-        altitude: '2,200m',
-        trekTime: 'Side hikes',
-        difficulty: 'Easy'
-      },
-      {
         day: 4,
-        title: 'Ranakot to Devprayag to Delhi',
-        description: 'Descend to Laseer and board the buses to drive back.',
+        title: 'Ranakot to Devprayag & Rafting to Kodiyala',
+        description: 'Trek to Ranakot, drive to Devprayag, enjoy a rafting experience to Kodiyala, followed by lunch and departure.',
         accommodation: 'N/A',
         altitude: 'N/A',
-        trekTime: 'Descent + drive',
+        trekTime: 'Trek, drive & rafting',
         difficulty: 'Easy'
       }
     ],
