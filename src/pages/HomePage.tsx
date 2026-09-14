@@ -3,7 +3,6 @@ import HeroSection from '../components/home/HeroSection';
 import AdventureWithoutBarriers from '../components/home/AdventureWithoutBarriers';
 import VideoTestimonials from '../components/home/VideoTestimonials';
 import FeaturedTrips from '../components/home/FeaturedTrips';
-import KarwaanHighlight from '../components/home/KarwaanHighlight';
 import InclusiveUSPSection from '../components/home/InclusiveUSPSection';
 import FAQPreview from '../components/home/FAQPreview';
 import ImpactSection from '../components/home/ImpactSection';
@@ -11,6 +10,7 @@ import VoicesFromTrail from '../components/home/VoicesFromTrail';
 import BlogPreview from '../components/home/BlogPreview';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
 import FloatingContactButton from '../components/layout/FloatingContactButton';
+import KarwaanBanner from '../components/home/KarwaanBanner';
 import SEO from '../components/ui/SEO';
 import StructuredData from '../components/ui/StructuredData';
 
@@ -62,13 +62,13 @@ const HomePage = () => {
         <ImpactSection />
         <VideoTestimonials />
         <FeaturedTrips />
-        <KarwaanHighlight />
         <InclusiveUSPSection />
         <FAQPreview />
         <VoicesFromTrail />
         <VSheshRecognitionsSection />
         <BlogPreview />
       </div>
+      <KarwaanBanner />
       <FloatingContactButton />
     </main>
   );
