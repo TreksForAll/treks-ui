@@ -31,10 +31,32 @@ import DifficultyHelpModal from '../components/trip/DifficultyHelpModal';
 import PackingTools from '../components/trip/PackingTools';
 import TripAssessment from '../components/trip/TripAssessment';
 import WeatherClimate from '../components/trip/WeatherClimate';
+import CampWeatherGuide from '../components/trip/CampWeatherGuide';
 import Lightbox from '../components/ui/Lightbox';
 import SEO from '../components/ui/SEO';
 import { submitForm } from '../lib/xano';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
+
+const defaultCampPackingList = [
+  'Woollens / thermal undergarments',
+  'Wind/rain proof jacket',
+  'GOOD sandals - something which will last the trip. Or, spare sneakers/flip flops will be handy',
+  'Socks',
+  'Head lamp - important',
+  'Sun Shade / Hat',
+  'Sunscreen / Sun block with SPF 70 and above',
+  'Vaseline / Lip Salve',
+  'Insect Repellent',
+  'Personal Toiletries - towels/soap etc.',
+  'Long trousers / long shirts / t-shirts etc.',
+  'Good pair of shorts, quick dry clothes for raft',
+  'Swim suit for ladies or a bikini top and bottom is great for wearing under a quick drying T-shirt',
+  'Alcohol/cigarettes are not available at camp',
+  'Sunglasses with eyeglass retainers',
+  'Power bank 20000mAh for charging cell phones or car charger',
+  'If you want to work, laptop DC-AC car charger',
+  'Only Jio/Airtel work at Camp'
+];
 
 const TripDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -220,6 +242,8 @@ const TripDetailPage = () => {
     setTimeout(() => setBookmarkSuccess(false), 2000);
   };
 
+  const isCamp = trip.category === 'camps';
+
   // Generate gallery images from trip data
   const galleryImages = (trip as any).gallery ?
     (trip as any).gallery.map((src: string, idx: number) => ({
@@ -357,13 +381,13 @@ const TripDetailPage = () => {
               {trip.title}
             </h1>
 
-            {/* Play Button - Only for Dayara Bugyal */}
-            {trip.id === '1' && (
+            {/* Play Button - trips with a video */}
+            {trip.videoId && (
               <div className="mb-6">
                 <button
                   onClick={() => setIsVideoPlaying(true)}
                   className="group bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium hover:bg-white/20 transition-all duration-300 border border-white/30 focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent inline-flex items-center space-x-2"
-                  aria-label="Watch trek video"
+                  aria-label="Watch video"
                 >
                   <Play className="h-5 w-5" />
                   <span>Watch Video</span>
@@ -455,9 +479,9 @@ const TripDetailPage = () => {
               { id: 'gallery', name: 'Gallery' },
               { id: 'assessment', name: 'Trip Assessment' },
               { id: 'weather', name: 'Weather' },
-              ...(trip.id !== '3' && trip.id !== '7' ? [{ id: 'packing', name: 'Packing Tools' }] : []),
-              ...(trip.id === '3' || trip.id === '7' ? [{ id: 'campPacking', name: 'Packing List' }] : []),
-              ...(trip.id === '3' ? [{ id: 'faqs', name: 'FAQs' }] : []),
+              ...(!isCamp ? [{ id: 'packing', name: 'Packing Tools' }] : []),
+              ...(isCamp ? [{ id: 'campPacking', name: 'Packing List' }] : []),
+              ...(trip.faqs?.length ? [{ id: 'faqs', name: 'FAQs' }] : []),
               { id: 'inclusions', name: 'What\'s Included' },
               { id: 'booking', name: 'Book Trip' }
             ].map((tab) => (
@@ -540,8 +564,8 @@ const TripDetailPage = () => {
                 <div className="md:col-span-2 space-y-6 sm:space-y-8">
                   {/* About This Trip */}
                   <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-earth-800 mb-4 sm:mb-6">{trip.id === '3' ? 'Camp Aquaterra' : 'About This Adventure'}</h2>
-                    <div className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-earth-800 mb-4 sm:mb-6">{isCamp ? trip.title : 'About This Adventure'}</h2>
+                    <div className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6 whitespace-pre-line">
                       {trip.description.split(' Weather:').map((part, index) => (
                         <React.Fragment key={index}>
                           {index === 0 ? (
@@ -559,7 +583,7 @@ const TripDetailPage = () => {
 
                     {/* Highlights */}
                     <div className="space-y-4">
-                      <h3 className="text-xl font-bold text-earth-800">{trip.id === '3' ? 'Camp Highlights' : 'Trip Highlights'}</h3>
+                      <h3 className="text-xl font-bold text-earth-800">{isCamp ? 'Camp Highlights' : 'Trip Highlights'}</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {trip.highlights.map((highlight, index) => (
                           <div key={index} className="flex items-start space-x-3">
@@ -638,11 +662,11 @@ const TripDetailPage = () => {
                         <span>Take Trip Assessment</span>
                       </button>
                       <button
-                        onClick={() => setActiveTab(trip.id === '3' || trip.id === '7' ? 'campPacking' : 'packing')}
+                        onClick={() => setActiveTab(isCamp ? 'campPacking' : 'packing')}
                         className="w-full bg-white text-adventure-700 py-3 rounded-lg font-semibold hover:bg-adventure-50 transition-colors duration-300 flex items-center justify-center space-x-2"
                       >
                         <CheckCircle className="h-4 w-4" />
-                        <span>Packing {trip.id === '3' || trip.id === '7' ? 'List' : 'Checklist'}</span>
+                        <span>Packing {isCamp ? 'List' : 'Checklist'}</span>
                       </button>
                       <button
                         onClick={() => setActiveTab('weather')}
@@ -785,11 +809,19 @@ const TripDetailPage = () => {
 
           {/* Weather Tab */}
           {activeTab === 'weather' && (
-            <WeatherClimate
-              destination={trip.location}
-              altitude={trip.maxAltitude}
-              season="Summer"
-            />
+            trip.weather ? (
+              <CampWeatherGuide
+                location={`${trip.title}, ${trip.location}`}
+                months={trip.weather}
+                departureDates={trip.departureDates}
+              />
+            ) : (
+              <WeatherClimate
+                destination={trip.location}
+                altitude={trip.maxAltitude}
+                season="Summer"
+              />
+            )
           )}
 
           {/* Packing Tools Tab */}
@@ -806,7 +838,7 @@ const TripDetailPage = () => {
           )}
 
           {/* Camp Packing List Tab */}
-          {activeTab === 'campPacking' && (trip.id === '3' || trip.id === '7') && (
+          {activeTab === 'campPacking' && isCamp && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -818,34 +850,15 @@ const TripDetailPage = () => {
                 Here's everything you need to pack for your camp adventure. Check off items as you pack to ensure you don't forget anything!
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  { num: '01', item: 'Woollens / thermal undergarments' },
-                  { num: '02', item: 'Wind/rain proof jacket' },
-                  { num: '03', item: 'GOOD sandals - something which will last the trip. Or, spare sneakers/flip flops will be handy' },
-                  { num: '04', item: 'Socks' },
-                  { num: '05', item: 'Head lamp - important' },
-                  { num: '06', item: 'Sun Shade / Hat' },
-                  { num: '07', item: 'Sunscreen / Sun block with SPF 70 and above' },
-                  { num: '08', item: 'Vaseline / Lip Salve' },
-                  { num: '09', item: 'Insect Repellent' },
-                  { num: '10', item: 'Personal Toiletries - towels/soap etc.' },
-                  { num: '11', item: 'Long trousers / long shirts / t-shirts etc.' },
-                  { num: '12', item: 'Good pair of shorts, quick dry clothes for raft' },
-                  { num: '13', item: 'Swim suit for ladies or a bikini top and bottom is great for wearing under a quick drying T-shirt' },
-                  { num: '14', item: 'Alcohol/cigarettes are not available at camp' },
-                  { num: '15', item: 'Sunglasses with eyeglass retainers' },
-                  { num: '16', item: 'Power bank 20000mAh for charging cell phones or car charger' },
-                  { num: '17', item: 'If you want to work, laptop DC-AC car charger' },
-                  { num: '18', item: 'Only Jio/Airtel work at Camp' }
-                ].map((packItem, index) => (
+                {(trip.packingList ?? defaultCampPackingList).map((item, index) => (
                   <div
                     key={index}
                     className="flex items-start space-x-4 p-4 bg-earth-50 rounded-xl hover:bg-adventure-50 transition-colors duration-300"
                   >
                     <div className="bg-warning-400 text-earth-900 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
-                      {packItem.num}
+                      {String(index + 1).padStart(2, '0')}
                     </div>
-                    <span className="text-earth-700 leading-relaxed">{packItem.item}</span>
+                    <span className="text-earth-700 leading-relaxed">{item}</span>
                   </div>
                 ))}
               </div>
@@ -907,7 +920,7 @@ const TripDetailPage = () => {
           )}
 
           {/* FAQs Tab */}
-          {activeTab === 'faqs' && trip.id === '3' && trip.faqs && (
+          {activeTab === 'faqs' && trip.faqs && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -1100,7 +1113,7 @@ const TripDetailPage = () => {
                     <div className="flex items-center space-x-3">
                       <Phone className="h-5 w-5 text-primary-600" />
                       <div>
-                        <div className="font-semibold text-primary-800">+91 96431 84862</div>
+                        <div className="font-semibold text-primary-800">+91 96437 18789</div>
                         <div className="text-sm text-primary-600">Mon-Fri 9AM-6PM</div>
                       </div>
                     </div>
@@ -1150,8 +1163,8 @@ const TripDetailPage = () => {
         tripType="all"
       />
 
-      {/* Video Modal - Only for Dayara Bugyal */}
-      {trip.id === '1' && (
+      {/* Video Modal */}
+      {trip.videoId && (
         <AnimatePresence>
           {isVideoPlaying && (
             <motion.div
@@ -1182,8 +1195,8 @@ const TripDetailPage = () => {
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full rounded-lg"
-                    src="https://www.youtube.com/embed/fuYWq4LvEv4?autoplay=1"
-                    title="Dayara Bugyal Trek Video"
+                    src={`https://www.youtube.com/embed/${trip.videoId}?autoplay=1`}
+                    title={`${trip.title} video`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>

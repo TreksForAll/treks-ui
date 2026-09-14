@@ -161,6 +161,10 @@ const Footer = () => {
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
                 <span>Partners</span>
               </Link></li>
+              <li><Link to="/karwaan" className="text-slate-300 hover:text-adventure-400 transition-colors duration-300 text-sm flex items-start space-x-1">
+                <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
+                <span>Karwaan</span>
+              </Link></li>
             </ul>
           </div>
 
@@ -189,7 +193,7 @@ const Footer = () => {
             <div className="space-y-1 sm:space-y-3">
               <div className="flex items-start space-x-2">
                 <Phone className="h-4 w-4 text-success-400 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-300 text-sm">+91 96431 84862</span>
+                <span className="text-slate-300 text-sm">+91 96437 18789</span>
               </div>
               <div className="flex items-start space-x-2">
                 <Mail className="h-4 w-4 text-primary-400 flex-shrink-0 mt-0.5" />
