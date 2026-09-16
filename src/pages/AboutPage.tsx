@@ -57,14 +57,42 @@ const AboutPage = () => {
           description: 'Treks for All first began as an idea Pankaj simply could not let go of: an outdoors experience that truly included everyone. Bringing together his love for the mountains and years in the development sector, he is deeply rooted in community-led work and creating impact that feels real, not performative. Calm, grounded, and quietly dependable, he is usually the one thinking three steps ahead while everyone else is just admiring the view.'
         },
         {
-          name: 'Shashaank Awasthi',
-          image: teamAssetPath('Shashaank Awasthi.jpeg'),
-          description: 'Equal parts boardroom and basecamp, Shashaank is on a mission to make both work and the outdoors more inclusive. He founded Treks for All to open up adventure to everyone, and co-founded v-shesh, an award-winning enterprise reshaping disability inclusion across education, skilling, and employment across 500+ organisations.'
-        },
-        {
           name: 'Vaibhav Kala',
           image: teamAssetPath('Vaibhav Kala.jpeg'),
           description: 'An OG of India\'s adventure travel scene, Vaibhav has been rewriting the rulebook since before it was written. From dreaming up expeditions others thought were too wild to work to actually making them happen, he has built a legacy on pushing boundaries and opening adventure travel to communities long left out.'
+        },
+        {
+          name: 'Shashaank Awasthi',
+          image: teamAssetPath('Shashaank Awasthi.jpeg'),
+          description: 'Equal parts boardroom and basecamp, Shashaank is on a mission to make both work and the outdoors more inclusive. He founded Treks for All to open up adventure to everyone, and co-founded v-shesh, an award-winning enterprise reshaping disability inclusion across education, skilling, and employment across 500+ organisations.'
+        }
+      ]
+    },
+    {
+      title: 'Inclusion Partners',
+      description: 'The people shaping access, empathy, outreach, and lived inclusion into every journey.',
+      accentClass: 'from-[#e0aa04] via-[#f0c552] to-[#f7df9a]',
+      tagClass: 'bg-[#e0aa04] text-[#18363a]',
+      members: [
+        {
+          name: 'Rashi Soman',
+          image: teamAssetPath('Rashi Soman.jpeg'),
+          description: 'With a decade of experience in disability inclusion and a deep love for the outdoors, Rashi brings both to life with Treks for All. She is the ultimate calm-in-the-chaos person, turning first-time nerves into confident "when is the next trek?" energy.'
+        },
+        {
+          name: 'Sakshi Chauhan',
+          image: teamAssetPath('Sakshi Chauhan.jpeg'),
+          description: 'Part of the founding team at Treks for All, Sakshi is passionate about making the outdoors truly accessible. A wheelchair basketball player herself, she brings grit, empathy, and lived perspective, helping turn every "can we?" into "let\'s go."'
+        },
+        {
+          name: 'Vaishnavi Ganesh',
+          image: teamAssetPath('Vaishnavi Ganesh PM.jpeg'),
+          description: 'Part of the madness since day one, Vaishnavi blends disability inclusion, storytelling, and adventure into one very full backpack. Deeply committed to accessibility and creating spaces where everyone feels seen, heard, and included, she keeps the inclusion conversation moving on and off the trail.'
+        },
+        {
+          name: 'Tripti',
+          image: teamAssetPath('Tripti.jpeg'),
+          description: 'A city girl by circumstance, a mountain girl at heart. Tripti spends her days in the city, but every now and then, she finds her way back to the mountains—her favourite place to slow down, breathe, and learn. A curious learner and lover of trails, conversations, and letting nature take the lead, she\'s now bringing that spirit to Treks for All—helping make outdoor experiences more inclusive, welcoming, and fun for everyone. Give her a trail, good company, and no rush to get home, and she\'s happy!'
         }
       ]
     },
@@ -120,29 +148,6 @@ const AboutPage = () => {
       ]
     },
     {
-      title: 'Inclusion Partners',
-      description: 'The people shaping access, empathy, outreach, and lived inclusion into every journey.',
-      accentClass: 'from-[#e0aa04] via-[#f0c552] to-[#f7df9a]',
-      tagClass: 'bg-[#e0aa04] text-[#18363a]',
-      members: [
-        {
-          name: 'Rashi Soman',
-          image: teamAssetPath('Rashi Soman.jpeg'),
-          description: 'With a decade of experience in disability inclusion and a deep love for the outdoors, Rashi brings both to life with Treks for All. She is the ultimate calm-in-the-chaos person, turning first-time nerves into confident "when is the next trek?" energy.'
-        },
-        {
-          name: 'Sakshi Chauhan',
-          image: teamAssetPath('Sakshi Chauhan.jpeg'),
-          description: 'Part of the founding team at Treks for All, Sakshi is passionate about making the outdoors truly accessible. A wheelchair basketball player herself, she brings grit, empathy, and lived perspective, helping turn every "can we?" into "let\'s go."'
-        },
-        {
-          name: 'Vaishnavi Ganesh',
-          image: teamAssetPath('Vaishnavi Ganesh PM.jpeg'),
-          description: 'Part of the madness since day one, Vaishnavi blends disability inclusion, storytelling, and adventure into one very full backpack. Deeply committed to accessibility and creating spaces where everyone feels seen, heard, and included, she keeps the inclusion conversation moving on and off the trail.'
-        }
-      ]
-    },
-    {
       title: 'Communication Partners',
       description: 'The storytellers and brand-builders helping the mission travel farther than the trailhead.',
       accentClass: 'from-[#1a2e35] via-[#214b51] to-[#377d87]',
@@ -173,6 +178,7 @@ const AboutPage = () => {
   }, [teamGroups.length]);
 
   const activeTeamGroup = teamGroups[activeTeamGroupIndex];
+  const contributorCount = teamGroups.reduce((count, group) => count + group.members.length, 0);
 
 
   return (
@@ -379,11 +385,11 @@ const AboutPage = () => {
 
             <div className="grid gap-4 sm:grid-cols-3 max-w-4xl">
               <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
-                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">15</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">{contributorCount}</div>
                 <p className="mt-1 text-sm text-[#377d87]">contributors across field operations, inclusion, and storytelling</p>
               </div>
               <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
-                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">5</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">{teamGroups.length}</div>
                 <p className="mt-1 text-sm text-[#377d87]">specialist groups working together behind every experience</p>
               </div>
               <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
