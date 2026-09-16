@@ -182,7 +182,7 @@ const Footer = () => {
               </Link></li>
               <li><Link to="/blog" className="text-slate-300 hover:text-success-400 transition-colors duration-300 text-sm flex items-start space-x-1">
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
-                <span>Media & Blog</span>
+                <span>Blogs</span>
               </Link></li>
             </ul>
           </div>

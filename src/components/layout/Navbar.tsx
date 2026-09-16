@@ -26,17 +26,17 @@ const Navbar = () => {
   const adventuresDropdown = [
     { name: 'All Adventures', path: '/trips' },
     { name: 'Treks', path: '/trips?category=treks' },
-    { name: 'Camps', path: '/camps' }
+    { name: 'Camps', path: '/camps' },
+    { name: 'Customised Trips', path: '/customised-trips' }
   ];
 
   const navLinks = [
     { name: 'Our Story', path: '/about' },
     { name: 'Adventures', path: '/trips', hasDropdown: true },
-    { name: 'Customised Trips', path: '/customised-trips' },
     { name: 'Immersions', path: '/outdoor-immersions' },
     { name: 'Partners', path: '/about/partners' },
     { name: 'FAQs', path: '/faqs' },
-    { name: 'Media & Blog', path: '/blog' },
+    { name: 'Blogs', path: '/blog' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Karwaan', path: '/karwaan' }
   ];
@@ -53,7 +53,7 @@ const Navbar = () => {
     }
 
     if (path === '/trips') {
-      return currentPath.startsWith('/trips') || currentPath === '/camps';
+      return currentPath.startsWith('/trips') || currentPath === '/camps' || currentPath === '/customised-trips';
     }
 
     return false;
