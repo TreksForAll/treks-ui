@@ -17,6 +17,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CustomisedTripsPage from './pages/CustomisedTripsPage';
 import OutdoorImmersionPage from './pages/OutdoorImmersionPage';
 import KarwaanPage from './pages/KarwaanPage';
+import PartnershipsPage from './pages/PartnershipsPage';
 import PerformanceOptimizer from './components/ui/PerformanceOptimizer';
 import PageLoader from './components/ui/PageLoader';
 import './index.css';
@@ -44,6 +45,7 @@ function App() {
           <Route path="/customised-trips" element={<CustomisedTripsPage />} />
           <Route path="/outdoor-immersions" element={<OutdoorImmersionPage />} />
           <Route path="/karwaan" element={<KarwaanPage />} />
+          <Route path="/partnerships" element={<PartnershipsPage />} />
         </Routes>
         <Footer />
       </div>
