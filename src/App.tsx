@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/layout/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import PartnersPage from './pages/PartnersPage';
 import TripsPage from './pages/TripsPage';
 import TripDetailPage from './pages/TripDetailPage';
 import ContactPage from './pages/ContactPage';
@@ -33,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/partners" element={<PartnersPage />} />
+          <Route path="/about/partners" element={<Navigate to="/#partners" replace />} />
           <Route path="/trips" element={<TripsPage />} />
           <Route path="/trip/:id" element={<TripDetailPage />} />
           <Route path="/faqs" element={<FAQsPage />} />

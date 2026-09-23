@@ -157,7 +157,7 @@ const Footer = () => {
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
                 <span>Our Story</span>
               </Link></li>
-              <li><Link to="/about/partners" className="text-slate-300 hover:text-adventure-400 transition-colors duration-300 text-sm flex items-start space-x-1">
+              <li><Link to="/#partners" className="text-slate-300 hover:text-adventure-400 transition-colors duration-300 text-sm flex items-start space-x-1">
                 <ArrowRight className="h-3 w-3 flex-shrink-0 mt-0.5" />
                 <span>Partners</span>
               </Link></li>

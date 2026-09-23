@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
-import { Mountain, Users, Award, Globe, Leaf, Shield, Accessibility, HandHeart, Eye } from 'lucide-react';
+import { Mountain, Users, Award, Globe, Leaf, Shield, Accessibility, HandHeart, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
@@ -25,9 +25,43 @@ type TeamGroup = {
 
 const teamAssetPath = (fileName: string) => `/TFA%20team/${encodeURIComponent(fileName)}`;
 
+const carouselVariants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? 40 : -40,
+    opacity: 0,
+    scale: 0.985,
+    filter: 'blur(3px)'
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: {
+      x: { type: 'spring', stiffness: 190, damping: 26, mass: 0.9 },
+      opacity: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+      scale: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+      filter: { duration: 0.4 }
+    }
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? -40 : 40,
+    opacity: 0,
+    scale: 0.985,
+    filter: 'blur(3px)',
+    transition: {
+      x: { type: 'spring', stiffness: 190, damping: 26, mass: 0.9 },
+      opacity: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+      scale: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+      filter: { duration: 0.3 }
+    }
+  })
+};
+
 const AboutPage = () => {
   const heroRef = useRef(null);
   const [activeTeamGroupIndex, setActiveTeamGroupIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -169,10 +203,27 @@ const AboutPage = () => {
     }
   ];
 
+  const goToGroup = (index: number) => {
+    setDirection(index > activeTeamGroupIndex ? 1 : -1);
+    setActiveTeamGroupIndex(index);
+  };
+
+  const nextGroup = () => {
+    setDirection(1);
+    setActiveTeamGroupIndex((prev) => (prev + 1) % teamGroups.length);
+  };
+
+  const prevGroup = () => {
+    setDirection(-1);
+    setActiveTeamGroupIndex((prev) => (prev - 1 + teamGroups.length) % teamGroups.length);
+  };
+
+  // Organic slow rotation: 9.5s per group continuously
   useEffect(() => {
     const intervalId = window.setInterval(() => {
+      setDirection(1);
       setActiveTeamGroupIndex((currentIndex) => (currentIndex + 1) % teamGroups.length);
-    }, 5000);
+    }, 9500);
 
     return () => window.clearInterval(intervalId);
   }, [teamGroups.length]);
@@ -402,7 +453,9 @@ const AboutPage = () => {
           <div className="mb-5 flex flex-wrap items-center justify-between gap-4 sm:mb-6">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#377d87]">Member Groups</p>
-              <p className="mt-1 text-sm text-earth-600 sm:text-base">Each group rotates automatically every few seconds. Use the controls to jump between them.</p>
+              <p className="mt-1 text-sm text-earth-600 sm:text-base">
+                Meet the diverse specialists behind every inclusive experience. Use the controls to explore each group.
+              </p>
             </div>
           </div>
 
@@ -411,8 +464,8 @@ const AboutPage = () => {
               <button
                 key={group.title}
                 type="button"
-                onClick={() => setActiveTeamGroupIndex(groupIndex)}
-                className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 sm:text-sm ${
+                onClick={() => goToGroup(groupIndex)}
+                className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 sm:text-sm cursor-pointer ${
                   groupIndex === activeTeamGroupIndex
                     ? 'border-[#18363a] bg-[#18363a] text-white shadow-md'
                     : 'border-[#c9e0e3] bg-white/80 text-[#377d87] hover:border-[#377d87] hover:text-[#18363a]'
@@ -424,91 +477,137 @@ const AboutPage = () => {
             ))}
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.section
-              key={activeTeamGroup.title}
-              initial={{ opacity: 0, x: 48 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -48 }}
-              transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="overflow-hidden rounded-[28px] border border-[#d5e9eb] bg-white/90 shadow-[0_24px_80px_rgba(24,54,58,0.08)] backdrop-blur-sm"
-            >
-              <div className={`bg-gradient-to-r ${activeTeamGroup.accentClass} px-5 py-5 sm:px-8 sm:py-7`}>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white sm:text-3xl">{activeTeamGroup.title}</h3>
-                    <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90 sm:text-base">
-                      {activeTeamGroup.description}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {teamGroups.map((group, groupIndex) => (
-                      <button
-                        key={group.title}
-                        type="button"
-                        onClick={() => setActiveTeamGroupIndex(groupIndex)}
-                        className={`h-2.5 rounded-full transition-all duration-300 ${groupIndex === activeTeamGroupIndex ? 'w-10 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/70'}`}
-                        aria-label={`Go to ${group.title}`}
-                      />
-                    ))}
+          <div className="relative">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.section
+                key={activeTeamGroup.title}
+                custom={direction}
+                variants={carouselVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="overflow-hidden rounded-[28px] border border-[#d5e9eb] bg-white/90 shadow-[0_24px_80px_rgba(24,54,58,0.08)] backdrop-blur-sm"
+              >
+                {/* Organic Subtle Countdown Progress Line */}
+                <div className="h-1 w-full bg-white/20 overflow-hidden">
+                  <motion.div
+                    key={activeTeamGroup.title}
+                    initial={{ width: '0%' }}
+                    animate={{ width: '100%' }}
+                    transition={{ duration: 9.5, ease: 'linear' }}
+                    className="h-full bg-white/80"
+                  />
+                </div>
+
+                <div className={`bg-gradient-to-r ${activeTeamGroup.accentClass} px-5 py-5 sm:px-8 sm:py-7`}>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white sm:text-3xl">{activeTeamGroup.title}</h3>
+                      <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/90 sm:text-base">
+                        {activeTeamGroup.description}
+                      </p>
+                    </div>
+
+                    {/* Navigation Controls: Chevrons & Pill Dots */}
+                    <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={prevGroup}
+                          aria-label="Previous team group"
+                          className="p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-white transition-all cursor-pointer backdrop-blur-sm shadow-sm"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={nextGroup}
+                          aria-label="Next team group"
+                          className="p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-white transition-all cursor-pointer backdrop-blur-sm shadow-sm"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        {teamGroups.map((group, groupIndex) => (
+                          <button
+                            key={group.title}
+                            type="button"
+                            onClick={() => goToGroup(groupIndex)}
+                            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                              groupIndex === activeTeamGroupIndex
+                                ? 'w-10 bg-white shadow-sm'
+                                : 'w-2.5 bg-white/45 hover:bg-white/70'
+                            }`}
+                            aria-label={`Go to ${group.title}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div
-                className={
-                  activeTeamGroup.members.length === 1
-                    ? 'mx-auto grid max-w-xl gap-5 p-6 sm:p-8'
-                    : activeTeamGroup.members.length === 2
-                      ? 'mx-auto grid max-w-4xl justify-items-center gap-5 p-6 sm:p-8 md:grid-cols-2'
-                      : 'grid gap-5 p-6 sm:p-8 md:grid-cols-2 xl:grid-cols-3'
-                }
-              >
-                {activeTeamGroup.members.map((member, memberIndex) => (
-                  <motion.article
-                    key={member.name}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: memberIndex * 0.05 }}
-                    className={`group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#dcecee] bg-[#fcfefe] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,54,58,0.12)] ${activeTeamGroup.members.length <= 2 ? 'mx-auto w-full max-w-[22rem]' : ''}`}
-                  >
-                    {member.image ? (
-                      <div className={`relative overflow-hidden ${member.imageContain ? 'aspect-[4/5] bg-[#141414]' : 'aspect-[4/5] bg-[#dcecee]'}`}>
-                        <LazyImage
-                          src={member.image}
-                          alt={`${member.name} portrait`}
-                          aspectRatio={member.imageContain ? 'portrait' : 'portrait'}
-                          className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-4 sm:p-5' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
-                        />
-                        {!member.imageContain && (
-                          <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${member.darkMedia ? 'from-[#18363a]/80' : 'from-[#18363a]/55'} to-transparent`} />
-                        )}
-                      </div>
-                    ) : (
-                      <div className="flex aspect-[3/4] items-end bg-[linear-gradient(160deg,#18363a_0%,#214b51_55%,#377d87_100%)] p-6 text-white">
-                        <div>
-                          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#f7df9a]">Field Leadership</div>
-                          <div className="mt-3 text-4xl font-bold leading-none">
-                            {member.name
-                              .split(' ')
-                              .map((namePart) => namePart[0])
-                              .join('')}
+                <div
+                  className={
+                    activeTeamGroup.members.length === 1
+                      ? 'mx-auto grid max-w-xl gap-5 p-6 sm:p-8'
+                      : activeTeamGroup.members.length === 2
+                        ? 'mx-auto grid max-w-4xl justify-items-center gap-5 p-6 sm:p-8 md:grid-cols-2'
+                        : 'grid gap-5 p-6 sm:p-8 md:grid-cols-2 xl:grid-cols-3'
+                  }
+                >
+                  {activeTeamGroup.members.map((member, memberIndex) => (
+                    <motion.article
+                      key={member.name}
+                      initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 240,
+                        damping: 24,
+                        delay: memberIndex * 0.08 + 0.1
+                      }}
+                      className={`group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#dcecee] bg-[#fcfefe] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,54,58,0.12)] ${activeTeamGroup.members.length <= 2 ? 'mx-auto w-full max-w-[22rem]' : ''}`}
+                    >
+                      {member.image ? (
+                        <div className={`relative overflow-hidden ${member.imageContain ? 'aspect-[4/5] bg-[#141414]' : 'aspect-[4/5] bg-[#dcecee]'}`}>
+                          <LazyImage
+                            src={member.image}
+                            alt={`${member.name} portrait`}
+                            aspectRatio={member.imageContain ? 'portrait' : 'portrait'}
+                            className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-4 sm:p-5' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
+                          />
+                          {!member.imageContain && (
+                            <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${member.darkMedia ? 'from-[#18363a]/80' : 'from-[#18363a]/55'} to-transparent`} />
+                          )}
+                        </div>
+                      ) : (
+                        <div className="flex aspect-[3/4] items-end bg-[linear-gradient(160deg,#18363a_0%,#214b51_55%,#377d87_100%)] p-6 text-white">
+                          <div>
+                            <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#f7df9a]">Field Leadership</div>
+                            <div className="mt-3 text-4xl font-bold leading-none">
+                              {member.name
+                                .split(' ')
+                                .map((namePart) => namePart[0])
+                                .join('')}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    <div className="flex flex-1 flex-col px-5 py-5 sm:px-6">
-                      <div className="mb-3">
-                        <h3 className="text-xl font-bold text-[#18363a]">{member.name}</h3>
+                      <div className="flex flex-1 flex-col px-5 py-5 sm:px-6">
+                        <div className="mb-3">
+                          <h3 className="text-xl font-bold text-[#18363a]">{member.name}</h3>
+                        </div>
+                        <p className="text-sm leading-6 text-earth-600 sm:text-[15px]">{member.description}</p>
                       </div>
-                      <p className="text-sm leading-6 text-earth-600 sm:text-[15px]">{member.description}</p>
-                    </div>
-                  </motion.article>
-                ))}
-              </div>
-            </motion.section>
-          </AnimatePresence>
+                    </motion.article>
+                  ))}
+                </div>
+              </motion.section>
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
@@ -637,7 +736,7 @@ const AboutPage = () => {
               </p>
             </div>
             <Link
-              to="/about/partners"
+              to="/#partners"
               className="flex-shrink-0 bg-[#e0aa04] text-[#214b51] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base hover:bg-[#e5a800] transition-all duration-300 inline-flex items-center space-x-2"
             >
               <HandHeart className="h-5 w-5" />

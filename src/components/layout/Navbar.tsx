@@ -34,7 +34,6 @@ const Navbar = () => {
     { name: 'Our Story', path: '/about' },
     { name: 'Adventures', path: '/trips', hasDropdown: true },
     { name: 'Immersions', path: '/outdoor-immersions' },
-    { name: 'Partners', path: '/about/partners' },
     { name: 'Partnerships', path: '/partnerships' },
     { name: 'FAQs', path: '/faqs' },
     { name: 'Blogs', path: '/blog' },
