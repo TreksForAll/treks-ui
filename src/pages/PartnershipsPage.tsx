@@ -103,7 +103,8 @@ const partnershipTypes: PartnershipType[] = [
 
 type Partner = {
   name: string;
-  mark: string;
+  mark?: string;
+  logo?: string;
   tagline?: string;
   blurb: string;
   link?: { to: string; label: string };
@@ -176,12 +177,14 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'Camp Hornbill',
         mark: 'H',
+        logo: '/partners/camp-hornbill.png',
         blurb: 'Nature, adventure and community in the Corbett landscape near Ramnagar, Uttarakhand.',
         link: { to: '/trip/8', label: 'See the camp' }
       },
       {
         name: 'Camp Sunkiya',
         mark: 'S',
+        logo: '/partners/camp-sunkiya.jpeg',
         blurb: 'Adventure, village immersion and mountain culture in the hills of Mukteshwar, Uttarakhand.',
         link: { to: '/trip/10', label: 'See the camp' }
       }
@@ -210,6 +213,7 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'Jagriti Yatra',
         mark: 'JY',
+        logo: '/partners/jagriti-yatra.png',
         tagline: 'Making the yatra more inclusive.',
         blurb: 'Jagriti Yatra is working with Treks for All to make its journeys more inclusive, creating opportunities for people with diverse abilities to participate in the Yatra experience and be part of the journey alongside others.'
       },
@@ -391,10 +395,21 @@ const PartnershipsPage = () => {
                       {category.partners.map(partner => (
                         <div key={partner.name} className="flex flex-col bg-white rounded-2xl border border-[#d1ebed] p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#18363a] text-[#e0aa04] font-bold text-base sm:text-lg flex items-center justify-center tracking-wide" aria-hidden="true">
-                              {partner.mark}
-                            </div>
-                            <div className="min-w-0">
+                            {partner.logo ? (
+                              <div className="flex-shrink-0 w-20 h-14 sm:w-24 sm:h-16 rounded-xl bg-white border border-[#d1ebed] p-2 flex items-center justify-center shadow-xs overflow-hidden">
+                                <img
+                                  src={partner.logo}
+                                  alt={`${partner.name} logo`}
+                                  className="w-full h-full object-contain"
+                                  loading="lazy"
+                                />
+                              </div>
+                            ) : (
+                              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#18363a] text-[#e0aa04] font-bold text-base sm:text-lg flex items-center justify-center tracking-wide" aria-hidden="true">
+                                {partner.mark}
+                              </div>
+                            )}
+                            <div className="min-w-0 flex-1">
                               <h4 className="text-base sm:text-lg font-bold text-[#18363a] leading-tight">{partner.name}</h4>
                               {partner.tagline && <p className="text-xs sm:text-sm font-semibold text-[#377d87] mt-0.5">{partner.tagline}</p>}
                             </div>
