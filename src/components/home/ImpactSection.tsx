@@ -30,8 +30,8 @@ const CountUp = ({ target, suffix = '', duration = 2500 }: CountUpProps) => {
 
 const ImpactSection = () => {
   const stats = [
-    { target: 196, suffix: '+', label: 'Total Guests', delay: 0.1 },
-    { target: 108, suffix: '+', label: 'Persons with Disabilities', delay: 0.2 },
+    { target: 252, suffix: '+', label: 'Total Guests', delay: 0.1 },
+    { target: 132, suffix: '+', label: 'Persons with Disabilities', delay: 0.2 },
     { target: 10, suffix: '+', label: 'Unique Disabilities Represented', delay: 0.3 },
   ];
 

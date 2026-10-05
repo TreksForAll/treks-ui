@@ -25,6 +25,72 @@ interface BlogFilters {
 
 const mockPosts: BlogPost[] = [
   {
+    id: '13',
+    slug: 'beyond-the-trail-how-being-a-buddy-changed-young-hearts',
+    title: 'Beyond the Trail – How being a Buddy changed Young Hearts',
+    excerpt: 'What began as a simple walk on a nature trail soon became something much more. Three students from PYDS Learning Academy discover how being a buddy on an inclusive trek transforms perspectives, builds leadership through empathy, and redefines independence.',
+    content: `There is a moment on every trek when strangers stop being strangers.
+
+"How are you finding the trail?" Komal asked as they walked through the quiet forest. "I'm loving every bit of it," Rinku Di smiled. What began as a simple walk on a nature trail soon became something much more. With every conversation, shared laugh, and careful step, Komal found herself feeling grounded. She realized that being a buddy wasn't about leading the way; it was about building trust, moving together, and learning from one another.
+
+At Treks for All, we often say that mountains have the power to transform people. While participants return home with unforgettable memories of rivers, forests, and trails, there is another transformation that quietly unfolds alongside every adventure — that of the buddies.
+
+Who is a Buddy?
+
+There is a common misconception about being a buddy on an inclusive trek. People often imagine that the role is simply to guide the participants from one place to another — to hold an elbow, describe a path, or ensure they don't stumble over.
+
+The truth goes far beyond that.
+
+At Treks for All, every participant is paired with a volunteer — a buddy. While the partnership begins with practical support, it quickly grows into something much deeper: a relationship built on trust, communication, and mutual respect.
+
+Imagine placing your complete trust in someone you met only a few hours ago. Every uneven trail, every river crossing, every steep climb requires constant communication. A buddy becomes the participant's eyes, describing not only obstacles but also the beauty that surrounds them. What happens to the buddies goes beyond the ordinary; for many it becomes transformative. That’s exactly what happened with the three students from PYDS Learning Academy who joined in as Buddies for an adventure camp to Tons Valley recently.
+
+"I entered as a buddy expecting to guide someone else, but I left feeling deeply guided myself." — Komal Bhatt
+
+One of Komal Bhatt's biggest lessons at Treks for All didn't happen on a trail — it happened inside a tent. Sharing her space with Rinku Di, a visually impaired participant, Komal watched in amazement as she effortlessly managed her belongings. Every item had its place, and Rinku confidently knew where everything was. When Komal asked if she ever misplaced her things, Rinku simply replied that she rarely did. That moment challenged everything Komal had assumed.
+
+"She taught me that mindfulness and discipline are more important than vision. I realised that my own sight had made me lazy about being organised."
+
+That single experience became one of the most powerful lessons of the journey. It reminded Komal that independence isn't determined by what we can see, but by the habits we cultivate, the confidence we build, and the way we choose to navigate the world. By the end of the camp, Komal understood that being a buddy was never just about offering support. Sometimes, it is about being willing to have your own perspectives transformed.
+
+"Reaching the waterfall after a long climb made me realize that hard work always leads to beautiful rewards." — Rupa Rawat
+
+For Rupa Rawat, the most memorable moment of her Treks for All journey came during the 7-kilometre trek to the waterfall. As a buddy, she was responsible for guiding her partner along a steep and challenging trail. Every step required patience, encouragement, and trust. The climb was demanding, but watching her buddy persevere changed the way she looked at responsibility.
+
+"Being a buddy and guiding someone during the trek helped me develop leadership qualities and taught me to care for others," she shares. "The 7 km uphill trek was challenging, but it taught me how to stay strong, motivated, and determined even when I felt tired."
+
+Reaching the waterfall made every effort worthwhile. More than the destination, it was the journey that stayed with her. What began as a trek through the mountains became a lesson in resilience, teamwork, and discovering the strength that comes from walking beside someone else.
+
+"Guiding is an art of detail. It wasn't just 'step left' or 'watch out'; it was about constant awareness of another person's safety and comfort." — Saurabh Thapli
+
+For Saurabh, the most powerful lesson from Treks for All wasn't crossing rivers or completing a 14-kilometre trek — it was learning how to help someone experience the world without sight. As the buddy to Shrikant, every step on the trail required more than simple directions. Saurabh found himself describing the mountains through sounds, textures, and the feel of the wind, transforming landscapes into words. In the process, he discovered that communication goes far beyond words.
+
+"I learned how to describe the world in textures, sounds, and smells. My vocabulary grew because I wanted Shrikant to 'see' the beauty of the mountains through my descriptions and in the process, I too started appreciating the nature more..." By the end of the journey, Saurabh realized that while his buddy couldn't see the trail, he experienced it just as deeply. As Saurabh beautifully concludes, "You don't need sight to have a vision for adventure — you just need a little bit of trust and a good buddy by your side."
+
+Lessons That Classrooms Cannot Teach Alone
+
+Every buddy who arrived at Treks for All came with the intention of helping someone else. They left carrying something far more valuable: a transformed perspective. Over just a few days, these young volunteers discovered that disability is not defined by limitation but by the barriers society creates. They learned that trust is built one conversation at a time, that leadership begins with empathy, and that inclusion isn't about doing things for someone — it's about doing things with them. The mountains became their classroom, and every shared meal, every river crossed, and every trail walked together quietly dismantled years of unconscious assumptions.
+
+These experiences raise an important question: Why should lessons like these be left to chance?
+
+If inclusion became a meaningful part of our school curriculum — not merely as a chapter in a textbook but as lived experiences through camps, community engagement, volunteering, and shared adventures — we would nurture a generation that sees diversity as natural rather than exceptional. Children would grow up understanding that differences do not divide us; they enrich us.
+
+Academic excellence prepares young people for careers, but inclusion prepares them for life. It teaches compassion without pity, confidence without prejudice, and collaboration without barriers.
+
+Perhaps the greatest success of Treks for All isn't that it takes people into nature. It is that it brings them back with kinder hearts, broader perspectives, and a deeper belief that a truly inclusive world benefits everyone. Because when young people learn to walk together, they grow into adults who build a society where everyone belongs.`,
+    author: 'Treks For All x PYDS',
+    authorRole: 'Buddy Programme',
+    date: 'August 2026',
+    category: 'Stories',
+    image: '/beyond-the-trail.jpg',
+    readTime: '6 min read',
+    views: 940,
+    likes: 125,
+    tags: ['Buddy Programme', 'PYDS', 'Youth', 'Inclusion', 'Leadership'],
+    featured: true,
+    externalLink: 'https://www.linkedin.com/pulse/beyond-trail-how-being-buddy-changed-young-hearts-treks-for-all-d02bf/'
+  },
+  {
     id: '11',
     slug: 'treks-for-all-making-the-outdoors-truly-inclusive',
     title: 'Treks For All: Making the Outdoors Truly Inclusive',
@@ -46,7 +112,15 @@ const mockPosts: BlogPost[] = [
     slug: 'mountains-memories-making-space-journey-treks-for-all',
     title: 'Mountains, Memories, and Making Space: A Journey with Treks for All',
     excerpt: 'Discovering leisure as resistance and the transformative power of creating accessible spaces in the mountains.',
-    content: 'I was a young(er) university student when I first encountered Surabhi Yadav\'s beautiful and one of a kind project Women at Leisure. Her work documented everyday moments of women resting, laughing, sharing space and for the first time, I began to understand leisure not as indulgence, but as resistance. The idea that taking time for oneself could be revolutionary stayed with me. Rest as a right. And the collective power of women holding space for each other. Since then, I\'ve found myself noticing leisure in quieter, often overlooked ways: the chatty women in the Ladies Coach of the Delhi Metro, their laughter echoing through the compartment; my grandmother sitting in the living room on a warm afternoon, sipping an even warmer cup of tea, flipping through a Tamil magazine. Fast forward to June 2025. I found myself on a bus to Rishikesh on a Monday morning; a working day, no less. But this was no ordinary trip. It was the start of Treks for All, a long-awaited program we had spent months putting together. Planning documents, team calls, accessibility audits, last-minute checklists... and yes, packing my own backpack too. We were headed to Dayara Bugyal, and I thought I knew what was coming: a physically challenging trek, a packed itinerary, long and tiring days. I had braced myself for the logistics, for the stress, for being "on" all the time.\n\nBut what I hadn\'t accounted for was the return of leisure. In between all the planning and uphill climbs, I rediscovered it—in the shared silences as we focused on our steps, the laughter around hot chai, the quiet joy of walking among forests and alpine meadows, the camaraderie of people showing up for each other. It gave me a whole new perspective on leisure- particularly with respect to disability. We saw unlikely friendships form- a Deaf person hosting games for a group of Vision impaired folks, people of all ages finding common ground in how competitive they get over word association games, and most importantly- collectively finding different ways in which the hills can be enjoyed.\n\nIn all of this- we found community, we learnt to slow down to match each other\'s pace, we learnt to applaud each other\'s little wins and helped each other get up after our little falls (and go on to crack jokes about it later!).\n\nLeisure isn\'t always about doing nothing. Sometimes it\'s about doing things that make us feel more alive, more connected, more human. It\'s in the little moments, the ones we don\'t schedule.\n\nAs we build spaces that are inclusive and accessible, we must remember that joy, rest, and respite are just as essential as effort and structure. Because when we hold space for leisure- especially for those often denied it- we open up the possibility for something transformative. At Treks for All- we are trying to do just that!',
+    content: `I was a young(er) university student when I first encountered Surabhi Yadav's beautiful and one of a kind project Women at Leisure. Her work documented everyday moments of women resting, laughing, sharing space and for the first time, I began to understand leisure not as indulgence, but as resistance. The idea that taking time for oneself could be revolutionary stayed with me. Rest as a right. And the collective power of women holding space for each other. Since then, I've found myself noticing leisure in quieter, often overlooked ways: the chatty women in the Ladies Coach of the Delhi Metro, their laughter echoing through the compartment; my grandmother sitting in the living room on a warm afternoon, sipping an even warmer cup of tea, flipping through a Tamil magazine. Fast forward to June 2025. I found myself on a bus to Rishikesh on a Monday morning; a working day, no less. But this was no ordinary trip. It was the start of Treks for All, a long-awaited program we had spent months putting together. Planning documents, team calls, accessibility audits, last-minute checklists... and yes, packing my own backpack too. We were headed to Dayara Bugyal, and I thought I knew what was coming: a physically challenging trek, a packed itinerary, long and tiring days. I had braced myself for the logistics, for the stress, for being "on" all the time.
+
+But what I hadn't accounted for was the return of leisure. In between all the planning and uphill climbs, I rediscovered it—in the shared silences as we focused on our steps, the laughter around hot chai, the quiet joy of walking among forests and alpine meadows, the camaraderie of people showing up for each other. It gave me a whole new perspective on leisure- particularly with respect to disability. We saw unlikely friendships form- a Deaf person hosting games for a group of Vision impaired folks, people of all ages finding common ground in how competitive they get over word association games, and most importantly- collectively finding different ways in which the hills can be enjoyed.
+
+In all of this- we found community, we learnt to slow down to match each other's pace, we learnt to applaud each other's little wins and helped each other get up after our little falls (and go on to crack jokes about it later!).
+
+Leisure isn't always about doing nothing. Sometimes it's about doing things that make us feel more alive, more connected, more human. It's in the little moments, the ones we don't schedule.
+
+As we build spaces that are inclusive and accessible, we must remember that joy, rest, and respite are just as essential as effort and structure. Because when we hold space for leisure- especially for those often denied it- we open up the possibility for something transformative. At Treks for All- we are trying to do just that!`,
     author: 'Vaishnavi Ganesh',
     authorRole: 'Program Coordinator',
     date: 'June 2025',
@@ -204,6 +278,23 @@ const mockPosts: BlogPost[] = [
     tags: ['Instagram', 'Reel', 'Dayara Bugyal'],
     featured: false,
     externalLink: 'https://www.instagram.com/reel/DJhC1B0B6uV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
+  },
+  {
+    id: '12',
+    slug: 'the-better-india-from-amputees-to-visually-impaired',
+    title: 'From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas',
+    excerpt: 'The mountain gods of Dayara Bugyal (12,000 ft above sea level), a meadow in the Garhwal Himalayas, are no strangers to beautiful sights. Every spring, the meadow turns into a floral rhapsody of sorts; oak, rhododendron, pine and maple colour its alpine landscape.',
+    author: 'The Better India',
+    authorRole: 'Media',
+    date: 'May 2025',
+    category: 'Press',
+    image: '/treks-for-all-disabled-persons-7-1748608748.webp',
+    readTime: '5 min read',
+    views: 1850,
+    likes: 210,
+    tags: ['The Better India', 'Dayara Bugyal', 'Inclusion'],
+    featured: false,
+    externalLink: 'https://thebetterindia.com/441694/treks-for-all-disabled-people-india-himalayas-uttarakhand-dayara-bugyal-rishikesh-v-shesh-aquaterra-adventures-metores/'
   }
 ];
 

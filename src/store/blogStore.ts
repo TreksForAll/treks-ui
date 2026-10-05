@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 interface BlogPost {
   id: string;
+  slug: string;
   title: string;
   excerpt: string;
   content?: string;

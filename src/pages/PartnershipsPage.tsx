@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -11,10 +11,12 @@ import {
   HandHeart,
   Lightbulb,
   Mountain,
+  Play,
   Send,
   Sparkles,
   Tent,
-  Users
+  Users,
+  X
 } from 'lucide-react';
 import SEO from '../components/ui/SEO';
 import SectionTitle from '../components/ui/SectionTitle';
@@ -108,6 +110,10 @@ type Partner = {
   tagline?: string;
   blurb: string;
   link?: { to: string; label: string };
+  video?: {
+    title: string;
+    cta?: string;
+  };
 };
 
 type PartnerCategory = {
@@ -157,11 +163,16 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'Amazon',
         mark: 'A',
-        blurb: 'Sponsored by Amazon’s Persons with Disabilities & Allies ERG, Amazon partnered with Treks for All to create an outdoor experience bringing together persons with disabilities and allies — creating space to challenge themselves, build connections and experience adventure together.'
+        blurb: 'Sponsored by Amazon’s Persons with Disabilities & Allies ERG, Amazon partnered with Treks for All to create an outdoor experience bringing together persons with disabilities and allies — creating space to challenge themselves, build connections and experience adventure together.',
+        video: {
+          title: "Amazon India's Inclusive Camp with Treks for All",
+          cta: 'Watch the Story'
+        }
       },
       {
         name: 'SaralX',
         mark: 'SX',
+        logo: '/partners/saralx.png',
         blurb: 'SaralX partnered with Treks for All for an inclusive corporate offsite, bringing colleagues with and without disabilities together outdoors and creating opportunities for connection, participation, confidence and belonging.'
       }
     ],
@@ -173,7 +184,12 @@ const partnerCategories: PartnerCategory[] = [
     headline: 'Helping us open new trails and possibilities.',
     intro: 'Our Adventure Partners bring outdoor expertise, destinations and experiences into the Treks for All journey, helping us explore new places and create more opportunities to experience trekking, camping, nature and adventure.',
     partners: [
-      { name: 'INME', mark: 'IN', blurb: 'Outdoor expertise and experiences that help us explore new places together.' },
+      {
+        name: 'INME',
+        mark: 'IN',
+        logo: '/partners/inme.png',
+        blurb: 'Outdoor expertise and experiences that help us explore new places together.'
+      },
       {
         name: 'Camp Hornbill',
         mark: 'H',
@@ -220,6 +236,7 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'Raahein Collective',
         mark: 'RC',
+        logo: '/partners/raahein-collective.jpeg',
         tagline: 'Creating space for caregivers and counsellors to pause, connect and recharge.',
         blurb: 'Raahein Collective is partnering with Treks for All to create camps for caregivers and counsellors, offering time away from the demands of caregiving and support work — a space to rest, connect, experience the outdoors and address burnout.'
       }
@@ -237,10 +254,27 @@ const PartnershipsPage = () => {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
 
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [activeType, setActiveType] = useState(partnershipTypes[0].id);
   const [form, setForm] = useState({ name: '', email: '', phone: '', organisation: '', partnership: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsVideoPlaying(false);
+    };
+    if (isVideoPlaying) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isVideoPlaying]);
 
   const activeDetail = partnershipTypes.find(type => type.id === activeType) ?? partnershipTypes[0];
 
@@ -317,18 +351,28 @@ const PartnershipsPage = () => {
               young Buddies, destinations, knowledge and ideas &mdash; helping create more opportunities for people to
               experience the outdoors.
             </p>
-            <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="mt-7 flex flex-wrap gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => startConversation()}
-                className="inline-flex items-center justify-center gap-2 bg-[#e0aa04] text-[#18363a] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base hover:bg-[#c99903] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-[#e0aa04] text-[#18363a] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base hover:bg-[#c99903] transition-all duration-300 shadow-md"
               >
                 <span>Partner with us</span>
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </button>
+              <button
+                type="button"
+                onClick={() => setIsVideoPlaying(true)}
+                className="inline-flex items-center justify-center gap-2.5 bg-white/15 backdrop-blur-sm border border-white/40 text-white px-5 sm:px-7 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base hover:bg-white/25 hover:border-white transition-all duration-300 shadow-sm group"
+              >
+                <div className="bg-[#e0aa04] rounded-full p-1 sm:p-1.5 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#18363a] fill-[#18363a] ml-0.5" aria-hidden="true" />
+                </div>
+                <span>Watch: Amazon India&rsquo;s Inclusive Camp</span>
+              </button>
               <a
                 href="#walking-with-us"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-5 sm:px-7 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-white transition-all duration-300"
               >
                 <span>Who&rsquo;s walking with us</span>
                 <ChevronDown className="h-5 w-5" aria-hidden="true" />
@@ -415,6 +459,18 @@ const PartnershipsPage = () => {
                             </div>
                           </div>
                           <p className="text-sm text-earth-600 leading-relaxed flex-1">{partner.blurb}</p>
+                          {partner.video && (
+                            <button
+                              type="button"
+                              onClick={() => setIsVideoPlaying(true)}
+                              className="mt-4 inline-flex items-center gap-2 self-start bg-[#e8f5f6] hover:bg-[#d1ebed] text-[#18363a] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 group/btn"
+                            >
+                              <div className="bg-[#e0aa04] rounded-full p-1 flex items-center justify-center transition-transform duration-200 group-hover/btn:scale-110">
+                                <Play className="h-3 w-3 text-[#18363a] fill-[#18363a] ml-0.5" aria-hidden="true" />
+                              </div>
+                              <span>{partner.video.cta || 'Watch the Story'}</span>
+                            </button>
+                          )}
                           {partner.link && (
                             <Link to={partner.link.to} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#377d87] hover:text-[#18363a] transition-colors">
                               <span>{partner.link.label}</span>
@@ -677,6 +733,47 @@ const PartnershipsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoPlaying && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-6"
+            onClick={() => setIsVideoPlaying(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-full max-w-5xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsVideoPlaying(false)}
+                className="absolute top-3 right-3 z-10 text-white/80 hover:text-white bg-black/60 hover:bg-black/90 rounded-full p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#e0aa04]"
+                aria-label="Close video"
+                type="button"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/rNAC19gJQ2I?autoplay=1"
+                  title="Amazon India's inclusive camp with Treks for All"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

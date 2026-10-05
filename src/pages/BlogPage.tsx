@@ -38,13 +38,16 @@ const BlogPage = () => {
     }
   };
 
+  const heroPost = posts.length > 0 ? posts[0] : null;
+  const gridPosts = posts.length > 1 ? posts.slice(1) : [];
+
   return (
     <div className="pt-16 sm:pt-20 md:pt-28 min-h-screen bg-white">
       <SEO
         title="Blog - Treks for All | Stories from inclusive adventures"
         description="Read stories, experiences, and insights from our inclusive adventure community. Discover inspiring journeys of people with disabilities conquering mountains, accessibility tips for outdoor adventures, personal reflections from participants, and expert advice on adaptive equipment and inclusive travel across India."
         keywords="accessible adventure blog, inclusive travel stories, disability adventure experiences, accessible trekking blog, outdoor inclusion stories"
-        image="https://treksforall.in/Vaishnavi-Article.webp"
+        image="https://treksforall.in/beyond-the-trail.jpg"
         url="https://treksforall.in/blog"
       />
       <section className="py-12 sm:py-20 bg-white">
@@ -63,56 +66,76 @@ const BlogPage = () => {
             />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="max-w-4xl ml-0 mb-10 sm:mb-20"
-          >
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-                <a
-                  href="https://thebetterindia.com/441694/treks-for-all-disabled-people-india-himalayas-uttarakhand-dayara-bugyal-rishikesh-v-shesh-aquaterra-adventures-metores/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="md:col-span-1 relative h-48 sm:h-64 md:h-auto"
-                >
-                  <img
-                    src="/treks-for-all-disabled-persons-7-1748608748.webp"
-                    alt="From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas"
-                    className="w-full h-full object-cover"
-                  />
-                </a>
-
-                <div className="md:col-span-2 p-4 sm:p-8 lg:p-10">
-                  <div className="mb-3 sm:mb-4">
-                    <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
-                      The Better India
-                    </span>
+          {heroPost && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="max-w-5xl ml-0 mb-10 sm:mb-20"
+            >
+              <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-[#d1ebed]">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
+                  <div className="md:col-span-5 relative h-56 sm:h-72 md:h-auto overflow-hidden">
+                    <img
+                      src={heroPost.image}
+                      alt={heroPost.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => { (e.target as HTMLImageElement).src = '/Home-01.webp'; }}
+                    />
                   </div>
 
-                  <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#2c646c] mb-3 sm:mb-4">
-                    From Amputees to the Visually Impaired: How a Diverse Group of Trekkers Conquered the Himalayas
-                  </h3>
+                  <div className="md:col-span-7 p-5 sm:p-8 lg:p-10 flex flex-col justify-center">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <span className="inline-block bg-[#fef3d1] text-[#e0aa04] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
+                        {heroPost.category}
+                      </span>
+                      <div className="flex items-center space-x-3 text-xs sm:text-sm text-[#377d87]">
+                        <div className="flex items-center space-x-1">
+                          <User className="h-4 w-4" />
+                          <span>{heroPost.author}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Clock className="h-4 w-4" />
+                          <span>{heroPost.readTime}</span>
+                        </div>
+                      </div>
+                    </div>
 
-                  <p className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6">
-                    The mountain gods of Dayara Bugyal (12,000 ft above sea level), a meadow in the Garhwal Himalayas, are no strangers to beautiful sights. Every spring (March and April), the meadow turns into a floral rhapsody of sorts; oak, rhododendron, pine and maple colour its alpine landscape.
-                  </p>
+                    <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-[#2c646c] mb-3 sm:mb-4 leading-tight">
+                      {heroPost.title}
+                    </h3>
 
-                  <a
-                    href="https://thebetterindia.com/441694/treks-for-all-disabled-people-india-himalayas-uttarakhand-dayara-bugyal-rishikesh-v-shesh-aquaterra-adventures-metores/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#2c646c] font-semibold transition-colors group"
-                  >
-                    <span>Read More</span>
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </a>
+                    <p className="text-sm sm:text-base text-earth-600 leading-relaxed mb-4 sm:mb-6">
+                      {heroPost.excerpt}
+                    </p>
+
+                    <div>
+                      {heroPost.externalLink ? (
+                        <a
+                          href={heroPost.externalLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#2c646c] font-semibold transition-colors group"
+                        >
+                          <span>Read More</span>
+                          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                        </a>
+                      ) : (
+                        <Link
+                          to={`/blog/${heroPost.slug}`}
+                          className="inline-flex items-center space-x-2 text-[#377d87] hover:text-[#2c646c] font-semibold transition-colors group"
+                        >
+                          <span>Read More</span>
+                          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
 
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -127,9 +150,9 @@ const BlogPage = () => {
                 </div>
               ))}
             </div>
-          ) : posts.length > 0 ? (
+          ) : gridPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-              {posts.map((post, index) => (
+              {gridPosts.map((post, index) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 30 }}

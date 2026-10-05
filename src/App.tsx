@@ -13,7 +13,6 @@ import CampsPage from './pages/CampsPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import CustomisedTripsPage from './pages/CustomisedTripsPage';
 import OutdoorImmersionPage from './pages/OutdoorImmersionPage';
 import KarwaanPage from './pages/KarwaanPage';
 import PartnershipsPage from './pages/PartnershipsPage';
@@ -41,7 +40,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/customised-trips" element={<CustomisedTripsPage />} />
+          <Route path="/customised-trips" element={<Navigate to="/partnerships" replace />} />
           <Route path="/outdoor-immersions" element={<OutdoorImmersionPage />} />
           <Route path="/karwaan" element={<KarwaanPage />} />
           <Route path="/partnerships" element={<PartnershipsPage />} />
