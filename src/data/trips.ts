@@ -19,7 +19,7 @@ export interface Trip {
   itinerary: ItineraryDay[];
   inclusions: string[];
   exclusions: string[];
-  faqs?: { question: string; answer: string }[];
+  faqs?: { question: string; answer: string; category?: string }[];
   packingList?: string[];
   weather?: MonthlyWeather[];
 }
@@ -52,6 +52,1340 @@ const campEssentialsPackingList = [
   'Torch/headlamp and spare batteries',
   'Any personal assistive device or support equipment required',
   'Small daypack for activities'
+];
+
+const dayaraBugyalFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is “Treks for All – Dayara Bugyal”?",
+    answer: "Treks for All is a unique partnership of three expert groups v-shesh, Aquaterra Adventures, and Metores Trust who have come together to make the Himalayas accessible, safe, and joyful for all.\n\nDayara Bugyal is a six-day inclusive Himalayan trek specially crafted for persons with disabilities and their buddies. This transformative experience is rooted in accessibility, dignity, safety, and the shared joy of exploring nature together."
+  },
+  {
+    category: "General Overview",
+    question: "Where is Dayara Bugyal located?",
+    answer: "Dayara Bugyal is situated in Uttarkashi district, Uttarakhand, surrounded by lush alpine meadows and offering panoramic views of Himalayan peaks including Bandarpoonch (6,316m), Black Peak (6,102m), and Jaonli (6,618m)."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the itinerary and route?",
+    answer: "• Day 1: Meet at Rishikesh, drive to Barsu Basecamp\n• Day 2: Trek 4km to Barnala Bugyal\n• Day 3: Trek 4km to Jungle Camp\n• Day 4: Summit Dayara Top (3,810m) and return\n• Day 5: Trek + drive back to Barsu\n• Day 6: Drive from Barsu to Rishikesh\n\nNote: The exact itinerary may be adjusted based on weather, group composition, and accessibility requirements."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the total distance and elevation gain?",
+    answer: "Total trekking distance: approximately 21 km, with 4,688 ft (1,429 m) of elevation gain — ascending from 7,142 ft at base to 11,830 ft (3,810 m) at Dayara Top."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the difficulty level of the trek?",
+    answer: "Moderate. Most sections feature gradual inclines through pine and oak forests, though summit day requires more stamina. Pacing is flexible and fully supported."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "Is prior trekking experience required?",
+    answer: "Not at all! Good general fitness is helpful, but many of our participants are first-time trekkers. One-on-one buddy support and guides are provided throughout."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "Can I speak with someone before joining?",
+    answer: "For queries, email us at admin@treksforall.in or contact Sakshi (8279624879) / Vaishnavi (8527752157).\n\nIf you would like to speak with someone who has a specific disability or a buddy who participated in a previous trek, we would be happy to coordinate that conversation."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What are the weather conditions?",
+    answer: "Mountain weather can be unpredictable — rain, mist, or fog may appear suddenly. Plans may adjust for safety.\n• Day Temperature: 20–30°C\n• Night Temperature: 0–5°C\n\nPlease be prepared for lower temperatures due to wind chill. We recommend checking the weather forecast before packing."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety measures are in place?",
+    answer: "Experienced guides, comprehensive medical kits, regular acclimatization breaks, continuous weather monitoring, and clear emergency evacuation plans."
+  },
+  {
+    category: "Registration & Payment",
+    question: "How do I register?",
+    answer: "Register using the online link. A team member will guide you through the preparation and next steps. For queries, contact Sakshi (8279624879) or Vaishnavi (8527752157)."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What documents are needed?",
+    answer: "• Filled registration form\n• Valid photo ID (Aadhaar / Passport)\n• Doctor-signed medical fitness certificate\n• Medication and allergy details\n• Medical insurance (mandatory)"
+  },
+  {
+    category: "Registration & Payment",
+    question: "What is the cost and what is included?",
+    answer: "Cost: ₹27,500 + 5% GST\n\nIncluded:\n• Stay in tents/homestays (twin-sharing)\n• All meals and drinking water – from Rishikesh pick-up to Rishikesh drop-off\n• Round trip transport from Rishikesh and back\n• Guide and buddy support\n• Offloading (porterage of your main duffel bag)\n• Orientation, trail guides, safety equipment\n• Mandatory insurance (approx. ₹480)\n\nNot Included:\n• Travel from home to Rishikesh and back\n• Stay in Rishikesh before the start and after the end of the trip\n• Personal trekking gear (jackets, shoes)\n• Bottled water\n• Travel delays or emergency expenses\n• Extended travel insurance"
+  },
+  {
+    category: "Registration & Payment",
+    question: "Is registration automatically confirmed?",
+    answer: "No. You will receive a separate confirmation email after our team reviews your application to ensure personalized readiness and safety."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What are the payment options?",
+    answer: "We accept online payments only by online bank transfer or credit card (convenience fee applies). If your transaction fails, contact admin@treksforall.in. We will respond within 24 hours. Full payment is required to secure your spot."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What is the cancellation policy?",
+    answer: "If you cancel your booking, you will receive a credit note for the paid amount. This credit can be redeemed for any future Treks for All adventure within the validity period."
+  },
+  {
+    category: "Packing & Gear",
+    question: "What should I pack?",
+    answer: "A detailed checklist will be shared as part of your trip briefing. It includes:\n• Waterproof trekking shoes with sturdy ankle support\n• Backpack with rain cover\n• Warm thermal layers, gloves, sun cap, sunglasses\n• Headlamp, rain gear/poncho, trekking poles\n• Water bottles / hydration pack\n• Toiletries & reusable plastic bags\n• Required personal medication (labeled clearly)"
+  },
+  {
+    category: "Packing & Gear",
+    question: "Where can I buy gear from?",
+    answer: "Decathlon is a preferred option amongst our fellow trekkers."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Can I rent gear?",
+    answer: "You can check out rental services like Rento if you prefer not to purchase everything. These are recommendations to make outdoor gear accessible; we do not have commissions with vendors."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Do I need to carry all my luggage myself on the trail?",
+    answer: "You will divide your luggage into two parts:\n\n1. Main Duffel Bag: Transported separately by horse/porter and available at the campsite each day. Porterage is included in your trek cost. Pack items not needed during the day (sleeping bag, extra clothes, toiletries). Only soft duffels — no hard suitcases or trolleys.\n\n2. Daypack: Carried with you while trekking. It should contain trail essentials: water bottle/hydration pack, energy snacks, rain jacket, warm fleece layer, sunscreen, sunglasses, cap, and basic medication."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Anything I need to be mindful of while packing?",
+    answer: "1. Disability-specific needs: Pack any specific items related to your disability (medicines, gear, UV protection like an umbrella for albinism) and inform the team in advance.\n2. Avoid overpacking: Stick to the packing list; excess luggage exceeds pack-animal limits.\n3. Layering: Pack layered, weather-appropriate clothing in earth tones.\n4. Meals: Nutritious meals are provided; avoid carrying large snack packs.\n5. Waste Management: We practice Leave No Trace — bring reusable containers, water bottles, and a personal waste bag.\n6. Minimal Electronics: Power banks should be fully charged beforehand as trail electricity is negligible."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "Will someone help me set up and get oriented at the camp?",
+    answer: "You do not have to set up your own tents. You will be guided to your tent, given a camp layout overview, and supported until you feel confident and comfortable."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "What if I need help during the trek?",
+    answer: "Buddies, guides, and team members will always be nearby to offer assistance when needed. Their role is to support you — not hover — enabling your independence and autonomy. You will never be alone on the trail, but will always have the space to experience the trek with confidence, dignity, and safety."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Can I join if I use a prosthetic limb, crutches, or calipers? (Locomotor Disability)",
+    answer: "Absolutely! Please share the type of condition, mobility aid(s) used, and assistance preferences.\n\nSupport Offered:\n• Bus travel without wearing prosthetic limb or caliper if preferred for long journeys\n• Support while boarding and deboarding vehicles\n• Privacy and comfort when taking trail breaks to remove or adjust aids\n• Help carrying crutches so they are available whenever needed at camp\n• Knowledgeable guide and empathetic buddy alongside you on the trail\n\nPreparation Tips: Build stamina with daily walks and stairs. Check and service mobility aids before the trek. Carry anti-rash cream to prevent friction irritation. Break into well-fitting shoes beforehand."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for blind or low-vision trekkers? (Visual Impairment)",
+    answer: "Absolutely! Please share your vision level, mobility aids used, and need for sighted guidance on trail and at camp.\n\nSupport Offered:\n• Sensitive guide providing clear verbal instructions for navigating trails and campsite\n• Help with camp layout orientation\n• Support in packing, unpacking, and organizing belongings\n• Dedicated buddy to ensure safety and comfort\n\nPreparation Tips: Practice cane mobility on outdoor terrain (steps, slopes, loose gravel). Carry UV-protective sunglasses to reduce irritation from mountain dust and glare. Assign fixed spots in your backpack for easy access."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for trekkers with hearing impairment? (Deaf / Hard of Hearing)",
+    answer: "Absolutely! Please share your hearing level, communication preferences, and any assistive tech used.\n\nSupport Offered:\n• Guides and buddies experienced in sign language, lip reading, or written communication\n• Continuous visual check-ins to ensure no signals are missed\n• Dedicated buddy throughout the trail\n\nPreparation Tips: Carry extra batteries and a waterproof power backup for hearing aids or cochlear implants. Stay within the visual line of the group. Carry a whistle and a waterproof pouch for hearing devices."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for neurodivergent participants?",
+    answer: "Absolutely! Please share diagnosis details, sensitivities (noise, crowds, animals), and communication preferences.\n\nSupport Offered:\n• Knowledgeable guide trained to support neurodivergent needs\n• Clear step-by-step advance briefings for trails and campsite\n• Sensory adjustments and quiet spaces to reduce overload\n• Empathetic buddy for reassurance throughout\n\nPreparation Tips: Build stamina with light exercises and daily walks. Set a daily routine in advance to ease into the trek with structure and confidence."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What are the prerequisites for being a buddy?",
+    answer: "• Physical Fitness: Preferably has prior trekking experience, able to walk long distances on uneven terrain, and has stamina to remain alert and helpful.\n• Empathetic & Calm Demeanor: Patient, good listener, stays calm in unpredictable situations, and creates a safe, non-judgmental space for their trekking partner."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Is past experience of working with Persons with Disabilities mandatory for a buddy?",
+    answer: "While basic knowledge of disability is a plus, it is not mandatory. What matters most is openness to attending our orientation session, willingness to learn your partner’s specific preferences, and adapting assistance respectfully."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What should I be mindful of as a buddy?",
+    answer: "1. Being an enabler and not a caregiver: Offer assistance when needed, but avoid over-involvement to support independence.\n2. Respect privacy and personal boundaries.\n3. Create space for open communication and active listening.\n4. Facilitate inclusive group interactions.\n5. Celebrate achievements equally regardless of pace or method."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What is my role as a buddy on the trail and at the campsite?",
+    answer: "On the trail: Walk beside or slightly ahead, hold hands or guide over difficult sections when requested, respect their natural pace, monitor for fatigue, and communicate weather or trail changes.\n\nAt camp: Assist with organizing tent space if requested, support daily routines (hydration, meal serving, navigating camp safely at night), and assist with adaptive gear."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Can I speak to a buddy to gain more understanding?",
+    answer: "Yes, absolutely! We would be delighted to connect you with a buddy from a previous trek upon request. You can also view buddy experiences through our trail reels. Reach out to admin@treksforall.in to coordinate."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Are the guides trained in disability inclusion?",
+    answer: "Yes! They have assisted people with diverse needs across numerous expeditions. They are trained in inclusive language, disability etiquette, descriptive terrain narration, and respecting all paces and styles."
+  }
+];
+
+const doditalLakeFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is “Treks for All – Dodital Lake Trek”?",
+    answer: "Treks for All is a unique partnership of three expert groups v-shesh, Aquaterra Adventures, and Metores Trust who have come together to make the Himalayas accessible, safe, and joyful for all.\n\nDodital is an inclusive Himalayan trek specially crafted for persons with disabilities and their buddies. Carrying forward our learnings from expeditions to Dayara Bugyal, this journey leads to the sacred emerald lake of Dodital and Darwa Pass, rooted in accessibility, dignity, and shared adventure."
+  },
+  {
+    category: "General Overview",
+    question: "Where is Dodital located?",
+    answer: "Dodital is located in Uttarkashi district, Uttarakhand, surrounded by dense forests of oak, pine, and rhododendron, with panoramic views of Himalayan peaks including Swargarohini, Bandarpoonch, Draupadi Ka Danda, Deonli, and Srikantha."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the itinerary and route?",
+    answer: "• Day 1: Meet at Rishikesh, drive to Kuflon base\n• Day 2: Kuflon to Bevra, Trek 8 km\n• Day 3: Bevra to Dodital Lake, Trek 14 km\n• Day 4: Dodital to Darwa Pass (4,150m) and return, Trek 10 km\n• Day 5: Dodital to Kuflon, Trek 22 km\n• Day 6: Drive from Kuflon back to Rishikesh\n\nNote: The exact itinerary and pacing are adjusted based on weather, trail conditions, and group needs."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the total distance and elevation gain?",
+    answer: "The trek covers a total distance of approximately 54 km over 6 days, with an elevation gain of up to 3,024 m (9,921 ft), culminating at Darwa Pass at 4,150 m (13,619 ft)."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the difficulty level of the trek?",
+    answer: "Moderate to moderately challenging. Most sections follow gradual inclines, forested paths, and gentle river crossings, while the ascent to Darwa Pass requires good stamina and acclimatization."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "Is prior trekking experience required?",
+    answer: "Not at all! Overall fitness is important, but many participants are first-timers. Empathetic buddy support and trained guides are provided throughout."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "Can I speak with someone before joining?",
+    answer: "For queries, email us at admin@treksforall.in or call Sakshi (8279624879) / Vaishnavi (8527752157). We are happy to connect you with past participants or buddies with similar experiences."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What are the weather conditions?",
+    answer: "Dodital weather can be unpredictable — sudden rain, fog, or cold winds may appear without warning.\n• Day Temperature: 12–20°C\n• Night Temperature: 0–5°C (can drop further near Darwa Pass)\n\nPlease prepare for colder conditions due to wind chill, especially at high altitudes."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety measures are in place?",
+    answer: "Experienced wilderness guides, medical and oxygen kits, regular acclimatization breaks, continuous weather monitoring, and clear evacuation protocols."
+  },
+  {
+    category: "Registration & Payment",
+    question: "How do I register?",
+    answer: "Register using the online registration link. Our team will guide you through the next steps. For queries, contact Sakshi (8279624879) or Vaishnavi (8527752157)."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What documents are needed?",
+    answer: "• Filled registration form\n• Valid photo ID (Aadhaar / Passport)\n• Doctor-signed fitness certificate\n• Medication and allergy details\n• Medical insurance (mandatory)"
+  },
+  {
+    category: "Registration & Payment",
+    question: "What is the cost and what is included?",
+    answer: "Cost: ₹27,500 + 5% GST\n\nIncluded:\n• Stay in tents/homestays (twin-sharing)\n• All meals and drinking water from Rishikesh pick-up to Rishikesh drop-off\n• Round trip transport from Rishikesh and back\n• Guide and buddy support\n• Offloading (porterage of your main luggage)\n• Orientation, trail guides, safety equipment\n• Mandatory insurance (approx. ₹480)\n\nNot Included:\n• Travel from home to Rishikesh and back\n• Stay in Rishikesh before and after the trek\n• Personal trekking gear (jackets, shoes)\n• Bottled water\n• Travel delays or emergency expenses\n• Extended travel insurance"
+  },
+  {
+    category: "Registration & Payment",
+    question: "Is registration automatically confirmed?",
+    answer: "No. You will receive a separate confirmation email after our safety and accessibility review."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What are the payment and cancellation policies?",
+    answer: "We accept online payments only. Full payment is required to secure your spot.\n\nCancellation Policy: If you cancel your booking, you receive a credit note for the paid amount, redeemable for any future Treks for All adventure within the validity period."
+  },
+  {
+    category: "Packing & Gear",
+    question: "What should I pack?",
+    answer: "A detailed checklist will be shared during trip briefing. Key items include:\n• Trekking shoes with ankle support\n• Backpack with rain cover\n• Warm thermal layers, fleece, down jacket, gloves, sun cap, sunglasses\n• Headlamp, rain gear/poncho, trekking poles\n• Water bottles / hydration pack\n• Toiletries & reusable plastic bags\n• Required medication (clearly labeled)"
+  },
+  {
+    category: "Packing & Gear",
+    question: "Where can I buy or rent gear?",
+    answer: "Decathlon is a preferred option for purchases. You can also rent gear through services like Rento. These are recommendations without commissions."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Do I need to carry all my luggage myself on the trail?",
+    answer: "You will divide your luggage into two parts:\n\n1. Offload Bag: Transported separately and available at the campsite each day (included in trek cost). Soft duffels only.\n\n2. Daypack: Carried with you while trekking, containing trail essentials: water bottle, energy snacks, rain jacket, warm fleece layer, sunscreen, sunglasses, cap, and basic medication."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Anything I need to be mindful of while packing?",
+    answer: "• Disability-specific needs: Pack any specific assistive equipment, extra medicines, or sun protection gear, and inform the team in advance.\n• Avoid overpacking: Stick to the curated packing list.\n• Leave No Trace: Choose reusable containers and carry out all non-biodegradable waste.\n• Minimal Electronics: Power banks should be fully charged before departure as trail electricity is negligible."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "Will someone help me set up and get oriented at the camp?",
+    answer: "You do not have to set up your own tents. You will be guided to your tent, given a layout overview, and supported until you feel confident."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "What if I need help during the trek?",
+    answer: "Buddies, guides, and team members will always be nearby to offer assistance when needed, focusing on enabling your independence and autonomy with dignity and safety."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Can I join if I use a prosthetic limb, crutches, or calipers? (Locomotor Disability)",
+    answer: "Absolutely! Please share condition details, mobility aids used, and support needs.\n\nSupport Offered:\n• Bus travel without wearing prosthetic limb or caliper if preferred for long journeys\n• Support while boarding and deboarding vehicles\n• Privacy and comfort when taking trail breaks to remove or adjust aids\n• Help carrying crutches so they are available whenever needed at camp\n• Trained guide and empathetic buddy alongside you on the trail\n\nPreparation Tips: Build stamina with daily walks and stairs. Check and service mobility aids before the trek. Carry anti-rash cream. Break into well-fitting shoes beforehand."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for blind or low-vision trekkers? (Visual Impairment)",
+    answer: "Absolutely! Please share vision level, mobility aids used, and need for sighted guidance on trail and at camp.\n\nSupport Offered:\n• Sensitive guide providing clear verbal instructions for navigating trails and campsite\n• Help with orientation when needed\n• Support in packing, unpacking, and organizing belongings\n• A buddy to ensure safety and comfort throughout the trek\n\nPreparation Tips: Practice cane mobility on outdoor terrain. Carry UV-protective sunglasses to reduce irritation from dust and light. Organize belongings in fixed spots."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for trekkers with hearing impairment? (Deaf / Hard of Hearing)",
+    answer: "Absolutely! Please share hearing level, preferred communication method, and assistive technology used.\n\nSupport Offered:\n• Sensitive guides and buddies using sign language, lip reading, or written communication\n• Continuous visual check-ins so you never miss cues or briefings\n• Dedicated buddy throughout the trek\n\nPreparation Tips: Bring extra batteries and a waterproof power backup for hearing aids or cochlear implants. Stay within the visual line of the group. Carry a whistle and a waterproof pouch."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for neurodivergent participants?",
+    answer: "Absolutely! Please share diagnosis details, sensitivities (noise, crowds, animals), and communication preferences.\n\nSupport Offered:\n• Sensitive guide trained to support neurodivergent needs\n• Clear step-by-step advance verbal instructions for trails and campsite\n• Sensory adjustments and quiet spaces to reduce overload\n• Empathetic buddy for reassurance throughout\n\nPreparation Tips: Build stamina with light exercises and daily walks. Set a daily routine in advance to ease into the trek with structure and confidence."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What are the prerequisites for being a buddy?",
+    answer: "• Physical Fitness: Preferably has prior trekking experience, able to walk long distances on uneven terrain, and has stamina to remain alert and helpful.\n• Empathetic & Calm Demeanor: Patient, good listener, stays calm in unpredictable situations, and creates a safe, non-judgmental space for their partner."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Is past experience of working with Persons with Disabilities mandatory for a buddy?",
+    answer: "While basic knowledge of disability is a plus, it is not mandatory. What matters most is openness to attending our orientation session, willingness to learn your partner’s specific preferences, and adapting assistance respectfully."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What should I be mindful of as a buddy?",
+    answer: "1. Being an enabler and not a caregiver: Offer assistance when needed, but avoid over-involvement to support independence.\n2. Respect privacy and personal boundaries.\n3. Create space for open communication and active listening.\n4. Facilitate inclusive group interactions.\n5. Celebrate achievements equally regardless of pace or method."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What is my role as a buddy on the trail and at the campsite?",
+    answer: "On the trail: Walk beside or slightly ahead, hold hands or guide over difficult sections when requested, respect their natural pace, monitor for fatigue, and communicate weather or trail changes.\n\nAt camp: Assist with organizing tent space if requested, support daily routines (hydration, meal serving, navigating camp safely at night), and assist with adaptive gear."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Can I speak to a buddy to gain more understanding?",
+    answer: "Yes, absolutely! We would be delighted to connect you with a buddy from a previous trek upon request. You can also view buddy experiences through our trail reels. Reach out to admin@treksforall.in to coordinate."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Are the guides trained in disability inclusion?",
+    answer: "Yes! They have assisted people with diverse needs across numerous expeditions. They are trained in inclusive language, disability etiquette, descriptive terrain narration, and respecting all paces and styles."
+  }
+];
+
+const shamValleyFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is “Treks for All – Sham Valley”?",
+    answer: "Treks for All is a unique partnership of three expert groups v-shesh, Aquaterra Adventures, and Metores Trust who have come together to make the Himalayas accessible, safe, and joyful for all.\n\nThe Sham Valley Trek is a 5–6 day inclusive trek in Ladakh, often referred to as the “Baby Trek of Ladakh.” Unlike high-altitude technical treks, Sham Valley is known for its gentle gradients, short walking distances, and well-marked village-to-village trails. This makes it particularly suitable for first-time trekkers, persons with disabilities, and those seeking a culturally immersive Himalayan experience.\n\nThe trek passes through traditional Ladakhi villages such as Likir, Yangthang, Hemis Shukpachan, and Temisgam, offering homestay-based accommodation, strong community interaction, and gradual acclimatization.\n\nA new offering this year, Sham Valley has been added to our itinerary after a number of travelers requested a signature trip to Ladakh!"
+  },
+  {
+    category: "General Overview",
+    question: "Where is Sham Valley located?",
+    answer: "Sham Valley lies in the lower Ladakh region, west of Leh. The trek route connects remote villages through mountain passes, barley fields, apricot orchards, and monasteries, while staying at relatively lower altitudes compared to other Ladakh treks."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the itinerary and route?",
+    answer: "• Day 1: Arrival in Leh – Rest and acclimatization\n• Day 2: Drive from Leh to Likir / Yangthang – short acclimatization walk\n• Day 3: Trek from Yangthang to Hemis Shukpachan (via Tsermangchen La)\n• Day 4: Trek from Hemis Shukpachan to Temisgam (via Mebtak La)\n• Day 5: Trek from Temisgam to Ang / drive back to Leh\n• Day 6: Departure from Leh\n\nNote: The exact itinerary may be adjusted based on weather, group composition, and accessibility requirements."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the total distance and elevation gain?",
+    answer: "Total trekking distance: approximately 25–28 km spread over multiple days. Altitude range: 3,700m is the highest point."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the difficulty level of the trek?",
+    answer: "Moderate. The Sham Valley Trek is probably the one most ideal for beginners, families, and persons with disabilities in Ladakh due to gentle gradients and shorter walking distances."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "Is prior trekking experience required?",
+    answer: "Not at all! Overall fitness is important though. Many participants are first-timers. Comprehensive support is provided throughout."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "Can I speak with someone before joining?",
+    answer: "For queries, email us at admin@treksforall.in or call Sakshi (8279624879) / Vaishnavi (8527752157).\n\nIf you would like to speak with someone who has a specific disability or a buddy who participated in a previous trek, we would be happy to arrange that. Just let us know your preference, and we’ll help coordinate the conversation."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What are the weather conditions?",
+    answer: "• Ladakh has a cold desert climate.\n• Day temperatures: 15–25°C. Night temperatures: 5–10°C (can drop further).\n• The weather is generally dry but can be windy. Sudden temperature drops are common after sunset.\n• We request guests to check the weather forecast before packing."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety measures are in place?",
+    answer: "Experienced guides, medical kits with oxygen, dedicated acclimatization days in Leh, continuous weather monitoring, and clear evacuation plans."
+  },
+  {
+    category: "Registration & Payment",
+    question: "How do I register?",
+    answer: "Register using the online link. A team member will guide you through the next steps. For queries, contact Sakshi (8279624879) or Vaishnavi (8527752157)."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What documents are needed?",
+    answer: "• Filled registration form\n• Valid photo ID (Aadhaar / Passport)\n• Doctor-signed fitness certificate\n• Medication and allergy details\n• Medical insurance (mandatory)"
+  },
+  {
+    category: "Registration & Payment",
+    question: "What is the cost and what is included?",
+    answer: "Cost: ₹40,500 + 5% GST\n\nIncluded:\n• Stay in tents/homestays (twin-sharing)\n• Round trip – Leh to Leh\n• Guide and buddy support\n• Offloading (porterage of your main luggage)\n• Orientation, trail guides, safety equipment\n• Mandatory insurance (approx. ₹480)\n\nNot Included:\n• Travel from home to Leh and back\n• Stay in Leh before the start and after the end of the trip\n• Personal trekking gear (jackets, shoes)\n• Bottled water\n• Travel delays or emergency expenses\n• Extended travel insurance"
+  },
+  {
+    category: "Registration & Payment",
+    question: "Is registration automatically confirmed?",
+    answer: "No. You will receive a separate confirmation email after review by our safety and inclusion team."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What are the payment options?",
+    answer: "We accept online payments only by online bank transfer or credit card (convenience fee applies). If your transaction fails, please contact us at admin@treksforall.in. We will respond within 24 hours. Full payment is required to secure your spot."
+  },
+  {
+    category: "Registration & Payment",
+    question: "What is the cancellation policy?",
+    answer: "If you cancel your booking, you will receive a credit note for the paid amount. This credit can be redeemed for any future Treks for All adventure within the validity period."
+  },
+  {
+    category: "Packing & Gear",
+    question: "What should I pack?",
+    answer: "A detailed checklist will be shared as part of trip briefing. It includes:\n• Trekking shoes (waterproof with ankle support recommended)\n• Backpack with rain cover\n• Warm layers, gloves, sun cap, sunglasses\n• Headlamp, rain gear, trekking poles\n• Water bottles / hydration pack\n• Toiletries & reusable plastic bags\n• Required medication (clearly labeled)"
+  },
+  {
+    category: "Packing & Gear",
+    question: "Where can I buy gear from?",
+    answer: "Decathlon is a preferred option amongst our fellow trekkers."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Can I rent gear?",
+    answer: "You can check out Rento if you’d prefer not to purchase everything. Please note: These are only recommendations. We do not have any tie-ups or commissions with any vendors."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Do I need to carry all my luggage myself on the trail?",
+    answer: "You will need to divide your luggage into two parts:\n\n1. Main Duffel Bag: Transported separately by horse/porter and available at the campsite each day (included in trek cost). Pack items you will not need during the day (sleeping bag, extra clothes, toiletries). Soft duffels only — no hard suitcases or trolleys.\n\n2. Daypack: Carried with you while trekking. It should contain trail essentials: water bottle/hydration pack, snacks/energy bars, rain jacket/poncho, warm fleece layer, sunscreen, sunglasses, cap, and basic medication."
+  },
+  {
+    category: "Packing & Gear",
+    question: "Anything I need to be mindful of while packing?",
+    answer: "1. Disability-specific needs: Pack any specific items related to your disability (medicines, gear, UV umbrella for albinism) and inform the team in advance.\n2. Avoid overpacking: Stick to the packing list; excess baggage exceeds mule/porter limits.\n3. Clothing: Layered, weather-appropriate clothing in earth tones.\n4. Meals: Nutritious meals are provided; avoid large snack packs.\n5. Waste Management: We practice Leave No Trace — carry out all non-biodegradable waste. Bring a refillable water bottle.\n6. Minimal Electronics: Power banks should be fully charged beforehand as village electricity is limited."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "Will someone help me set up and get oriented at the camp?",
+    answer: "You do not have to set up your own tents. You will be guided to your tent or homestay room, given a layout overview, and supported until you feel confident."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "What if I need help during the trek?",
+    answer: "Buddies, guides, and team members will always be nearby to offer assistance when needed. Their role is to support you — not to hover — focusing on enabling your independence and autonomy. You’ll never be alone on the trail, but will always have the space to experience the trek with confidence, dignity, and safety."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Can I join if I use a prosthetic limb, crutches, or calipers? (Locomotor Disability)",
+    answer: "Absolutely! Please share condition details, mobility aids used, and support needs.\n\nSupport Offered:\n• Option to travel without wearing prosthetic limb or caliper during long vehicle drives for comfort\n• Support while boarding and deboarding vehicles\n• Privacy and comfort when taking trail breaks to remove or adjust aids\n• Help carrying crutches so they are available whenever needed at camp\n• Trained guide and empathetic buddy alongside you on the trail\n\nPreparation Tips: Build stamina with daily walks and stairs. Check and service mobility aids before the trek. Carry anti-rash cream. Break into well-fitting shoes beforehand."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for blind or low-vision trekkers? (Visual Impairment)",
+    answer: "Absolutely! Please share vision level, mobility aids used, and need for sighted guidance on trail and at camp.\n\nSupport Offered:\n• Sensitive guide providing clear verbal instructions for navigating trails and campsite\n• Help with camp layout orientation\n• Support in packing, unpacking, and organizing belongings\n• Dedicated buddy to ensure safety and comfort\n\nPreparation Tips: Practice cane mobility on outdoor terrain (steps, slopes, loose gravel). Carry UV-protective sunglasses to reduce irritation from mountain dust and glare. Assign fixed spots in your backpack for easy access."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for trekkers with hearing impairment? (Deaf / Hard of Hearing)",
+    answer: "Absolutely! Please share hearing level, preferred communication method, and assistive technology used.\n\nSupport Offered:\n• Sensitive guides and buddies using sign language, lip reading, or written communication\n• Continuous visual check-ins so you never miss cues or briefings\n• Dedicated buddy throughout the trek\n\nPreparation Tips: Bring extra batteries and a waterproof power backup for hearing aids or cochlear implants. Stay within the visual line of the group. Carry a whistle and a waterproof pouch."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is this trek suitable for neurodivergent participants?",
+    answer: "Absolutely! Please share diagnosis details, sensitivities (noise, crowds, animals), and communication preferences.\n\nSupport Offered:\n• Sensitive guide trained to support neurodivergent needs\n• Clear step-by-step advance verbal instructions for trails and campsite\n• Sensory adjustments and quiet spaces to reduce overload\n• Empathetic buddy for reassurance throughout\n\nPreparation Tips: Build stamina with light exercises and daily walks. Set a daily routine in advance to ease into the trek with structure and confidence."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What are the prerequisites for being a buddy?",
+    answer: "• Physical Fitness: Preferably has prior trekking experience, able to walk long distances on uneven terrain, and has stamina to remain alert and helpful.\n• Empathetic & Calm Demeanor: Patient, good listener, stays calm in unpredictable situations, and creates a safe, non-judgmental space for their partner."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Is past experience of working with Persons with Disabilities mandatory for a buddy?",
+    answer: "While basic knowledge of disability is a plus, it is not mandatory. What matters most is openness to attending our orientation session, willingness to learn your partner’s specific preferences, and adapting assistance respectfully."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What should I be mindful of as a buddy?",
+    answer: "1. Being an enabler and not a caregiver: Offer assistance when needed, but avoid over-involvement to support independence.\n2. Respect privacy and personal boundaries.\n3. Create space for open communication and active listening.\n4. Facilitate inclusive group interactions.\n5. Celebrate achievements equally regardless of pace or method."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "What is my role as a buddy on the trail and at the campsite?",
+    answer: "On the trail: Walk beside or slightly ahead, hold hands or guide over difficult sections when requested, respect their natural pace, monitor for fatigue, and communicate weather or trail changes.\n\nAt camp: Assist with organizing tent space if requested, support daily routines (hydration, meal serving, navigating camp safely at night), and assist with adaptive gear."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Can I speak to a buddy to gain more understanding?",
+    answer: "Yes, absolutely! We would be delighted to connect you with a buddy from a previous trek upon request. You can also view buddy experiences through our trail reels. Reach out to admin@treksforall.in to coordinate."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Are the guides trained in disability inclusion?",
+    answer: "Yes! They have assisted people with diverse needs across numerous expeditions. They are trained in inclusive language, disability etiquette, descriptive terrain narration, and respecting all paces and styles."
+  }
+];
+
+const campAquaterraFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is “Treks for All – Camp Aquaterra”?",
+    answer: "Camp Aquaterra (Atali Ganga) is our signature inclusive riverside adventure camp nestled in the forested foothills of the Himalayas above Rishikesh. Operated in partnership with Aquaterra Adventures and v-shesh, the camp combines the excitement of white-water rafting, kayaking, rock climbing, and low/high ropes courses with accessible facilities, comfortable deluxe tents, and an inclusive, community-driven spirit."
+  },
+  {
+    category: "General Overview",
+    question: "Where is Camp Aquaterra located?",
+    answer: "Camp Aquaterra is located on the Badrinath Road in the upper Ganga valley near Rishikesh, Uttarakhand. Set within a tranquil reserved forest area overlooking the turquoise waters of the Ganga, it provides an immersive wilderness experience while remaining accessible by road."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "As a Person with Disability, what activities can I participate in at the camp?",
+    answer: "With the right adaptations, trained guides, and safety protocols, activities like kayaking, rafting, trekking, and rock climbing can be enjoyed by many. Participation will depend on individual factors such as severity, prior experience, agility, and comfort in the outdoors.\n\nOur team will have detailed conversations with you to understand your needs and abilities, after which activity suitability will be determined. At Treks for All, safety is our top priority. If safety concerns arise, the final decision will rest with the trained Aquaterra guides. We prioritise inclusion, but never at the cost of safety."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "How accessible is Camp Aquaterra for wheelchair users and persons with locomotor disabilities?",
+    answer: "Camp Aquaterra has ramped access to key common areas including the central dining pavilion. We feature accessible deluxe tents and western-style bathroom facilities equipped with grab bars where needed. While certain natural slopes and riverbank terrain are uneven, our team and dedicated buddies assist with transfers and navigation so that you can participate safely and with dignity."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "Can participants who are blind, low-vision, Deaf, or hard of hearing participate in river rafting and camp activities?",
+    answer: "Yes, absolutely! For blind and low-vision guests, guides and buddies provide descriptive verbal cues and hands-on tactile guidance before and during rafting and ropes activities. For Deaf and hard-of-hearing guests, our team uses visual signaling, sign language, and written briefings to ensure clear communication and safety on the water."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "Is Camp Aquaterra suitable for neurodivergent participants?",
+    answer: "Yes! We maintain predictable daily schedules, advance activity walkthroughs, and sensory-friendly quiet zones around camp. Participants are paired with empathetic buddies who provide reassurance and help prevent sensory overload."
+  },
+  {
+    category: "Weather & Safety",
+    question: "How will the weather be at the camp?",
+    answer: "September: Highs around 30°C, lows near 17°C\nNovember: Highs around 24°C, lows near 11°C\nDecember: Highs around 19°C, lows near 5°C\nJanuary: Highs around 18°C, lows near 4°C\n\nWhile these are average temperatures, evenings by the river can feel noticeably cooler. We advise everyone to check the local weather forecast before packing."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety measures are in place for outdoor and river activities?",
+    answer: "We take safety as seriously as the thrill.\n\nRafting: Top-grade self-bailing rafts from NRS (USA), US Coast Guard-approved Type V lifejackets, certified whitewater helmets, rescue and first-aid gear on every raft, and thorough safety briefings before you hit the water.\n\nKayaking, Climbing, Rope Courses & Hiking: Led by certified instructors with thoroughly inspected, European-standard gear. All routes are risk-assessed, designed to be low-impact, and include a buddy system for support. Accessible modifications ensure everyone can join in safely."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals and cuisines will be provided at the camp?",
+    answer: "We take pride in the excellent cuisine served at the camp, with an emphasis on wholesome, hygienic, and delicious meals, offering a variety to cater to different dietary needs. Fresh fruits and vegetables are sourced locally.\n\nBREAKFAST - Continental & Indian: Corn flakes/porridge, eggs, toast/pancakes/french toast, paratha, butter, jam, baked beans/french fries, fruits, tea/coffee.\n\nLUNCH - Indian: Normally vegetarian consisting of Dal/Rajma, two vegetables, rice (fried/plain), chapati, papad, salad, & fruit.\n\nDINNER - A special meal with variations of Barbecue — Indian, Continental or Chinese cuisine complete with dessert."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Can special dietary requirements or allergies be accommodated?",
+    answer: "Yes. Please inform us of any food allergies, vegetarian, Jain, or gluten-free requirements during registration, and our kitchen team will gladly prepare suitable meals."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the camp cost and what does it include?",
+    answer: "Cost: ₹10,000 + 5% GST per person for 3 Days / 2 Nights.\n\nIncluded:\n• Deluxe tent accommodation on twin-sharing basis with beds, mattresses, and warm quilts\n• All meals, snacks, morning/evening tea, and drinking water\n• All adventure activities: rafting, kayaking, rock climbing, ropes courses, yoga\n• Professional guide support and safety gear\n• Buddy support system\n• Emergency first-aid support\n\nNot Included:\n• Travel from home to Camp Aquaterra and back\n• Stay in Rishikesh before/after the trip\n• Personal expenses, bottled water, and gratuities\n• Travel insurance"
+  },
+  {
+    category: "Registration & Policies",
+    question: "What are the payment and cancellation policies?",
+    answer: "We accept online payments only by online bank transfer or credit card (convenience fee applies). Full payment is required to confirm your booking.\n\nCancellation Policy: If you cancel your booking, you will receive a credit note for the paid amount. This credit note can be redeemed toward any future Treks for All adventure or camp within its validity period."
+  },
+  {
+    category: "Registration & Policies",
+    question: "Are there any rules or things we need to be mindful of?",
+    answer: "We will happily refuse intoxicated participants without any refunds, for their own safety. We recommend avoiding alcohol, drugs, or any intoxicants for at least 6 hours before an adventure outing.\n\nNo loud music or bright lights are allowed. The camp is located in a Reserved Forest Area, and we encourage guests to appreciate the joy of being very close to nature.\n\nOur ground staff may refuse service if payments are not cleared upon arrival."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What should I pack for Camp Aquaterra?",
+    answer: "Recommended packing list:\n• Comfortable quick-dry clothing (shorts, t-shirts, track pants)\n• Sturdy sandals with heel straps (suitable for water) or old sneakers\n• Warm layer or fleece jacket for evenings and early mornings\n• Sunglasses with retaining cord and sun hat\n• Sunscreen (SPF 50+) and insect repellent\n• Personal toiletries, towel, and required personal medication\n• Headlamp or torch with extra batteries\n• Power bank for charging mobile devices\n• Reusable water bottle"
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What are the accommodation and bathroom facilities like?",
+    answer: "Guests stay in spacious, walk-in deluxe safari-style tents equipped with comfortable twin cots, clean mattresses, bed linens, and warm quilts. The camp features clean western-style toilets and washing facilities with running water and hot showers located close to the tents."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "How does the buddy system work at camp?",
+    answer: "Each participant requesting support is paired with an empathetic, trained buddy. Buddies participate alongside you, providing support with camp navigation, meal assistance, and outdoor activities while respecting your independence and privacy at all times."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Are the camp instructors and river guides trained in disability inclusion?",
+    answer: "Yes! Aquaterra river guides and outdoor instructors work hand-in-hand with v-shesh inclusion specialists. They are trained in disability etiquette, inclusive communication, and adaptive outdoor leadership techniques to ensure a safe, dignified experience."
+  }
+];
+
+const ranakotTrekFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is the Ranakot Trek?",
+    answer: "The Ranakot Trek is a 4-day introductory Himalayan wilderness journey designed with accessibility at its core. Traversed along the scenic watershed divide between the Upper Ganga and Bhagirathi valleys at approximately 8,000 ft (2,400m), it combines gradual forest walking, high-meadow camping, and a scenic river rafting experience down to Kodiyala on Day 4."
+  },
+  {
+    category: "General Overview",
+    question: "Who can participate in the Ranakot Trek?",
+    answer: "This trek is open to everyone—including beginners, families, solo travellers, and persons with disabilities (locomotor, visual, hearing, neurodivergent). Our choice-based pacing and supportive team ensure every adventurer feels comfortable, confident, and celebrated on the trail."
+  },
+  {
+    category: "General Overview",
+    question: "Can solo travellers join this trek?",
+    answer: "Yes, absolutely! Many participants join solo. Non-disabled solo travellers are paired with a companion or buddy for tent sharing and trail support, creating lasting friendships and a wonderful community spirit."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "How challenging is the Ranakot Trek?",
+    answer: "The trek is rated as Moderate, making it an ideal first Himalayan trek. The trail climbs gradually through pine and rhododendron forests over 7 km on Day 2 to Dashrath Ka Danda, followed by a scenic ridge walk to Ranakot Meadow on Day 3. Distances are manageable and paced with frequent hydration breaks."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the rafting component on Day 4?",
+    answer: "On the final day, after trekking down to Devprayag (the confluence of Alaknanda and Bhagirathi), the group boards rafts for an exhilarating yet beginner-friendly whitewater rafting stretch down to Kodiyala on the Ganga, accompanied by certified river guides and comprehensive safety gear."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What are the daily walking hours and distances?",
+    answer: "Daily walking hours average between 4 and 5 hours. Day 2 covers 7 km from Pau ki Devi to Dashrath Ka Danda, and Day 3 covers a half-day forest descent to Ranakot Meadow. The schedule allows ample downtime for photography, rest, and evening campfire discussions."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the maximum altitude reached?",
+    answer: "The maximum altitude reached is approximately 2,400 metres (8,000 feet) at Dashrath Ka Danda. At this altitude, acute mountain sickness (AMS) is rare, making the trek comfortable and safe for participants of varied fitness levels."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What weather should I expect during the trek?",
+    answer: "In late September, daytime temperatures typically range from 24°C to 29°C with sunny skies, while nights cool down to 16°C to 20°C. Light warm layers are recommended for mornings and evenings around the campsite."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety protocols and medical support are in place?",
+    answer: "All treks are led by certified outdoor educators and wilderness first-responders carrying extensive medical kits, pulse oximeters, and emergency communication. Road access points are nearby for swift vehicle evacuation if needed."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What happens if there is unexpected rain or inclement weather?",
+    answer: "The team monitors mountain weather forecasts continuously. Ponchos and rain covers are standard, and camp instructors have alternative shelters and route contingency plans ready to ensure participant safety and comfort."
+  },
+  {
+    category: "Registration & Policies",
+    question: "How do I register for the Ranakot Trek?",
+    answer: "Register directly on our website by filling out the booking form. Our inclusion and accessibility coordinators will contact you to review any mobility requirements, adaptive equipment needs, and dietary preferences before confirming your spot."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the cancellation policy?",
+    answer: "If you need to cancel your booking, you will receive a credit note for the full amount paid, valid for any future Treks for All adventure within the validity period."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is included in the ₹22,000 + 5% GST fee?",
+    answer: "The package includes twin-sharing tent accommodation, all meals from Day 1 lunch to Day 4 lunch, certified guides and cooks, camp staff, forest permits, safety equipment, and the rafting segment to Kodiyala."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What footwear and clothing are required?",
+    answer: "We recommend sturdy, broken-in trekking shoes or hiking boots with good grip. Pack breathable quick-dry t-shirts, trekking pants, a warm fleece jacket, rain poncho, sun cap, sunglasses, and personal toiletries."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "Do I need to carry my own sleeping bag?",
+    answer: "Yes, we encourage trekkers to bring their own personal sleeping bag for hygiene and personal warmth comfort. Clean sleeping mats, two-person tents, and camping infrastructure are provided by the team."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What toilet facilities are available on the trek?",
+    answer: "At each campsite, we pitch dedicated toilet tents equipped with portable western-style commodes, deep pits, toilet paper, and soil cover mounds. This dry-toilet system is hygienic, odourless, and eco-friendly."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "Is there mobile connectivity or electricity at Ranakot Meadow?",
+    answer: "Mobile connectivity is intermittent on ridge tops (Airtel/Jio) and absent inside deeper forest valleys and wilderness camps. There is no electricity on the trail; please carry fully charged power banks."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals are provided during the trek?",
+    answer: "Our camp kitchen serves hot, nutritious, freshly prepared vegetarian meals including porridge, eggs/upma/parathas for breakfast, packed lunches on the trail, hot soup and evening tea with snacks, and multi-course dinners."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Can dietary restrictions like Jain or vegan food be accommodated?",
+    answer: "Yes! Please inform our team of any dietary requirements during registration, and our camp cooks will happily prepare suitable meals for you."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Is drinking water safe along the trail?",
+    answer: "Yes, drinking water is drawn from pristine mountain streams and purified using multi-stage filtration systems. Trekkers should carry reusable water bottles to refill at camp and trail stops."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "How are participants with locomotor disabilities supported?",
+    answer: "Support includes pre-trip terrain assessments, adaptive trekking poles, customized walking paces, assistive buddy pairing, and horse support options if someone requires physical assistance along steeper ascents."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "What accommodations are provided for visually impaired trekkers?",
+    answer: "Visually impaired participants are paired 1:1 with trained sighted guides or buddies who provide verbal terrain descriptions, tactile trail navigation support, and tent orientation."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Can Deaf or hard-of-hearing trekkers join?",
+    answer: "Yes! We provide visual trail briefings, clear written summaries, and team members trained in basic Indian Sign Language (ISL) to ensure seamless and inclusive communication throughout the journey."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "How does the buddy system work on the trail?",
+    answer: "Non-disabled co-trekkers and trained volunteers are paired with participants with disabilities. Buddies share tents, walk together on the trail, and offer companionship, mutual encouragement, and everyday support."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who leads the Ranakot Trek?",
+    answer: "The trek is led by certified mountain guides and instructors from Aquaterra and v-shesh, trained extensively in wilderness safety, first-aid response, and disability inclusion."
+  }
+];
+
+const campBagiFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is Camp Bagi on the Tons River?",
+    answer: "Camp Bagi is a riverside adventure camp set on a picturesque sandy beach along the Tons River in the Jaunsar Bawar region of Western Uttarakhand (3,500 ft / 1,150m). It features exhilarating Class 4 whitewater rafting, serene forest hikes to waterfalls, stargazing, and cultural visits to ancient Himalayan temples."
+  },
+  {
+    category: "General Overview",
+    question: "Who can join Camp Bagi?",
+    answer: "Camp Bagi welcomes everyone! It is an ideal summer getaway for beginners, outdoor lovers, families with children, and persons with disabilities. All activities are designed with a choice-based, fully supported approach."
+  },
+  {
+    category: "General Overview",
+    question: "When is the best time to visit Camp Bagi?",
+    answer: "Our summer camp operates from mid-April through May. During this window, days are sunny and comfortable while nights are cool and refreshing, offering a perfect respite from the blistering heat of the plains."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "How intense is the whitewater rafting on the Tons River?",
+    answer: "The Tons is famous for its Class 4 rapids. We navigate the thrilling Lunagad-to-Khunigad stretch under the supervision of senior international-standard river guides, equipped with high-flotation lifejackets, helmets, and accompanying safety kayakers."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "Can non-swimmers participate in rafting?",
+    answer: "Yes, non-swimmers can safely participate! Every participant wears a certified personal flotation device (PFD) that keeps you buoyed on the water, and our river guides provide detailed safety drills before entering the river."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "What does the cultural visit to Hanol Temple involve?",
+    answer: "Hanol Temple is an ancient 9th-century architectural marvel dedicated to Mahasu Devta, built in traditional Kath-Kuni stone-and-wood style by the Pandavas. The visit offers deep insight into Jaunsari folklore and mountain traditions."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "How are persons with disabilities included in rafting and camp activities?",
+    answer: "Adaptive seating and cushioning in rafts, dedicated buddy support, and modified physical aids ensure participants with locomotor, sensory, or cognitive disabilities can participate fully and safely in the river run and camp life."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What is the weather like at Camp Bagi in April and May?",
+    answer: "In April, days range from 15°C to 25°C with cool nights (8°C–15°C). In May, daytime temperatures reach 20°C to 30°C with pleasant nights (10°C–18°C). A light fleece is recommended for evenings around the campfire."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What river safety gear and protocols are standard?",
+    answer: "We use top-grade self-bailing rafts, CE-certified helmets, Coast Guard approved life jackets, rescue throw ropes, and safety kayakers on every section. Guides conduct thorough safety briefings before every launch."
+  },
+  {
+    category: "Weather & Safety",
+    question: "Is medical and emergency support available at the camp?",
+    answer: "Camp managers are certified in Wilderness First Aid and CPR. First-aid stations with emergency supplies are maintained on site, and dedicated vehicles are available for road evacuation if needed."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals are provided at Camp Bagi?",
+    answer: "Camp meals are wholesome, fresh, and generous: hearty hot breakfasts (eggs, pancakes, porridge, parathas), buffet lunches, evening tea with snacks and soup, and campfire dinners featuring North Indian and local Garhwali dishes."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Can dietary preferences like vegetarian, vegan, or Jain food be accommodated?",
+    answer: "Yes, we gladly cater to vegetarian, vegan, Jain, and allergy-sensitive dietary preferences. Please specify your requirements when registering."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Is drinking water safe at the camp?",
+    answer: "Yes, water at camp is filtered through multi-stage commercial filtration and UV systems. Clean, safe drinking water stations are available at all times for refilling personal water bottles."
+  },
+  {
+    category: "Registration & Policies",
+    question: "How do I register for Camp Bagi?",
+    answer: "You can register online through our website. Our coordinators will contact you to understand any specific accommodations, buddy support, or transport preferences required."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the cancellation policy?",
+    answer: "If you cancel your booking, you receive a credit note for the entire paid amount, redeemable for any future Treks for All camp or trek within the validity period."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is included in the ₹15,000 + 5% GST fee?",
+    answer: "The price covers twin-sharing tent accommodation on the beach, all meals and refreshments, two rafting excursions with safety gear, guided forest trek to the waterfall, temple visit, and camp activities."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What are the tent and bathroom facilities like?",
+    answer: "Guests stay in spacious twin-sharing safari tents pitched on the river beach, outfitted with cots, mattresses, and quilts. Separate, clean dry/flush toilet units and washing tents are situated close to the living area."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What clothes and shoes should I bring for Camp Bagi?",
+    answer: "Bring quick-drying nylon shorts and t-shirts for rafting, secure river sandals or sneakers with good rubber grip, a warm layer for the evening, a sun hat, sunglasses with neck straps, and a headlamp or torch."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "Is electricity and mobile network available at Camp Bagi?",
+    answer: "Camp Bagi is an authentic off-grid retreat. Generator power is available for limited hours in the evening to charge devices. Mobile network (BSNL/Airtel) is patchy at river level, allowing guests to truly unplug and immerse in nature."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who are the river guides and camp staff?",
+    answer: "Rafting is steered by licensed, world-class river guides from Aquaterra Adventures. In-camp activities and accessibility support are led by trained v-shesh and Treks for All outdoor inclusion facilitators."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "How does buddy support work for campers with disabilities?",
+    answer: "Participants who need mobility, visual, or personal assistance are paired with an attentive buddy. Buddies assist with navigating the sand, tent access, dining, and outdoor activities to guarantee a comfortable and empowering stay."
+  }
+];
+
+const campHornbillFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is Camp Hornbill?",
+    answer: "Camp Hornbill is an eco-adventure and experiential community retreat nestled in Kyari village near Ramnagar, Uttarakhand, right on the fringes of the legendary Corbett forest landscape. It combines nature trails, village community immersion, adventure ropes, and water activities in a safe, inclusive setting."
+  },
+  {
+    category: "General Overview",
+    question: "Does Camp Hornbill include a Corbett wildlife safari?",
+    answer: "Camp Hornbill is designed around nature exploration, adventure activities, and community life; standard bookings do not include a jungle wildlife safari. However, we can arrange an optional Corbett jeep safari at additional cost, subject to forest department permit availability."
+  },
+  {
+    category: "General Overview",
+    question: "Who can participate in Camp Hornbill?",
+    answer: "Camp Hornbill welcomes solo travellers, families, youth groups, and persons with disabilities. Accommodations and activities are thoughtfully tailored to be accessible and engaging for people of all fitness levels."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "As a Person with Disability, what activities can I participate in?",
+    answer: "Participants can enjoy canal body surfing, pond swimming, ziplining, friendship ladder, tree climbing, jumaring, rock climbing, nature walks, village heritage visits, and yoga. Activities can be adapted to individual abilities, comfort levels, and support needs under instructor supervision."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "How accessible is Camp Hornbill for wheelchair users and locomotor disabilities?",
+    answer: "Camp Hornbill is well suited for ambulant disabilities with supportive pathways. Because the village terrain features natural gravel and unpaved paths, wheelchair users should connect with our team before registration so personalized accessibility support can be arranged."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "What support is provided for visually impaired and Deaf campers?",
+    answer: "We provide 1:1 sighted guide support for nature walks and obstacle navigation, descriptive trail instructions, visual briefings, and trained facilitators experienced in inclusive sign-assisted communication."
+  },
+  {
+    category: "Weather & Safety",
+    question: "How is the weather at Camp Hornbill across different months?",
+    answer: "September is warm and lush (22–29°C) with post-monsoon greenery; October brings clear, pleasant days (17–28°C); November offers crisp, dry weather with cool mornings and evenings (11–23°C); and December provides chilly, refreshing winter days (7–20°C). Check the forecast before packing!"
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety measures are in place for adventure activities?",
+    answer: "Safety is our foremost priority. For canal body surfing, certified lifejackets and helmets are mandatory with rescue guides stationed on site. All high-rope activities take place at a dedicated adventure park with certified harnesses, dynamic safety ropes, and trained instructors."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What camp regulations must guests be mindful of?",
+    answer: "Camp Hornbill borders a Reserved Forest Area: no loud music, late-night amplification, or bright spotlights are permitted to protect wildlife. Intoxicants are strictly prohibited prior to any adventure activities."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals and cuisines are provided at Camp Hornbill?",
+    answer: "Meals feature wholesome, locally inspired Kumaoni and Indian cuisine: hearty breakfasts with eggs, parathas, and continental options; nutritious vegetarian lunches; and evening dinners with both vegetarian and non-vegetarian choices. Afternoon tea and snacks are served daily."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Is there an opportunity to experience authentic village food?",
+    answer: "Yes! Guests have the special opportunity to share a traditional meal with a local Kyari village family, enjoying authentic Kumaoni flavours cooked with homegrown ingredients while learning about village customs."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Can special dietary requirements be accommodated?",
+    answer: "Yes, vegetarian, vegan, Jain, and specific allergy-conscious meals can be arranged. Please let us know your preferences during registration."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the fee and payment structure for Camp Hornbill?",
+    answer: "The fee is ₹10,000 + 5% GST + Travel (total ₹10,500 + travel). All camp fees must be cleared prior to arrival. Packages include cottage accommodation, all meals, adventure activities, safety gear, and guiding support."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the cancellation policy?",
+    answer: "If you need to cancel your booking, you will receive a credit note for the paid amount, redeemable against any future Treks for All camp or adventure within its validity period."
+  },
+  {
+    category: "Registration & Policies",
+    question: "How far in advance should I book?",
+    answer: "We recommend booking 3 to 4 weeks in advance, especially during the peak autumn and winter months, to ensure cottage availability and proper accessibility preparations."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What are the accommodations like at Camp Hornbill?",
+    answer: "Guests stay in deluxe air-conditioned mud houses and traditional stone cottages on a twin-sharing basis, equipped with comfortable beds, fresh linens, quilts, and attached western washrooms."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What essentials should I pack for the camp?",
+    answer: "Pack comfortable outdoor clothing, quick-dry shorts/t-shirts for water activities, sturdy walking shoes, a warm jacket or fleece for cool evenings, insect repellent, sun protection, and personal medications."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "Is mobile network connectivity available in Kyari?",
+    answer: "Yes, major cellular networks like Airtel and Jio offer good connectivity in and around Camp Hornbill."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "How does the buddy system work at Camp Hornbill?",
+    answer: "Participants who need support are paired with empathetic buddies or trained team members. Buddies assist during village walks, activity gear setup, and dining, ensuring everyone feels fully included."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who are the instructors and local guides?",
+    answer: "Activities are supervised by certified outdoor instructors and nature guides from the Kyari community, working closely with Treks for All and v-shesh inclusion specialists."
+  }
+];
+
+const campSunkiyaFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is Camp Sunkiya?",
+    answer: "Camp Sunkiya is an outdoor adventure and experiential learning camp set at 2,000m in the picturesque pine-covered hills of Mukteshwar, Uttarakhand. The camp emphasizes personal growth, outdoor challenges, nature immersion, and a rich cultural exchange with the local Kumaoni community."
+  },
+  {
+    category: "General Overview",
+    question: "What is the Ghasiyari community immersion?",
+    answer: "A key highlight of Camp Sunkiya is the opportunity to interact with the Ghasiyaris—local mountain women whose daily lives are intimately tied to forest conservation, livestock, and terrace agriculture. Guests learn traditional folk skills and share stories, fostering mutual respect and cultural appreciation."
+  },
+  {
+    category: "General Overview",
+    question: "Who can participate in Camp Sunkiya?",
+    answer: "Camp Sunkiya is open to people of all abilities, including beginners, solo travelers, youth, corporate groups, and persons with disabilities. All activities follow a choice-based, challenge-by-choice philosophy."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "As a Person with Disability, what activities can I participate in?",
+    answer: "The program includes the Vertical Ladder, Friendship Ladder, Zip Line, Archery, the Secret Pond hike, village interactions, and cultural folk dance. Participation is customized to individual abilities, comfort, and safety requirements under certified instructor guidance."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "How accessible is Camp Sunkiya for wheelchair users?",
+    answer: "Camp Sunkiya is well-suited for ambulant disabilities. Because Mukteshwar has terraced mountain terrain, full wheelchair access is limited; wheelchair users should consult our team prior to registering so we can tailor mobility support and activity suitability."
+  },
+  {
+    category: "Activities & Inclusion",
+    question: "What accommodations are provided for visually impaired and Deaf campers?",
+    answer: "We offer 1:1 sighted guide pairing for trail walking, tactile obstacle briefings, descriptive orientations, and visual/sign communication support from trained inclusion mentors."
+  },
+  {
+    category: "Weather & Safety",
+    question: "How is the weather at Camp Sunkiya in Mukteshwar?",
+    answer: "Located at 2,000m, Mukteshwar enjoys crisp mountain weather. In September, temperatures hover between 13°C and 20°C; October is clear and pleasant (10°C–19°C); and November is cool and dry (6°C–16°C), with chilly mornings and cold nights. Warm layers are essential!"
+  },
+  {
+    category: "Weather & Safety",
+    question: "What safety measures are implemented for high ropes and adventure activities?",
+    answer: "All adventure elements (zipline, ladder climb, rappelling) use certified dynamic ropes, double carabiners, safety harnesses, and helmets. Certified mountaineering instructors conduct comprehensive safety briefings before anyone steps onto an element."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What medical assistance is available at camp?",
+    answer: "The camp maintains complete first-aid kits and emergency medical gear. Trained first-aid responders are on duty, and vehicles are available on site for rapid access to Mukteshwar and Nainital health centers if needed."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals are provided at Camp Sunkiya?",
+    answer: "Guests enjoy full-board dining: hearty breakfasts with Indian and Continental favourites, wholesome buffet lunches (dal, seasonal sabzi, paneer, roti, rice), evening tea with hot pakoras and cookies, and comforting multi-course dinners with local Kumaoni specialities."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What is the village lunch experience?",
+    answer: "On Day 3, participants visit Sunkiya Village and share an authentic home-cooked lunch hosted by local families, featuring traditional organic dishes prepared over wood-fired chulhas with locally sourced ingredients."
+  },
+  {
+    category: "Meals & Dining",
+    question: "Can dietary restrictions (Jain, vegan, gluten-free) be accommodated?",
+    answer: "Yes, our kitchen team easily accommodates vegetarian, vegan, Jain, and allergy-sensitive dietary requests with advance notice during registration."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the fee and what does it include?",
+    answer: "The camp fee is ₹8,500 + 5% GST + Travel (total ₹8,925 + travel). This includes American safari tent accommodation, full-board meals and snacks, all adventure activities, village immersion, and guiding support."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the cancellation policy?",
+    answer: "Cancellations receive a credit note for the entire paid amount, which can be applied to any future Treks for All adventure within the validity period."
+  },
+  {
+    category: "Registration & Policies",
+    question: "How do I register for Camp Sunkiya?",
+    answer: "Fill out the registration form on our website. Our inclusion team will follow up to understand your accessibility needs, dietary preferences, and travel arrangements."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What are the tent and washroom accommodations like?",
+    answer: "Accommodation is provided on a twin-sharing basis in spacious American safari tents equipped with beds, thick mattresses, and warm quilts. Clean, modern western washrooms with running water are located adjacent to the tents."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What should I pack for Camp Sunkiya?",
+    answer: "Pack comfortable outdoor pants, walking shoes with good grip, warm fleece or jacket for chilly evenings, quick-dry clothes for the pond dip, sun protection, personal medicines, and a reusable water bottle."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "Is mobile network connectivity available at the camp?",
+    answer: "Yes, cellular reception (Airtel and Jio) is generally good across Mukteshwar and at the campsite."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "How does the buddy system operate?",
+    answer: "Campers requiring assistance are matched with supportive buddies or trained volunteers who share tents, offer trail navigation support, and ensure every guest feels included and empowered."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who leads the activities at Camp Sunkiya?",
+    answer: "The program is facilitated by experienced outdoor instructors, local Pahadi community leaders, and certified inclusion specialists from v-shesh and Treks for All."
+  }
+];
+
+const everestBaseCampFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is the Everest Base Camp Classic trek?",
+    answer: "The Everest Base Camp Classic trek is a 16-day high-altitude journey through Nepal's legendary Khumbu region. It leads trekkers through iconic Sherpa villages, ancient Buddhist monasteries, and rugged glacial moraines right to the foot of Mt. Everest at 5,364m."
+  },
+  {
+    category: "General Overview",
+    question: "Who can join the Everest Base Camp trek?",
+    answer: "This trek is designed for adventurous trekkers with good cardiovascular fitness and mental determination. Prior trekking experience at moderate altitudes is strongly recommended, though complete acclimatization days are built into the schedule."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "How difficult is the trek to Everest Base Camp?",
+    answer: "Rated as Challenging, the trek involves 5 to 7 hours of daily hiking over rocky terrain and suspension bridges with significant altitude gain. Proper pacing, hydration, and acclimatization days at Namche Bazaar and Dingboche ensure a safe ascent."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "What is the maximum altitude reached?",
+    answer: "The highest point is Kala Patthar at 5,545m (offering the best panoramic sunrise view of Everest, Lhotse, and Nuptse) and Everest Base Camp at 5,364m."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What is the weather and best season for EBC?",
+    answer: "The pre-monsoon spring (March to May) and post-monsoon autumn (October to November) offer clear skies, stable weather, and superb mountain views. Daytime temperatures range from 10°C to 15°C, while nights drop below freezing (-5°C to -15°C) at higher camps."
+  },
+  {
+    category: "Weather & Safety",
+    question: "How do you manage Acute Mountain Sickness (AMS)?",
+    answer: "Our itinerary includes gradual ascent profiles and mandatory acclimatization days. Trek leaders carry pulse oximeters, supplementary oxygen, and Gamow bags, and have direct protocols for emergency helicopter evacuation if needed."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What food and drinking water are available on the trek?",
+    answer: "Tea houses serve freshly cooked Dal Bhat, momos, noodles, fried rice, porridge, and hot soups. Trekkers drink boiled or purified water using filtration tablets; single-use plastic bottles are discouraged in the Khumbu valley."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "What is tea house accommodation like in Nepal?",
+    answer: "Trekkers stay in traditional family-run Sherpa tea houses with twin-sharing rooms, wooden beds, and foam mattresses. Dining halls are heated by central stoves in the evening."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What permits are required for the EBC trek?",
+    answer: "The trek requires the Sagarmatha National Park Entry Permit and the Khumbu Pasang Lhamu Rural Municipality Permit. All necessary permits and park fees are arranged and included in the package."
+  },
+  {
+    category: "Packing & Gear",
+    question: "What critical gear is needed for Everest Base Camp?",
+    answer: "Essential gear includes a four-season down jacket (-10°C rated), a 0°C to -10°C sleeping bag, waterproof trekking boots with ankle support, thermal base layers, UV sunglasses, trekking poles, and portable power banks."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Can trekkers with disabilities or health conditions participate in EBC?",
+    answer: "Due to extreme altitude and remote terrain, EBC requires thorough pre-expedition medical screening. We coordinate specialized porter, horse, and medical assistant support for eligible trekkers with mild-to-moderate disabilities."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who guides the Everest Base Camp expedition?",
+    answer: "Expeditions are led by government-licensed, English-speaking Sherpa mountaineers with extensive high-altitude first aid credentials, supported by local Khumbu porters."
+  }
+];
+
+const annapurnaCircuitFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is the Annapurna Circuit Complete trek?",
+    answer: "The Annapurna Circuit is a world-renowned 21-day expedition encircling the Annapurna Massif in Nepal. The trail spans subtropical river valleys, alpine rhododendron forests, Tibetan-influenced arid plateaus, and the crossing of the Thorong La Pass at 5,416m."
+  },
+  {
+    category: "General Overview",
+    question: "Who is this trek suitable for?",
+    answer: "This trek is suited for experienced trekkers looking for a comprehensive Himalayan expedition. It requires high stamina, physical conditioning, and comfort with multi-week mountain travel."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "How challenging is crossing Thorong La Pass?",
+    answer: "Thorong La Pass (5,416m) is the crux of the circuit. The pass day involves an early 4:00 AM start, climbing roughly 900m over steep snow and scree before descending 1,600m to Muktinath. It is demanding but immensely rewarding."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What is the best season to trek the Annapurna Circuit?",
+    answer: "Autumn (September to November) and Spring (March to May) offer dry trails, clear mountain vistas, and moderate pass conditions. Winter crossings can be blocked by heavy snow."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals are provided on the circuit?",
+    answer: "Hearty, nourishing meals are provided at tea houses: traditional Dal Bhat, yak cheese pasta, potato rosti, soups, Tibetan bread, and hot ginger lemon tea, designed to keep caloric intake high."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "What are tea house lodges like?",
+    answer: "Trekkers stay in welcoming village tea houses with twin-sharing rooms. Many lodges in lower valleys offer solar-heated hot showers, while higher stops provide cozy communal dining halls."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What permits are needed for the Annapurna Circuit?",
+    answer: "The trek requires the Annapurna Conservation Area Project (ACAP) permit and the TIMS (Trekkers' Information Management System) card. All permits are organized and included by our team."
+  },
+  {
+    category: "Packing & Gear",
+    question: "What equipment is required for the pass crossing?",
+    answer: "In addition to standard trekking gear, microspikes or crampons, windproof outer shells, heavy down mittens, polar fleece layers, and Category 4 glacier sunglasses are essential for Thorong La."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "How does the team handle pace and altitude safety?",
+    answer: "We follow a gradual ascent philosophy with built-in acclimatization rests. Trek leaders monitor blood oxygen levels twice daily and adapt walking paces to participant capabilities."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who accompanies the Annapurna team?",
+    answer: "Licensed wilderness trek leaders and local Gurung/Sherpa guides and porters guide the team, ensuring safety, cultural interpretation, and logistical ease."
+  }
+];
+
+const spitiValleyFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is the Spiti Valley Winter Expedition?",
+    answer: "A rare 10-day high-altitude winter journey into the snowbound trans-Himalayan desert of Spiti Valley in Himachal Pradesh (up to 4,270m). Experience frozen waterfalls, snow leopard habitat explorations, centuries-old monasteries like Key and Dhankar in winter splendour, and warm homestays."
+  },
+  {
+    category: "General Overview",
+    question: "Who can join the winter Spiti expedition?",
+    answer: "Anyone with good cardiovascular health, resilience to sub-zero temperatures, and an adventurous spirit. The itinerary is vehicle-supported with localized village and monastery walking."
+  },
+  {
+    category: "Trek Itinerary & Difficulty",
+    question: "How difficult is a winter trip to Spiti?",
+    answer: "Rated as Advanced due to extreme sub-zero cold (-10°C to -25°C) and high altitude. While trekking distances are moderate, coping with severe Himalayan winter conditions requires specialized gear and sound mental resilience."
+  },
+  {
+    category: "Weather & Safety",
+    question: "How cold does Spiti Valley get in winter?",
+    answer: "Winter temperatures typically range between -5°C during sunny midday hours to -25°C at night. 4x4 heated expedition vehicles, sub-zero down suits, and insulated winter homestays with bukhari wood heaters are provided."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What meals are served during winter in Spiti?",
+    answer: "Homestays serve hot, calorie-dense mountain meals: Tibetan thukpa, steaming momos, tsampa porridge, dal, rice, butter tea, and local herbal infusions to maintain internal warmth."
+  },
+  {
+    category: "Camp Life & Assistance",
+    question: "What are the winter homestays like?",
+    answer: "Guests stay in traditional Spitian mud-brick homestays engineered to retain heat, featuring bukhari wood stoves, warm thick yak-wool blankets, and traditional dry-composting winter toilets."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the booking and cancellation policy?",
+    answer: "Due to limited heated homestay capacity, early booking is required. Cancellations are issued as a credit note redeemable against any future Treks for All expedition within its validity period."
+  },
+  {
+    category: "Packing & Gear",
+    question: "What winter clothing is required?",
+    answer: "Extreme cold gear is mandatory: thermal merino base layers, heavy down parkas (-20°C rated), insulated snow boots, windproof balaclavas, snow goggles, and heavy fleece-lined mittens."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "How is accessibility managed in winter snow conditions?",
+    answer: "The expedition relies on 4x4 vehicles with snow chains. Supportive buddies and guides assist with walking on snow and ice, ensuring safe, stable navigation at all sites."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who leads the winter expedition?",
+    answer: "The journey is spearheaded by seasoned winter Himalayan expedition leaders and local Spitian wildlife spotters intimately familiar with frozen routes and high-altitude safety."
+  }
+];
+
+const brahmaputraSafariFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is the Brahmaputra River Safari?",
+    answer: "An 8-day wildlife and river cruise expedition exploring Assam's mighty Brahmaputra River, including game drives in Kaziranga National Park (home to the one-horned rhinoceros), river dolphin spotting, tea estate walks, and vibrant Assamese cultural immersion."
+  },
+  {
+    category: "General Overview",
+    question: "Who is this safari suitable for?",
+    answer: "This trip is ideal for wildlife enthusiasts, birders, photographers, families, and travelers of all mobility levels seeking a relaxed, culturally rich wildlife exploration."
+  },
+  {
+    category: "Activities & Wildlife",
+    question: "What wildlife can we encounter on the safari?",
+    answer: "Kaziranga and the river corridor are renowned for greater one-horned rhinoceroses, wild water buffalo, Asian elephants, swamp deer, elusive Royal Bengal tigers, Gangetic river dolphins, and over 400 species of migratory and resident birds."
+  },
+  {
+    category: "Weather & Safety",
+    question: "What is the best season for the Brahmaputra River Safari?",
+    answer: "November to March is the ideal season, characterized by mild sunny days (18°C–25°C), cool breezy evenings, and optimal wildlife sightings across the grasslands and river sandbanks."
+  },
+  {
+    category: "Meals & Dining",
+    question: "What cuisine is served during the safari?",
+    answer: "Guests enjoy fresh Assamese culinary traditions—including aromatic Joha rice, fish tenga, local vegetable fritters, pitika, and pithe sweets—alongside standard North Indian and Continental spreads."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What permits are included?",
+    answer: "All Kaziranga National Park jeep safari permits, river cruise entries, and toll permissions are arranged and fully included in the expedition fee."
+  },
+  {
+    category: "Packing & Facilities",
+    question: "What are the lodge and cruise accommodations?",
+    answer: "Guests stay in heritage eco-lodges near Kaziranga and comfortable river safari vessels featuring air-conditioned rooms, comfortable beds, and attached modern bathrooms."
+  },
+  {
+    category: "Accessibility & Inclusion",
+    question: "Is the river safari accessible for persons with reduced mobility?",
+    answer: "Yes, the river lodge, cruise vessels, and safari jeeps are equipped to assist travelers with diverse mobility requirements. Our team provides dedicated assistance for boarding and nature excursions."
+  },
+  {
+    category: "Buddies & Guides",
+    question: "Who guides the river safari?",
+    answer: "Expeditions are led by veteran wildlife naturalists, forest trackers, and river captains with profound knowledge of Assam's rich ecology and heritage."
+  }
+];
+
+const hacFaqs: { question: string; answer: string; category?: string }[] = [
+  {
+    category: "General Overview",
+    question: "What is the Himalayan Adventure Challenge (HAC)?",
+    answer: "The Himalayan Adventure Challenge (HAC) is India's premier multi-discipline adventure race held in Rishikesh since 2013, hosted by Aquaterra Adventures and Atali Ganga. Refined over years of testing for safety and fairness, HAC brings together outdoor athletes and enthusiasts. In its 11th edition, HAC is now inclusive in partnership with Treks For All, featuring a signature 10 km Open Challenge (5 km rafting + 5 km hiking)."
+  },
+  {
+    category: "General Overview",
+    question: "How is the 10 km Open Challenge structured for inclusive teams?",
+    answer: "Every team consists of exactly four members: two persons with disabilities and two buddies. Teams paddle 5 km down the Ganga River in rafts, followed by a 5 km hiking stage on foot, finishing together as a team."
+  },
+  {
+    category: "General Overview",
+    question: "What prize does the winning team receive?",
+    answer: "The winning team takes it all: a free holiday and an exclusive goodies bag full of surprises, celebrating the spirit of 'More people. Wilder possibilities.'"
+  },
+  {
+    category: "General Overview",
+    question: "What is the minimum team requirement for this challenge?",
+    answer: "A minimum of 3 teams (12 participants total) is required for the inclusive 10 km Open Challenge division."
+  },
+  {
+    category: "Race Format & Scoring",
+    question: "What is the exact race route on Saturday?",
+    answer: "The race starts at Malakhunti on the Ganga. Teams paddle 5 km downriver to Sarasu village, transition to foot, and trek 5 km along scenic mountain and riverside trails back to Malakhunti."
+  },
+  {
+    category: "Race Format & Scoring",
+    question: "How are winners decided fairly across diverse participants?",
+    answer: "HAC uses an internationally recognized handicap points system where times are adjusted for age and gender, modeled on the qualifying adjustments used by the Boston, London, and New York marathons. Each team member's time is adjusted, and the adjusted times are aggregated to determine the final team score, ensuring fair competition for all."
+  },
+  {
+    category: "Race Format & Scoring",
+    question: "Can our team include members racing in the Zealot or 30 km Open Challenge?",
+    answer: "It is best to keep your team independent of Zealot and 30 km Open Challenge participants. Those morning races may run late, causing members to miss the mandatory 15:30 cut-off start for the 10 km Open Challenge."
+  },
+  {
+    category: "Race Format & Scoring",
+    question: "What orientation and safety practice is provided before the race?",
+    answer: "On Friday evening (17:00–20:00), all teams attend a comprehensive race briefing and rules session. On Saturday at 13:00, teams undergo practical paddle orientation, safety briefings, and water practice before the 15:30 flag-off."
+  },
+  {
+    category: "Accommodation & Meals",
+    question: "Where will participants stay during the event?",
+    answer: "Your two nights are hosted at the race venue across two neighboring properties in a pristine forest setting by the Ganga: Atali Ganga (India's premier activity lodge with ensuite deluxe cottages, venue for Saturday's gala dinner) and Camp Aquaterra (deluxe walk-in tents in a forest clearing with cots, clean WC complex, and shower stalls)."
+  },
+  {
+    category: "Accommodation & Meals",
+    question: "What meals and celebrations are included in the package?",
+    answer: "All meals are included throughout the weekend: dinner on Friday; breakfast, lunch, and an awards gala dinner with live music at Atali Ganga on Saturday evening; and breakfast before departure on Sunday."
+  },
+  {
+    category: "Accommodation & Meals",
+    question: "Can dietary restrictions and preferences be accommodated?",
+    answer: "Yes, wholesome vegetarian, non-vegetarian, vegan, and Jain meals are thoughtfully catered. Please specify any dietary requirements during team registration."
+  },
+  {
+    category: "Travel & Logistics",
+    question: "How do we get to the venue by road from Delhi?",
+    answer: "The venue is approximately 270 km from Delhi (about 6 hours by road). We recommend departing Delhi between 4:00 AM and 5:00 AM to beat traffic in Modinagar and Roorkee, arriving well in time for Friday afternoon check-in."
+  },
+  {
+    category: "Travel & Logistics",
+    question: "How do we get there by air?",
+    answer: "Fly to Jolly Grant Airport, Dehradun (a 25-minute flight from Delhi). The venue at Atali Ganga / Byasi is approximately 1.5 hours by road from the airport. Please book a morning flight landing before noon to arrive ahead of the 14:00 orientation."
+  },
+  {
+    category: "Travel & Logistics",
+    question: "How do we travel by train?",
+    answer: "Haridwar Railway Station is located about 1.5 hours from the venue. Recommended trains from Delhi include the Dehradun Shatabdi Express and the Mussoorie Express."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the cost per person and what is included?",
+    answer: "The participation cost is ₹12,625 per person (including 5% GST). This covers 2 nights of twin-sharing accommodation, all meals and race-day nutrition, race transfers, professional timing and marshals, safety gear, entry to the awards gala dinner with live music, and 5% GST."
+  },
+  {
+    category: "Registration & Policies",
+    question: "How do we register our team?",
+    answer: "You can register your team of four (2 persons with disabilities and 2 buddies) directly through the Treks For All booking link or by visiting hacrace.com. Our team will verify your team details and coordinate pre-race accessibility needs."
+  },
+  {
+    category: "Registration & Policies",
+    question: "What is the cancellation policy?",
+    answer: "In the event of cancellation, you will receive a credit note for the paid amount, redeemable against any future Treks For All adventure or camp within its validity period."
+  },
+  {
+    category: "Accessibility & Buddies",
+    question: "What support is provided for athletes with disabilities?",
+    answer: "The challenge is designed for diverse mobility, visual, and sensory conditions. Adaptive seating and strapping in rafts, sighted guidance on the hiking leg, and trail marshals along the course ensure a safe, competitive, and dignified race experience."
+  },
+  {
+    category: "Accessibility & Buddies",
+    question: "What is the role of the 2 buddies on the team?",
+    answer: "Buddies race alongside their teammates, sharing the paddle power during the 5 km rafting leg and providing pace support, navigation assistance, and teamwork on the 5 km hiking trail to ensure the entire team crosses the finish line together."
+  },
+  {
+    category: "Community & Partners",
+    question: "What is the 'Giving Back' story behind HAC?",
+    answer: "HAC originated as a community fundraiser to bring adventure travellers back to Uttarakhand following the devastating June 2013 floods. Continuing this heritage, HAC actively sponsors young athletes from local mountain villages and Rishikesh to participate free of cost."
+  },
+  {
+    category: "Community & Partners",
+    question: "Who are the official partners and organizers?",
+    answer: "The event is hosted by Aquaterra Adventures and Atali Ganga in partnership with Treks For All. Official partners include Edify Sports (timing & scoring), Sea to Summit (technical gear), and Ace Blend (hydration & nutrition)."
+  }
 ];
 
 export const trips: Trip[] = [
@@ -172,7 +1506,8 @@ export const trips: Trip[] = [
       'Bottled water',
       'Expenses due to natural events or unforeseen circumstances (landslides, weather delays)',
       'Travel/cancellation insurance'
-    ]
+    ],
+    faqs: dayaraBugyalFaqs
   },
   {
     id: '2',
@@ -291,7 +1626,8 @@ export const trips: Trip[] = [
       'Bottled water',
       'Expenses due to natural events or unforeseen circumstances (landslides, weather delays)',
       'Travel/cancellation insurance'
-    ]
+    ],
+    faqs: doditalLakeFaqs
   },
   {
     id: '3',
@@ -327,7 +1663,7 @@ export const trips: Trip[] = [
     description: 'This is a 3-day, 2-night riverside stay in the Upper Ganga Valley, nestled in the Himalayan foothills. Guests can enjoy rafting, kayaking, hiking, yoga, wall climbing, and more — all with no compromise on safety, dignity, or comfort. Located just 30 km upstream from Rishikesh, this experience combines the thrill of adventure with thoughtful care in a stunning Himalayan setting, serving as a perfect preparatory experience before venturing into a proper trek.',
     maxAltitude: '600m',
     groupSize: 'Up to 60',
-    departureDates: ['January 24 - 26, 2026', 'February 13 - 15, 2026', 'December 25 - 27, 2026 (HAC-PwD)'],
+    departureDates: ['November 13 - 15, 2026', 'December 25 - 27, 2026 (HAC-PwD)'],
     highlights: [
       'Whitewater rafting on the Ganga with adaptive support',
       'Kayaking sessions on the river',
@@ -385,28 +1721,7 @@ export const trips: Trip[] = [
       'Emergency expenses',
       'Travel insurance'
     ],
-    faqs: [
-      {
-        question: 'As a Person with Disability, what are the activities I can participate in at the camp?',
-        answer: 'With the right adaptations, trained guides, and safety protocols, activities like kayaking, rafting, trekking, and rock climbing can be enjoyed by many. Participation will depend on individual factors such as severity, prior experience, agility, and comfort in the outdoors.\n\nOur team will have detailed conversations with you to understand your needs and abilities, after which activity suitability will be determined. At Treks for All, safety is our top priority. If safety concerns arise, the final decision will rest with the trained Aquaterra guides. We prioritise inclusion, but never at the cost of safety.'
-      },
-      {
-        question: 'How will the weather be at the camp?',
-        answer: 'September - Highs around - 30 °C, lows near 17 °C\nNovember – Highs around - 24 °C, lows near 11 °C\nDecember - Highs around - 19 °C, lows near 5 °C\nJanuary - Highs around - 18 °C, lows near 4°C\n\nWhile these are the average temperatures, we request everyone to check the weather forecast before packing.'
-      },
-      {
-        question: 'What meals/cuisines will be provided at the camp?',
-        answer: 'We take pride in the excellent cuisine served at the camp, with an emphasis on wholesome, hygienic, and delicious meals, offering a variety to cater to different dietary needs. Fresh fruits and vegetables are sourced locally.\n\nBREAKFAST - Continental & Indian: Corn flakes/porridge, eggs, toast/pancakes/french toast, paratha, butter, jam, baked beans/french fries, fruits, tea/coffee.\n\nLUNCH - Indian: Normally vegetarian consisting of Dal/Rajma, two vegetables, rice (fried/plain), chapati, papad, salad,& fruit\n\nDINNER - A special meal with variations of Barbecue - Indian, Continental or Chinese cuisine complete with dessert.'
-      },
-      {
-        question: 'What safety measures are in place for outdoor activities?',
-        answer: 'We take safety as seriously as the thrill.\n\nRafting: Top-grade rafts from NRS (USA), mandatory helmets and life jackets, rescue and first-aid gear on every raft, and clear safety briefings before you hit the water.\n\nKayaking, Climbing, Rope Courses & Hiking: Led by trained instructors with thoroughly checked gear. All routes are risk-assessed, designed to be low-impact, and include a buddy system for support. Accessible modifications ensure everyone can join in safely.'
-      },
-      {
-        question: 'Are there any things we need to be mindful of?',
-        answer: 'We will happily refuse intoxicated participants without any refunds, for their own safety. We recommend avoiding alcohol, drugs, or any intoxicants for at least 6 hours before an adventure outing.\n\nNo loud music or bright lights are allowed. The camp is located in a Reserved Forest Area, and we encourage guests to appreciate the joy of being very close to nature.\n\nOur ground staff may refuse service if payments are not cleared upon arrival.'
-      }
-    ]
+    faqs: campAquaterraFaqs
   },
   {
     id: '4',
@@ -520,7 +1835,8 @@ export const trips: Trip[] = [
       'Any expense incurred due to force of nature such as landslides, bad weather or reasons beyond our control',
       'Tips & gratuities (we recommend 5-10% of your trip cost- to be distributed among the team) – personal choice',
       'Travel & cancellation insurance'
-    ]
+    ],
+    faqs: shamValleyFaqs
   },
   {
     id: '5',
@@ -599,7 +1915,8 @@ export const trips: Trip[] = [
       'Any expense incurred due to force of nature such as landslides, bad weather or reasons beyond our control',
       'Tips & gratuities (we recommend 5-10% of your trip cost - to be distributed among the team)',
       'Travel & cancellation insurance'
-    ]
+    ],
+    faqs: ranakotTrekFaqs
   },
   {
     id: '7',
@@ -687,7 +2004,8 @@ export const trips: Trip[] = [
       'Bottled water',
       'Emergency expenses',
       'Sports shoes or trekking shoes',
-    ]
+    ],
+    faqs: campBagiFaqs
   },
   {
     id: '8',
@@ -696,7 +2014,7 @@ export const trips: Trip[] = [
     category: 'camps',
     duration: '3 Days, 2 Nights',
     difficulty: 'Easy',
-    price: '₹7,500 + 5% GST',
+    price: '₹10,000 + 5% GST + Travel',
     rating: 4.7,
     reviews: 0,
     image: '/camping/camp-hornbill-01.webp',
@@ -787,32 +2105,7 @@ export const trips: Trip[] = [
       { month: 'November', low: 11, high: 23, conditions: 'Cool and dry' },
       { month: 'December', low: 7, high: 20, conditions: 'Cool, especially mornings & evenings' }
     ],
-    faqs: [
-      {
-        question: 'As a Person with Disability, what are the activities I can participate in at the camp?',
-        answer: 'Camp Hornbill offers a range of nature, adventure and community-based experiences, including nature walks, pond immersion, canal body surfing, ziplining, village walks, yoga, riverside reflection and community activities. Participation can be adapted based on individual abilities, comfort, safety and support needs, so you can enjoy the experiences that work best for you.\n\nThe final suitability of an activity will be determined by the trained instructors and the Treks for All team after understanding the participant\'s needs.'
-      },
-      {
-        question: 'How accessible is Camp Hornbill?',
-        answer: 'Camp Hornbill is suitable for ambulant disabilities but is not fully wheelchair accessible due to the terrain. Participants using wheelchairs should contact the Treks for All team before registration so that individual requirements and activity suitability can be discussed.'
-      },
-      {
-        question: 'How will the weather be at the camp?',
-        answer: 'September – 22–29°C, moderate to high rain. Warm, humid and still influenced by the monsoon. Lush greenery, but rain can affect outdoor activities.\n\nOctober – 17–29°C, low rain. Pleasant and generally clearer. Cooler mornings and evenings make it one of the best months for outdoor activities.\n\nNovember – 12–25°C, very low rain. Comfortable, dry days with noticeably cooler mornings and evenings. Excellent for nature walks and outdoor experiences.\n\nDecember – 8–21°C, low rain. Cool winter weather, particularly in the mornings and after sunset. Days are generally pleasant and dry.\n\nWhile these are the average temperatures, we request everyone to check the weather forecast before packing.'
-      },
-      {
-        question: 'What meals/cuisines will be provided at the camp?',
-        answer: 'Meals at Camp Hornbill focus on fresh, wholesome and locally inspired food, giving participants an opportunity to experience the flavours of the Kumaon region.\n\nBREAKFAST - Indian/Continental: A simple, hearty breakfast with tea/coffee and locally prepared options.\n\nLUNCH - Indian/Vegetarian: A wholesome meal featuring local and seasonal ingredients.\n\nDINNER - Indian/Continental, vegetarian & non-vegetarian: Fresh, comforting meals with regional flavours, enjoyed as part of the camp\'s community dining experience.\n\nLOCAL FOOD EXPERIENCE: Participants may also have the opportunity to share a meal with a local family and experience authentic village hospitality.'
-      },
-      {
-        question: 'What safety measures are in place for outdoor activities?',
-        answer: 'We take safety as seriously as the thrill.\n\nBody Surfing: Trained guides, mandatory helmets and life jackets, rescue and first-aid gear at the spot, and clear safety briefings before you hit the water.\n\nAll other adventure activities are conducted at an adventure park just a 10-minute walk from the camp, with trained guides and all safety gear provided.'
-      },
-      {
-        question: 'Are there any things we need to be mindful of?',
-        answer: 'We will happily refuse intoxicated participants without any refunds, for their own safety. We recommend avoiding alcohol, drugs, or any intoxicants for at least 6 hours before an adventure outing.\n\nNo loud music or bright lights are allowed. The camp is located in a Reserved Forest Area, and we encourage guests to appreciate the joy of being very close to nature.\n\nOur ground staff may refuse service if payments are not cleared upon arrival.'
-      }
-    ]
+    faqs: campHornbillFaqs
   },
   {
     id: '10',
@@ -821,7 +2114,7 @@ export const trips: Trip[] = [
     category: 'camps',
     duration: '3 Days, 2 Nights',
     difficulty: 'Easy',
-    price: '₹7,500 + 5% GST',
+    price: '₹8,500 + 5% GST + Travel',
     rating: 4.7,
     reviews: 0,
     image: '/camping/camp-sunkiya-02.webp',
@@ -913,32 +2206,95 @@ export const trips: Trip[] = [
       { month: 'November', low: 6, high: 17, conditions: 'Cool and dry' },
       { month: 'December', low: 4, high: 14, conditions: 'Cold and crisp' }
     ],
-    faqs: [
+    faqs: campSunkiyaFaqs
+  },
+  {
+    id: '11',
+    title: 'The Himalayan Adventure Challenge (HAC)',
+    location: 'Atali Ganga & Rishikesh, Uttarakhand',
+    category: 'rivers',
+    duration: '3 Days, 2 Nights',
+    difficulty: 'Moderate',
+    price: '₹12,625 per person (incl. 5% GST)',
+    rating: 4.9,
+    reviews: 42,
+    image: '/hac/hac-banner.jpg',
+    gallery: [
+      '/hac/hac-banner.jpg',
+      '/hac/hac-title.jpg',
+      '/hac/hac-badge.jpg',
+      '/hac/hac-logo-diamonds.jpg',
+      '/camping/Camp-Aquaterra-New-01.webp',
+      '/camping/Camp-Aquaterra-New-02.webp',
+      '/camping/Camp-Aquaterra-05.webp',
+      '/water-adventures/Home-Rafting.webp'
+    ],
+    description: "The Himalayan Adventure Challenge (HAC), India's signature multi-discipline adventure race held in Rishikesh since 2013, is now inclusive. In its 11th edition, this prestigious event opens its doors to teams of persons with disabilities and their buddies, in partnership with Treks For All.\n\nHosted by Aquaterra Adventures and Atali Ganga, the event features the 10 km Open Challenge: 5 km whitewater rafting down the Ganga plus a 5 km mountain trail hike. Every team consists of four members (two persons with disabilities and two buddies), competing under a marathon-tested handicap scoring system. The winning team takes it all: a free holiday and a surprise goodies bag, followed by an awards gala dinner with live music.",
+    maxAltitude: '450m',
+    groupSize: 'Teams of 4 (Min 3 teams)',
+    departureDates: ['December 18 - 20, 2026'],
+    highlights: [
+      '10 km Open Challenge: 5 km rafting on the Ganga + 5 km hiking',
+      'Now fully inclusive: teams of 2 persons with disabilities + 2 buddies',
+      'Handicap scoring adjusted for age and gender (Boston & NY Marathon standards)',
+      'Grand prize: Winning team takes a free holiday & goodies bag',
+      'Accommodations at Atali Ganga & Camp Aquaterra in a forest setting',
+      'Gala dinner with live music and awards ceremony at Atali Ganga',
+      'Giving Back mission: sponsoring local youth athletes from Uttarakhand',
+      'Partners: Aquaterra Adventures, Edify Sports, Sea to Summit, Ace Blend'
+    ],
+    itinerary: [
       {
-        question: 'As a Person with Disability, what are the activities I can participate in at the camp?',
-        answer: 'The programme includes adventure, nature, group and community-based experiences such as the Vertical Ladder, Friendship Ladder, Zip Line, Archery, village interaction and cultural activities. Participation can be adapted according to individual abilities, comfort, support needs and safety requirements.\n\nThe final suitability of an activity will be determined by the trained instructors and the Treks for All team after understanding the participant\'s needs.'
+        day: 1,
+        title: 'Arrival, Check-in & Race Briefing',
+        description: 'Arrive between 12:00 and 14:00 at race base (Atali Ganga / Camp Aquaterra). Settle into your cottages or safari tents. At 17:00, gather for the official race briefing, course walkthrough, safety rules, and timing chip distribution, followed by an early dinner at your base.',
+        accommodation: 'Atali Ganga / Camp Aquaterra',
+        altitude: '450m',
+        trekTime: 'Arrival & Orientation',
+        difficulty: 'Easy'
       },
       {
-        question: 'How accessible is Camp Sunkiya?',
-        answer: 'Camp Sunkiya is suitable for ambulant disabilities but is not fully wheelchair accessible due to the terrain. Participants using wheelchairs should contact the Treks for All team before registration so that individual requirements and activity suitability can be discussed.'
+        day: 2,
+        title: 'Race Day: 10 km Open Challenge (5 km Rafting + 5 km Hiking)',
+        description: 'At 13:00, teams transfer for paddle & bike orientation, safety drills, and water practice. Lunch is served from 14:00 to 15:00. At 15:30, the race flags off at Malakhunti! Teams paddle 5 km down the Ganga to Sarasu village, transition to foot, and trek 5 km back to Malakhunti (17:30 race finish). Transfer to hotels, followed by awards and gala dinner with live music at Atali Ganga from 18:00.',
+        accommodation: 'Atali Ganga / Camp Aquaterra',
+        altitude: '450m',
+        trekTime: '10 km (5 km raft + 5 km hike)',
+        difficulty: 'Moderate'
       },
       {
-        question: 'How will the weather be at the camp?',
-        answer: 'September – 13–20°C, around 202 mm of rain. Post-monsoon transition; lush surroundings, but rain can still affect activities.\n\nOctober – 10–19°C, around 61 mm of rain. Cooler and generally more comfortable, with moderate rainfall.\n\nNovember – 6–16°C, around 9 mm of rain. Cool and relatively dry, especially in the mornings and evenings.\n\nMukteshwar has cool mountain temperatures. March to June and September to November are the preferred months for the camp. September can still receive significant rainfall, while October and November are generally cooler and drier. Weather conditions can affect outdoor activities, so please come prepared for changing conditions.'
-      },
-      {
-        question: 'What meals/cuisines will be provided at the camp?',
-        answer: 'BREAKFAST: Start your day with a hearty breakfast featuring Indian favourites, Continental options, fresh fruits, eggs, bread, parathas, poha, upma, tea and coffee.\n\nLUNCH: Refuel after your morning adventures with wholesome dal, rice, roti, seasonal vegetables, paneer, rajma or chole, along with salads, curd and local Kumaoni preparations.\n\nEVENING SNACKS: Unwind with tea, coffee, lemonade and freshly prepared snacks such as pakoras, samosas, sandwiches, cookies and local favourites.\n\nDINNER: End the day with a comforting spread of Indian, Continental and Kumaoni dishes, including dal, rice, roti, seasonal vegetables, paneer, pasta and regional specialities.'
-      },
-      {
-        question: 'What safety measures are in place for outdoor activities?',
-        answer: 'Adventure and group activities are conducted with trained instructors, with safety gear and guidance included. Participants should follow all safety briefings and activity-specific instructions. Final participation in an activity will depend on individual ability and safety considerations.'
-      },
-      {
-        question: 'Are there any things we need to be mindful of?',
-        answer: 'Camp Sunkiya is situated in a mountain and village environment. Participants should be prepared for uneven terrain, changing weather and outdoor conditions. Please follow the instructions of the camp and the Treks for All team, and respect the local community and environment.'
+        day: 3,
+        title: 'Morning by the River & Departure',
+        description: 'Enjoy a leisurely breakfast and soak in the tranquil forest venue along the Ganga. Take a peaceful morning walk or spend time by the river before departing after breakfast with cherished memories and new friendships.',
+        accommodation: 'N/A',
+        altitude: '450m',
+        trekTime: 'Relaxation & Departure',
+        difficulty: 'Easy'
       }
-    ]
+    ],
+    inclusions: [
+      '2 nights twin-sharing accommodation (Atali Ganga / Camp Aquaterra)',
+      'All meals from Friday evening through Sunday breakfast',
+      'Saturday night awards gala dinner with live music at Atali Ganga',
+      'Race transfers between accommodations and Malakhunti race venue',
+      'Rafting gear (rafts, PFDs, paddles, helmets) and mountain trail support',
+      'Official timing by Edify Sports, marshals, and emergency safety support',
+      '5% GST included'
+    ],
+    exclusions: [
+      'Travel from home to Rishikesh/Byasi and back',
+      'Personal outdoor clothing, footwear, and personal medicines',
+      'Any transfers or meals outside the official HAC schedule',
+      'Emergency medical expenses or personal travel insurance',
+      'Expenses of personal nature (laundry, phone calls, etc.)'
+    ],
+    packingList: campEssentialsPackingList,
+    weather: [
+      { month: 'December', low: 7, high: 21, conditions: 'Crisp sunny days, cool evenings by the river' },
+      { month: 'November', low: 11, high: 24, conditions: 'Pleasant and dry' },
+      { month: 'October', low: 16, high: 29, conditions: 'Clear and comfortable' }
+    ],
+    faqs: hacFaqs
   }
 ];
 
@@ -992,7 +2348,8 @@ export const trips2026: Trip[] = [
       'Personal equipment',
       'Tips for guides and staff',
       'Travel insurance'
-    ]
+    ],
+    faqs: everestBaseCampFaqs
   },
   {
     id: '102',
@@ -1042,7 +2399,8 @@ export const trips2026: Trip[] = [
       'Personal equipment',
       'Tips and personal expenses',
       'Travel insurance'
-    ]
+    ],
+    faqs: annapurnaCircuitFaqs
   },
   {
     id: '103',
@@ -1092,7 +2450,8 @@ export const trips2026: Trip[] = [
       'Personal expenses',
       'Travel insurance',
       'Tips for staff'
-    ]
+    ],
+    faqs: spitiValleyFaqs
   },
   {
     id: '104',
@@ -1142,6 +2501,7 @@ export const trips2026: Trip[] = [
       'Camera equipment',
       'Tips for staff',
       'Travel insurance'
-    ]
+    ],
+    faqs: brahmaputraSafariFaqs
   }
 ];

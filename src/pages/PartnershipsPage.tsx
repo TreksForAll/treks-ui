@@ -100,6 +100,14 @@ const partnershipTypes: PartnershipType[] = [
     body: 'We welcome photographers, filmmakers, journalists, media organisations, creators and storytellers who can help us share these experiences and challenge perceptions of disability, adventure, independence, ability, risk and inclusion.',
     keywords: ['Disability', 'Adventure', 'Independence', 'Ability', 'Risk', 'Inclusion'],
     cta: 'Tell the Story With Us'
+  },
+  {
+    id: 'promotion',
+    label: 'Promotion Partners',
+    icon: Sparkles,
+    headline: 'Taking the idea further and amplifying the movement.',
+    body: 'We partner with travel platforms, digital networks and brand allies to amplify the idea of accessible travel, helping take inclusive adventure beyond the TFA community and inspiring more people to explore.',
+    cta: 'Become a Promotion Partner'
   }
 ];
 
@@ -154,6 +162,35 @@ const partnerCategories: PartnerCategory[] = [
       cta: 'Be the first Karwaan Partner'
     },
     closing: 'Making someday today.'
+  },
+  {
+    id: 'community',
+    label: 'Community Partners',
+    headline: 'Creating more pathways to the outdoors.',
+    partners: [
+      {
+        name: '18NotOut',
+        mark: '18',
+        logo: '/partners/18notout.svg',
+        tagline: 'Inclusive travel and adventure for families.',
+        blurb: '18NotOut breaks social and physical barriers by creating safe, inclusive opportunities for families of children with disabilities to experience travel, outdoor adventure and community participation.'
+      },
+      {
+        name: 'Jagriti Yatra',
+        mark: 'JY',
+        logo: '/partners/jagriti-yatra.png',
+        tagline: 'Making the yatra more inclusive.',
+        blurb: 'Jagriti Yatra is working with Treks for All to make its journeys more inclusive, creating opportunities for people with diverse abilities to participate in the Yatra experience and be part of the journey alongside others.'
+      },
+      {
+        name: 'Raahein Collective',
+        mark: 'RC',
+        logo: '/partners/raahein-collective.jpeg',
+        tagline: 'Creating space for caregivers and counsellors to pause, connect and recharge.',
+        blurb: 'Raahein Collective is partnering with Treks for All to create camps for caregivers and counsellors, offering time away from the demands of caregiving and support work — a space to rest, connect, experience the outdoors and address burnout.'
+      }
+    ],
+    closing: 'New people. New possibilities.'
   },
   {
     id: 'corporate',
@@ -222,26 +259,18 @@ const partnerCategories: PartnerCategory[] = [
     closing: 'You can teach inclusion in a classroom. Sometimes, you understand it best when you’re walking the same trail.'
   },
   {
-    id: 'community',
-    label: 'Community Partners',
-    headline: 'Creating more pathways to the outdoors.',
+    id: 'promotion',
+    label: 'Promotion Partners',
+    headline: 'Taking the idea further and amplifying the movement.',
     partners: [
       {
-        name: 'Jagriti Yatra',
-        mark: 'JY',
-        logo: '/partners/jagriti-yatra.png',
-        tagline: 'Making the yatra more inclusive.',
-        blurb: 'Jagriti Yatra is working with Treks for All to make its journeys more inclusive, creating opportunities for people with diverse abilities to participate in the Yatra experience and be part of the journey alongside others.'
-      },
-      {
-        name: 'Raahein Collective',
-        mark: 'RC',
-        logo: '/partners/raahein-collective.jpeg',
-        tagline: 'Creating space for caregivers and counsellors to pause, connect and recharge.',
-        blurb: 'Raahein Collective is partnering with Treks for All to create camps for caregivers and counsellors, offering time away from the demands of caregiving and support work — a space to rest, connect, experience the outdoors and address burnout.'
+        name: 'MakeMyTrip',
+        mark: 'MMT',
+        logo: '/partners/makemytrip.svg',
+        blurb: 'Helping take inclusive adventure beyond the TFA community by amplifying the idea of accessible travel and inspiring more people to explore.'
       }
     ],
-    closing: 'New people. New possibilities.'
+    closing: 'Taking inclusive adventure further and amplifying the movement.'
   }
 ];
 

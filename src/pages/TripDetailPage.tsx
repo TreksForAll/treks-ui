@@ -23,7 +23,10 @@ import {
   X,
   Download,
   Play,
-  CreditCard
+  CreditCard,
+  ChevronDown,
+  ChevronUp,
+  Search
 } from 'lucide-react';
 import { trips } from '../data/trips';
 import { getDifficultyIcon, getDifficultyColor } from '../utils/difficultyUtils';
@@ -84,11 +87,51 @@ const TripDetailPage = () => {
   const [bookingSubmitStatus, setBookingSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [bookingIntent, setBookingIntent] = useState<'enquiry' | 'payment' | null>(null);
 
+  // FAQ state & filters
+  const [faqSearch, setFaqSearch] = useState('');
+  const [selectedFaqCategory, setSelectedFaqCategory] = useState('All');
+  const [openFaqIndices, setOpenFaqIndices] = useState<number[]>([0]);
+
+  const toggleFaqIndex = (idx: number) => {
+    setOpenFaqIndices(prev =>
+      prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
+    );
+  };
+
+  const faqCategories = React.useMemo(() => {
+    if (!trip.faqs) return [];
+    const cats = Array.from(new Set(trip.faqs.map(f => f.category).filter(Boolean))) as string[];
+    return cats.length > 0 ? ['All', ...cats] : [];
+  }, [trip.faqs]);
+
+  const filteredFaqs = React.useMemo(() => {
+    if (!trip.faqs) return [];
+    return trip.faqs.filter(f => {
+      const matchesCategory = selectedFaqCategory === 'All' || f.category === selectedFaqCategory;
+      const qLower = faqSearch.toLowerCase().trim();
+      const matchesSearch = !qLower || f.question.toLowerCase().includes(qLower) || f.answer.toLowerCase().includes(qLower);
+      return matchesCategory && matchesSearch;
+    });
+  }, [trip.faqs, selectedFaqCategory, faqSearch]);
+
+  const areAllOpen = filteredFaqs.length > 0 && filteredFaqs.every((_, i) => openFaqIndices.includes(i));
+
+  const toggleAllFaqs = () => {
+    if (areAllOpen) {
+      setOpenFaqIndices([]);
+    } else {
+      setOpenFaqIndices(filteredFaqs.map((_, i) => i));
+    }
+  };
+
   const parseBasePrice = (priceStr: string): number => {
     const match = priceStr.replace(/,/g, '').match(/[\d]+/);
     return match ? parseInt(match[0]) : 0;
   };
-  const priceHasGst = (priceStr: string) => priceStr.toLowerCase().includes('gst');
+  const priceHasGst = (priceStr: string) => {
+    const p = priceStr.toLowerCase();
+    return p.includes('+') && p.includes('gst');
+  };
 
   useEffect(() => {
     // Check if mobile
@@ -113,6 +156,9 @@ const TripDetailPage = () => {
 
         const bookmarkedTrips = JSON.parse(localStorage.getItem('bookmarkedTrips') || '[]');
         setIsBookmarked(bookmarkedTrips.includes(foundTrip.id));
+        setFaqSearch('');
+        setSelectedFaqCategory('All');
+        setOpenFaqIndices([0]);
       }
     }
 
@@ -925,16 +971,181 @@ const TripDetailPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg"
+              className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg space-y-6"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-8">Frequently Asked Questions</h2>
-              <div className="space-y-6">
-                {trip.faqs.map((faq, index) => (
-                  <div key={index}>
-                    <h3 className="text-lg font-semibold text-earth-800 mb-3">{faq.question}</h3>
-                    <p className="text-earth-600 leading-relaxed whitespace-pre-line">{faq.answer}</p>
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-earth-100 pb-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8f5f6] text-[#214b51] text-xs font-semibold uppercase tracking-wider mb-2">
+                    <HelpCircle className="w-3.5 h-3.5 text-[#377d87]" />
+                    <span>Frequently Asked Questions</span>
                   </div>
-                ))}
+                  <h2 className="text-2xl md:text-3xl font-bold text-earth-800">Frequently Asked Questions</h2>
+                  <p className="text-sm text-earth-600 mt-1">
+                    Clear guidance on trek logistics, preparation, accessibility support, and trail safety.
+                  </p>
+                </div>
+                {filteredFaqs.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={toggleAllFaqs}
+                    className="self-start md:self-auto text-xs sm:text-sm font-semibold text-[#377d87] hover:text-[#214b51] transition-colors py-1.5 px-3.5 rounded-lg border border-[#377d87]/30 hover:border-[#377d87] bg-white cursor-pointer"
+                  >
+                    {areAllOpen ? 'Collapse All' : 'Expand All'}
+                  </button>
+                )}
+              </div>
+
+              {/* Search & Category Controls */}
+              <div className="space-y-4">
+                {trip.faqs.length > 5 && (
+                  <div className="relative">
+                    <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-earth-400" />
+                    <input
+                      type="text"
+                      value={faqSearch}
+                      onChange={(e) => setFaqSearch(e.target.value)}
+                      placeholder="Search questions or keywords (e.g. shoes, fitness, buddies, weather)..."
+                      className="w-full pl-10 pr-10 py-2.5 bg-earth-50/70 border border-earth-200 rounded-xl text-sm text-earth-800 placeholder-earth-400 focus:outline-none focus:ring-2 focus:ring-[#377d87]/30 focus:border-[#377d87] transition-all"
+                    />
+                    {faqSearch && (
+                      <button
+                        type="button"
+                        onClick={() => setFaqSearch('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-earth-400 hover:text-earth-600 p-1"
+                        aria-label="Clear search"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    )}
+                  </div>
+                )}
+
+                {/* Category Pills (if categories exist) */}
+                {faqCategories.length > 1 && (
+                  <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
+                    {faqCategories.map(cat => {
+                      const count = cat === 'All'
+                        ? trip.faqs?.length
+                        : trip.faqs?.filter(f => f.category === cat).length;
+                      const isActive = selectedFaqCategory === cat;
+                      return (
+                        <button
+                          key={cat}
+                          type="button"
+                          onClick={() => setSelectedFaqCategory(cat)}
+                          className={`px-3 py-1.5 rounded-full font-medium transition-all duration-200 cursor-pointer shrink-0 flex items-center gap-1.5 ${
+                            isActive
+                              ? 'bg-[#18363a] text-white shadow-sm ring-2 ring-[#18363a]/20'
+                              : 'bg-earth-100 text-earth-700 hover:bg-earth-200/90 hover:text-earth-900'
+                          }`}
+                        >
+                          <span>{cat}</span>
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                            isActive ? 'bg-white/20 text-white' : 'bg-earth-200/90 text-earth-600'
+                          }`}>
+                            {count}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* FAQ Accordion List */}
+              {filteredFaqs.length > 0 ? (
+                <div className="space-y-3 pt-2">
+                  {filteredFaqs.map((faq, index) => {
+                    const isOpen = openFaqIndices.includes(index);
+                    return (
+                      <div
+                        key={index}
+                        className={`border rounded-xl transition-all duration-200 overflow-hidden ${
+                          isOpen
+                            ? 'border-[#377d87]/40 bg-white shadow-xs'
+                            : 'border-earth-200/80 bg-white hover:border-[#377d87]/30'
+                        }`}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => toggleFaqIndex(index)}
+                          className="w-full flex items-start justify-between text-left p-4 sm:p-5 focus:outline-none group cursor-pointer gap-3"
+                        >
+                          <div className="space-y-1 text-left flex-1">
+                            {faq.category && selectedFaqCategory === 'All' && (
+                              <span className="inline-block text-[10px] uppercase font-bold tracking-wider text-[#377d87] bg-[#e8f5f6] px-2 py-0.5 rounded">
+                                {faq.category}
+                              </span>
+                            )}
+                            <h3 className={`text-sm sm:text-base font-semibold transition-colors ${
+                              isOpen ? 'text-[#18363a]' : 'text-earth-800 group-hover:text-[#18363a]'
+                            }`}>
+                              {faq.question}
+                            </h3>
+                          </div>
+                          <div className={`mt-0.5 w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                            isOpen ? 'bg-[#18363a] text-white' : 'bg-earth-100 text-earth-500 group-hover:bg-[#377d87]/10 group-hover:text-[#377d87]'
+                          }`}>
+                            {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                          </div>
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25 }}
+                            >
+                              <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-earth-600 leading-relaxed text-xs sm:text-sm whitespace-pre-line border-t border-earth-100 pt-3">
+                                {faq.answer}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-center py-10 bg-earth-50 rounded-xl">
+                  <HelpCircle className="h-10 w-10 text-earth-300 mx-auto mb-2" />
+                  <p className="text-earth-700 font-medium text-sm">No questions match your search</p>
+                  <p className="text-earth-500 text-xs mt-1">Try searching with a different term or clear the filter</p>
+                  <button
+                    type="button"
+                    onClick={() => { setFaqSearch(''); setSelectedFaqCategory('All'); }}
+                    className="mt-3 text-xs font-semibold text-[#377d87] hover:underline cursor-pointer"
+                  >
+                    Reset FAQ search
+                  </button>
+                </div>
+              )}
+
+              {/* Contact Assistance Footer */}
+              <div className="mt-8 rounded-xl bg-gradient-to-r from-[#18363a] to-[#214b51] text-white p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="space-y-1 text-center sm:text-left">
+                  <h4 className="font-semibold text-white text-base">Have specific questions about this adventure?</h4>
+                  <p className="text-xs text-white/80">
+                    Reach our inclusion coordinators directly for medical, buddy, or accommodation queries.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href="mailto:admin@treksforall.in"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>admin@treksforall.in</span>
+                  </a>
+                  <a
+                    href="tel:+918279624879"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#e0aa04] hover:bg-[#c99803] text-[#18363a] text-xs font-semibold transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call Team</span>
+                  </a>
+                </div>
               </div>
             </motion.div>
           )}

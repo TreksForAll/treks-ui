@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <defs>
+    <linearGradient id="notoutGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0aa04"/>
+      <stop offset="100%" stop-color="#c99903"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="6" width="46" height="38" rx="8" fill="url(#notoutGold)"/>
+  <text x="12" y="34" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif" font-weight="900" font-size="26px" fill="#18363a">18</text>
+  <text x="58" y="33" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif" font-weight="800" font-size="20px" fill="#18363a" letter-spacing="-0.3px">NotOut</text>
+</svg>
