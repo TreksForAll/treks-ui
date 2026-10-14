@@ -130,8 +130,9 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">Phone</h3>
+                      <p className="text-[#a3d7db]">Rashi: +91 96437 18789</p>
                       <p className="text-[#a3d7db]">Sakshi: +91 82796 24879</p>
-                      <p className="text-[#a3d7db]">Vaishnavi: +91 85277 52157</p>
+                      <p className="text-[#a3d7db]">Tripti: +91 78200 55491</p>
                       <p className="text-[#a3d7db]">Himanshu: +91 96431 84862</p>
                     </div>
                   </div>

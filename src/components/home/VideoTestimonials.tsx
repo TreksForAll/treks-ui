@@ -3,11 +3,24 @@ import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 import { useState } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 
+type VideoTestimonial = {
+  name: string;
+  description: string;
+  quote: string;
+  thumbnail: string;
+  videoId?: string;
+  instagramReel?: string;
+};
+
+// Instagram's reel embed is a 54px header, a 4:5 video and a ~164px footer, so its height
+// follows its width. The width is capped so the player and close button fit short screens.
+const instagramFrameWidth = 'min(400px, calc(100vw - 2rem), calc((100vh - 340px) / 1.25))';
+
 const VideoTestimonials = () => {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<VideoTestimonial | null>(null);
   const [desktopIndex, setDesktopIndex] = useState(0);
 
-  const testimonials = [
+  const testimonials: VideoTestimonial[] = [
     {
       name: 'Vaibhav',
       description: 'I live with paraplegia, but with Treks for All, that didn’t define my experience. What stayed with me was the river, the laughter, and the thrill of trying something new. I rafted for the first time after my accident—and it meant everything',
@@ -56,6 +69,20 @@ const VideoTestimonials = () => {
       videoId: 'j8kmNlPx49o',
       thumbnail: `https://i.ytimg.com/vi/j8kmNlPx49o/maxresdefault.jpg`
     },
+    {
+      name: 'Sourabh (PYDS)',
+      description: 'He thought he was signing up for an adventure. He left with a new perspective on inclusion.',
+      quote: '',
+      instagramReel: 'DbkzJ93zCLn',
+      thumbnail: '/Video-Sourabh.webp'
+    },
+    {
+      name: 'Saurabh Prashad',
+      description: 'Guided well. Supported fully. And the Himalayas? They do the rest.',
+      quote: '',
+      instagramReel: 'DYUcaN8TZFL',
+      thumbnail: '/Video-Saurabh-Prashad.webp'
+    },
   ];
 
   const itemsPerPage = 4;
@@ -97,7 +124,7 @@ const VideoTestimonials = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group cursor-pointer w-full max-w-[85vw]"
-                onClick={() => setActiveVideo(testimonial.videoId)}
+                onClick={() => setActiveVideo(testimonial)}
               >
                 <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
                   <div className="relative w-full aspect-[9/16] overflow-hidden rounded-t-2xl flex-shrink-0">
@@ -156,7 +183,7 @@ const VideoTestimonials = () => {
             <div className="overflow-hidden pb-8">
               <div
                 className="flex transition-transform duration-500 ease-in-out gap-6"
-                style={{ transform: `translateX(calc(-${desktopIndex} * (25% + 18px)))` }}
+                style={{ transform: `translateX(calc(-${desktopIndex} * (25% + 6px)))` }}
               >
                 {testimonials.map((testimonial, index) => (
                   <div
@@ -169,7 +196,7 @@ const VideoTestimonials = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                       className="group cursor-pointer w-full flex"
-                      onClick={() => setActiveVideo(testimonial.videoId)}
+                      onClick={() => setActiveVideo(testimonial)}
                     >
                       <div className="relative rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col bg-[#e8f5f6]/40 border border-[#d1ebed] w-full">
                         <div className="relative w-full aspect-[9/16] overflow-hidden rounded-t-2xl flex-shrink-0">
@@ -226,7 +253,7 @@ const VideoTestimonials = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-6xl"
+              className={activeVideo.instagramReel ? 'relative' : 'relative w-full max-w-6xl'}
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -237,15 +264,27 @@ const VideoTestimonials = () => {
               >
                 <X className="h-8 w-8" />
               </button>
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              {activeVideo.instagramReel ? (
                 <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
-                  src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
-                  title="Participant Testimonial"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  className="block rounded-lg bg-white"
+                  style={{ width: instagramFrameWidth, height: `calc(${instagramFrameWidth} * 1.25 + 204px)` }}
+                  src={`https://www.instagram.com/reel/${activeVideo.instagramReel}/embed/`}
+                  title={`${activeVideo.name} testimonial`}
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                   allowFullScreen
+                  scrolling="no"
                 ></iframe>
-              </div>
+              ) : (
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-lg"
+                    src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1`}
+                    title={`${activeVideo.name} testimonial`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}

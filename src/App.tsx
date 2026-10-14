@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/layout/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import PartnersPage from './pages/PartnersPage';
 import TripsPage from './pages/TripsPage';
 import TripDetailPage from './pages/TripDetailPage';
 import ContactPage from './pages/ContactPage';
@@ -14,8 +13,9 @@ import CampsPage from './pages/CampsPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import CustomisedTripsPage from './pages/CustomisedTripsPage';
 import OutdoorImmersionPage from './pages/OutdoorImmersionPage';
+import KarwaanPage from './pages/KarwaanPage';
+import PartnershipsPage from './pages/PartnershipsPage';
 import PerformanceOptimizer from './components/ui/PerformanceOptimizer';
 import PageLoader from './components/ui/PageLoader';
 import './index.css';
@@ -31,7 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/partners" element={<PartnersPage />} />
+          <Route path="/about/partners" element={<Navigate to="/#partners" replace />} />
           <Route path="/trips" element={<TripsPage />} />
           <Route path="/trip/:id" element={<TripDetailPage />} />
           <Route path="/faqs" element={<FAQsPage />} />
@@ -40,8 +40,10 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/customised-trips" element={<CustomisedTripsPage />} />
+          <Route path="/customised-trips" element={<Navigate to="/partnerships" replace />} />
           <Route path="/outdoor-immersions" element={<OutdoorImmersionPage />} />
+          <Route path="/karwaan" element={<KarwaanPage />} />
+          <Route path="/partnerships" element={<PartnershipsPage />} />
         </Routes>
         <Footer />
       </div>

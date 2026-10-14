@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
-import { Mountain, Users, Award, Globe, Leaf, Shield, Accessibility, HandHeart, Eye } from 'lucide-react';
+import { Mountain, Users, Award, Globe, Leaf, Shield, Accessibility, HandHeart, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSection';
@@ -25,9 +25,155 @@ type TeamGroup = {
 
 const teamAssetPath = (fileName: string) => `/TFA%20team/${encodeURIComponent(fileName)}`;
 
+// Hardware-accelerated ambient WebGL shader background for the Team Section
+const WebGLCanvas: React.FC<{ className?: string }> = ({ className }) => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const gl = canvas.getContext('webgl', { alpha: true, antialias: true });
+    if (!gl) return;
+
+    let animationFrameId: number;
+    let isVisible = true;
+
+    const vsSource = `
+      attribute vec2 a_position;
+      void main() {
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    `;
+
+    const fsSource = `
+      precision mediump float;
+      uniform vec2 u_resolution;
+      uniform float u_time;
+      void main() {
+        vec2 st = gl_FragCoord.xy / u_resolution.xy;
+        float wave = sin(st.x * 2.8 + u_time * 0.35) * 0.5 + 0.5;
+        float wave2 = cos(st.y * 2.2 - u_time * 0.25) * 0.5 + 0.5;
+        vec3 colorDeep = vec3(0.094, 0.212, 0.227); // #18363a
+        vec3 colorTeal = vec3(0.216, 0.490, 0.529); // #377d87
+        vec3 colorGold = vec3(0.878, 0.667, 0.016); // #e0aa04
+        vec3 col = mix(colorDeep, colorTeal, st.y * 0.7 + wave * 0.3);
+        col = mix(col, colorGold, (1.0 - st.x) * wave2 * 0.1);
+        gl_FragColor = vec4(col, 0.08);
+      }
+    `;
+
+    const createShader = (glCtx: WebGLRenderingContext, type: number, source: string) => {
+      const shader = glCtx.createShader(type);
+      if (!shader) return null;
+      glCtx.shaderSource(shader, source);
+      glCtx.compileShader(shader);
+      if (!glCtx.getShaderParameter(shader, glCtx.COMPILE_STATUS)) {
+        glCtx.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    };
+
+    const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+    if (!vs || !fs) return;
+
+    const program = gl.createProgram();
+    if (!program) return;
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+
+    gl.useProgram(program);
+
+    const positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW
+    );
+
+    const posAttr = gl.getAttribLocation(program, 'a_position');
+    gl.enableVertexAttribArray(posAttr);
+    gl.vertexAttribPointer(posAttr, 2, gl.FLOAT, false, 0, 0);
+
+    const resLoc = gl.getUniformLocation(program, 'u_resolution');
+    const timeLoc = gl.getUniformLocation(program, 'u_time');
+
+    const resize = () => {
+      if (!canvas) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const width = Math.floor(canvas.clientWidth * dpr);
+      const height = Math.floor(canvas.clientHeight * dpr);
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+        gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
+    const startTime = performance.now();
+    const render = () => {
+      if (isVisible) {
+        resize();
+        const elapsed = (performance.now() - startTime) / 1000;
+        gl.uniform2f(resLoc, canvas.width, canvas.height);
+        gl.uniform1f(timeLoc, elapsed);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      }
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+      gl.deleteProgram(program);
+      gl.deleteShader(vs);
+      gl.deleteShader(fs);
+      gl.deleteBuffer(positionBuffer);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className={className} aria-hidden="true" />;
+};
+
+const carouselVariants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? 36 : -36,
+    opacity: 0
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      x: { type: 'spring', stiffness: 220, damping: 26 },
+      opacity: { duration: 0.3, ease: 'easeOut' }
+    }
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? -36 : 36,
+    opacity: 0,
+    transition: {
+      x: { type: 'spring', stiffness: 220, damping: 26 },
+      opacity: { duration: 0.2, ease: 'easeIn' }
+    }
+  })
+};
+
 const AboutPage = () => {
   const heroRef = useRef(null);
   const [activeTeamGroupIndex, setActiveTeamGroupIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -57,65 +203,14 @@ const AboutPage = () => {
           description: 'Treks for All first began as an idea Pankaj simply could not let go of: an outdoors experience that truly included everyone. Bringing together his love for the mountains and years in the development sector, he is deeply rooted in community-led work and creating impact that feels real, not performative. Calm, grounded, and quietly dependable, he is usually the one thinking three steps ahead while everyone else is just admiring the view.'
         },
         {
-          name: 'Shashaank Awasthi',
-          image: teamAssetPath('Shashaank Awasthi.jpeg'),
-          description: 'Equal parts boardroom and basecamp, Shashaank is on a mission to make both work and the outdoors more inclusive. He founded Treks for All to open up adventure to everyone, and co-founded v-shesh, an award-winning enterprise reshaping disability inclusion across education, skilling, and employment across 500+ organisations.'
-        },
-        {
           name: 'Vaibhav Kala',
           image: teamAssetPath('Vaibhav Kala.jpeg'),
           description: 'An OG of India\'s adventure travel scene, Vaibhav has been rewriting the rulebook since before it was written. From dreaming up expeditions others thought were too wild to work to actually making them happen, he has built a legacy on pushing boundaries and opening adventure travel to communities long left out.'
-        }
-      ]
-    },
-    {
-      title: 'Operations Team',
-      description: 'The team that keeps the experience seamless, calm, and guest-ready behind the scenes.',
-      accentClass: 'from-[#377d87] via-[#4b9aa3] to-[#8cc8ce]',
-      tagClass: 'bg-[#377d87] text-white',
-      members: [
-        {
-          name: 'Himanshu Rana',
-          image: teamAssetPath('Himanshu.jpeg'),
-          description: 'A hospitality and tourism professional with a knack for keeping things smooth behind the scenes, Himanshu thrives on creating seamless experiences. From managing adventure logistics to coordinating guest trips, he is the kind of person who makes every adventure feel effortlessly put together.'
-        }
-      ]
-    },
-    {
-      title: 'Technical Team',
-      description: 'River guides, trek leaders, and safety-first operators who make every trip possible on the ground.',
-      accentClass: 'from-[#214b51] via-[#377d87] to-[#5ba5ad]',
-      tagClass: 'bg-[#214b51] text-white',
-      members: [
-        {
-          name: 'Dhruv Naresh Rana',
-          image: teamAssetPath('Dhruv Naresh Rana.jpeg'),
-          description: 'With 25+ years on the river and still chasing the next rapid, Rana ji brings serious skill with zero fuss. A seasoned raft guide and safety kayaker who has represented India in competitions across India and China, he keeps operations tight, experiences unforgettable, and every guest smiling.'
         },
         {
-          name: 'Jetandra Singh Rana',
-          image: teamAssetPath('Jetandra.jpeg'),
-          description: 'Guiding since 2004, Jetandra has done it all: camps, treks, whitewater, and high-altitude expeditions from Stok Kangri and Kang Yatse II to Kilimanjaro. He is also the group\'s resident jester, lifting spirits with perfectly timed jokes and riddles just when the climb gets tough.'
-        },
-        {
-          name: 'Vikas Rana',
-          image: teamAssetPath('Vikas Rana.jpeg'),
-          description: 'Guiding since 2007 and raised in the heart of Uttarkashi, Vikas has the mountains in his DNA. From the Garhwal Himalayas to far corners of India\'s ranges, he shows up with quiet confidence, deep knowledge, and the steady presence that reassures first-timers and seasoned adventurers alike.'
-        },
-        {
-          name: 'Kaanha Singh',
-          image: teamAssetPath('Kanha Singh.jpeg'),
-          description: 'Straight out of the Tons valley, Kaanha is pure power on water. Usually leading the crew straight into the chaos of big Class 4 rapids, his calm control through wild water is a confidence boost for every adventurer he watches over.'
-        },
-        {
-          name: 'Vikas Negi',
-          image: teamAssetPath('Vikas Negi.jpeg'),
-          description: 'Equally at home on raging rivers and mountain trails, Vikas blends technical skill with serious adventure energy. A seasoned rafting guide with strong expertise in safety, rescue, and navigation, he is known to go the extra mile quite literally, including carrying tired adventurers back to the riverbank when needed.'
-        },
-        {
-          name: 'Ankit Singh',
-          image: teamAssetPath('Ankit.jpeg'),
-          description: 'One of the youngest on the block, Ankit still brings serious experience to every trip. Trained in swift water rescue and first aid, he keeps things safe without taking away from the fun, and brings dependable trekking experience across varied terrain.'
+          name: 'Shashaank Awasthi',
+          image: teamAssetPath('Shashaank Awasthi.jpeg'),
+          description: 'Equal parts boardroom and basecamp, Shashaank is on a mission to make both work and the outdoors more inclusive. He founded Treks for All to open up adventure to everyone, and co-founded v-shesh, an award-winning enterprise reshaping disability inclusion across education, skilling, and employment across 500+ organisations.'
         }
       ]
     },
@@ -136,9 +231,70 @@ const AboutPage = () => {
           description: 'Part of the founding team at Treks for All, Sakshi is passionate about making the outdoors truly accessible. A wheelchair basketball player herself, she brings grit, empathy, and lived perspective, helping turn every "can we?" into "let\'s go."'
         },
         {
+          name: 'Tripti',
+          image: teamAssetPath('Tripti.jpeg'),
+          description: 'A city girl by circumstance, a mountain girl at heart. Tripti spends her days in the city, but every now and then, she finds her way back to the mountains—her favourite place to slow down, breathe, and learn. A curious learner and lover of trails, conversations, and letting nature take the lead, she\'s now bringing that spirit to Treks for All—helping make outdoor experiences more inclusive, welcoming, and fun for everyone. Give her a trail, good company, and no rush to get home, and she\'s happy!'
+        },
+        {
           name: 'Vaishnavi Ganesh',
           image: teamAssetPath('Vaishnavi Ganesh PM.jpeg'),
           description: 'Part of the madness since day one, Vaishnavi blends disability inclusion, storytelling, and adventure into one very full backpack. Deeply committed to accessibility and creating spaces where everyone feels seen, heard, and included, she keeps the inclusion conversation moving on and off the trail.'
+        }
+      ]
+    },
+    {
+      title: 'Technical Team',
+      description: 'River guides, trek leaders, and safety-first operators who make every trip possible on the ground.',
+      accentClass: 'from-[#214b51] via-[#377d87] to-[#5ba5ad]',
+      tagClass: 'bg-[#214b51] text-white',
+      members: [
+        {
+          name: 'Vikas Rana',
+          image: teamAssetPath('Vikas Rana.jpeg'),
+          description: 'Guiding since 2007 and raised in the heart of Uttarkashi, Vikas has the mountains in his DNA. From the Garhwal Himalayas to far corners of India\'s ranges, he shows up with quiet confidence, deep knowledge, and the steady presence that reassures first-timers and seasoned adventurers alike.'
+        },
+        {
+          name: 'Jetandra Singh Rana',
+          image: teamAssetPath('Jetandra.jpeg'),
+          description: 'Guiding since 2004, Jetandra has done it all: camps, treks, whitewater, and high-altitude expeditions from Stok Kangri and Kang Yatse II to Kilimanjaro. He is also the group\'s resident jester, lifting spirits with perfectly timed jokes and riddles just when the climb gets tough.'
+        },
+        {
+          name: 'Sunita Chauhan',
+          image: teamAssetPath('Sunita.jpeg'),
+          description: 'Don’t let the dainty looks fool you! Sunita has the strength, spirit and stamina to keep up with just about anyone. A natural favourite with both kids and elders, she has a knack for making everyone feel at ease while quietly taking charge when things get tough. Warm, spirited and always ready for the next adventure, Sunita is proof that the strongest adventurers don’t always look the part!'
+        },
+        {
+          name: 'Dhruv Naresh Rana',
+          image: teamAssetPath('Dhruv Naresh Rana.jpeg'),
+          description: 'With 25+ years on the river and still chasing the next rapid, Rana ji brings serious skill with zero fuss. A seasoned raft guide and safety kayaker who has represented India in competitions across India and China, he keeps operations tight, experiences unforgettable, and every guest smiling.'
+        },
+        {
+          name: 'Kaanha Singh',
+          image: teamAssetPath('Kanha Singh.jpeg'),
+          description: 'Straight out of the Tons valley, Kaanha is pure power on water. Usually leading the crew straight into the chaos of big Class 4 rapids, his calm control through wild water is a confidence boost for every adventurer he watches over.'
+        },
+        {
+          name: 'Vikas Negi',
+          image: teamAssetPath('Vikas Negi.jpeg'),
+          description: 'Equally at home on raging rivers and mountain trails, Vikas blends technical skill with serious adventure energy. A seasoned rafting guide with strong expertise in safety, rescue, and navigation, he is known to go the extra mile quite literally, including carrying tired adventurers back to the riverbank when needed.'
+        },
+        {
+          name: 'Ankit Singh',
+          image: teamAssetPath('Ankit.jpeg'),
+          description: 'One of the youngest on the block, Ankit still brings serious experience to every trip. Trained in swift water rescue and first aid, he keeps things safe without taking away from the fun, and brings dependable trekking experience across varied terrain.'
+        }
+      ]
+    },
+    {
+      title: 'Operations Team',
+      description: 'The team that keeps the experience seamless, calm, and guest-ready behind the scenes.',
+      accentClass: 'from-[#377d87] via-[#4b9aa3] to-[#8cc8ce]',
+      tagClass: 'bg-[#377d87] text-white',
+      members: [
+        {
+          name: 'Himanshu Rana',
+          image: teamAssetPath('Himanshu.jpeg'),
+          description: 'A hospitality and tourism professional with a knack for keeping things smooth behind the scenes, Himanshu thrives on creating seamless experiences. From managing adventure logistics to coordinating guest trips, he is the kind of person who makes every adventure feel effortlessly put together.'
         }
       ]
     },
@@ -164,15 +320,23 @@ const AboutPage = () => {
     }
   ];
 
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setActiveTeamGroupIndex((currentIndex) => (currentIndex + 1) % teamGroups.length);
-    }, 5000);
+  const goToGroup = (index: number) => {
+    setDirection(index > activeTeamGroupIndex ? 1 : -1);
+    setActiveTeamGroupIndex(index);
+  };
 
-    return () => window.clearInterval(intervalId);
-  }, [teamGroups.length]);
+  const nextGroup = () => {
+    setDirection(1);
+    setActiveTeamGroupIndex((prev) => (prev + 1) % teamGroups.length);
+  };
+
+  const prevGroup = () => {
+    setDirection(-1);
+    setActiveTeamGroupIndex((prev) => (prev - 1 + teamGroups.length) % teamGroups.length);
+  };
 
   const activeTeamGroup = teamGroups[activeTeamGroupIndex];
+  const contributorCount = teamGroups.reduce((count, group) => count + group.members.length, 0);
 
 
   return (
@@ -315,9 +479,8 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative mb-12 md:mb-16 ${
-                  index % 2 === 0 ? 'md:flex md:justify-start' : 'md:flex md:justify-end'
-                }`}
+                className={`relative mb-12 md:mb-16 ${index % 2 === 0 ? 'md:flex md:justify-start' : 'md:flex md:justify-end'
+                  }`}
               >
                 {/* Mobile Layout */}
                 <div className="md:hidden pl-10 pr-2">
@@ -360,7 +523,8 @@ const AboutPage = () => {
       </section>
 
       <section className="relative overflow-hidden bg-[#f0f9fa] py-14 sm:py-18 md:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(224,170,4,0.12),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(55,125,135,0.16),_transparent_32%)]" />
+        <WebGLCanvas className="absolute inset-0 w-full h-full pointer-events-none opacity-30" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(224,170,4,0.12),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(55,125,135,0.16),_transparent_32%)] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -379,11 +543,11 @@ const AboutPage = () => {
 
             <div className="grid gap-4 sm:grid-cols-3 max-w-4xl">
               <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
-                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">15</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">{contributorCount}</div>
                 <p className="mt-1 text-sm text-[#377d87]">contributors across field operations, inclusion, and storytelling</p>
               </div>
               <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
-                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">5</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#18363a]">{teamGroups.length}</div>
                 <p className="mt-1 text-sm text-[#377d87]">specialist groups working together behind every experience</p>
               </div>
               <div className="rounded-2xl border border-[#d5e9eb] bg-white/90 px-4 py-4 shadow-sm backdrop-blur">
@@ -393,116 +557,218 @@ const AboutPage = () => {
             </div>
           </motion.div>
 
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-4 sm:mb-6">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#377d87]">Member Groups</p>
-              <p className="mt-1 text-sm text-earth-600 sm:text-base">Each group rotates automatically every few seconds. Use the controls to jump between them.</p>
+          {/* Group Chips with Animated Framer Motion Slider Pill */}
+          <div className="mb-4 flex flex-wrap gap-2 sm:gap-2.5 items-center">
+            {teamGroups.map((group, groupIndex) => {
+              const isActive = groupIndex === activeTeamGroupIndex;
+              return (
+                <button
+                  key={group.title}
+                  type="button"
+                  onClick={() => goToGroup(groupIndex)}
+                  className={`relative rounded-full px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-[0.16em] transition-colors duration-200 cursor-pointer ${isActive ? 'text-white' : 'text-[#214b51] hover:text-[#18363a] bg-white/80 border border-[#c9e0e3]'
+                    }`}
+                  aria-label={`Show ${group.title}`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTeamSliderPill"
+                      className="absolute inset-0 rounded-full bg-[#18363a] shadow-md -z-0"
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative z-10">{group.title}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Static Slider Bars Track */}
+          <div className="mb-6 sm:mb-8 flex items-center justify-between gap-3 sm:gap-4 p-2.5 rounded-2xl bg-white/80 border border-[#d5e9eb] shadow-xs backdrop-blur-sm">
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={prevGroup}
+                aria-label="Previous team group"
+                className="p-2 rounded-xl bg-earth-100 hover:bg-earth-200 text-[#18363a] transition-all cursor-pointer shadow-xs"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={nextGroup}
+                aria-label="Next team group"
+                className="p-2 rounded-xl bg-earth-100 hover:bg-earth-200 text-[#18363a] transition-all cursor-pointer shadow-xs"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="flex-1 grid grid-cols-5 gap-1.5 sm:gap-2 max-w-2xl" role="tablist" aria-label="Team groups slider track">
+              {teamGroups.map((group, groupIndex) => {
+                const isCurrent = groupIndex === activeTeamGroupIndex;
+                const isPast = groupIndex < activeTeamGroupIndex;
+                return (
+                  <button
+                    key={group.title}
+                    type="button"
+                    role="tab"
+                    aria-selected={isCurrent}
+                    onClick={() => goToGroup(groupIndex)}
+                    className="group flex flex-col gap-1 text-left cursor-pointer focus:outline-none"
+                    title={group.title}
+                  >
+                    <div className="relative h-2 w-full rounded-full bg-earth-200/90 overflow-hidden">
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        initial={false}
+                        animate={{
+                          backgroundColor: isCurrent ? '#e0aa04' : isPast ? '#377d87' : '#d5e9eb',
+                          opacity: isCurrent ? 1 : isPast ? 0.75 : 0.4
+                        }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                    <span className="hidden md:block text-[11px] font-semibold truncate text-[#18363a]/75 group-hover:text-[#18363a]">
+                      {group.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="text-xs font-bold uppercase tracking-wider text-[#377d87] shrink-0 px-2">
+              <span>0{activeTeamGroupIndex + 1}</span>
+              <span className="text-[#377d87]/40 mx-1">/</span>
+              <span>0{teamGroups.length}</span>
             </div>
           </div>
 
-          <div className="mb-6 flex flex-wrap gap-2 sm:mb-8">
-            {teamGroups.map((group, groupIndex) => (
-              <button
-                key={group.title}
-                type="button"
-                onClick={() => setActiveTeamGroupIndex(groupIndex)}
-                className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 sm:text-sm ${
-                  groupIndex === activeTeamGroupIndex
-                    ? 'border-[#18363a] bg-[#18363a] text-white shadow-md'
-                    : 'border-[#c9e0e3] bg-white/80 text-[#377d87] hover:border-[#377d87] hover:text-[#18363a]'
-                }`}
-                aria-label={`Show ${group.title}`}
+          <div className="relative">
+            <AnimatePresence mode="popLayout" custom={direction}>
+              <motion.section
+                key={activeTeamGroup.title}
+                custom={direction}
+                variants={carouselVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="overflow-hidden rounded-[28px] border border-[#d5e9eb] bg-white/90 shadow-[0_24px_80px_rgba(24,54,58,0.08)] backdrop-blur-sm"
               >
-                {group.title}
-              </button>
-            ))}
-          </div>
+                {/* Static Top Accent Line */}
+                <div className="h-1 w-full bg-white/20 overflow-hidden">
+                  <div className="h-full bg-white/60 w-full" />
+                </div>
 
-          <AnimatePresence mode="wait">
-            <motion.section
-              key={activeTeamGroup.title}
-              initial={{ opacity: 0, x: 48 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -48 }}
-              transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="overflow-hidden rounded-[28px] border border-[#d5e9eb] bg-white/90 shadow-[0_24px_80px_rgba(24,54,58,0.08)] backdrop-blur-sm"
-            >
-              <div className={`bg-gradient-to-r ${activeTeamGroup.accentClass} px-5 py-5 sm:px-8 sm:py-7`}>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white sm:text-3xl">{activeTeamGroup.title}</h3>
-                    <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90 sm:text-base">
-                      {activeTeamGroup.description}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {teamGroups.map((group, groupIndex) => (
-                      <button
-                        key={group.title}
-                        type="button"
-                        onClick={() => setActiveTeamGroupIndex(groupIndex)}
-                        className={`h-2.5 rounded-full transition-all duration-300 ${groupIndex === activeTeamGroupIndex ? 'w-10 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/70'}`}
-                        aria-label={`Go to ${group.title}`}
-                      />
-                    ))}
+                <div className={`bg-gradient-to-r ${activeTeamGroup.accentClass} px-5 py-5 sm:px-8 sm:py-7`}>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white sm:text-3xl">{activeTeamGroup.title}</h3>
+                      <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/90 sm:text-base">
+                        {activeTeamGroup.description}
+                      </p>
+                    </div>
+
+                    {/* Navigation Controls: Chevrons & Pill Dots */}
+                    <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={prevGroup}
+                          aria-label="Previous team group"
+                          className="p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-white transition-all cursor-pointer backdrop-blur-sm shadow-sm"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={nextGroup}
+                          aria-label="Next team group"
+                          className="p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-white transition-all cursor-pointer backdrop-blur-sm shadow-sm"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        {teamGroups.map((group, groupIndex) => (
+                          <button
+                            key={group.title}
+                            type="button"
+                            onClick={() => goToGroup(groupIndex)}
+                            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${groupIndex === activeTeamGroupIndex
+                                ? 'w-10 bg-white shadow-sm'
+                                : 'w-2.5 bg-white/45 hover:bg-white/70'
+                              }`}
+                            aria-label={`Go to ${group.title}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div
-                className={
-                  activeTeamGroup.members.length === 1
-                    ? 'mx-auto grid max-w-xl gap-5 p-6 sm:p-8'
-                    : activeTeamGroup.members.length === 2
-                      ? 'mx-auto grid max-w-4xl justify-items-center gap-5 p-6 sm:p-8 md:grid-cols-2'
-                      : 'grid gap-5 p-6 sm:p-8 md:grid-cols-2 xl:grid-cols-3'
-                }
-              >
-                {activeTeamGroup.members.map((member, memberIndex) => (
-                  <motion.article
-                    key={member.name}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: memberIndex * 0.05 }}
-                    className={`group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#dcecee] bg-[#fcfefe] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,54,58,0.12)] ${activeTeamGroup.members.length <= 2 ? 'mx-auto w-full max-w-[22rem]' : ''}`}
-                  >
-                    {member.image ? (
-                      <div className={`relative overflow-hidden ${member.imageContain ? 'aspect-[4/5] bg-[#141414]' : 'aspect-[4/5] bg-[#dcecee]'}`}>
-                        <LazyImage
-                          src={member.image}
-                          alt={`${member.name} portrait`}
-                          aspectRatio={member.imageContain ? 'portrait' : 'portrait'}
-                          className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-4 sm:p-5' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
-                        />
-                        {!member.imageContain && (
-                          <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${member.darkMedia ? 'from-[#18363a]/80' : 'from-[#18363a]/55'} to-transparent`} />
-                        )}
-                      </div>
-                    ) : (
-                      <div className="flex aspect-[3/4] items-end bg-[linear-gradient(160deg,#18363a_0%,#214b51_55%,#377d87_100%)] p-6 text-white">
-                        <div>
-                          <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#f7df9a]">Field Leadership</div>
-                          <div className="mt-3 text-4xl font-bold leading-none">
-                            {member.name
-                              .split(' ')
-                              .map((namePart) => namePart[0])
-                              .join('')}
+                <div
+                  className={
+                    activeTeamGroup.members.length === 1
+                      ? 'mx-auto grid max-w-xl gap-5 p-6 sm:p-8'
+                      : activeTeamGroup.members.length === 2
+                        ? 'mx-auto grid max-w-4xl justify-items-center gap-5 p-6 sm:p-8 md:grid-cols-2'
+                        : 'grid gap-5 p-6 sm:p-8 md:grid-cols-2 xl:grid-cols-3'
+                  }
+                >
+                  {activeTeamGroup.members.map((member, memberIndex) => (
+                    <motion.article
+                      key={member.name}
+                      initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 240,
+                        damping: 24,
+                        delay: memberIndex * 0.08 + 0.1
+                      }}
+                      className={`group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#dcecee] bg-[#fcfefe] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(24,54,58,0.12)] ${activeTeamGroup.members.length <= 2 ? 'mx-auto w-full max-w-[22rem]' : ''}`}
+                    >
+                      {member.image ? (
+                        <div className={`relative overflow-hidden ${member.imageContain ? 'aspect-[4/5] bg-[#141414]' : 'aspect-[4/5] bg-[#dcecee]'}`}>
+                          <LazyImage
+                            src={member.image}
+                            alt={`${member.name} portrait`}
+                            aspectRatio={member.imageContain ? 'portrait' : 'portrait'}
+                            className={`h-full w-full ${member.imageContain ? 'object-contain bg-[#141414] p-4 sm:p-5' : 'object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]'}`}
+                          />
+                          {!member.imageContain && (
+                            <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${member.darkMedia ? 'from-[#18363a]/80' : 'from-[#18363a]/55'} to-transparent`} />
+                          )}
+                        </div>
+                      ) : (
+                        <div className="relative overflow-hidden aspect-[4/5] bg-[#dcecee] flex items-end p-6 text-white bg-[linear-gradient(160deg,#18363a_0%,#214b51_55%,#377d87_100%)]">
+                          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#18363a]/60 to-transparent pointer-events-none" />
+                          <div className="relative z-10">
+                            <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#f7df9a]">Field Leadership</div>
+                            <div className="mt-3 text-4xl font-bold leading-none">
+                              {member.name
+                                .split(' ')
+                                .map((namePart) => namePart[0])
+                                .join('')}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    <div className="flex flex-1 flex-col px-5 py-5 sm:px-6">
-                      <div className="mb-3">
-                        <h3 className="text-xl font-bold text-[#18363a]">{member.name}</h3>
+                      <div className="flex flex-1 flex-col px-5 py-5 sm:px-6">
+                        <div className="mb-3">
+                          <h3 className="text-xl font-bold text-[#18363a]">{member.name}</h3>
+                        </div>
+                        <p className="text-sm leading-6 text-earth-600 sm:text-[15px]">{member.description}</p>
                       </div>
-                      <p className="text-sm leading-6 text-earth-600 sm:text-[15px]">{member.description}</p>
-                    </div>
-                  </motion.article>
-                ))}
-              </div>
-            </motion.section>
-          </AnimatePresence>
+                    </motion.article>
+                  ))}
+                </div>
+              </motion.section>
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
@@ -631,7 +897,7 @@ const AboutPage = () => {
               </p>
             </div>
             <Link
-              to="/about/partners"
+              to="/#partners"
               className="flex-shrink-0 bg-[#e0aa04] text-[#214b51] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base hover:bg-[#e5a800] transition-all duration-300 inline-flex items-center space-x-2"
             >
               <HandHeart className="h-5 w-5" />
