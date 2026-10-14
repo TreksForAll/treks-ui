@@ -121,6 +121,8 @@ type Partner = {
   video?: {
     title: string;
     cta?: string;
+    videoId: string;
+    isVertical?: boolean;
   };
 };
 
@@ -203,14 +205,22 @@ const partnerCategories: PartnerCategory[] = [
         blurb: 'Sponsored by Amazon’s Persons with Disabilities & Allies ERG, Amazon partnered with Treks for All to create an outdoor experience bringing together persons with disabilities and allies — creating space to challenge themselves, build connections and experience adventure together.',
         video: {
           title: "Amazon India's Inclusive Camp with Treks for All",
-          cta: 'Watch the Story'
+          cta: 'Watch the Story',
+          videoId: 'rNAC19gJQ2I',
+          isVertical: false
         }
       },
       {
         name: 'SaralX',
         mark: 'SX',
         logo: '/partners/saralx.png',
-        blurb: 'SaralX partnered with Treks for All for an inclusive corporate offsite, bringing colleagues with and without disabilities together outdoors and creating opportunities for connection, participation, confidence and belonging.'
+        blurb: 'SaralX partnered with Treks for All for an inclusive corporate offsite, bringing colleagues with and without disabilities together outdoors and creating opportunities for connection, participation, confidence and belonging.',
+        video: {
+          title: 'Saralx First Team Trip in 3 years | Treks for All',
+          cta: 'Watch the Story',
+          videoId: '3MeKyArGfCI',
+          isVertical: true
+        }
       }
     ],
     closing: 'Inclusion isn’t just something we talk about. It’s something we experience together.'
@@ -253,6 +263,7 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'Purkul Youth Development Society',
         mark: 'P',
+        logo: '/partners/purkul.png',
         blurb: 'Students from PYDS Learning Academy have shared trails, challenges and experiences with persons with disabilities as Buddies — learning inclusion by living it.'
       }
     ],
@@ -283,7 +294,11 @@ const PartnershipsPage = () => {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
 
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<{
+    videoId: string;
+    title: string;
+    isVertical?: boolean;
+  } | null>(null);
   const [activeType, setActiveType] = useState(partnershipTypes[0].id);
   const [form, setForm] = useState({ name: '', email: '', phone: '', organisation: '', partnership: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
@@ -291,9 +306,9 @@ const PartnershipsPage = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsVideoPlaying(false);
+      if (e.key === 'Escape') setActiveVideo(null);
     };
-    if (isVideoPlaying) {
+    if (activeVideo) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
     } else {
@@ -303,7 +318,7 @@ const PartnershipsPage = () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isVideoPlaying]);
+  }, [activeVideo]);
 
   const activeDetail = partnershipTypes.find(type => type.id === activeType) ?? partnershipTypes[0];
 
@@ -491,7 +506,15 @@ const PartnershipsPage = () => {
                           {partner.video && (
                             <button
                               type="button"
-                              onClick={() => setIsVideoPlaying(true)}
+                              onClick={() => {
+                                if (partner.video) {
+                                  setActiveVideo({
+                                    videoId: partner.video.videoId,
+                                    title: partner.video.title,
+                                    isVertical: partner.video.isVertical
+                                  });
+                                }
+                              }}
                               className="mt-4 inline-flex items-center gap-2 self-start bg-[#e8f5f6] hover:bg-[#d1ebed] text-[#18363a] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors duration-200 group/btn"
                             >
                               <div className="bg-[#e0aa04] rounded-full p-1 flex items-center justify-center transition-transform duration-200 group-hover/btn:scale-110">
@@ -765,40 +788,54 @@ const PartnershipsPage = () => {
 
       {/* Video Modal */}
       <AnimatePresence>
-        {isVideoPlaying && (
+        {activeVideo && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-6"
-            onClick={() => setIsVideoPlaying(false)}
+            onClick={() => setActiveVideo(null)}
           >
             <motion.div
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-5xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              className={`relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 ${
+                activeVideo.isVertical
+                  ? 'w-full max-w-sm sm:max-w-md max-h-[88vh] aspect-[9/16]'
+                  : 'w-full max-w-5xl'
+              }`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                onClick={() => setIsVideoPlaying(false)}
+                onClick={() => setActiveVideo(null)}
                 className="absolute top-3 right-3 z-10 text-white/80 hover:text-white bg-black/60 hover:bg-black/90 rounded-full p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#e0aa04]"
                 aria-label="Close video"
                 type="button"
               >
                 <X className="h-6 w-6" />
               </button>
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              {activeVideo.isVertical ? (
                 <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/rNAC19gJQ2I?autoplay=1"
-                  title="Amazon India's inclusive camp with Treks for All"
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1`}
+                  title={activeVideo.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-              </div>
+              ) : (
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1`}
+                    title={activeVideo.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}

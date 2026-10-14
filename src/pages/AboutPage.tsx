@@ -249,9 +249,9 @@ const AboutPage = () => {
       tagClass: 'bg-[#214b51] text-white',
       members: [
         {
-          name: 'Dhruv Naresh Rana',
-          image: teamAssetPath('Dhruv Naresh Rana.jpeg'),
-          description: 'With 25+ years on the river and still chasing the next rapid, Rana ji brings serious skill with zero fuss. A seasoned raft guide and safety kayaker who has represented India in competitions across India and China, he keeps operations tight, experiences unforgettable, and every guest smiling.'
+          name: 'Vikas Rana',
+          image: teamAssetPath('Vikas Rana.jpeg'),
+          description: 'Guiding since 2007 and raised in the heart of Uttarkashi, Vikas has the mountains in his DNA. From the Garhwal Himalayas to far corners of India\'s ranges, he shows up with quiet confidence, deep knowledge, and the steady presence that reassures first-timers and seasoned adventurers alike.'
         },
         {
           name: 'Jetandra Singh Rana',
@@ -264,9 +264,9 @@ const AboutPage = () => {
           description: 'Don’t let the dainty looks fool you! Sunita has the strength, spirit and stamina to keep up with just about anyone. A natural favourite with both kids and elders, she has a knack for making everyone feel at ease while quietly taking charge when things get tough. Warm, spirited and always ready for the next adventure, Sunita is proof that the strongest adventurers don’t always look the part!'
         },
         {
-          name: 'Vikas Rana',
-          image: teamAssetPath('Vikas Rana.jpeg'),
-          description: 'Guiding since 2007 and raised in the heart of Uttarkashi, Vikas has the mountains in his DNA. From the Garhwal Himalayas to far corners of India\'s ranges, he shows up with quiet confidence, deep knowledge, and the steady presence that reassures first-timers and seasoned adventurers alike.'
+          name: 'Dhruv Naresh Rana',
+          image: teamAssetPath('Dhruv Naresh Rana.jpeg'),
+          description: 'With 25+ years on the river and still chasing the next rapid, Rana ji brings serious skill with zero fuss. A seasoned raft guide and safety kayaker who has represented India in competitions across India and China, he keeps operations tight, experiences unforgettable, and every guest smiling.'
         },
         {
           name: 'Kaanha Singh',
