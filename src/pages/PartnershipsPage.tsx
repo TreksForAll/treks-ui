@@ -145,6 +145,7 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'TBO',
         mark: 'TBO',
+        logo: '/partners/tbo.svg',
         blurb: 'TBO supports Treks for All through Karwaan — Making Someday Possible, providing financial support that enables people from disadvantaged backgrounds to participate in outdoor experiences.',
         link: { to: '/karwaan', label: 'About Karwaan' }
       }
@@ -173,7 +174,7 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: '18NotOut',
         mark: '18',
-        logo: '/partners/18notout.svg',
+        logo: '/partners/18notout.png',
         tagline: 'Inclusive travel and adventure for families.',
         blurb: '18NotOut breaks social and physical barriers by creating safe, inclusive opportunities for families of children with disabilities to experience travel, outdoor adventure and community participation.'
       },
@@ -202,6 +203,7 @@ const partnerCategories: PartnerCategory[] = [
       {
         name: 'Amazon',
         mark: 'A',
+        logo: '/partners/amazon.svg',
         blurb: 'Sponsored by Amazon’s Persons with Disabilities & Allies ERG, Amazon partnered with Treks for All to create an outdoor experience bringing together persons with disabilities and allies — creating space to challenge themselves, build connections and experience adventure together.',
         video: {
           title: "Amazon India's Inclusive Camp with Treks for All",

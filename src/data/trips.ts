@@ -783,7 +783,7 @@ const campBagiFaqs: { question: string; answer: string; category?: string }[] = 
   {
     category: "Activities & Inclusion",
     question: "How are persons with disabilities included in rafting and camp activities?",
-    answer: "Adaptive seating and cushioning in rafts, dedicated buddy support, and modified physical aids ensure participants with locomotor, sensory, or cognitive disabilities can participate fully and safely in the river run and camp life."
+    answer: "Dedicated buddy support, experienced river guides, and personalized assistance ensure participants with locomotor, sensory, or cognitive disabilities can participate fully and safely in the river run and camp life."
   },
   {
     category: "Weather & Safety",
@@ -1024,7 +1024,7 @@ const campSunkiyaFaqs: { question: string; answer: string; category?: string }[]
   {
     category: "Registration & Policies",
     question: "What is the fee and what does it include?",
-    answer: "The camp fee is ₹8,500 + 5% GST + Travel (total ₹8,925 + travel). This includes American safari tent accommodation, full-board meals and snacks, all adventure activities, village immersion, and guiding support."
+    answer: "The camp fee is ₹7,500 + 5% GST + Travel (total ₹7,875 + travel). This includes American safari tent accommodation, full-board meals and snacks, all adventure activities, village immersion, and guiding support."
   },
   {
     category: "Registration & Policies",
@@ -2114,7 +2114,7 @@ export const trips: Trip[] = [
     category: 'camps',
     duration: '3 Days, 2 Nights',
     difficulty: 'Easy',
-    price: '₹8,500 + 5% GST + Travel',
+    price: '₹7,500 + 5% GST + Travel',
     rating: 4.7,
     reviews: 0,
     image: '/camping/camp-sunkiya-02.webp',

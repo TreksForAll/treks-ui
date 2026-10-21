@@ -6,6 +6,7 @@ import VSheshRecognitionsSection from '../components/home/VSheshRecognitionsSect
 import LazyImage from '../components/ui/LazyImage';
 import SectionTitle from '../components/ui/SectionTitle';
 import SEO from '../components/ui/SEO';
+import { journeyMilestones } from '../data/journey';
 
 type TeamMember = {
   name: string;
@@ -180,15 +181,7 @@ const AboutPage = () => {
   });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
-  const milestones = [
-    { year: 'February 2025', title: 'The Seed of an Idea', description: 'Aquaterra\'s 30th Anniversary Dinner - The seed of an idea was sown' },
-    { year: 'March 2025', title: 'Treks for All is Born', description: 'Pankaj and Rashi met at a café - Treks for All was born' },
-    { year: 'April 2025', title: 'Partnership Formed', description: 'Aquaterra and v-shesh came on board as implementing partner' },
-    { year: 'May 2025', title: 'Inaugural Treks to Dayara Bugyal', description: 'A milestone in inclusive adventure - 16 participants, 9 with disabilities, 6 unique disabilities (including vision impairment, autism, locomotor disability and albinism). This was followed up by yet another expedition to Dayara Bugyal in June!' },
-    { year: 'September to November 2025', title: 'First Inclusive Camp Experiences in Atali Ganga', description: 'From rope courses to river rafting, our group expanded the possibilities of inclusive adventure' },
-    { year: 'January 2026', title: 'B2B Camp hosted in Atali Ganga', description: 'Amazon India joined hands with TFA for an inclusive team offsite!' },
-    { year: 'March 2026', title: 'Nature Walk at Mangar', description: 'Nature walk at Mangar—our first immersion experience' }
-  ];
+  const milestones = journeyMilestones;
 
   const teamGroups: TeamGroup[] = [
     {
@@ -444,7 +437,7 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-10 sm:py-16 md:py-20 lg:py-24 bg-[#214b51]">
+      <section id="journey" className="py-10 sm:py-16 md:py-20 lg:py-24 bg-[#214b51] scroll-mt-24">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -485,15 +478,34 @@ const AboutPage = () => {
                 {/* Mobile Layout */}
                 <div className="md:hidden pl-10 pr-2">
                   <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div className="text-sm font-bold text-[#e0aa04] mb-1">
-                      {milestone.year}
+                    <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                      <span className="text-sm font-bold text-[#e0aa04]">{milestone.year}</span>
+                      {milestone.badge && (
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#e0aa04]/20 text-[#18363a]">
+                          {milestone.badge}
+                        </span>
+                      )}
                     </div>
-                    <h3 className="text-base font-bold text-earth-800 mb-1">
+                    <h3 className="text-base font-bold text-earth-800 mb-0.5">
                       {milestone.title}
                     </h3>
+                    {milestone.location && (
+                      <p className="text-[11px] font-semibold text-[#377d87] mb-1">
+                        {milestone.location}
+                      </p>
+                    )}
                     <p className="text-earth-500 text-xs leading-snug">
                       {milestone.description}
                     </p>
+                    {milestone.tripId && (
+                      <Link
+                        to={`/trip/${milestone.tripId}`}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#377d87] hover:text-[#18363a] mt-2 transition-colors"
+                      >
+                        <span>View Adventure Details</span>
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
                   </div>
                   {/* Mobile Timeline Node */}
                   <div className="absolute left-2.5 top-6 w-4 h-4 bg-[#e0aa04] rounded-full border-4 border-white shadow-md"></div>
@@ -502,15 +514,36 @@ const AboutPage = () => {
                 {/* Desktop Layout */}
                 <div className={`hidden md:block md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
                   <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div className="text-lg font-bold text-[#e0aa04] mb-2">
-                      {milestone.year}
+                    <div className={`flex items-center gap-2 mb-2 flex-wrap ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
+                      <span className="text-lg font-bold text-[#e0aa04]">{milestone.year}</span>
+                      {milestone.badge && (
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#e0aa04]/20 text-[#18363a]">
+                          {milestone.badge}
+                        </span>
+                      )}
                     </div>
-                    <h3 className="text-xl font-bold text-earth-800 mb-2">
+                    <h3 className="text-xl font-bold text-earth-800 mb-1">
                       {milestone.title}
                     </h3>
-                    <p className="text-earth-500">
+                    {milestone.location && (
+                      <p className="text-xs font-semibold text-[#377d87] mb-2">
+                        {milestone.location}
+                      </p>
+                    )}
+                    <p className="text-earth-500 leading-relaxed">
                       {milestone.description}
                     </p>
+                    {milestone.tripId && (
+                      <div className={`mt-3 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                        <Link
+                          to={`/trip/${milestone.tripId}`}
+                          className="inline-flex items-center gap-1 text-sm font-bold text-[#377d87] hover:text-[#18363a] transition-colors"
+                        >
+                          <span>View Adventure Details</span>
+                          <ChevronRight className="h-4 w-4" />
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
 
