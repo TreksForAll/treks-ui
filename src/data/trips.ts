@@ -783,7 +783,7 @@ const campBagiFaqs: { question: string; answer: string; category?: string }[] = 
   {
     category: "Activities & Inclusion",
     question: "How are persons with disabilities included in rafting and camp activities?",
-    answer: "Dedicated buddy support, experienced river guides, and personalized assistance ensure participants with locomotor, sensory, or cognitive disabilities can participate fully and safely in the river run and camp life."
+    answer: "Dedicated buddy support, experienced river guides, and personalized assistance ensure participants with locomotor, sensory, or cognitive disabilities can participate fully and safely in the river run and camp life. There is no adaptive cushioning in the rafts or use of modified physical aids."
   },
   {
     category: "Weather & Safety",
